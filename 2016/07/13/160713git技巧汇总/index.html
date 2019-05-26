@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
+<meta name="keywords" content="git技巧,git基本操作命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git技巧汇总">
+<meta property="og:url" content="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-15T08:32:24.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git技巧汇总">
+<meta name="twitter:description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>git技巧汇总 | lsqy'blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86960661-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-86960661-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c618a46b795839e28f3cb10d9748b961";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lsqy'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish!</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-awesome">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/awesome" rel="section"><i class="menu-item-icon fa fa-fw fa-html5"></i> <br>收藏</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsqy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lsqy'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">git技巧汇总
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-07-13 17:20:35" itemprop="dateCreated datePublished" datetime="2016-07-13T17:20:35+08:00">2016-07-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/13/160713git技巧汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/07/13/160713git技巧汇总/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。<a id="more"></a></p>
+<p>下面的内容就是列举了常用的git命令和一些小技巧，可以通过”页面内查找”的方式进行快速查询：<code>Ctrl/Command+f</code>。</p>
+<h2 id="开卷必读"><a href="#开卷必读" class="headerlink" title="开卷必读"></a>开卷必读</h2><p><em>如果之前未使用过Git，可以学习<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖老师的免费Git教程</a>入门</em></p>
+<ol>
+<li><strong>一定要先测试命令的效果后</strong>，再用于工作环境中，以防造成不能弥补的后果！<strong>到时候别拿着砍刀来找我</strong></li>
+<li>所有的命令都在<code>git version 2.7.4 (Apple Git-66)</code>下测试通过</li>
+<li>统一概念：<ul>
+<li>工作区：改动（增删文件和内容）</li>
+<li>暂存区：输入命令：<code>git add 改动的文件名</code>，此次改动就放到了‘暂存区’</li>
+<li>本地仓库(简称：本地)：输入命令：<code>git commit 此次修改的描述</code>，此次改动就放到了’本地仓库’，每个commit，我叫它为一个‘版本’。</li>
+<li>远程仓库(简称：远程)：输入命令：<code>git push 远程仓库</code>，此次改动就放到了‘远程仓库’（github等)</li>
+<li>commit-id：输出命令：<code>git log</code>，最上面那行<code>commit xxxxxx</code>，后面的字符串就是commit-id</li>
+</ul>
+</li>
+<li>如果喜欢这个项目，欢迎Star、提交Pr、<a href="https://github.com/521xueweihan/git-tips/issues" target="_blank" rel="noopener">反馈问题</a>😊</li>
+</ol>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#展示帮助信息">展示帮助信息</a></li>
+<li><a href="#回到远程仓库的状态">回到远程仓库的状态</a></li>
+<li><a href="#重设第一个commit">重设第一个commit</a></li>
+<li><a href="#展示工作区和暂存区的不同">展示工作区和暂存区的不同</a></li>
+<li><a href="#展示暂存区和最近版本的不同">展示暂存区和最近版本的不同</a></li>
+<li><a href="#展示暂存区工作区和最近版本的不同">展示暂存区、工作区和最近版本的不同</a></li>
+<li><a href="#快速切换分支">快速切换分支</a></li>
+<li><a href="#删除已经合并到master的分支">删除已经合并到master的分支</a></li>
+<li><a href="#展示所有的分支关联的远程仓库">展示所有的分支关联的远程仓库</a></li>
+<li><a href="#关联远程分支">关联远程分支</a></li>
+<li><a href="#删除本地分支">删除本地分支</a></li>
+<li><a href="#删除远程分支">删除远程分支</a></li>
+<li><a href="#查看标签">查看标签</a></li>
+<li><a href="#本地创建标签">本地创建标签</a></li>
+<li><a href="#推送标签到远程仓库">推送标签到远程仓库</a></li>
+<li><a href="#删除本地标签">删除本地标签</a></li>
+<li><a href="#删除远程标签">删除远程标签</a></li>
+<li><a href="#放弃工作区的修改">放弃工作区的修改</a></li>
+<li><a href="#回到某一个commit的状态并重新增添一个commit">回到某一个commit的状态，并重新增添一个commit</a></li>
+<li><a href="#回到某个commit的状态并删除后面的commit">回到某个commit的状态，并删除后面的commit</a></li>
+<li><a href="#修改上一个commit的描述">修改上一个commit的描述</a></li>
+<li><a href="#查看commit历史">查看commit历史</a></li>
+<li><a href="#显示本地执行过git命令">显示本地执行过git命令</a></li>
+<li><a href="#修改作者名">修改作者名</a></li>
+<li><a href="#修改远程仓库的url">修改远程仓库的url</a></li>
+<li><a href="#列出所有远程仓库">列出所有远程仓库</a></li>
+<li><a href="#列出本地和远程分支">列出本地和远程分支</a></li>
+<li><a href="#列出远程分支">列出远程分支</a></li>
+<li><a href="#查看两个星期内的改动">查看两个星期内的改动</a></li>
+<li><a href="#把A分支的某一个commit放到B分支上">把A分支的某一个commit，放到B分支上</a></li>
+<li><a href="#给git命令起别名">给git命令起别名</a></li>
+<li><a href="#存储当前的修改但不用提交commit">存储当前的修改，但不用提交commit</a></li>
+<li><a href="#保存当前状态包括untracked的文件">保存当前状态，包括untracked的文件</a></li>
+<li><a href="#展示所有stashes">展示所有stashes</a></li>
+<li><a href="#回到某个stash的状态">回到某个stash的状态</a></li>
+<li><a href="#回到最后一个stash的状态并删除这个stash">回到最后一个stash的状态，并删除这个stash</a></li>
+<li><a href="#删除所有的stash">删除所有的stash</a></li>
+<li><a href="#从stash中拿出某个文件的修改">从stash中拿出某个文件的修改</a></li>
+<li><a href="#展示所有tracked的文件">展示所有tracked的文件</a></li>
+<li><a href="#展示所有untracked的文件">展示所有untracked的文件</a></li>
+<li><a href="#展示所有忽略的文件">展示所有忽略的文件</a></li>
+<li><a href="#强制删除untracked的文件">强制删除untracked的文件</a></li>
+<li><a href="#强制删除untracked的目录">强制删除untracked的目录</a></li>
+<li><a href="#重命名分支">重命名分支</a></li>
+<li><a href="#展示简化的commit历史">展示简化的commit历史</a></li>
+<li><a href="#查看某段代码是谁写的">查看某段代码是谁写的</a></li>
+<li><a href="#把某一个分支到导出成一个文件">把某一个分支到导出成一个文件</a></li>
+<li><a href="#从包中导入分支">从包中导入分支</a></li>
+<li><a href="#执行rebase之前自动stash">执行rebase之前自动stash</a></li>
+<li><a href="#从远程仓库根据ID拉下某一状态-到本地分支">从远程仓库根据ID，拉下某一状态，到本地分支</a></li>
+<li><a href="#详细展示一行中的修改">详细展示一行中的修改</a></li>
+<li><a href="#清除gitignore文件中记录的文件">清除<code>.gitignore</code>文件中记录的文件</a></li>
+<li><a href="#展示所有alias和configs">展示所有alias和configs</a></li>
+<li><a href="#展示忽略的文件">展示忽略的文件</a></li>
+<li><a href="#commit历史中显示Branch1有的但是Branch2没有commit">commit历史中显示Branch1有的，但是Branch2没有commit</a></li>
+<li><a href="#在commit-log中显示GPG签名">在commit log中显示GPG签名</a></li>
+<li><a href="#删除全局设置">删除全局设置</a></li>
+<li><a href="#新建并切换到新分支上同时这个分支没有任何commit">新建并切换到新分支上，同时这个分支没有任何commit</a></li>
+<li><a href="#展示任意分支某一文件的内容">展示任意分支某一文件的内容</a></li>
+<li><a href="#clone下来指定的单一分支">clone下来指定的单一分支</a></li>
+<li><a href="#创建并切换到该分支">创建并切换到该分支</a></li>
+<li><a href="#忽略文件的权限变化">忽略文件的权限变化</a></li>
+<li><a href="#展示本地所有的分支的commit">展示本地所有的分支的commit</a></li>
+<li><a href="#在commit-log中查找相关内容">在commit log中查找相关内容</a></li>
+<li><a href="#把暂存区的指定file放到工作区中">把暂存区的指定file放到工作区中</a></li>
+<li><a href="#强制推送">强制推送</a></li>
+<li><a href="#增加远程仓库">增加远程仓库</a></li>
+<li><a href="#联系我">联系我</a></li>
+</ul>
+<h2 id="展示帮助信息"><a href="#展示帮助信息" class="headerlink" title="展示帮助信息"></a>展示帮助信息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">help</span> -g</span><br></pre></td></tr></table></figure>
+<h2 id="回到远程仓库的状态"><a href="#回到远程仓库的状态" class="headerlink" title="回到远程仓库的状态"></a>回到远程仓库的状态</h2><p>抛弃本地仓库的所有版本(commit)，回到远程仓库的状态。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all &amp;&amp; git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<h2 id="重设第一个commit"><a href="#重设第一个commit" class="headerlink" title="重设第一个commit"></a>重设第一个commit</h2><p>也就是把所有的改动都重新放回工作区，并<strong>清空所有的commit</strong>，这样就可以重新提交第一个commit了<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-ref -d HEAD</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示工作区和暂存区的不同"><a href="#展示工作区和暂存区的不同" class="headerlink" title="展示工作区和暂存区的不同"></a>展示工作区和暂存区的不同</h2><p>输出<strong>工作区</strong>和<strong>暂存区</strong>的different(不同)。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure></p>
+<p>还可以展示本地仓库中任意两个commit之间的文件变动：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit-id&gt; &lt;commit-id&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示暂存区和最近版本的不同"><a href="#展示暂存区和最近版本的不同" class="headerlink" title="展示暂存区和最近版本的不同"></a>展示暂存区和最近版本的不同</h2><p>输出<strong>暂存区</strong>和本地最近的版本(commit)的different(不同)。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示暂存区、工作区和最近版本的不同"><a href="#展示暂存区、工作区和最近版本的不同" class="headerlink" title="展示暂存区、工作区和最近版本的不同"></a>展示暂存区、工作区和最近版本的不同</h2><p>输出<strong>工作区</strong>、<strong>暂存区</strong> 和本地最近的版本(commit)的different(不同)。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure></p>
+<h2 id="快速切换分支"><a href="#快速切换分支" class="headerlink" title="快速切换分支"></a>快速切换分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -</span><br></pre></td></tr></table></figure>
+<h2 id="删除已经合并到master的分支"><a href="#删除已经合并到master的分支" class="headerlink" title="删除已经合并到master的分支"></a>删除已经合并到master的分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --merged master | grep -v <span class="string">'^\*\|  master'</span> | xargs -n 1 git branch -d</span><br></pre></td></tr></table></figure>
+<h2 id="展示所有的分支关联的远程仓库"><a href="#展示所有的分支关联的远程仓库" class="headerlink" title="展示所有的分支关联的远程仓库"></a>展示所有的分支关联的远程仓库</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -vv</span><br></pre></td></tr></table></figure>
+<h2 id="关联远程分支"><a href="#关联远程分支" class="headerlink" title="关联远程分支"></a>关联远程分支</h2><p>关联之后，<code>git branch -vv</code>就可以展示关联的远程分支名了，同时推送到远程仓库直接：<code>git push</code>，不需要指定远程仓库了。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -u origin/mybranch</span><br></pre></td></tr></table></figure></p>
+<p>或者在push时加上<code>-u</code>参数<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin/mybranch -u</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d &lt;<span class="built_in">local</span>-branchname&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete &lt;remote-branchname&gt;</span><br></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :&lt;remote-branchname&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+<p>展示当前分支的最近的tag<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git describe --tags --abbrev=0</span><br></pre></td></tr></table></figure></p>
+<h2 id="本地创建标签"><a href="#本地创建标签" class="headerlink" title="本地创建标签"></a>本地创建标签</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;version-number&gt;</span><br></pre></td></tr></table></figure>
+<p>默认tag是打在最近的一次commit上，如果需要指定commit打tag：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a &lt;version-number&gt; -m <span class="string">"v1.0 发布(描述)"</span> &lt;commit-id&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="推送标签到远程仓库"><a href="#推送标签到远程仓库" class="headerlink" title="推送标签到远程仓库"></a>推送标签到远程仓库</h2><p>首先要保证本地创建好了标签才可以推送标签到远程仓库：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;<span class="built_in">local</span>-version-number&gt;</span><br></pre></td></tr></table></figure></p>
+<p>一次性推送所有标签，同步到远程仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除本地标签"><a href="#删除本地标签" class="headerlink" title="删除本地标签"></a>删除本地标签</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d &lt;tag-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除远程标签"><a href="#删除远程标签" class="headerlink" title="删除远程标签"></a>删除远程标签</h2><p>删除远程标签需要<strong>先删除本地标签</strong>，再执行下面的命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/&lt;tag-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="放弃工作区的修改"><a href="#放弃工作区的修改" class="headerlink" title="放弃工作区的修改"></a>放弃工作区的修改</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<p>放弃所有修改：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
+<h2 id="回到某一个commit的状态，并重新增添一个commit"><a href="#回到某一个commit的状态，并重新增添一个commit" class="headerlink" title="回到某一个commit的状态，并重新增添一个commit"></a>回到某一个commit的状态，并重新增添一个commit</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="回到某个commit的状态，并删除后面的commit"><a href="#回到某个commit的状态，并删除后面的commit" class="headerlink" title="回到某个commit的状态，并删除后面的commit"></a>回到某个commit的状态，并删除后面的commit</h2><p>和revert的区别：reset命令会抹去某个commit id之后的所有commit<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset &lt;commit-id&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改上一个commit的描述"><a href="#修改上一个commit的描述" class="headerlink" title="修改上一个commit的描述"></a>修改上一个commit的描述</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+<h2 id="查看commit历史"><a href="#查看commit历史" class="headerlink" title="查看commit历史"></a>查看commit历史</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看某段代码是谁写的"><a href="#查看某段代码是谁写的" class="headerlink" title="查看某段代码是谁写的"></a>查看某段代码是谁写的</h2><p>blame的意思为‘责怪’，你懂的。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git blame &lt;file-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="显示本地执行过git命令"><a href="#显示本地执行过git命令" class="headerlink" title="显示本地执行过git命令"></a>显示本地执行过git命令</h2><p>就像shell的history一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改作者名"><a href="#修改作者名" class="headerlink" title="修改作者名"></a>修改作者名</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend --author=<span class="string">'Author Name &lt;email@address.com&gt;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改远程仓库的url"><a href="#修改远程仓库的url" class="headerlink" title="修改远程仓库的url"></a>修改远程仓库的url</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin &lt;URL&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="列出所有远程仓库"><a href="#列出所有远程仓库" class="headerlink" title="列出所有远程仓库"></a>列出所有远程仓库</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></table></figure>
+<h2 id="列出本地和远程分支"><a href="#列出本地和远程分支" class="headerlink" title="列出本地和远程分支"></a>列出本地和远程分支</h2><p>-a参数相当于：all<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure></p>
+<h2 id="列出远程分支"><a href="#列出远程分支" class="headerlink" title="列出远程分支"></a>列出远程分支</h2><p>-r参数相当于：remote<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看两个星期内的改动"><a href="#查看两个星期内的改动" class="headerlink" title="查看两个星期内的改动"></a>查看两个星期内的改动</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git whatchanged --since=<span class="string">'2 weeks ago'</span></span><br></pre></td></tr></table></figure>
+<h2 id="把A分支的某一个commit，放到B分支上"><a href="#把A分支的某一个commit，放到B分支上" class="headerlink" title="把A分支的某一个commit，放到B分支上"></a>把A分支的某一个commit，放到B分支上</h2><p>这个过程需要<code>cherry-pick</code>命令，<a href="http://sg552.iteye.com/blog/1300713#bc2367928" target="_blank" rel="noopener">参考</a><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch-name&gt; &amp;&amp; git cherry-pick &lt;commit-id&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="给git命令起别名"><a href="#给git命令起别名" class="headerlink" title="给git命令起别名"></a>给git命令起别名</h2><p>简化命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global <span class="built_in">alias</span>.&lt;handle&gt; &lt;<span class="built_in">command</span>&gt;</span><br><span class="line"></span><br><span class="line">比如：git status 改成 git st，这样可以简化命令</span><br><span class="line"></span><br><span class="line">git config --global alias.st status</span><br></pre></td></tr></table></figure>
+<h2 id="存储当前的修改，但不用提交commit"><a href="#存储当前的修改，但不用提交commit" class="headerlink" title="存储当前的修改，但不用提交commit"></a>存储当前的修改，但不用提交commit</h2><p>详解可以参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000" target="_blank" rel="noopener">廖雪峰老师的git教程</a><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure></p>
+<h2 id="保存当前状态，包括untracked的文件"><a href="#保存当前状态，包括untracked的文件" class="headerlink" title="保存当前状态，包括untracked的文件"></a>保存当前状态，包括untracked的文件</h2><p>untracked文件：新建的文件<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash -u</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示所有stashes"><a href="#展示所有stashes" class="headerlink" title="展示所有stashes"></a>展示所有stashes</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+<h2 id="回到某个stash的状态"><a href="#回到某个stash的状态" class="headerlink" title="回到某个stash的状态"></a>回到某个stash的状态</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply &lt;stash@&#123;n&#125;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="回到最后一个stash的状态，并删除这个stash"><a href="#回到最后一个stash的状态，并删除这个stash" class="headerlink" title="回到最后一个stash的状态，并删除这个stash"></a>回到最后一个stash的状态，并删除这个stash</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h2 id="删除所有的stash"><a href="#删除所有的stash" class="headerlink" title="删除所有的stash"></a>删除所有的stash</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash clear</span><br></pre></td></tr></table></figure>
+<h2 id="从stash中拿出某个文件的修改"><a href="#从stash中拿出某个文件的修改" class="headerlink" title="从stash中拿出某个文件的修改"></a>从stash中拿出某个文件的修改</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;stash@&#123;n&#125;&gt; -- &lt;file-path&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="展示所有tracked的文件"><a href="#展示所有tracked的文件" class="headerlink" title="展示所有tracked的文件"></a>展示所有tracked的文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-files -t</span><br></pre></td></tr></table></figure>
+<h2 id="展示所有untracked的文件"><a href="#展示所有untracked的文件" class="headerlink" title="展示所有untracked的文件"></a>展示所有untracked的文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-files --others</span><br></pre></td></tr></table></figure>
+<h2 id="展示所有忽略的文件"><a href="#展示所有忽略的文件" class="headerlink" title="展示所有忽略的文件"></a>展示所有忽略的文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-files --others -i --exclude-standard</span><br></pre></td></tr></table></figure>
+<h2 id="强制删除untracked的文件"><a href="#强制删除untracked的文件" class="headerlink" title="强制删除untracked的文件"></a>强制删除untracked的文件</h2><p>可以用来删除新建的文件。如果不指定文件文件名，则清空所有工作的untracked文件。<code>clean</code>命令，<strong>注意两点</strong>：  </p>
+<ol>
+<li>clean后，删除的文件无法找回</li>
+<li>不会影响tracked的文件的改动，只会删除untracked的文件</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean &lt;file-name&gt; -f</span><br></pre></td></tr></table></figure>
+<h2 id="强制删除untracked的目录"><a href="#强制删除untracked的目录" class="headerlink" title="强制删除untracked的目录"></a>强制删除untracked的目录</h2><p>可以用来删除新建的目录，<strong>注意</strong>:这个命令也可以用来删除untracked的文件。详情见上一条</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean &lt;directory-name&gt; -df</span><br></pre></td></tr></table></figure>
+<h2 id="重命名分支"><a href="#重命名分支" class="headerlink" title="重命名分支"></a>重命名分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m &lt;new-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="展示简化的commit历史"><a href="#展示简化的commit历史" class="headerlink" title="展示简化的commit历史"></a>展示简化的commit历史</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=oneline --graph --decorate --all</span><br></pre></td></tr></table></figure>
+<h2 id="把某一个分支到导出成一个文件"><a href="#把某一个分支到导出成一个文件" class="headerlink" title="把某一个分支到导出成一个文件"></a>把某一个分支到导出成一个文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git bundle create &lt;file&gt; &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="从包中导入分支"><a href="#从包中导入分支" class="headerlink" title="从包中导入分支"></a>从包中导入分支</h2><p>新建一个分支，分支内容就是上面<code>git bundle create</code>命令导出的内容<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> repo.bundle &lt;repo-dir&gt; -b &lt;branch-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="执行rebase之前自动stash"><a href="#执行rebase之前自动stash" class="headerlink" title="执行rebase之前自动stash"></a>执行rebase之前自动stash</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --autostash</span><br></pre></td></tr></table></figure>
+<h2 id="从远程仓库根据ID，拉下某一状态，到本地分支"><a href="#从远程仓库根据ID，拉下某一状态，到本地分支" class="headerlink" title="从远程仓库根据ID，拉下某一状态，到本地分支"></a>从远程仓库根据ID，拉下某一状态，到本地分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin pull/&lt;id&gt;/head:&lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="详细展示一行中的修改"><a href="#详细展示一行中的修改" class="headerlink" title="详细展示一行中的修改"></a>详细展示一行中的修改</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --word-diff</span><br></pre></td></tr></table></figure>
+<h2 id="清除gitignore文件中记录的文件"><a href="#清除gitignore文件中记录的文件" class="headerlink" title="清除gitignore文件中记录的文件"></a>清除gitignore文件中记录的文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -X -f</span><br></pre></td></tr></table></figure>
+<h2 id="展示所有alias和configs"><a href="#展示所有alias和configs" class="headerlink" title="展示所有alias和configs"></a>展示所有alias和configs</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<h2 id="展示忽略的文件"><a href="#展示忽略的文件" class="headerlink" title="展示忽略的文件"></a>展示忽略的文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status --ignored</span><br></pre></td></tr></table></figure>
+<h2 id="commit历史中显示Branch1有的，但是Branch2没有commit"><a href="#commit历史中显示Branch1有的，但是Branch2没有commit" class="headerlink" title="commit历史中显示Branch1有的，但是Branch2没有commit"></a>commit历史中显示Branch1有的，但是Branch2没有commit</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> Branch1 ^Branch2</span><br></pre></td></tr></table></figure>
+<h2 id="在commit-log中显示GPG签名"><a href="#在commit-log中显示GPG签名" class="headerlink" title="在commit log中显示GPG签名"></a>在commit log中显示GPG签名</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --show-signature</span><br></pre></td></tr></table></figure>
+<h2 id="删除全局设置"><a href="#删除全局设置" class="headerlink" title="删除全局设置"></a>删除全局设置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> &lt;entry-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="新建并切换到新分支上，同时这个分支没有任何commit"><a href="#新建并切换到新分支上，同时这个分支没有任何commit" class="headerlink" title="新建并切换到新分支上，同时这个分支没有任何commit"></a>新建并切换到新分支上，同时这个分支没有任何commit</h2><p>相当于保存修改，但是重写commit历史<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan &lt;branch-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示任意分支某一文件的内容"><a href="#展示任意分支某一文件的内容" class="headerlink" title="展示任意分支某一文件的内容"></a>展示任意分支某一文件的内容</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show &lt;branch-name&gt;:&lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="clone下来指定的单一分支"><a href="#clone下来指定的单一分支" class="headerlink" title="clone下来指定的单一分支"></a>clone下来指定的单一分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b &lt;branch-name&gt; --single-branch https://github.com/user/repo.git</span><br></pre></td></tr></table></figure>
+<h2 id="创建并切换到该分支"><a href="#创建并切换到该分支" class="headerlink" title="创建并切换到该分支"></a>创建并切换到该分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="忽略文件的权限变化"><a href="#忽略文件的权限变化" class="headerlink" title="忽略文件的权限变化"></a>忽略文件的权限变化</h2><p>不再将文件的权限变化视作改动<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.fileMode <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="展示本地所有的分支的commit"><a href="#展示本地所有的分支的commit" class="headerlink" title="展示本地所有的分支的commit"></a>展示本地所有的分支的commit</h2><p>最新的放在最上面</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">for</span>-each-ref --sort=-committerdate --format=<span class="string">'%(refname:short)'</span> refs/heads/</span><br></pre></td></tr></table></figure>
+<h2 id="在commit-log中查找相关内容"><a href="#在commit-log中查找相关内容" class="headerlink" title="在commit log中查找相关内容"></a>在commit log中查找相关内容</h2><p>通过grep查找，given-text：所需要查找的字段</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --all --grep=<span class="string">'&lt;given-text&gt;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="把暂存区的指定file放到工作区中"><a href="#把暂存区的指定file放到工作区中" class="headerlink" title="把暂存区的指定file放到工作区中"></a>把暂存区的指定file放到工作区中</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="强制推送"><a href="#强制推送" class="headerlink" title="强制推送"></a>强制推送</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f &lt;remote-name&gt; &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="增加远程仓库"><a href="#增加远程仓库" class="headerlink" title="增加远程仓库"></a>增加远程仓库</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;remote-url&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><a href="#目录">⬆ 返回顶部</a></strong></p>
+<blockquote>
+<p>reference: <a href="https://github.com/521xueweihan/git-tips" target="_blank" rel="noopener">https://github.com/521xueweihan/git-tips</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/19/160619优化默认密码输入框/" rel="next" title="优化默认密码输入框">
+                <i class="fa fa-chevron-left"></i> 优化默认密码输入框
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/15/160915Angular规范/" rel="prev" title="Angular规范">
+                Angular规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsqy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">69</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">78</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/lsqy" title="GitHub &rarr; https://github.com/lsqy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/lsqy93" title="Twitter &rarr; https://twitter.com/lsqy93" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/lsqyun" title="Weibo &rarr; http://weibo.com/lsqyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开卷必读"><span class="nav-number">1.</span> <span class="nav-text">开卷必读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示帮助信息"><span class="nav-number">3.</span> <span class="nav-text">展示帮助信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到远程仓库的状态"><span class="nav-number">4.</span> <span class="nav-text">回到远程仓库的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重设第一个commit"><span class="nav-number">5.</span> <span class="nav-text">重设第一个commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示工作区和暂存区的不同"><span class="nav-number">6.</span> <span class="nav-text">展示工作区和暂存区的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示暂存区和最近版本的不同"><span class="nav-number">7.</span> <span class="nav-text">展示暂存区和最近版本的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示暂存区、工作区和最近版本的不同"><span class="nav-number">8.</span> <span class="nav-text">展示暂存区、工作区和最近版本的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速切换分支"><span class="nav-number">9.</span> <span class="nav-text">快速切换分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除已经合并到master的分支"><span class="nav-number">10.</span> <span class="nav-text">删除已经合并到master的分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有的分支关联的远程仓库"><span class="nav-number">11.</span> <span class="nav-text">展示所有的分支关联的远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联远程分支"><span class="nav-number">12.</span> <span class="nav-text">关联远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地分支"><span class="nav-number">13.</span> <span class="nav-text">删除本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程分支"><span class="nav-number">14.</span> <span class="nav-text">删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看标签"><span class="nav-number">15.</span> <span class="nav-text">查看标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地创建标签"><span class="nav-number">16.</span> <span class="nav-text">本地创建标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送标签到远程仓库"><span class="nav-number">17.</span> <span class="nav-text">推送标签到远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地标签"><span class="nav-number">18.</span> <span class="nav-text">删除本地标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程标签"><span class="nav-number">19.</span> <span class="nav-text">删除远程标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#放弃工作区的修改"><span class="nav-number">20.</span> <span class="nav-text">放弃工作区的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某一个commit的状态，并重新增添一个commit"><span class="nav-number">21.</span> <span class="nav-text">回到某一个commit的状态，并重新增添一个commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某个commit的状态，并删除后面的commit"><span class="nav-number">22.</span> <span class="nav-text">回到某个commit的状态，并删除后面的commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改上一个commit的描述"><span class="nav-number">23.</span> <span class="nav-text">修改上一个commit的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看commit历史"><span class="nav-number">24.</span> <span class="nav-text">查看commit历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看某段代码是谁写的"><span class="nav-number">25.</span> <span class="nav-text">查看某段代码是谁写的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示本地执行过git命令"><span class="nav-number">26.</span> <span class="nav-text">显示本地执行过git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改作者名"><span class="nav-number">27.</span> <span class="nav-text">修改作者名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改远程仓库的url"><span class="nav-number">28.</span> <span class="nav-text">修改远程仓库的url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出所有远程仓库"><span class="nav-number">29.</span> <span class="nav-text">列出所有远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出本地和远程分支"><span class="nav-number">30.</span> <span class="nav-text">列出本地和远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出远程分支"><span class="nav-number">31.</span> <span class="nav-text">列出远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看两个星期内的改动"><span class="nav-number">32.</span> <span class="nav-text">查看两个星期内的改动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把A分支的某一个commit，放到B分支上"><span class="nav-number">33.</span> <span class="nav-text">把A分支的某一个commit，放到B分支上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给git命令起别名"><span class="nav-number">34.</span> <span class="nav-text">给git命令起别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储当前的修改，但不用提交commit"><span class="nav-number">35.</span> <span class="nav-text">存储当前的修改，但不用提交commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存当前状态，包括untracked的文件"><span class="nav-number">36.</span> <span class="nav-text">保存当前状态，包括untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有stashes"><span class="nav-number">37.</span> <span class="nav-text">展示所有stashes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某个stash的状态"><span class="nav-number">38.</span> <span class="nav-text">回到某个stash的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到最后一个stash的状态，并删除这个stash"><span class="nav-number">39.</span> <span class="nav-text">回到最后一个stash的状态，并删除这个stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除所有的stash"><span class="nav-number">40.</span> <span class="nav-text">删除所有的stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从stash中拿出某个文件的修改"><span class="nav-number">41.</span> <span class="nav-text">从stash中拿出某个文件的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有tracked的文件"><span class="nav-number">42.</span> <span class="nav-text">展示所有tracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有untracked的文件"><span class="nav-number">43.</span> <span class="nav-text">展示所有untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有忽略的文件"><span class="nav-number">44.</span> <span class="nav-text">展示所有忽略的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制删除untracked的文件"><span class="nav-number">45.</span> <span class="nav-text">强制删除untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制删除untracked的目录"><span class="nav-number">46.</span> <span class="nav-text">强制删除untracked的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名分支"><span class="nav-number">47.</span> <span class="nav-text">重命名分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示简化的commit历史"><span class="nav-number">48.</span> <span class="nav-text">展示简化的commit历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把某一个分支到导出成一个文件"><span class="nav-number">49.</span> <span class="nav-text">把某一个分支到导出成一个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从包中导入分支"><span class="nav-number">50.</span> <span class="nav-text">从包中导入分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行rebase之前自动stash"><span class="nav-number">51.</span> <span class="nav-text">执行rebase之前自动stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程仓库根据ID，拉下某一状态，到本地分支"><span class="nav-number">52.</span> <span class="nav-text">从远程仓库根据ID，拉下某一状态，到本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细展示一行中的修改"><span class="nav-number">53.</span> <span class="nav-text">详细展示一行中的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除gitignore文件中记录的文件"><span class="nav-number">54.</span> <span class="nav-text">清除gitignore文件中记录的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有alias和configs"><span class="nav-number">55.</span> <span class="nav-text">展示所有alias和configs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示忽略的文件"><span class="nav-number">56.</span> <span class="nav-text">展示忽略的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit历史中显示Branch1有的，但是Branch2没有commit"><span class="nav-number">57.</span> <span class="nav-text">commit历史中显示Branch1有的，但是Branch2没有commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在commit-log中显示GPG签名"><span class="nav-number">58.</span> <span class="nav-text">在commit log中显示GPG签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除全局设置"><span class="nav-number">59.</span> <span class="nav-text">删除全局设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建并切换到新分支上，同时这个分支没有任何commit"><span class="nav-number">60.</span> <span class="nav-text">新建并切换到新分支上，同时这个分支没有任何commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示任意分支某一文件的内容"><span class="nav-number">61.</span> <span class="nav-text">展示任意分支某一文件的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone下来指定的单一分支"><span class="nav-number">62.</span> <span class="nav-text">clone下来指定的单一分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建并切换到该分支"><span class="nav-number">63.</span> <span class="nav-text">创建并切换到该分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略文件的权限变化"><span class="nav-number">64.</span> <span class="nav-text">忽略文件的权限变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示本地所有的分支的commit"><span class="nav-number">65.</span> <span class="nav-text">展示本地所有的分支的commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在commit-log中查找相关内容"><span class="nav-number">66.</span> <span class="nav-text">在commit log中查找相关内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把暂存区的指定file放到工作区中"><span class="nav-number">67.</span> <span class="nav-text">把暂存区的指定file放到工作区中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制推送"><span class="nav-number">68.</span> <span class="nav-text">强制推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加远程仓库"><span class="nav-number">69.</span> <span class="nav-text">增加远程仓库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260895274&web_id=1260895274" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: '4C4aiyfcmCnwVhLCrH8d7pXo-gzGzoHsz',
+        appKey: 'BUpwAPNDhXqiEB5wAEydR42c',
+        placeholder: '有什么想说的？',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

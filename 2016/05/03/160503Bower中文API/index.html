@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="结合前面的中文文档一起查阅！翻译不当之处欢迎指出。^-^">
+<meta name="keywords" content="Bower中文API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bower中文API">
+<meta property="og:url" content="https://blog.lsqy.space/2016/05/03/160503Bower中文API/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="结合前面的中文文档一起查阅！翻译不当之处欢迎指出。^-^">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-15T08:32:24.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bower中文API">
+<meta name="twitter:description" content="结合前面的中文文档一起查阅！翻译不当之处欢迎指出。^-^">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.lsqy.space/2016/05/03/160503Bower中文API/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Bower中文API | lsqy'blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86960661-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-86960661-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c618a46b795839e28f3cb10d9748b961";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lsqy'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish!</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-awesome">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/awesome" rel="section"><i class="menu-item-icon fa fa-fw fa-html5"></i> <br>收藏</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/05/03/160503Bower中文API/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsqy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lsqy'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Bower中文API
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-03 15:29:56" itemprop="dateCreated datePublished" datetime="2016-05-03T15:29:56+08:00">2016-05-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/03/160503Bower中文API/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/05/03/160503Bower中文API/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">结合前面的中文文档一起查阅！翻译不当之处欢迎指出。^-^</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-cache"><a href="#1-cache" class="headerlink" title="1. cache"></a>1. cache</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;管理你已经缓存的包，最后的参数可传可不传，不传默认操作的是所有包，如果传了就是对指定的包进行操作,格式如下,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower cache &lt;command&gt; [&lt;args&gt;]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>cache clean<br>清除你所缓存的包，一共有三种形式的操作，代码如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 清理所有缓存的包</span><br><span class="line">$ bower cache clean</span><br><span class="line"></span><br><span class="line"># 清理指定名字的包的缓存，也可指定多个，中间加上空格即可</span><br><span class="line">$ bower cache clean &lt;name&gt; [&lt;name&gt; ...]</span><br><span class="line"></span><br><span class="line"># 清理指定名字和版本的包的缓存，也可指定多个，中间加上空格即可，跟第二种类似，只是多加了指定版本</span><br><span class="line">$ bower cache clean &lt;name&gt;#&lt;version&gt; [&lt;name&gt;#&lt;version&gt; ..]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cache list<br>列出你所缓存的包，也就是缓存包的列表，包含每个包的名字以及这个包对应的github地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 列出了所有你所缓存包的列表</span><br><span class="line">$ bower cache list</span><br><span class="line"># 列出你所缓存的指定名字的包，可以多个，后面加空格即可</span><br><span class="line">$ bower cache list &lt;name&gt; [&lt;name&gt; ...]</span><br></pre></td></tr></table></figure>
+<p>例如我电脑上列出的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816&gt;bower cache list</span><br><span class="line">bootstrap=https://github.com/twbs/bootstrap.git#3.2.6</span><br><span class="line">jquery=https://github.com/jquery/jquery-dist.git#1.7.2</span><br><span class="line">jquery=https://github.com/jquery/jquery-dist.git#1.8.3</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-help"><a href="#2-help" class="headerlink" title="2. help"></a>2. help</h2><p>显示关于bower的帮助信息,后面可以加上具体的帮助类型名称，比如可以<code>$ bower help search</code>则会显示出对应search的一些说明和操作信息，如果不加则会显示出所有的类型的说明和操作信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower help &lt;command&gt;</span><br></pre></td></tr></table></figure></p>
+<p>  例：输入<code>$ bower help search</code>，将会显示如下帮助信息，包括用法和描述<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  Usage:</span><br><span class="line"></span><br><span class="line">    bower search &lt;name&gt; [&lt;options&gt;]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">    -h, --help              Show this help message</span><br><span class="line">    Additionally all global options listed in &apos;bower help&apos; are available</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">    Finds all packages or a specific package.</span><br></pre></td></tr></table></figure></p>
+<p>只输入 <code>$ bower help</code>,将会显示出所有的用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">  Usage:</span><br><span class="line"></span><br><span class="line">    bower &lt;command&gt; [&lt;args&gt;] [&lt;options&gt;]</span><br><span class="line">Commands:</span><br><span class="line"></span><br><span class="line">    cache                   Manage bower cache # 管理你缓存的包</span><br><span class="line">    help                    Display help information about Bower # 显示关于Bower的帮助信息</span><br><span class="line">    home                    Opens a package homepage into your favorite browser # 在你默认浏览器中打开一个包的主页</span><br><span class="line">    info                    Info of a particular package # 一个包的详细信息说明</span><br><span class="line">    init                    Interactively create a bower.json file # 初始化一个bower.json文件</span><br><span class="line">    install                 Install a package locally # 在本地安装一个包</span><br><span class="line">    link                    Symlink a package folder # 建立一个包文件夹的链接</span><br><span class="line">    list                    List local packages - and possible updates 列出本地所有的包以及可以更新的包</span><br><span class="line">    login                   Authenticate with GitHub and store credentials # 用github账号登陆</span><br><span class="line">    lookup                  Look up a package URL by name # 打开一个指定名字的包的官网</span><br><span class="line">    prune                   Removes local extraneous packages # 移除本地没有用的包</span><br><span class="line">    register                Register a package # 注册一个包</span><br><span class="line">    search                  Search for a package by name # 根据名字搜索一个包</span><br><span class="line">    update                  Update a local package # 更新一个本地的宝</span><br><span class="line">    uninstall               Remove a local package # 卸载一个本地的包</span><br><span class="line">    unregister              Remove a package from the registry # 从注册表中移除一个包</span><br><span class="line">    version                 Bump a package version # 显示一个包的版本</span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">    -f, --force             Makes various commands more forceful # 是各种命令行工具更加强大</span><br><span class="line">    -j, --json              Output consumable JSON # 将帮助信息以JSON格式的输出</span><br><span class="line">    -l, --loglevel          What level of logs to report # 生成日志级别</span><br><span class="line">    -o, --offline           Do not hit the network # 离线模式</span><br><span class="line">    -q, --quiet             Only output important information # 只输出重要信息</span><br><span class="line">    -s, --silent            Do not output anything, besides errors # 除了错误，不要输出任何信息</span><br><span class="line">    -V, --verbose           Makes output more verbose # 让输入信息更加详细</span><br><span class="line">    --allow-root            Allows running commands as root # 允许以管理员权限在命令行运行</span><br><span class="line">    -v, --version           Output Bower version # 输出bower的版本</span><br><span class="line">    --no-color              Disable colors # 颜色不可用</span><br><span class="line">See &apos;bower help &lt;command&gt;&apos; for more information on a specific command.</span><br></pre></td></tr></table></figure>
+<h2 id="3-home"><a href="#3-home" class="headerlink" title="3. home"></a>3. home</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bower home</span><br><span class="line">$ bower home &lt;package&gt;</span><br><span class="line">$ bower home &lt;package&gt;#&lt;version&gt;</span><br></pre></td></tr></table></figure>
+<p>在你的默认浏览器中打开一个包，或者指定版本的包的官方地址，一般都是github地址。<br>如果没有包通过，那么将会打开你本地包的主页。</p>
+<h2 id="4-info"><a href="#4-info" class="headerlink" title="4. info"></a>4. info</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bower info &lt;package&gt;</span><br><span class="line">$ bower info &lt;package&gt; [&lt;property&gt;]</span><br><span class="line">$ bower info &lt;package&gt;#&lt;version&gt; [&lt;property&gt;]</span><br></pre></td></tr></table></figure>
+<p>显示一个包（或者指定版本的包）的整体详细信息，也可指定属性查看</p>
+<h2 id="5-init"><a href="#5-init" class="headerlink" title="5. init"></a>5. init</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower init</span><br></pre></td></tr></table></figure>
+<p>一步一步提示你初始化一个bower.json文件</p>
+<h2 id="6-install"><a href="#6-install" class="headerlink" title="6. install"></a>6. install</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bower install [&lt;options&gt;]</span><br><span class="line">$ bower install &lt;endpoint&gt; [&lt;endpoint&gt; ..] [&lt;options&gt;]</span><br></pre></td></tr></table></figure>
+<p>安装一个项目的依赖项（dependencies）中列出的包<br>一个项目的依赖项有以下这些部分组成：</p>
+<ol>
+<li>在项目中的<code>bower.json</code>中指定的<code>dependencies</code></li>
+<li>所有外部的依赖项，虽然没有在<code>bower.json</code>当中指定，但是出现在<code>bower_components</code>中</li>
+<li>任何在命令行终端作为参数增加的项<br>当使用<code>--save</code>标识符的时候，所有增加的包的名字将会添加到<code>bower.json</code>中的<code>dependencies</code>中。<br>Bower建议经常使用<code>--save</code>标识符去实现两个用户之间能够复用安装，也就是以后如果你将你的项目需要跟同事一起开发，那么无需将你所有依赖项的实体包都拷给同事，Bower会自动帮你安装<code>bower.json</code>中<code>dependencies</code>所列出的依赖项，并且后续万一你丢失了依赖项，那么bower也会自动按照<code>dependencies</code>帮你安装好丢失的依赖项，这一点无疑会很大程度的提高你的工作效率。<br>终端可以有多种形式的输入：</li>
+</ol>
+<ul>
+<li><code>&lt;package&gt;</code></li>
+<li><code>&lt;package&gt;#&lt;version&gt;</code></li>
+<li><code>&lt;name&gt;=&lt;package&gt;#&lt;version&gt;</code><br>在上面</li>
+<li><code>&lt;package&gt;</code>是一个包的URL路径，实际位置或者注册的名字</li>
+<li><code>&lt;version&gt;</code>是一个可用的版本和分支等。</li>
+<li><code>&lt;name&gt;</code>是一个本地应该有的名字</li>
+</ul>
+<h3 id="安装选项"><a href="#安装选项" class="headerlink" title="安装选项"></a>安装选项</h3><ul>
+<li>-F, –force-latest: Force latest version on conflict。强制更新到最新版本</li>
+<li>-p, –production: Do not install project devDependencies。不要安装到开发依赖项当中，其实也就是生产环境环境当中</li>
+<li>-S, –save: Save installed packages into the project’s bower.json dependencies。保存所安装包到项目中bower.json的dependencies中。</li>
+<li>-D, –save-dev: Save installed packages into the project’s bower.json devDependencies。保存所安装包到项目中bower.json的devDependencies中，其实也就是开发环境当中</li>
+<li>-E, –save-exact: Configure installed packages with an exact version rather than semver。明确安装一个指定版本的包，而不是依赖项当中的。</li>
+</ul>
+<h2 id="7-link"><a href="#7-link" class="headerlink" title="7.link"></a>7.link</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bower link</span><br><span class="line">$ bower link &lt;name&gt; [&lt;local name&gt;]</span><br></pre></td></tr></table></figure>
+<p>这个link的功能可以让开发者们非常容易的测试他们的包，只需要两步。<br>使用<code>bower link</code>在项目文件夹目录当中将会创建一个全局link。在其他一些包中，<code>bower link &lt;name&gt;</code>将会创建一个<code>link</code>在<code>components</code>文件夹当中并且指向先前创建的<code>link</code>.<br>Using ‘bower link’ in a project folder will create a global link. Then, in some other package, bower link <name> will create a link in the components folder pointing to the previously created link.<br>它将会允许你特别容易的测试因为它们将会很快地反应。当一个<code>link</code>不再需要的时候，你仅仅需要通过<code>bower uninstall &lt;name&gt;</code>就可以将其移除。</name></p>
+<blockquote>
+<p>上述<code>link</code>是也可以理解为链接的意思,能够快速链接指定的包。</p>
+</blockquote>
+<h2 id="8-list"><a href="#8-list" class="headerlink" title="8. list"></a>8. list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower list [&lt;options&gt;]</span><br></pre></td></tr></table></figure>
+<p>列出本地的包以及可以更新的包；</p>
+<p>list options（列表选项）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-p, --paths:  # 生成一个JSON格式的路径地图</span><br><span class="line">-r, --relative:  # 使路径相对于目录的`config`属性，默认为`bower components`</span><br></pre></td></tr></table></figure></p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;bower list -p</span><br><span class="line"></span><br><span class="line">  jquery: &apos;bower_components/jquery/dist/jquery.js&apos;,</span><br><span class="line">  bootstrap: [</span><br><span class="line">    &apos;bower_components/bootstrap/less/bootstrap.less&apos;,</span><br><span class="line">    &apos;bower_components/bootstrap/dist/js/bootstrap.js&apos;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">C:\Users\92816\Desktop\testprogramming&gt;bower list -r</span><br><span class="line">bower check-new     Checking for new versions of the project dependencies...</span><br><span class="line">test C:\Users\92816\Desktop\testprogramming</span><br><span class="line">└─┬ bootstrap#3.3.6 (latest is 4.0.0-alpha.2)</span><br><span class="line">  └── jquery#2.2.3 (latest is 3.0.0-beta1)</span><br></pre></td></tr></table></figure></p>
+<h2 id="9-lookup"><a href="#9-lookup" class="headerlink" title="9. lookup"></a>9. lookup</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower lookup &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<p>通过一个包的名字查看其官方的github地址，然后你就可以复制下来去访问了<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;bower lookup underscore</span><br><span class="line">underscore https://github.com/jashkenas/underscore.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="10-login"><a href="#10-login" class="headerlink" title="10. login"></a>10. login</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower login</span><br></pre></td></tr></table></figure>
+<p>用github账号登陆</p>
+<p>login options</p>
+<p>-t, –token: 通过现有的GitHub身份验证令牌登陆,不用再提示输入用户名和密码</p>
+<h2 id="11-prune"><a href="#11-prune" class="headerlink" title="11. prune"></a>11. prune</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower prune</span><br></pre></td></tr></table></figure>
+<p>卸载本地无用的包</p>
+<h2 id="12-register"><a href="#12-register" class="headerlink" title="12. register"></a>12. register</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower register &lt;name&gt; &lt;url&gt;</span><br></pre></td></tr></table></figure>
+<p>注册一个包</p>
+<h2 id="13-search"><a href="#13-search" class="headerlink" title="13. search"></a>13. search</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bower search</span><br><span class="line">$ bower search &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<p>搜索你需要的包</p>
+<h2 id="14-update"><a href="#14-update" class="headerlink" title="14. update"></a>14. update</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower update &lt;name&gt; [&lt;name&gt; ..] [&lt;options&gt;]</span><br></pre></td></tr></table></figure>
+<p>根据<code>bower.json</code>更新你所安装的包到最新版本</p>
+<p>update options<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-F, --force-latest: 强制更新</span><br><span class="line">-p, --production: 生产环境</span><br><span class="line">-S, --save: 更新`bower.json`中的`dependencies`列处的项</span><br><span class="line">-D, --save-dev: 更新`bower.json`中的`devDependencies`列处的项,即更新开发版依赖的项。</span><br></pre></td></tr></table></figure></p>
+<h2 id="15-uninstall"><a href="#15-uninstall" class="headerlink" title="15. uninstall"></a>15. uninstall</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower uninstall &lt;name&gt; [&lt;name&gt; ..] [&lt;options&gt;]</span><br></pre></td></tr></table></figure>
+<p>从你本地的<code>bower_components</code>文件目录下卸载指定的包<br>注意，默认情况下，会连所依赖的模块一起卸 载。比如，<br>如果卸载jquery-ui，会连jquery一起卸载，除非还有别的模块依赖jquery,这一点大家可以留意一下</p>
+<p>uninstall options（卸载选项）</p>
+<p>-S, –save: 也将会从项目的<code>bower.json</code>中<code>dependencies</code>移除该项<br>-D, –save-dev: 也将会从项目的<code>bower.json</code>中<code>devDependencies</code>移除该项</p>
+<h2 id="16-version"><a href="#16-version" class="headerlink" title="16. version"></a>16. version</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower version [&lt;newversion&gt; | major | minor | patch]</span><br></pre></td></tr></table></figure>
+<p>在这个包的目录下运行显示出它的版本并且在<code>bower.json</code>中写入一个新的数据。</p>
+<h2 id="17-Using-local-cache"><a href="#17-Using-local-cache" class="headerlink" title="17. Using local cache"></a>17. Using local cache</h2><p>当你没有网的时候，只要你以前安装过，就可以从本地缓存中安装所需要的包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower install &lt;package&gt; --offline</span><br></pre></td></tr></table></figure>
+<p>你可以通过以下命令列出你所缓存的包的列表：<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;bower cache list</span><br><span class="line">bootstrap=https://github.com/twbs/bootstrap.git#3.3.6</span><br><span class="line">jquery=https://github.com/jquery/jquery-dist.git#2.2.3</span><br></pre></td></tr></table></figure></p>
+<p>当然你也可以通过这个命令来将你所缓存包清除：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower cache clean</span><br></pre></td></tr></table></figure>
+<p>这样之后你再输入<code>bower cache list</code>就没有内容了；<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;bower cache list</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+            <a href="/tags/Bower/" rel="tag"># Bower</a>
+          
+            <a href="/tags/包管理工具/" rel="tag"># 包管理工具</a>
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/03/160503ES6编码风格及规范/" rel="next" title="ES6编码风格及规范">
+                <i class="fa fa-chevron-left"></i> ES6编码风格及规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/04/160504NodeJS调试方法总结/" rel="prev" title="NodeJS调试方法总结">
+                NodeJS调试方法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsqy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">69</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">78</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/lsqy" title="GitHub &rarr; https://github.com/lsqy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/lsqy93" title="Twitter &rarr; https://twitter.com/lsqy93" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/lsqyun" title="Weibo &rarr; http://weibo.com/lsqyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-cache"><span class="nav-number">1.</span> <span class="nav-text">1. cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-help"><span class="nav-number">2.</span> <span class="nav-text">2. help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-home"><span class="nav-number">3.</span> <span class="nav-text">3. home</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-info"><span class="nav-number">4.</span> <span class="nav-text">4. info</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-init"><span class="nav-number">5.</span> <span class="nav-text">5. init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-install"><span class="nav-number">6.</span> <span class="nav-text">6. install</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装选项"><span class="nav-number">6.1.</span> <span class="nav-text">安装选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-link"><span class="nav-number">7.</span> <span class="nav-text">7.link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-list"><span class="nav-number">8.</span> <span class="nav-text">8. list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-lookup"><span class="nav-number">9.</span> <span class="nav-text">9. lookup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-login"><span class="nav-number">10.</span> <span class="nav-text">10. login</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-prune"><span class="nav-number">11.</span> <span class="nav-text">11. prune</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-register"><span class="nav-number">12.</span> <span class="nav-text">12. register</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-search"><span class="nav-number">13.</span> <span class="nav-text">13. search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-update"><span class="nav-number">14.</span> <span class="nav-text">14. update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-uninstall"><span class="nav-number">15.</span> <span class="nav-text">15. uninstall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-version"><span class="nav-number">16.</span> <span class="nav-text">16. version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-Using-local-cache"><span class="nav-number">17.</span> <span class="nav-text">17. Using local cache</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260895274&web_id=1260895274" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: '4C4aiyfcmCnwVhLCrH8d7pXo-gzGzoHsz',
+        appKey: 'BUpwAPNDhXqiEB5wAEydR42c',
+        placeholder: '有什么想说的？',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
