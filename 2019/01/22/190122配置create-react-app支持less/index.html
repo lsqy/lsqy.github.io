@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;使用create-react-app初始化出来的项目默认是不支持less的，对于一些习惯于用less的人来说就不太方便了，现在记录下来改造的方法，使其可以支持less。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-26T15:04:23.343Z">
+<meta property="og:updated_time" content="2019-01-22T06:46:43.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置create-react-app支持less">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;使用create-react-app初始化出来的项目默认是不支持less的，对于一些习惯于用less的人来说就不太方便了，现在记录下来改造的方法，使其可以支持less。">
@@ -448,24 +448,12 @@
                 
               
 
-              <time title="创建时间：2019-01-22 14:33:38" itemprop="dateCreated datePublished" datetime="2019-01-22T14:33:38+08:00">2019-01-22</time>
+              <time title="创建时间：2019-01-22 14:33:38 / 修改时间：14:46:43" itemprop="dateCreated datePublished" datetime="2019-01-22T14:33:38+08:00">2019-01-22</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-26 23:04:23" itemprop="dateModified" datetime="2019-05-26T23:04:23+08:00">2019-05-26</time>
               
             
           </span>
@@ -528,10 +516,12 @@
       
         <p>&nbsp;&nbsp;使用create-react-app初始化出来的项目默认是不支持less的，对于一些习惯于用less的人来说就不太方便了，现在记录下来改造的方法，使其可以支持less。<a id="more"></a></p>
 <h3 id="安装依赖项"><a href="#安装依赖项" class="headerlink" title="安装依赖项"></a>安装依赖项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev less less-loader</span><br></pre></td></tr></table></figure>
+
 <h3 id="修改react-scripts中的webpack配置"><a href="#修改react-scripts中的webpack配置" class="headerlink" title="修改react-scripts中的webpack配置"></a>修改react-scripts中的webpack配置</h3><blockquote>
 <p>我这里使用的react-scripts的版本是<code>2.1.3</code>，修改的webpack文件地址位于node_modules/react-scripts/config/webpack.config.js</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">修改第48行</span><br><span class="line">将const cssRegex = /\.css$/；修改为const cssRegex = /\.(css|less)$/；</span><br><span class="line">修改第441行开始</span><br><span class="line">&#123;</span><br><span class="line">    test: cssRegex,</span><br><span class="line">    exclude: cssModuleRegex,</span><br><span class="line">    use: getStyleLoaders(&#123;</span><br><span class="line">        importLoaders: 1,</span><br><span class="line">        sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">    &#125;, &apos;less-loader&apos;), // 主要是修改这里，在这里将less-loader加上</span><br><span class="line">    // Don&apos;t consider CSS imports dead code even if the</span><br><span class="line">    // containing package claims to have no side effects.</span><br><span class="line">    // Remove this when webpack adds a warning or an error for this.</span><br><span class="line">    // See https://github.com/webpack/webpack/issues/6571</span><br><span class="line">    sideEffects: true,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
 <p>这样不方便的就是需要手动进行这个操作，所以就是在项目刚开始的时候注意下，配置好以后就可以了~</p>
 
       
@@ -658,7 +648,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">69</span>
+                    <span class="site-state-item-count">70</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -890,7 +880,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
