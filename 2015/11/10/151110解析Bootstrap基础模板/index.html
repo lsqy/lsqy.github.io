@@ -118,12 +118,12 @@
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="简要分析Bootstrap基础模板中meta标签以及引包依赖关系">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.lsqy.space/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg">
+<meta property="og:image" content="https://blog.lsqy.space/.space//bootstrap.jpg">
 <meta property="og:updated_time" content="2018-11-15T08:32:24.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解析Bootstrap基础模板">
 <meta name="twitter:description" content="简要分析Bootstrap基础模板中meta标签以及引包依赖关系">
-<meta name="twitter:image" content="https://blog.lsqy.space/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg">
+<meta name="twitter:image" content="https://blog.lsqy.space/.space//bootstrap.jpg">
 
 
 
@@ -529,7 +529,7 @@
 
       
         <blockquote>
-<p>简要分析Bootstrap基础模板中meta标签以及引包依赖关系<img src="/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg" alt="bootstrap"><a id="more"></a></p>
+<p>简要分析Bootstrap基础模板中meta标签以及引包依赖关系<img src="/.space//bootstrap.jpg" alt="bootstrap"><a id="more"></a></p>
 </blockquote>
 <h2 id="Bootstrap的优势"><a href="#Bootstrap的优势" class="headerlink" title="Bootstrap的优势"></a>Bootstrap的优势</h2><ul>
 <li>流媒体网格布局</li>
@@ -540,12 +540,15 @@
 <li>跨浏览器兼容性</li>
 </ul>
 <h2 id="先来看一下官方给出的一个基础模板"><a href="#先来看一下官方给出的一个基础模板" class="headerlink" title="先来看一下官方给出的一个基础模板"></a>先来看一下官方给出的一个基础模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">    &lt;!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --&gt;</span><br><span class="line">    &lt;title&gt;Bootstrap 101 Template&lt;/title&gt;</span><br><span class="line">    `&lt;!-- Bootstrap --&gt;`</span><br><span class="line">    &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span><br><span class="line">    &lt;!-- WARNING: Respond.js doesn&apos;t work if you view the page via file:// --&gt;</span><br><span class="line">    &lt;!--[if lt IE 9]&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;![endif]--&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;你好，世界！&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- jQuery (necessary for Bootstrap&apos;s JavaScript plugins) --&gt;</span><br><span class="line">    &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span><br><span class="line">    &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
 <p>下面列出其中几个关键点</p>
 <h2 id="关于IE"><a href="#关于IE" class="headerlink" title="关于IE"></a>关于IE</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>此属性为文档兼容模式声明，表示如果在IE浏览器下则使用最新的标准渲染当前文档</li>
 </ul>
 <h2 id="视口（viewport）"><a href="#视口（viewport）" class="headerlink" title="视口（viewport）"></a>视口（viewport）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>视口的作用：在移动浏览器中，当页面宽度超出设备，浏览器内部虚拟的一个页面容器，将页面容器缩放到设备这么大，然后展示</li>
 <li>目前大多数手机浏览器的视口（承载页面的容器）宽度都是980；</li>
@@ -560,6 +563,7 @@
 </li>
 </ul>
 <h3 id="条件注释"><a href="#条件注释" class="headerlink" title="条件注释"></a>条件注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>条件注释的作用就是当判断条件满足时，就会执行注释中的HTML代码，不满足时会当做注释忽略掉</li>
 </ul>
@@ -581,6 +585,7 @@
 </li>
 </ul>
 <h2 id="mediaquery"><a href="#mediaquery" class="headerlink" title="mediaquery"></a>mediaquery</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (判断条件（针对于当前窗口的判断）)&#123;</span><br><span class="line">    <span class="comment">/*这里的代码只有当判断条件满足时才会执行*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) and (max-width: <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="comment">/*这里的代码只有当(min-width: 1280px)满足时才会执行*/</span></span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>当使用min-width作为判断条件一定要从小到大，其原因是CSS从上往下执行</li>
 </ul>

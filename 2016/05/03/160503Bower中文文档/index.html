@@ -118,13 +118,13 @@
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="前言  原创翻译，有不当的地方欢迎指出。转载请注明出处。谢谢! 一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;记录这些所有的包以及确保它们是最新的（或者设置为你需要的特殊指定版本）无疑是很棘手的事情，接下来正是Bower来拯救你，让你不再棘手！&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nb">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.lsqy.space/2016/05/03/160503Bower中文文档/BowerLogo.png">
-<meta property="og:image" content="https://blog.lsqy.space/2016/05/03/160503Bower中文文档/bowerJson.png">
+<meta property="og:image" content="https://blog.lsqy.space/.space//BowerLogo.png">
+<meta property="og:image" content="https://blog.lsqy.space/.space//bowerJson.png">
 <meta property="og:updated_time" content="2018-11-15T08:32:24.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bower中文文档">
 <meta name="twitter:description" content="前言  原创翻译，有不当的地方欢迎指出。转载请注明出处。谢谢! 一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;记录这些所有的包以及确保它们是最新的（或者设置为你需要的特殊指定版本）无疑是很棘手的事情，接下来正是Bower来拯救你，让你不再棘手！&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nb">
-<meta name="twitter:image" content="https://blog.lsqy.space/2016/05/03/160503Bower中文文档/BowerLogo.png">
+<meta name="twitter:image" content="https://blog.lsqy.space/.space//BowerLogo.png">
 
 
 
@@ -529,22 +529,28 @@
       
 
       
-        <p><img src="/2016/05/03/160503Bower中文文档/BowerLogo.png" alt="BowerLogo"></p>
+        <p><img src="/.space//BowerLogo.png" alt="BowerLogo"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <em>原创翻译，有不当的地方欢迎指出。转载请注明出处。谢谢!</em></p>
 <h3 id="一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。"><a href="#一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。" class="headerlink" title="一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。"></a>一个Web站点由很多的东西组成-框架、类库、资产、以及各种实用的工具，Bower为你将这些所有的东西管理起来。</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;记录这些所有的包以及确保它们是最新的（或者设置为你需要的特殊指定版本）无疑是很棘手的事情，接下来正是Bower来拯救你，让你不再棘手！<br>&nbsp;&nbsp;&nbsp;&nbsp;Bower可以管理起包括HTML、CSS、Javascript、字体甚至是图片这些组件。Bower不会连接和压缩你的代码，也不会做其他与它职责无关的事情，它仅仅帮助你安装你需要的正确版本的包以及这些包的依赖。<a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;只要一开始， Bower 工作是通过获取和安装所有的包, 寻找，发现，下载，和保存所有你在寻找的东西。Bower会将这些包记录在一个配置文件（bower.json)当中，你怎么使用这些包取决于你。Bower提供钩子（可以理解为一个依附物）促进你使用这些包作为你的工具，或者用于你的工作流程当中.<br>&nbsp;&nbsp;&nbsp;&nbsp;Bower也算是一个前端优化的利器，如果有多个包依赖一个包-比如jquery，Bower将只会下载一次jquery，这个是一个扁平的依赖图，通过这种扁平的依赖机构能够很大程度的减少页面的负担。</p>
-<h2 id="安装Bower"><a href="#安装Bower" class="headerlink" title="安装Bower"></a>安装Bower</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Bower是一个命令行工具，通过npm安装，<strong>注意一定要记得加上-g，以确保是全局安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g bower</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Bower"><a href="#安装Bower" class="headerlink" title="安装Bower"></a>安装Bower</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Bower是一个命令行工具，通过npm安装，<strong>注意一定要记得加上-g，以确保是全局安装</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g bower</span><br></pre></td></tr></table></figure>
+
 <p>Bower需要依赖于node、npm和git。</p>
 <blockquote>
 <p>npm一般在安装node的时候就自行安装上了，node以及git的安装可以直接在其官网安装即可,没有什么特殊要注意的</p>
 </blockquote>
 <p>想了解不同平台上安装的问题，请阅读<a href="https://github.com/bower/bower/wiki/Troubleshooting" target="_blank" rel="noopener">troubleshooting</a></p>
 <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>  <strong>包的安装</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;通过命令 <code>bower install</code>安装软件包，默认会安装到 <code>bower_components/目录</code>.代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install &lt; package&gt;</span><br></pre></td></tr></table></figure></p>
-<p>想要下载的包可以是GitHub上的短链接（如jquery/jquery）、 .git 、 一个URL或者其它.这一点的灵活性也使Bower更加的方便了， 了解更多： <a href="http://bowercn.com/docs/api/#install" target="_blank" rel="noopener">bower install</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 通过 bower.json 文件安装</span><br><span class="line"> bower install</span><br><span class="line"># 通过在github上注册的包名安装</span><br><span class="line"> bower install jquery</span><br><span class="line"># GitHub短链接</span><br><span class="line"> bower install desandro/masonry</span><br><span class="line"># Github上的 .git</span><br><span class="line"> bower install git://github.com/user/package.git</span><br><span class="line"># URL</span><br><span class="line"> bower install http://example.com/script.js</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;通过命令 <code>bower install</code>安装软件包，默认会安装到 <code>bower_components/目录</code>.代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install &lt; package&gt;</span><br></pre></td></tr></table></figure>
+
+<p>想要下载的包可以是GitHub上的短链接（如jquery/jquery）、 .git 、 一个URL或者其它.这一点的灵活性也使Bower更加的方便了， 了解更多： <a href="http://bowercn.com/docs/api/#install" target="_blank" rel="noopener">bower install</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 通过 bower.json 文件安装</span><br><span class="line"> bower install</span><br><span class="line"># 通过在github上注册的包名安装</span><br><span class="line"> bower install jquery</span><br><span class="line"># GitHub短链接</span><br><span class="line"> bower install desandro/masonry</span><br><span class="line"># Github上的 .git</span><br><span class="line"> bower install git://github.com/user/package.git</span><br><span class="line"># URL</span><br><span class="line"> bower install http://example.com/script.js</span><br></pre></td></tr></table></figure>
+
 <p> <strong>搜索包</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;可以在<a href="http://bower.io/search" target="_blank" rel="noopener">这里</a>为你喜爱的项目搜索然后发现注册的包的名字</p>
 <p> <strong>保存加载的包</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;可以通过<code>bower init</code>命令新建一个<code>bower.json</code>文件。会提示你输入一些基本信息，根据提示按回车或者空格即可，然后会生成一个bower.json文件，用来保存该项目的配置，例如：<br><img src="/2016/05/03/160503Bower中文文档/bowerJson.png" alt="bowerJson"><br><strong>如果想保存依赖信息(dependencies)到你的<code>bower.json</code>文件，可以使用：<code>bower install PACKAGE --save</code></strong>,这一点是很关键的一步，有了这个依赖信息，如果后续你想分享你的项目给你的同事，你就不需要将你的所有依赖项的实体包都发过去，因为你的<code>bower.json</code>当中已经有你的依赖项，当执行<code>bower install</code>之后，就会自行将所需要的依赖项下载下来,这样无疑是很省心的，也体现了bower在这一点上起到的作用。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;可以通过<code>bower init</code>命令新建一个<code>bower.json</code>文件。会提示你输入一些基本信息，根据提示按回车或者空格即可，然后会生成一个bower.json文件，用来保存该项目的配置，例如：<br><img src="/.space//bowerJson.png" alt="bowerJson"><br><strong>如果想保存依赖信息(dependencies)到你的<code>bower.json</code>文件，可以使用：<code>bower install PACKAGE --save</code></strong>,这一点是很关键的一步，有了这个依赖信息，如果后续你想分享你的项目给你的同事，你就不需要将你的所有依赖项的实体包都发过去，因为你的<code>bower.json</code>当中已经有你的依赖项，当执行<code>bower install</code>之后，就会自行将所需要的依赖项下载下来,这样无疑是很省心的，也体现了bower在这一点上起到的作用。</p>
 <p><strong>使用下载的包</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;怎么使用这些包取决于你，我们建议你将Bower与Grunt, RequireJS, Yeoman以及其它工具一起使用，对于已经下载下来的包，默认在当前目录的bower_components文件夹。你可以直接在项目里引用。例如：</p>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

@@ -561,7 +561,7 @@
 <li>中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></li>
 <li>中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code> 或 <code>^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</code></li>
 <li>可以输入含有^%&amp;’,;=?$\”等字符：<code>[^%&amp;’,;=?$\x22]+</code></li>
-<li>禁止输入含有~的字符：<code>[^~\x22]+</code></li>
+<li>禁止输入含有<del>的字符：`[^</del>\x22]+`</li>
 </ul>
 <h2 id="三、特殊需求表达式"><a href="#三、特殊需求表达式" class="headerlink" title="三、特殊需求表达式"></a>三、特殊需求表达式</h2><ul>
 <li>Email地址：<code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code></li>

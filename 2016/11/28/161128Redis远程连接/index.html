@@ -534,12 +534,19 @@
 <p>对于<code>redis.conf</code>这个文件的位置，有的是在<code>/etc/redis/redis.conf</code>,我的是安装在了上面的位置上，具体看你的Redis安装目录</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+
 <p>将其改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind 0.0.0.0</span><br></pre></td></tr></table></figure>
-<h2 id="重启Redis服务"><a href="#重启Redis服务" class="headerlink" title="重启Redis服务"></a>重启Redis服务</h2><p>注意这时候需要<strong>指定配置文件</strong>然后重启Redis服务,也就是说启动redis-server的时候后面加上刚才修改的redis.conf。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./src/redis-server redis.conf</span><br></pre></td></tr></table></figure></p>
+
+<h2 id="重启Redis服务"><a href="#重启Redis服务" class="headerlink" title="重启Redis服务"></a>重启Redis服务</h2><p>注意这时候需要<strong>指定配置文件</strong>然后重启Redis服务,也就是说启动redis-server的时候后面加上刚才修改的redis.conf。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
 <h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><p>配置好Redis服务并重启服务后。就可以使用客户端远程连接Redis服务了。命令格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ redis-cli -h &#123;redis_host&#125; -p &#123;redis_port&#125;</span><br></pre></td></tr></table></figure>
-<p>其中<code>{redis_host}</code>就是远程的Redis服务所在服务器地址，<code>{redis_port}</code>就是Redis服务端口（Redis默认端口是6379）。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">G7_user@E540-PF03XZZF /C/Users/G7_user/Desktop</span><br><span class="line">$ redis-cli -h 你的IP地址 -p 6379</span><br><span class="line">你的IP地址:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure></p>
+
+<p>其中<code>{redis_host}</code>就是远程的Redis服务所在服务器地址，<code>{redis_port}</code>就是Redis服务端口（Redis默认端口是6379）。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">G7_user@E540-PF03XZZF /C/Users/G7_user/Desktop</span><br><span class="line">$ redis-cli -h 你的IP地址 -p 6379</span><br><span class="line">你的IP地址:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
 <p>下面就是我用的Redis Desktop Manager,直接连接即可<br><img src="https://oi2h9y4dd.qnssl.com/image/Redis.png" alt=""></p>
 
       

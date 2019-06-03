@@ -529,29 +529,41 @@
 
       
         <h1 id="一、GIT基本命令操作"><a href="#一、GIT基本命令操作" class="headerlink" title="一、GIT基本命令操作"></a>一、GIT基本命令操作</h1><h2 id="1-初始化一个本地GIT仓储-（仓库）"><a href="#1-初始化一个本地GIT仓储-（仓库）" class="headerlink" title="1. 初始化一个本地GIT仓储 （仓库）"></a>1. 初始化一个本地GIT仓储 （仓库）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 当前项目目录</span><br><span class="line">git init // 初始化一个本地的仓库</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>就是在本地文件夹中添加了一个.git的文件夹用于记录所有的项目变更信息</p>
 </blockquote>
 <h2 id="2-查看本地仓储的变更状态"><a href="#2-查看本地仓储的变更状态" class="headerlink" title="2. 查看本地仓储的变更状态"></a>2. 查看本地仓储的变更状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
 <p>用于查看本地仓储的状态<br>第一次查看，显示的是一些没有被跟踪的文件<br><code>git status -s</code> // -s 是输出简要的变更日志</p>
 <h2 id="3-添加本地暂存（托管）文件"><a href="#3-添加本地暂存（托管）文件" class="headerlink" title="3. 添加本地暂存（托管）文件"></a>3. 添加本地暂存（托管）文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add (--all)</span><br></pre></td></tr></table></figure>
+
 <p>初始的时候必须这样添加一下，后面是–all或者.(点），这样说明是添加所有文件到暂存区，也可以将一个没有被跟踪的文件添加到跟踪列表</p>
 <h2 id="4-添加本地GIT忽略清单文件"><a href="#4-添加本地GIT忽略清单文件" class="headerlink" title="4. 添加本地GIT忽略清单文件"></a>4. 添加本地GIT忽略清单文件</h2><p>在代码库文件夹的根目录添加一个.gitignore文件，此文件用于说明忽略的文件有哪些，例如类似于node_modules这种性质的文件是不应该被跟踪</p>
 <h2 id="5-提交被托管的文件变化到本地仓储"><a href="#5-提交被托管的文件变化到本地仓储" class="headerlink" title="5. 提交被托管的文件变化到本地仓储"></a>5. 提交被托管的文件变化到本地仓储</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit  (-m) &quot;描述信息&quot;</span><br></pre></td></tr></table></figure>
+
 <p>将本地的变化提交的本地的仓库文件夹归档,一般在有了一个小单元的整体变化后再提交,也就是也没必要有一点点改动就提交，这样徒增自己的版本数量</p>
 <h2 id="6-对比差异"><a href="#6-对比差异" class="headerlink" title="6. 对比差异"></a>6. 对比差异</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
 <p>可以用于对比当前状态和版本库中状态的变化</p>
 <h2 id="7-提交日志"><a href="#7-提交日志" class="headerlink" title="7. 提交日志"></a>7. 提交日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
 <p>可以查看提交日志</p>
 <h2 id="8-回归到指定版本"><a href="#8-回归到指定版本" class="headerlink" title="8. 回归到指定版本"></a>8. 回归到指定版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+
 <h2 id="9-为仓储添加远端（服务器端）地址"><a href="#9-为仓储添加远端（服务器端）地址" class="headerlink" title="9. 为仓储添加远端（服务器端）地址"></a>9. 为仓储添加远端（服务器端）地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote  add  origin (github仓库地址)//https://github.com/zwxs/github-demo.git</span><br><span class="line">将本地仓储的提交记录推送到远端的master分支</span><br><span class="line">git push -u origin master</span><br><span class="line">拉取远端master分支的更新记录到本地</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
 <h1 id="二、一般我们也只需像官网那样简单几步"><a href="#二、一般我们也只需像官网那样简单几步" class="headerlink" title="二、一般我们也只需像官网那样简单几步"></a>二、一般我们也只需像官网那样简单几步</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init # 初始化一个git本地仓库</span><br><span class="line">git add README.md # 添加一个README.md文件到缓存区</span><br><span class="line">git commit -m &quot;first commit&quot; # 提交描述信息</span><br><span class="line">git remote add origin https://github.com/lsqy/lsq.git # 为仓储添加远端（服务器端）地址</span><br><span class="line">git push -u origin master # 将本地仓储的提交记录推送到远端的master分支</span><br></pre></td></tr></table></figure>
+
 <h1 id="三、接下来托管自己的网页到github上，也是本次总结的一个重点"><a href="#三、接下来托管自己的网页到github上，也是本次总结的一个重点" class="headerlink" title="三、接下来托管自己的网页到github上，也是本次总结的一个重点"></a>三、接下来托管自己的网页到github上，也是本次总结的一个重点</h1><blockquote>
 <p>这也算是引入了GIT分支的概念</p>
 </blockquote>
 <h2 id="创建一个新的分支"><a href="#创建一个新的分支" class="headerlink" title="- 创建一个新的分支"></a>- 创建一个新的分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch  gh-pages</span><br></pre></td></tr></table></figure>
+
 <h2 id="切换到新的分支"><a href="#切换到新的分支" class="headerlink" title="- 切换到新的分支"></a>- 切换到新的分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout  gh-pages</span><br></pre></td></tr></table></figure>
+
 <h2 id="将本地的分支推送到远端"><a href="#将本地的分支推送到远端" class="headerlink" title="- 将本地的分支推送到远端"></a>- 将本地的分支推送到远端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin  gh-pages</span><br></pre></td></tr></table></figure>
+
 <p>接下来访问下<code>lsqy.github.io/test</code>即可看到托管上的网页了,注意这里的lsqy是我的github用户名，你需要改成自己的<br>这样以后自己的一些示例就可以很方便的进行演示了。</p>
 
       

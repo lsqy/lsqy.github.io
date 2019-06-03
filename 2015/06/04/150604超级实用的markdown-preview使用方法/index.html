@@ -118,12 +118,12 @@
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="markdown这款编辑软件你绝对值得拥有，特别方便去记录一些自己的日志和博客之类的，下面总结出两个能够实现markdown-preview的方法，也就是能够实现markdown文件的实时预览，并且还可以转换成html格式的文件生成出来，下面看正文吧！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.lsqy.space/2015/06/04/150604超级实用的markdown-preview使用方法/markdown-preview.png">
+<meta property="og:image" content="https://blog.lsqy.space/.space//markdown-preview.png">
 <meta property="og:updated_time" content="2018-11-15T08:32:24.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超级实用的markdown-preview使用方法">
 <meta name="twitter:description" content="markdown这款编辑软件你绝对值得拥有，特别方便去记录一些自己的日志和博客之类的，下面总结出两个能够实现markdown-preview的方法，也就是能够实现markdown文件的实时预览，并且还可以转换成html格式的文件生成出来，下面看正文吧！">
-<meta name="twitter:image" content="https://blog.lsqy.space/2015/06/04/150604超级实用的markdown-preview使用方法/markdown-preview.png">
+<meta name="twitter:image" content="https://blog.lsqy.space/.space//markdown-preview.png">
 
 
 
@@ -535,14 +535,17 @@
 </blockquote>
 <h2 id="方法一：Node环境下安装markdown-preview这款命令行工具"><a href="#方法一：Node环境下安装markdown-preview这款命令行工具" class="headerlink" title="方法一：Node环境下安装markdown-preview这款命令行工具"></a>方法一：Node环境下安装markdown-preview这款命令行工具</h2><h3 id="安装NodeJS"><a href="#安装NodeJS" class="headerlink" title="安装NodeJS"></a>安装NodeJS</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;上NodeJS官网下载即可，安装也很简单，一直下一步就可以，安装了NodeJS之后npm也就自动安装了，npm即使NodeJS的包管理系统，顺便说一下，因为markdown-preview的解析机制在这里是基于NodeJS的，所以要有Node环境，即是需要安装Node。</p>
 <h3 id="全局安装markdown-preview"><a href="#全局安装markdown-preview" class="headerlink" title="全局安装markdown-preview"></a>全局安装markdown-preview</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g markdown-preview</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>注意一定要注意加上-g，这样能够确保是全局安装，更重要的是这样就能够直接从命令行直接调用markdown-preview了</p>
 </blockquote>
-<h3 id="使用markdown-preview"><a href="#使用markdown-preview" class="headerlink" title="使用markdown-preview"></a>使用markdown-preview</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;直接在需要打开的目录下面通过以下命令即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">markdown-preview  一个md文件名</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用markdown-preview"><a href="#使用markdown-preview" class="headerlink" title="使用markdown-preview"></a>使用markdown-preview</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;直接在需要打开的目录下面通过以下命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">markdown-preview  一个md文件名</span><br></pre></td></tr></table></figure>
+
 <p>接下来就会自动在你的默认浏览器中以html形式解析之后打开这个md文件，实现预览效果</p>
 <h2 id="方法二：在sublime中安装其插件"><a href="#方法二：在sublime中安装其插件" class="headerlink" title="方法二：在sublime中安装其插件"></a>方法二：在sublime中安装其插件</h2><h3 id="安装sublime"><a href="#安装sublime" class="headerlink" title="安装sublime"></a>安装sublime</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;网上有很多安装教程，这里就不赘述了。</p>
 <h3 id="安装markdown-preview这款插件"><a href="#安装markdown-preview这款插件" class="headerlink" title="安装markdown-preview这款插件"></a>安装markdown-preview这款插件</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;通过Ctrl+shift+P调出命令窗口，然后在命令窗口输入<code>pcip（ package Control : install package）</code>,等待一会就会出现一个窗口，也就是sublime中的所有插件，然后输入markdown-preview就可以等待sublime安装这个插件包了</p>
-<h3 id="使用markdown-preview-1"><a href="#使用markdown-preview-1" class="headerlink" title="使用markdown-preview"></a>使用markdown-preview</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;首先在你需要打开的md文件界面当中通过Ctrl+shift+P调出命令窗口，然后输markdown-preview，直接点击，如果还有选择选项，选preview in Browser即可，会出现如图：<br><img src="/2015/06/04/150604超级实用的markdown-preview使用方法/markdown-preview.png" alt="markdown-preview"><br>接下来就会自动在你的默认浏览器中以html形式解析之后打开这个md文件，实现预览效果，另外不得不提下sublime这块编辑器真的很不错，又轻便，而且插件特别齐全，大家可以尝试下，不要以为我是做广告哦，因为我跟sublime半点关系都没有，只是友情提醒，这次的分享就到这里。</p>
+<h3 id="使用markdown-preview-1"><a href="#使用markdown-preview-1" class="headerlink" title="使用markdown-preview"></a>使用markdown-preview</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;首先在你需要打开的md文件界面当中通过Ctrl+shift+P调出命令窗口，然后输markdown-preview，直接点击，如果还有选择选项，选preview in Browser即可，会出现如图：<br><img src="/.space//markdown-preview.png" alt="markdown-preview"><br>接下来就会自动在你的默认浏览器中以html形式解析之后打开这个md文件，实现预览效果，另外不得不提下sublime这块编辑器真的很不错，又轻便，而且插件特别齐全，大家可以尝试下，不要以为我是做广告哦，因为我跟sublime半点关系都没有，只是友情提醒，这次的分享就到这里。</p>
 
       
     </div>

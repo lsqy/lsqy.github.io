@@ -534,11 +534,13 @@
 <li>4.页面初始化时和window.resize时，根据当前viewport使用相应的css块。<br>使用：考虑到IE9是支持CSS3的，所以直接在HTML页面的head标签中添加脚本引用即可：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`&lt;!--[if lt IE 9]&gt;`</span><br><span class="line">      &lt;script src=&quot;http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;![endif]—&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><ul>
 <li>官方demo地址：<code>http://scottjehl.github.com/Respond/test/test.html</code></li>
 <li>1.在css中正常用 min/max-width media queries</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (min-width: 480px)&#123;</span><br><span class="line">    ...styles for 480px and up go here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>2.引入respond.min.js，但要在css的后面（越早引入越好，在ie下面看到页面闪屏的概率就越低，因为最初css会先渲染出来，如果respond.js加载得很后面，这时重新根据media query解析出来的css会再改变一次页面的布局等，所以看起来有闪屏的现象）</li>
 </ul>
