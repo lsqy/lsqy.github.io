@@ -402,6 +402,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/12/18/161218使用monaca快速开发HybridApp/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsqy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lsqy'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/12/18/161218使用monaca快速开发HybridApp/" class="post-title-link" itemprop="https://blog.lsqy.space/page/4/index.html">使用monaca快速开发HybridApp</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-18 17:54:10" itemprop="dateCreated datePublished" datetime="2016-12-18T17:54:10+08:00">2016-12-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/HybridApp/" itemprop="url" rel="index"><span itemprop="name">HybridApp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/18/161218使用monaca快速开发HybridApp/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/12/18/161218使用monaca快速开发HybridApp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/.space//monaca.jpg" alt=""></p>
+<h2 id="安装Monaca-CLI"><a href="#安装Monaca-CLI" class="headerlink" title="安装Monaca CLI"></a>安装Monaca CLI</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g monaca</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意要全局安装，也就是加上<code>-g</code></p>
+</blockquote>
+<p>国内如果直接安装不上的话，可以试试<code>cnpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g monaca</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cnpm 可以通过 <code>npm install -g cnpm</code>来进行安装，是阿里为npm在国内的镜像网；</p>
+</blockquote>
+<p>安装成功后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">monaca -v</span><br><span class="line">2.1.6</span><br></pre></td></tr></table></figure>
+
+<p>这样就说明安装无误了</p>
+<h2 id="创建一个APP应用"><a href="#创建一个APP应用" class="headerlink" title="创建一个APP应用"></a>创建一个APP应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monaca create my-app</span><br></pre></td></tr></table></figure>
+
+<p>接下来你会看到有几个模板，其实也可以说是monaca目前集成好的几个框架可以选用，相当于一个脚手架，monaca跟OnsenUI的集成还是非常棒的，有基于<code>Angular 1 、Angular 2 、React</code>,当然还有<code>Ionic</code>也可以选择，也可以选择一个不用任何框架的版本<code>No Framework</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">monaca create my-app</span><br><span class="line">? Choose a category: </span><br><span class="line">    Onsen UI </span><br><span class="line">    Onsen UI and Angular 1 </span><br><span class="line">    Onsen UI and Angular 2 </span><br><span class="line">    Onsen UI and React </span><br><span class="line">    Ionic </span><br><span class="line">  &gt; No Framework </span><br><span class="line">    Sample Apps</span><br></pre></td></tr></table></figure>
+
+<p>从上面选择一个你喜欢的框架，接下来monaca就会从云端将你选择的这套脚手架下载下来<br>例如我这边想下载一个不用任何框架的,这样你就可以将自己开发的html5页面放到里面直接在app里看了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ monaca create weui</span><br><span class="line">? Choose a category: No Framework</span><br><span class="line">? Select a template - Press P to see a preview Blank</span><br><span class="line"></span><br><span class="line">Downloading template...</span><br><span class="line">www/components already exists. Skipping.</span><br><span class="line"></span><br><span class="line">Project created successfully.</span><br><span class="line"></span><br><span class="line">Type &quot;cd weui&quot; and run monaca command again.</span><br><span class="line">  &gt; monaca preview      =&gt; Run app in the browser</span><br><span class="line">  &gt; monaca debug        =&gt; Run app in the device using Monaca Debugger</span><br><span class="line">  &gt; monaca remote build =&gt; Start remote build for iOS/Android/Windows</span><br><span class="line">  &gt; monaca upload       =&gt; Upload this project to Monaca Cloud IDE</span><br></pre></td></tr></table></figure>
+
+<h2 id="monaca-preview-预览模式"><a href="#monaca-preview-预览模式" class="headerlink" title="monaca preview 预览模式"></a>monaca preview 预览模式</h2><p>这样就直接会在你浏览器打开这个项目，默认是监听8080端口，只要你一修改，就会即时刷新，结合控制台能够很方便的快速开发<br><img src="/.space//react.png" alt=""></p>
+<h2 id="monaca-debug"><a href="#monaca-debug" class="headerlink" title="monaca debug"></a>monaca debug</h2><p>这样就可以直接在你的手机上去运行这个APP了，你手机上需要下载一个monaca，注册一个monaca账号就可以了，再按照引导步骤连上你本机的IP，就可以在手机上运行了，并且它也会即时响应你的改变，热加载刷新。</p>
+<p>&nbsp;&nbsp;&nbsp;当我发现monaca的时候，真的感觉这个工具真是相当不错，特此跟大家分享一下，Onsen也是值得大家去用一下的一个非常精美的UI框架。</p>
+<blockquote>
+<p><a href="https://monaca.io/" target="_blank" rel="noopener">https://monaca.io/</a><br><a href="https://onsen.io/" target="_blank" rel="noopener">https://onsen.io/</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/12/14/161214优秀项目/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1132,194 +1343,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/11/20/161120babel-preset-node6/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsqy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lsqy'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/20/161120babel-preset-node6/" class="post-title-link" itemprop="https://blog.lsqy.space/page/4/index.html">babel-preset-node6</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-11-20 19:20:51" itemprop="dateCreated datePublished" datetime="2016-11-20T19:20:51+08:00">2016-11-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NodeJS/" itemprop="url" rel="index"><span itemprop="name">NodeJS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/20/161120babel-preset-node6/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/11/20/161120babel-preset-node6/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&nbsp;&nbsp;现在Node6.x虽然现在已经能够原生支持ES6、ES2015将近93%的特性了，而今天介绍的这个插件正式为了解决剩下的的将近7%的特性支持，从而实现完全拥抱ES6.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2016/11/20/161120babel-preset-node6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1367,7 +1390,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1432,7 +1455,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1609,7 +1634,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">86</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

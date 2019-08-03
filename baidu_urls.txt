@@ -1,3 +1,4 @@
+https://blog.lsqy.space/2019/07/29/190729基于Taro与typescript开发的网易云音乐小程序/
 https://blog.lsqy.space/2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/
 https://blog.lsqy.space/2019/06/03/190603pm2常用命令/
 https://blog.lsqy.space/2019/05/26/190526mac中ios模拟器的常用操作/
@@ -27,4 +28,3 @@ https://blog.lsqy.space/2016/06/19/160619优化默认密码输入框/
 https://blog.lsqy.space/2016/06/18/160618配置HybridAppAndroid环境/
 https://blog.lsqy.space/2016/05/04/160504NodeJS调试方法总结/
 https://blog.lsqy.space/2016/05/03/160503Bower中文API/
-https://blog.lsqy.space/2016/05/03/160503ES6编码风格及规范/
