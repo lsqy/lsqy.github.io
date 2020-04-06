@@ -771,43 +771,6 @@
       </tags>
   </entry>
   <entry>
-    <title>bash常见命令</title>
-    <url>/2015/12/05/151205bash%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="bash命令格式"><a href="#bash命令格式" class="headerlink" title="bash命令格式"></a>bash命令格式</h2><p><code>命令 [-options] [参数]</code>，如：<code>tar  zxvf  demo.tar.gz</code><br>查看帮助：<code>命令 --help</code></p>
-<h2 id="bash常见命令"><a href="#bash常见命令" class="headerlink" title="bash常见命令"></a>bash常见命令</h2><ul>
-<li><code>pwd (Print Working Directory)</code> 查看当前目录</li>
-<li><code>cd (Change Directory)`` 切换目录，如</code>cd /etc`</li>
-<li><code>ls (List)`` 查看当前目录下内容，如</code>ls -al`</li>
-<li><code>mkdir (Make Directory)`` 创建目录，如</code>mkdir blog`</li>
-<li><code>touch</code> 创建文件，如 <code>touch index.html</code></li>
-<li><code>cat</code> 查看文件全部内容，如 <code>cat index.html</code></li>
-<li><code>more less</code> 查看文件，如<code>more /etc/passwd</code>、<code>less /etc/passwd</code></li>
-<li><code>rm (remove)`` 删除文件，如</code>rm index.html<code>、</code>rm -rf  blog`</li>
-<li><code>rmdir (Remove Directory)`` 删除文件夹，只能删除空文件夹，不常用</code>（rm –r  temp/ <code>递归删除  - `rm –rf  temp/</code> 强行递归直接删除很危险）</li>
-<li><code>mv (move)`` 移动文件或重命名，如</code>mv index.html<code></code>./demo/index.html`</li>
-<li><code>cp (copy)`` 复制文件，</code>cp index.html<code></code>./demo/index.html`</li>
-<li><code>head</code> 查看文件前几行，如 <code>head -5 index.html</code></li>
-<li><code>tail</code> 查看文件后几行 –n –f，如 <code>tail index.html</code>、<code>tail -f -n 5 index.html</code> （实时，错误日志）</li>
-<li><code>tab</code> 自动补全，连按两次会将所有匹配内容显示出来（筛选）</li>
-<li><code>history</code> 查看操作历史</li>
-<li><code>ssh</code> 远程登录，如<code>ssh root@gitlab.study.com</code></li>
-<li><code>&gt;</code> 和 <code>&gt;&gt;</code>重定向，如<code>echo hello world! &gt; README.md</code>，<code>&gt;</code>表示覆盖 <code>&gt;&gt;</code>表示追加</li>
-<li><code>wget</code> 下载，如<code>wget https://nodejs.org/dist/v4.4.0/node-v4.4.0.tar.gz</code></li>
-<li><code>tar</code> 解压缩，如<code>tar zxvf node-v4.4.0.tar.gz</code></li>
-<li><code>curl</code> 网络请求，如<code>curl http://www.baidu.com</code></li>
-<li><code>whoami</code> 查看当前用户</li>
-<li>`|`` 管道符</li>
-<li><code>grep</code> 匹配内容，一般结合管道符使用</li>
-</ul>
-]]></content>
-      <categories>
-        <category>后端知识</category>
-      </categories>
-      <tags>
-        <tag>bash</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端组件库大合集</title>
     <url>/2015/12/13/151213%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E5%A4%A7%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;这是一个较为全面的组件库，里面罗列了很多不错的框架以及组件，很值得参考和学习，跟大家一起分享学习!<br>里面共有以下分类：</p>
@@ -850,6 +813,43 @@
       </categories>
       <tags>
         <tag>前端组件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bash常见命令</title>
+    <url>/2015/12/05/151205bash%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="bash命令格式"><a href="#bash命令格式" class="headerlink" title="bash命令格式"></a>bash命令格式</h2><p><code>命令 [-options] [参数]</code>，如：<code>tar  zxvf  demo.tar.gz</code><br>查看帮助：<code>命令 --help</code></p>
+<h2 id="bash常见命令"><a href="#bash常见命令" class="headerlink" title="bash常见命令"></a>bash常见命令</h2><ul>
+<li><code>pwd (Print Working Directory)</code> 查看当前目录</li>
+<li><code>cd (Change Directory)`` 切换目录，如</code>cd /etc`</li>
+<li><code>ls (List)`` 查看当前目录下内容，如</code>ls -al`</li>
+<li><code>mkdir (Make Directory)`` 创建目录，如</code>mkdir blog`</li>
+<li><code>touch</code> 创建文件，如 <code>touch index.html</code></li>
+<li><code>cat</code> 查看文件全部内容，如 <code>cat index.html</code></li>
+<li><code>more less</code> 查看文件，如<code>more /etc/passwd</code>、<code>less /etc/passwd</code></li>
+<li><code>rm (remove)`` 删除文件，如</code>rm index.html<code>、</code>rm -rf  blog`</li>
+<li><code>rmdir (Remove Directory)`` 删除文件夹，只能删除空文件夹，不常用</code>（rm –r  temp/ <code>递归删除  - `rm –rf  temp/</code> 强行递归直接删除很危险）</li>
+<li><code>mv (move)`` 移动文件或重命名，如</code>mv index.html<code></code>./demo/index.html`</li>
+<li><code>cp (copy)`` 复制文件，</code>cp index.html<code></code>./demo/index.html`</li>
+<li><code>head</code> 查看文件前几行，如 <code>head -5 index.html</code></li>
+<li><code>tail</code> 查看文件后几行 –n –f，如 <code>tail index.html</code>、<code>tail -f -n 5 index.html</code> （实时，错误日志）</li>
+<li><code>tab</code> 自动补全，连按两次会将所有匹配内容显示出来（筛选）</li>
+<li><code>history</code> 查看操作历史</li>
+<li><code>ssh</code> 远程登录，如<code>ssh root@gitlab.study.com</code></li>
+<li><code>&gt;</code> 和 <code>&gt;&gt;</code>重定向，如<code>echo hello world! &gt; README.md</code>，<code>&gt;</code>表示覆盖 <code>&gt;&gt;</code>表示追加</li>
+<li><code>wget</code> 下载，如<code>wget https://nodejs.org/dist/v4.4.0/node-v4.4.0.tar.gz</code></li>
+<li><code>tar</code> 解压缩，如<code>tar zxvf node-v4.4.0.tar.gz</code></li>
+<li><code>curl</code> 网络请求，如<code>curl http://www.baidu.com</code></li>
+<li><code>whoami</code> 查看当前用户</li>
+<li>`|`` 管道符</li>
+<li><code>grep</code> 匹配内容，一般结合管道符使用</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端知识</category>
+      </categories>
+      <tags>
+        <tag>bash</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,6 +1631,22 @@
       </tags>
   </entry>
   <entry>
+    <title>JS实现数字自动转换人民币金额</title>
+    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
+    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>http-server介绍</title>
     <url>/2016/10/01/161001http-server/</url>
     <content><![CDATA[<p><img src="https://oi2h9y4dd.qnssl.com/public.jpg" alt></p>
@@ -1654,29 +1670,6 @@
       <tags>
         <tag>HTTP</tag>
         <tag>NodeJS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bable使用指南</title>
-    <url>/2016/11/17/161117bable%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>记录下自己觉得写得不错的babel资料</p>
-<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p>无非是最权威、做全面的，英文水平好的<code>https://babeljs.io/</code><br>阮一峰写的<a href="http://www.ruanyifeng.com/blog/2016/01/babel.html?20161117143409" target="_blank" rel="noopener">babel入门教程</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>JS实现数字自动转换人民币金额</title>
-    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
-    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1719,6 +1712,13 @@
         <tag>babel</tag>
         <tag>ES6</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>bable使用指南</title>
+    <url>/2016/11/17/161117bable%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>记录下自己觉得写得不错的babel资料</p>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p>无非是最权威、做全面的，英文水平好的<code>https://babeljs.io/</code><br>阮一峰写的<a href="http://www.ruanyifeng.com/blog/2016/01/babel.html?20161117143409" target="_blank" rel="noopener">babel入门教程</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Windows下安装和配置Redis</title>
@@ -1783,14 +1783,6 @@
       </tags>
   </entry>
   <entry>
-    <title>优秀项目</title>
-    <url>/2016/12/14/161214%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<ul>
-<li>基于网易云实现的音乐搜索网<br><a href="https://music.daoapp.io/" target="_blank" rel="noopener">https://music.daoapp.io/</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>升级到https小记</title>
     <url>/2016/12/12/161212%E5%8D%87%E7%BA%A7%E5%88%B0https%E5%B0%8F%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="总结的不错的博文"><a href="#总结的不错的博文" class="headerlink" title="总结的不错的博文"></a>总结的不错的博文</h2><p>今天整站系统的升级了下https，下面记录下几篇写的不错的博文</p>
@@ -1810,6 +1802,14 @@
         <tag>https</tag>
         <tag>安全</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>优秀项目</title>
+    <url>/2016/12/14/161214%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<ul>
+<li>基于网易云实现的音乐搜索网<br><a href="https://music.daoapp.io/" target="_blank" rel="noopener">https://music.daoapp.io/</a></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>优秀项目收集-页面自动加载条pace.js</title>
@@ -2200,8 +2200,8 @@
         <category>开发工具</category>
       </categories>
       <tags>
-        <tag>ios模拟器</tag>
         <tag>Mac</tag>
+        <tag>ios模拟器</tag>
       </tags>
   </entry>
   <entry>
@@ -2236,74 +2236,6 @@
       </categories>
       <tags>
         <tag>pm2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结</title>
-    <url>/2019/06/20/190620GMTC-%E5%89%8D%E7%AB%AF%E5%A4%9C%E8%AF%9D%E3%80%8A%E8%81%8A%E8%81%8A%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E5%92%8C%E5%8F%91%E5%B1%95%E3%80%8B%E4%BC%9A%E5%90%8E%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p><img src="https://jdc-wechat.s3.cn-north-1.jdcloud-oss.com/tech/GMTC.jpg" alt></p>
-<p>&nbsp;&nbsp;今天晚上去参加了<code>winter</code>主持的<strong>前端夜话：聊聊前端工程师的成长和发展</strong>圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：</p>
-<ul>
-<li>主持人：程劭非（winter），前手机淘宝前端负责人</li>
-<li>圆桌论坛嘉宾：</li>
-<li>贺师俊（Hax），百姓网技术顾问</li>
-<li>王巍（喵神），LINE高级软件工程师</li>
-<li>桑世龙（狼叔），阿里巴巴前端技术专家</li>
-<li>张鑫旭，《CSS世界》作者</li>
-</ul>
-<p>这里分享下自己在会议上记录下来的一些受用的地方，主要是<code>winter</code>提出的几个非常有代表性的问题，各位大佬进行的回答，由于当时记录的时候只是大概记了下大致意思，没有录音，难免会有疏漏，如若有不正确的地方，可以及时反馈更正。<a id="more"></a></p>
-<h3 id="各位的职业生涯大概描述一下？"><a href="#各位的职业生涯大概描述一下？" class="headerlink" title="各位的职业生涯大概描述一下？"></a>各位的职业生涯大概描述一下？</h3><p>从各位针对这个问题的回答来看，大家都经历过大的公司和小的公司，刚开始的时候也都是从小公司起步，一步一步的摸索前进，慢慢积累，经过不断的努力，带来属于自己的幸运，现在发展成为在领域内有一定知名度，所以我认为大家现在都不应该浮躁，要踏实的去做好自己所在的领域，去积累、沉淀、总结。鑫旭说出的<strong>专注</strong>这两个字很是受用，他从09年毕业到现在一直专注在前端css重构领域，也是取得了很好的结果和成就，现在的我有时候是有些浮躁，总是觉得自己有什么技术都应该学以下，殊不知到最后大概率会落个样样不精通的结果，这一点要多加注意，要能够沉下心来创造出一些东西来，不要以为用别人的框架做出来点东西就是精通XXX，要能创造出一些有用的框架或者库才是应该去着重考虑的。</p>
-<h3 id="如何看待全栈？"><a href="#如何看待全栈？" class="headerlink" title="如何看待全栈？"></a>如何看待全栈？</h3><p>狼叔：全栈代表你解决问题的一种能力，当你在面临一些与后端相关的问题的时候，如果你有一些后端的知识储备的话，可以让你在处理和做选择的时候更明智一些。</p>
-<p>鑫旭：其实是不怎么觉得全栈的必要性的，你能把现在的前端领域先吃透了再去考虑全栈吧，在现在的大公司更需要的是有深度的人，而不是没有深度，其他都懂点皮毛的人，大公司分工明确，你把自己负责的部分做到极致是很重要的。</p>
-<p><code>Hax</code>：全栈这个事情可以看工程师的类型，看你内心的驱动力，</p>
-<ul>
-<li>第一类： 如果你是想做出非常厉害的产品，改变世界的产品，这样当然是如果你能从前到后，甚至是运营你都能做好，那是再好不过了。</li>
-<li>第二类：如果你可能要解决一个世界级的难题，做一个专家型的，那你就需要在这个领域好好深入。</li>
-</ul>
-<p>所以还是要根据你的特点选好自己的位置。</p>
-<p>喵神： 还是认同领域内深度发展，把你现在所做的领域做到极致。</p>
-<h3 id="选择大公司还是小公司，大公司和小公司有什么不同？"><a href="#选择大公司还是小公司，大公司和小公司有什么不同？" class="headerlink" title="选择大公司还是小公司，大公司和小公司有什么不同？"></a>选择大公司还是小公司，大公司和小公司有什么不同？</h3><p>针对这个问题，我大致总结下：</p>
-<ul>
-<li>大公司更看重你的深度，你所在的技术栈足够专业</li>
-<li>大公司的平台与福利相对好一些，当然一些小公司也有福利不错的</li>
-<li>小公司流程相对简单一些，杂事相对少一些，主要就是做事情</li>
-<li>小公司有一个好处是：如果你的CEO或者高管很优秀，那么你可以有机会跟他们进行面对面的交流沟通，如果是在大公司可能这样的机会是很少的</li>
-<li>选择公司的时候要考虑去这家公司想得到的是什么，比如<code>Hax</code>当初选择百姓网的时候，也是可以去BAT这样的大厂的，他当时之所以选择了百姓网是因为他想去验证一些技术架构，而这个在当时如果去了大厂或许就不能够得以验证了；而现在<code>Hax</code>选择离开百姓网去360则是因为有些事情在小公司是做不下去的，比如能够去参加到js的标准制定当中，所以根据你的时间阶段去做对应的选择。</li>
-</ul>
-<h3 id="寒冬期自己应该做些什么？"><a href="#寒冬期自己应该做些什么？" class="headerlink" title="寒冬期自己应该做些什么？"></a>寒冬期自己应该做些什么？</h3><ul>
-<li>鑫旭：内功修炼很重要，什么火就学点什么可能更会被淘汰，<strong>要专注</strong>。</li>
-<li>狼叔： 当没有目标的时候向钱看，有目标的时候向前看。</li>
-<li>喵神：社区里多帮助其他人，多参与一些开源项目，多写一些框架、书，对外输出影响力，你只要比别人跑得快，你也没问题。专一方向的深度很重要，技术预判很重要，选对车道，不要逆行。</li>
-<li><code>Hax</code>：这都是命，滑稽一下，其实就是把你无法控制的事情抛诸脑后，做好你可以做的，机遇和运气是留给有准备的人。</li>
-<li>君子闲时要有吃紧的心思，忙时要有悠闲的趣味</li>
-</ul>
-<h3 id="面试有什么建议？"><a href="#面试有什么建议？" class="headerlink" title="面试有什么建议？"></a>面试有什么建议？</h3><ul>
-<li>鑫旭：要展示真实的自己，不要过度包装自己，拿起石头砸自己脚</li>
-<li>狼叔：自己要学会给自己创造机会，比如做开源项目，参与翻译，自己给自己创造场景，坚持学习，打好基本功</li>
-<li>喵神：挂人的话技术只是一方面的，更看重的是学习能力，要能够快速学习所需知识进行工作开展，学习能力怎么看呢？会从跟你交流的能力来进行判断，所以平时要抽出来时间做做分享，多与同事进行沟通，学会很好的去表达自己的想法。</li>
-<li><code>Hax</code>：基础是本身技术要不断学习，不要包装过度，宣称的经验要跟自己的实际能力匹配，<strong>真诚</strong>是非常重要的，是否坦诚、踏实。技术是来不得虚的，为人需要保持真诚才行，一两次面试失败没什么，只要自己一直在总结进步就好。</li>
-<li><code>winter</code>：不要过度包装，面试的时候面试官一般都能把你拆出来的，这样是很尴尬的，效果也会很不好的。坦诚、真诚、简历上的每一个点都是自己很努力去学习掌握的。比如很多人在简历上都有写自学能力强，那么我会问你最近在学什么呢，那你说说吧？比如说我最近在学函数式编程，那你用这个写一段代码吧～～～另外，面试的时候要细心，认证，能get到面试官想问的点，不要答非所问，因为很多面试官是很忙的，不要浪费他的时间，资深面试官每个问题都是有目的性的，要认真回答，如果你前面都答的很好，那么<code>winter</code>会有一道压轴大题来让你解决，主要是压压你的锐气，哈哈。</li>
-</ul>
-<h3 id="最近在关注哪些新技术？"><a href="#最近在关注哪些新技术？" class="headerlink" title="最近在关注哪些新技术？"></a>最近在关注哪些新技术？</h3><ul>
-<li>flutter &amp; flutter UI</li>
-<li>serverless</li>
-<li>中国前端联盟</li>
-<li>css新特性</li>
-</ul>
-<h3 id="如何看待35岁中年危机？"><a href="#如何看待35岁中年危机？" class="headerlink" title="如何看待35岁中年危机？"></a>如何看待35岁中年危机？</h3><ul>
-<li>做好自己，5年前有问题是30岁以后的程序员怎么办，现在是35岁的程序员怎么办，过5年来就是40岁以后的程序员怎么办了，其实只要你是一直努力学习，不是浑水摸鱼，都不用担心，大家都能生活的不错的，喵神和狼叔一样都是86的</li>
-<li>时刻应变，不断学习，无惧危机，掌握应变能力，找到自己有优势的地方，完全不需要过于焦虑的</li>
-<li>哪一个行业都有中年危机，<code>Hax</code>进了一个40岁程序员群，发现自己还是最小的，其实大年纪的程序员大都也是发展的不错的。现在这个时代的学习条件是很好的，不用担心，大胆前行</li>
-</ul>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>听完分享之后，其实心中有了一个答案，要在目前的领域专注，深入去做一些事情，不要模糊不定，思前想后。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>GMTC</tag>
-        <tag>职业生涯</tag>
-        <tag>个人成长</tag>
       </tags>
   </entry>
   <entry>
@@ -2412,6 +2344,74 @@
       </tags>
   </entry>
   <entry>
+    <title>GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结</title>
+    <url>/2019/06/20/190620GMTC-%E5%89%8D%E7%AB%AF%E5%A4%9C%E8%AF%9D%E3%80%8A%E8%81%8A%E8%81%8A%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E5%92%8C%E5%8F%91%E5%B1%95%E3%80%8B%E4%BC%9A%E5%90%8E%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p><img src="https://jdc-wechat.s3.cn-north-1.jdcloud-oss.com/tech/GMTC.jpg" alt></p>
+<p>&nbsp;&nbsp;今天晚上去参加了<code>winter</code>主持的<strong>前端夜话：聊聊前端工程师的成长和发展</strong>圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：</p>
+<ul>
+<li>主持人：程劭非（winter），前手机淘宝前端负责人</li>
+<li>圆桌论坛嘉宾：</li>
+<li>贺师俊（Hax），百姓网技术顾问</li>
+<li>王巍（喵神），LINE高级软件工程师</li>
+<li>桑世龙（狼叔），阿里巴巴前端技术专家</li>
+<li>张鑫旭，《CSS世界》作者</li>
+</ul>
+<p>这里分享下自己在会议上记录下来的一些受用的地方，主要是<code>winter</code>提出的几个非常有代表性的问题，各位大佬进行的回答，由于当时记录的时候只是大概记了下大致意思，没有录音，难免会有疏漏，如若有不正确的地方，可以及时反馈更正。<a id="more"></a></p>
+<h3 id="各位的职业生涯大概描述一下？"><a href="#各位的职业生涯大概描述一下？" class="headerlink" title="各位的职业生涯大概描述一下？"></a>各位的职业生涯大概描述一下？</h3><p>从各位针对这个问题的回答来看，大家都经历过大的公司和小的公司，刚开始的时候也都是从小公司起步，一步一步的摸索前进，慢慢积累，经过不断的努力，带来属于自己的幸运，现在发展成为在领域内有一定知名度，所以我认为大家现在都不应该浮躁，要踏实的去做好自己所在的领域，去积累、沉淀、总结。鑫旭说出的<strong>专注</strong>这两个字很是受用，他从09年毕业到现在一直专注在前端css重构领域，也是取得了很好的结果和成就，现在的我有时候是有些浮躁，总是觉得自己有什么技术都应该学以下，殊不知到最后大概率会落个样样不精通的结果，这一点要多加注意，要能够沉下心来创造出一些东西来，不要以为用别人的框架做出来点东西就是精通XXX，要能创造出一些有用的框架或者库才是应该去着重考虑的。</p>
+<h3 id="如何看待全栈？"><a href="#如何看待全栈？" class="headerlink" title="如何看待全栈？"></a>如何看待全栈？</h3><p>狼叔：全栈代表你解决问题的一种能力，当你在面临一些与后端相关的问题的时候，如果你有一些后端的知识储备的话，可以让你在处理和做选择的时候更明智一些。</p>
+<p>鑫旭：其实是不怎么觉得全栈的必要性的，你能把现在的前端领域先吃透了再去考虑全栈吧，在现在的大公司更需要的是有深度的人，而不是没有深度，其他都懂点皮毛的人，大公司分工明确，你把自己负责的部分做到极致是很重要的。</p>
+<p><code>Hax</code>：全栈这个事情可以看工程师的类型，看你内心的驱动力，</p>
+<ul>
+<li>第一类： 如果你是想做出非常厉害的产品，改变世界的产品，这样当然是如果你能从前到后，甚至是运营你都能做好，那是再好不过了。</li>
+<li>第二类：如果你可能要解决一个世界级的难题，做一个专家型的，那你就需要在这个领域好好深入。</li>
+</ul>
+<p>所以还是要根据你的特点选好自己的位置。</p>
+<p>喵神： 还是认同领域内深度发展，把你现在所做的领域做到极致。</p>
+<h3 id="选择大公司还是小公司，大公司和小公司有什么不同？"><a href="#选择大公司还是小公司，大公司和小公司有什么不同？" class="headerlink" title="选择大公司还是小公司，大公司和小公司有什么不同？"></a>选择大公司还是小公司，大公司和小公司有什么不同？</h3><p>针对这个问题，我大致总结下：</p>
+<ul>
+<li>大公司更看重你的深度，你所在的技术栈足够专业</li>
+<li>大公司的平台与福利相对好一些，当然一些小公司也有福利不错的</li>
+<li>小公司流程相对简单一些，杂事相对少一些，主要就是做事情</li>
+<li>小公司有一个好处是：如果你的CEO或者高管很优秀，那么你可以有机会跟他们进行面对面的交流沟通，如果是在大公司可能这样的机会是很少的</li>
+<li>选择公司的时候要考虑去这家公司想得到的是什么，比如<code>Hax</code>当初选择百姓网的时候，也是可以去BAT这样的大厂的，他当时之所以选择了百姓网是因为他想去验证一些技术架构，而这个在当时如果去了大厂或许就不能够得以验证了；而现在<code>Hax</code>选择离开百姓网去360则是因为有些事情在小公司是做不下去的，比如能够去参加到js的标准制定当中，所以根据你的时间阶段去做对应的选择。</li>
+</ul>
+<h3 id="寒冬期自己应该做些什么？"><a href="#寒冬期自己应该做些什么？" class="headerlink" title="寒冬期自己应该做些什么？"></a>寒冬期自己应该做些什么？</h3><ul>
+<li>鑫旭：内功修炼很重要，什么火就学点什么可能更会被淘汰，<strong>要专注</strong>。</li>
+<li>狼叔： 当没有目标的时候向钱看，有目标的时候向前看。</li>
+<li>喵神：社区里多帮助其他人，多参与一些开源项目，多写一些框架、书，对外输出影响力，你只要比别人跑得快，你也没问题。专一方向的深度很重要，技术预判很重要，选对车道，不要逆行。</li>
+<li><code>Hax</code>：这都是命，滑稽一下，其实就是把你无法控制的事情抛诸脑后，做好你可以做的，机遇和运气是留给有准备的人。</li>
+<li>君子闲时要有吃紧的心思，忙时要有悠闲的趣味</li>
+</ul>
+<h3 id="面试有什么建议？"><a href="#面试有什么建议？" class="headerlink" title="面试有什么建议？"></a>面试有什么建议？</h3><ul>
+<li>鑫旭：要展示真实的自己，不要过度包装自己，拿起石头砸自己脚</li>
+<li>狼叔：自己要学会给自己创造机会，比如做开源项目，参与翻译，自己给自己创造场景，坚持学习，打好基本功</li>
+<li>喵神：挂人的话技术只是一方面的，更看重的是学习能力，要能够快速学习所需知识进行工作开展，学习能力怎么看呢？会从跟你交流的能力来进行判断，所以平时要抽出来时间做做分享，多与同事进行沟通，学会很好的去表达自己的想法。</li>
+<li><code>Hax</code>：基础是本身技术要不断学习，不要包装过度，宣称的经验要跟自己的实际能力匹配，<strong>真诚</strong>是非常重要的，是否坦诚、踏实。技术是来不得虚的，为人需要保持真诚才行，一两次面试失败没什么，只要自己一直在总结进步就好。</li>
+<li><code>winter</code>：不要过度包装，面试的时候面试官一般都能把你拆出来的，这样是很尴尬的，效果也会很不好的。坦诚、真诚、简历上的每一个点都是自己很努力去学习掌握的。比如很多人在简历上都有写自学能力强，那么我会问你最近在学什么呢，那你说说吧？比如说我最近在学函数式编程，那你用这个写一段代码吧～～～另外，面试的时候要细心，认证，能get到面试官想问的点，不要答非所问，因为很多面试官是很忙的，不要浪费他的时间，资深面试官每个问题都是有目的性的，要认真回答，如果你前面都答的很好，那么<code>winter</code>会有一道压轴大题来让你解决，主要是压压你的锐气，哈哈。</li>
+</ul>
+<h3 id="最近在关注哪些新技术？"><a href="#最近在关注哪些新技术？" class="headerlink" title="最近在关注哪些新技术？"></a>最近在关注哪些新技术？</h3><ul>
+<li>flutter &amp; flutter UI</li>
+<li>serverless</li>
+<li>中国前端联盟</li>
+<li>css新特性</li>
+</ul>
+<h3 id="如何看待35岁中年危机？"><a href="#如何看待35岁中年危机？" class="headerlink" title="如何看待35岁中年危机？"></a>如何看待35岁中年危机？</h3><ul>
+<li>做好自己，5年前有问题是30岁以后的程序员怎么办，现在是35岁的程序员怎么办，过5年来就是40岁以后的程序员怎么办了，其实只要你是一直努力学习，不是浑水摸鱼，都不用担心，大家都能生活的不错的，喵神和狼叔一样都是86的</li>
+<li>时刻应变，不断学习，无惧危机，掌握应变能力，找到自己有优势的地方，完全不需要过于焦虑的</li>
+<li>哪一个行业都有中年危机，<code>Hax</code>进了一个40岁程序员群，发现自己还是最小的，其实大年纪的程序员大都也是发展的不错的。现在这个时代的学习条件是很好的，不用担心，大胆前行</li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>听完分享之后，其实心中有了一个答案，要在目前的领域专注，深入去做一些事情，不要模糊不定，思前想后。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>GMTC</tag>
+        <tag>职业生涯</tag>
+        <tag>个人成长</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端通过Blob实现文件下载</title>
     <url>/2019/08/30/190830%E5%89%8D%E7%AB%AF%E9%80%9A%E8%BF%87Blob%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
     <content><![CDATA[<blockquote>
@@ -2498,9 +2498,9 @@
         <category>实用小技能</category>
       </categories>
       <tags>
+        <tag>Mac</tag>
         <tag>上传文件</tag>
         <tag>下载文件</tag>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -2534,8 +2534,8 @@
         <category>实用小技能</category>
       </categories>
       <tags>
-        <tag>Vscode快捷键</tag>
         <tag>Mac</tag>
+        <tag>Vscode快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -2555,8 +2555,8 @@
         <category>实用小技能</category>
       </categories>
       <tags>
-        <tag>查看java安装路径</tag>
         <tag>Mac</tag>
+        <tag>查看java安装路径</tag>
         <tag>环境变量</tag>
         <tag>jdk</tag>
       </tags>

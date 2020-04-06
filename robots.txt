@@ -12,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://blog.lsqy.space/sitemap.xml
-Sitemap: https://blog.lsqy.space/baidusitemap.xml
+Sitemap: https://www.lsqy.tech/sitemap.xml
+Sitemap: https://www.lsqy.tech/baidusitemap.xml

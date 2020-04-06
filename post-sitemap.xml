@@ -280,7 +280,7 @@
     </url>
 
     <url>
-        <loc>https://lsqy.tech/2015/12/05/151205bash%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
+        <loc>https://lsqy.tech/2015/12/13/151213%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E5%A4%A7%E5%90%88%E9%9B%86/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -288,7 +288,7 @@
     </url>
 
     <url>
-        <loc>https://lsqy.tech/2015/12/13/151213%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E5%A4%A7%E5%90%88%E9%9B%86/</loc>
+        <loc>https://lsqy.tech/2015/12/05/151205bash%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -400,14 +400,6 @@
     </url>
 
     <url>
-        <loc>https://lsqy.tech/2016/11/17/161117bable%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
-        <lastmod>2018-11-15T08:32:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://lsqy.tech/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -417,6 +409,14 @@
 
     <url>
         <loc>https://lsqy.tech/2016/11/20/161120babel-preset-node6/</loc>
+        <lastmod>2018-11-15T08:32:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://lsqy.tech/2016/11/17/161117bable%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
