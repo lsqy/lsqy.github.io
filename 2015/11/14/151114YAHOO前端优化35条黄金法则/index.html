@@ -1,25 +1,46 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
+<!doctype html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion">
 <head>
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO" />
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端优化35条" />
 
 
 
@@ -28,138 +49,66 @@
 
 
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
 
 
 
-
-
-
-
-  <meta name="baidu-site-verification" content="U90mznE9hO">
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.5.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="这些建议值得每一个前端人士收藏，并且真正领会其每一条所能带来的性能提升，在这里也是时刻提醒自己性能优化一定不能放松！！">
+<meta name="description" content="这些建议值得每一个前端人士收藏，并且真正领会其每一条所能带来的性能提升，在这里也是时刻提醒自己性能优化一定不能放松！！">
 <meta name="keywords" content="前端优化35条">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YAHOO前端优化35条黄金法则">
-<meta property="og:url" content="https://blog.lsqy.space/2015/11/14/151114YAHOO前端优化35条黄金法则/index.html">
+<meta property="og:url" content="https://lsqy.tech/2015/11/14/151114YAHOO前端优化35条黄金法则/index.html">
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="这些建议值得每一个前端人士收藏，并且真正领会其每一条所能带来的性能提升，在这里也是时刻提醒自己性能优化一定不能放松！！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-15T08:32:24.155Z">
+<meta property="og:updated_time" content="2018-11-15T08:32:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YAHOO前端优化35条黄金法则">
 <meta name="twitter:description" content="这些建议值得每一个前端人士收藏，并且真正领会其每一条所能带来的性能提升，在这里也是时刻提醒自己性能优化一定不能放松！！">
 
 
 
-
-
-
-  <link rel="canonical" href="https://blog.lsqy.space/2015/11/14/151114YAHOO前端优化35条黄金法则/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
   };
 </script>
 
-  <title>YAHOO前端优化35条黄金法则 | lsqy'blog</title>
+
+  <title> YAHOO前端优化35条黄金法则 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
   
 
 
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86960661-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-86960661-1');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
 </script>
-
 
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c618a46b795839e28f3cb10d9748b961";
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -170,225 +119,147 @@
 
 
 
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner"><div class="site-meta ">
+  
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">lsqy'blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish!</h1>
-      
-    
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
 </div>
 
-
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Categories
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-awesome">
-
-    
-    
-    
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/awesome" rel="section"><i class="menu-item-icon fa fa-fw fa-html5"></i> <br />收藏</a>
-
-  </li>
-
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br />
+            
+            优秀项目&文章
+          </a>
+        </li>
       
+
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="popup-trigger">
+            <a href="#" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
         </li>
       
     </ul>
   
 
   
-    
-
-  
-
-  
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
 </div>
-
 
 
     </div>
   
 </nav>
 
-
-
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
           <div id="content" class="content">
             
 
@@ -396,98 +267,57 @@
     
 
   
-
-  
-  
   
 
   
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2015/11/14/151114YAHOO前端优化35条黄金法则/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsqy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lsqy'blog">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
 
         
         
-          <h2 class="post-title" itemprop="name headline">YAHOO前端优化35条黄金法则
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                YAHOO前端优化35条黄金法则
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-11-14 20:16:49" itemprop="dateCreated datePublished" datetime="2015-11-14T20:16:49+08:00">2015-11-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
-              
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-14T20:16:49+08:00" content="2015-11-14">
+              2015-11-14
+            </time>
           </span>
 
           
             <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
+              &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/性能优化/" itemprop="url" rel="index">
+                    <span itemprop="name">性能优化</span>
+                  </a>
+                </span>
 
                 
                 
+
               
             </span>
           
@@ -495,35 +325,30 @@
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2015/11/14/151114YAHOO前端优化35条黄金法则/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/11/14/151114YAHOO前端优化35条黄金法则/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/14/151114YAHOO前端优化35条黄金法则/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
+
+          
           
 
           
-
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
           
-
-          
-              <div class="post-description">这些建议值得每一个前端人士收藏，并且真正领会其每一条所能带来的性能提升，在这里也是时刻提醒自己性能优化一定不能放松！！</div>
-          
-
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -612,10 +437,8 @@
 <li>避免空的图像来源</li>
 </ul>
 <h2 id="11、使用内容分发网络"><a href="#11、使用内容分发网络" class="headerlink" title="11、使用内容分发网络"></a>11、使用内容分发网络</h2><p>  用户与你网站服务器的接近程度会影响响应时间的长短。把你的网站内容分散到多个、处于不同地域位置的服务器上可以加快下载速度。但是首先我们应该做些什么呢？<br>  按地域布置网站内容的第一步并不是要尝试重新架构你的网站让他们在分发服务器上正常运行。根据应用的需求来改变网站结构，这可能会包括一些比较复杂的任 务，如在服务器间同步Session状态和合并数据库更新等。要想缩短用户和内容服务器的距离，这些架构步骤可能是不可避免的。<br>  要记住，在终端用户的响应时间中有80%到90%的响应时间用于下载图像、样式表、脚本、Flash等页面内容。这就是网站性能黄金守则。和重新设计你的 应用程序架构这样比较困难的任务相比，首先来分布静态内容会更好一点。这不仅会缩短响应时间，而且对于内容分发网络来说它更容易实现。<br>  内容分发网络（<code>Content Delivery Network，CDN</code>）是由一系列分散到各个不同地理位置上的Web服务器组成的，它提高了网站内容的传输速度。用于向用户传输内容的服务器主要是根据 和用户在网络上的靠近程度来指定的。例如，拥有最少网络跳数（<code>network hops</code>）和响应速度最快的服务器会被选定。<br>  一些大型的网络公司拥有自己的CDN，但是使用像<code>Akamai Technologies，Mirror Image Internet</code>，或者<code>Limelight Networks</code>这样的CDN服务成本却非常高。对于刚刚起步的企业和个人网站来说，可能没有使用CDN的成本预算，但是随着目标用户群的不断扩大和更加 全球化，CDN就是实现快速响应所必需的了。以Yahoo来说，他们转移到CDN上的网站程序静态内容节省了终端用户20%以上的响应时间。使用CDN是一个只需要相对简单地修改代码实现显著改善网站访问速度的方法。</p>
-<h2 id="12、为文件头指定Expires或Cache-Control"><a href="#12、为文件头指定Expires或Cache-Control" class="headerlink" title="12、为文件头指定Expires或Cache-Control"></a>12、为文件头指定<code>Expires</code>或<code>Cache-Control</code></h2><p>  这条守则包括两方面的内容：<br>对于静态内容：设置文件头过期时间<code>Expires</code>的值为<code>“Never expire”</code>（永不过期）<br>对于动态内容：使用恰当的<code>Cache-Control</code>文件头来帮助浏览器进行有条件的请求<br>  网页内容设计现在越来越丰富，这就意味着页面中要包含更多的脚本、样式表、图片和Flash。第一次访问你页面的用户就意味着进行多次的<code>HTTP</code>请求，但 是通过使用<code>Expires</code>文件头就可以使这样内容具有缓存性。它避免了接下来的页面访问中不必要的HTTP请求。<code>Expires</code>文件头经常用于图像文件， 但是应该在所有的内容都使用他，包括脚本、样式表和Flash等。<br>  浏览器（和代理）使用缓存来减少HTTP请求的大小和次数以加快页面访问速度。Web服务器在HTTP响应中使用Expires文件头来告诉客户端内容需 要缓存多长时间。下面这个例子是一个较长时间的Expires文件头，它告诉浏览器这个响应直到2010年4月15日才过期。<br>     <code>Expires: Thu, 15 Apr 2010 20:00:00 GMT</code><br>  如果你使用的是Apache服务器，可以使用ExpiresDefault来设定相对当前日期的过期时间。下面这个例子是使用 ExpiresDefault来设定请求时间后10年过期的文件头：<br>      <code>ExpiresDefault &quot;access plus 10 years&quot;</code><br>  要切记，如果使用了Expires文件头，当页面内容改变时就必须改变内容的文件名。依Yahoo!来说我们经常使用这样的步骤：在内容的文件名中加上版 本号，如<code>yahoo_2.0.6.js</code>。
-  使用Expires文件头只有会在用户已经访问过你的网站后才会起作用。当用户首次访问你的网站时这对减少HTTP请求次数来说是无效的，因为浏览器的缓 存是空的。因此这种方法对于你网站性能的改进情况要依据他们“预缓存”存在时对你页面的点击频率（“预缓存”中已经包含了页面中的所有内容）。 Yahoo!建立了一套测量方法，我们发现所有的页面浏览量中有75~85%都有“预缓存”。通过使用Expires文件头，增加了缓存在浏览器中内容的 数量，并且可以在用户接下来的请求中再次使用这些内容，这甚至都不需要通过用户发送一个字节的请求。</p>
-<h2 id="13、Gzip压缩文件内容"><a href="#13、Gzip压缩文件内容" class="headerlink" title="13、Gzip压缩文件内容"></a>13、Gzip压缩文件内容</h2><p>  网络传输中的HTTP请求和应答时间可以通过前端机制得到显著改善。的确，终端用户的带宽、互联网提供者、与对等交换点的靠近程度等都不是网站开发者所能 决定的。但是还有其他因素影响着响应时间。通过减小HTTP响应的大小可以节省HTTP响应时间。<br>  从<code>HTTP/1.1</code>开始，web客户端都默认支持HTTP请求中有<code>Accept-Encoding</code>文件头的压缩格式：<br>      <code>Accept-Encoding: gzip, deflate</code><br>  如果web服务器在请求的文件头中检测到上面的代码，就会以客户端列出的方式压缩响应内容。Web服务器把压缩方式通过响应文件头中的<code>Content- Encoding</code>来返回给浏览器。<br>      <code>Content-Encoding: gzip</code><br>  <code>Gzip</code>是目前最流行也是最有效的压缩方式。这是由GNU项目开发并通过RFC 1952来标准化的。另外仅有的一个压缩格式是deflate，但是它的使用范围有限效果也稍稍逊色。<br>  <code>Gzip</code>大概可以减少70%的响应规模。目前大约有90%通过浏览器传输的互联网交换支持<code>gzip</code>格式。如果你使用的是<code>Apache</code>，<code>gzip</code>模块配置和 你的版本有关：<code>Apache 1.3</code>使用<code>mod_zip</code>，而<code>Apache 2.x</code>使用<code>moflate</code>。
-  浏览器和代理都会存在这样的问题：浏览器期望收到的和实际接收到的内容会存在不匹配的现象。幸好，这种特殊情况随着旧式浏览器使用量的减少在减少。 <code>Apache</code>模块会通过自动添加适当的<code>Vary</code>响应文件头来避免这种状况的出现。<br>  服务器根据文件类型来选择需要进行gzip压缩的文件，但是这过于限制了可压缩的文件。大多数web服务器会压缩HTML文档。对脚本和样式表进行压缩同 样也是值得做的事情，但是很多web服务器都没有这个功能。实际上，压缩任何一个文本类型的响应，包括XML和JSON，都值得的。图像和PDF文件由于 已经压缩过了所以不能再进行gzip压缩。如果试图gizp压缩这些文件的话不但会浪费CPU资源还会增加文件的大小。<br>   Gzip压缩所有可能的文件类型是减少文件体积增加用户体验的简单方法。</p>
+<h2 id="12、为文件头指定Expires或Cache-Control"><a href="#12、为文件头指定Expires或Cache-Control" class="headerlink" title="12、为文件头指定Expires或Cache-Control"></a>12、为文件头指定<code>Expires</code>或<code>Cache-Control</code></h2><p>  这条守则包括两方面的内容：<br>对于静态内容：设置文件头过期时间<code>Expires</code>的值为<code>“Never expire”</code>（永不过期）<br>对于动态内容：使用恰当的<code>Cache-Control</code>文件头来帮助浏览器进行有条件的请求<br>  网页内容设计现在越来越丰富，这就意味着页面中要包含更多的脚本、样式表、图片和Flash。第一次访问你页面的用户就意味着进行多次的<code>HTTP</code>请求，但 是通过使用<code>Expires</code>文件头就可以使这样内容具有缓存性。它避免了接下来的页面访问中不必要的HTTP请求。<code>Expires</code>文件头经常用于图像文件， 但是应该在所有的内容都使用他，包括脚本、样式表和Flash等。<br>  浏览器（和代理）使用缓存来减少HTTP请求的大小和次数以加快页面访问速度。Web服务器在HTTP响应中使用Expires文件头来告诉客户端内容需 要缓存多长时间。下面这个例子是一个较长时间的Expires文件头，它告诉浏览器这个响应直到2010年4月15日才过期。<br>     <code>Expires: Thu, 15 Apr 2010 20:00:00 GMT</code><br>  如果你使用的是Apache服务器，可以使用ExpiresDefault来设定相对当前日期的过期时间。下面这个例子是使用 ExpiresDefault来设定请求时间后10年过期的文件头：<br>      <code>ExpiresDefault &quot;access plus 10 years&quot;</code><br>  要切记，如果使用了Expires文件头，当页面内容改变时就必须改变内容的文件名。依Yahoo!来说我们经常使用这样的步骤：在内容的文件名中加上版 本号，如<code>yahoo_2.0.6.js</code>。<br>  使用Expires文件头只有会在用户已经访问过你的网站后才会起作用。当用户首次访问你的网站时这对减少HTTP请求次数来说是无效的，因为浏览器的缓 存是空的。因此这种方法对于你网站性能的改进情况要依据他们“预缓存”存在时对你页面的点击频率（“预缓存”中已经包含了页面中的所有内容）。 Yahoo!建立了一套测量方法，我们发现所有的页面浏览量中有75~85%都有“预缓存”。通过使用Expires文件头，增加了缓存在浏览器中内容的 数量，并且可以在用户接下来的请求中再次使用这些内容，这甚至都不需要通过用户发送一个字节的请求。</p>
+<h2 id="13、Gzip压缩文件内容"><a href="#13、Gzip压缩文件内容" class="headerlink" title="13、Gzip压缩文件内容"></a>13、Gzip压缩文件内容</h2><p>  网络传输中的HTTP请求和应答时间可以通过前端机制得到显著改善。的确，终端用户的带宽、互联网提供者、与对等交换点的靠近程度等都不是网站开发者所能 决定的。但是还有其他因素影响着响应时间。通过减小HTTP响应的大小可以节省HTTP响应时间。<br>  从<code>HTTP/1.1</code>开始，web客户端都默认支持HTTP请求中有<code>Accept-Encoding</code>文件头的压缩格式：<br>      <code>Accept-Encoding: gzip, deflate</code><br>  如果web服务器在请求的文件头中检测到上面的代码，就会以客户端列出的方式压缩响应内容。Web服务器把压缩方式通过响应文件头中的<code>Content- Encoding</code>来返回给浏览器。<br>      <code>Content-Encoding: gzip</code><br>  <code>Gzip</code>是目前最流行也是最有效的压缩方式。这是由GNU项目开发并通过RFC 1952来标准化的。另外仅有的一个压缩格式是deflate，但是它的使用范围有限效果也稍稍逊色。<br>  <code>Gzip</code>大概可以减少70%的响应规模。目前大约有90%通过浏览器传输的互联网交换支持<code>gzip</code>格式。如果你使用的是<code>Apache</code>，<code>gzip</code>模块配置和 你的版本有关：<code>Apache 1.3</code>使用<code>mod_zip</code>，而<code>Apache 2.x</code>使用<code>moflate</code>。<br>  浏览器和代理都会存在这样的问题：浏览器期望收到的和实际接收到的内容会存在不匹配的现象。幸好，这种特殊情况随着旧式浏览器使用量的减少在减少。 <code>Apache</code>模块会通过自动添加适当的<code>Vary</code>响应文件头来避免这种状况的出现。<br>  服务器根据文件类型来选择需要进行gzip压缩的文件，但是这过于限制了可压缩的文件。大多数web服务器会压缩HTML文档。对脚本和样式表进行压缩同 样也是值得做的事情，但是很多web服务器都没有这个功能。实际上，压缩任何一个文本类型的响应，包括XML和JSON，都值得的。图像和PDF文件由于 已经压缩过了所以不能再进行gzip压缩。如果试图gizp压缩这些文件的话不但会浪费CPU资源还会增加文件的大小。<br>   Gzip压缩所有可能的文件类型是减少文件体积增加用户体验的简单方法。</p>
 <h2 id="14、配置ETag"><a href="#14、配置ETag" class="headerlink" title="14、配置ETag"></a>14、配置ETag</h2><p>  <code>Entity tags（ETags）</code>（实体标签）是web服务器和浏览器用于判断浏览器缓存中的内容和服务器中的原始内容是否匹配的一种机制（“实体”就是所说的“内 容”，包括图片、脚本、样式表等）。增加ETag为实体的验证提供了一个比使用“last-modified date（上次编辑时间）”更加灵活的机制。Etag是一个识别内容版本号的唯一字符串。唯一的格式限制就是它必须包含在双引号内。原始服务器通过含有 ETag文件头的响应指定页面内容的ETag。</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT</span><br><span class="line">ETag: &quot;10c24bc-4ab-457e1c1f&quot;</span><br><span class="line">Content-Length: 12195</span><br></pre></td></tr></table></figure>
 
@@ -625,7 +448,7 @@
 <p>  ETag的问题在于，它是根据可以辨别网站所在的服务器的具有唯一性的属性来生成的。当浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时 ETag就会不匹配，这种情况对于使用服务器组和处理请求的网站来说是非常常见的。默认情况下，Apache和IIS都会把数据嵌入ETag中，这会显著 减少多服务器间的文件验证冲突。<br>   Apache 1.3和2.x中的ETag格式为<code>inode-size-timestamp</code>。即使某个文件在不同的服务器上会处于相同的目录下，文件大小、权限、时间戳 等都完全相同，但是在不同服务器上他们的内码也是不同的。<br>  IIS 5.0和IIS 6.0处理ETag的机制相似。IIS中的ETag格式为<code>Filetimestamp:ChangeNumber</code>。用<code>ChangeNumber</code>来跟踪 IIS配置的改变。网站所用的不同IIS服务器间ChangeNumber也不相同。不同的服务器上的Apache和IIS即使对于完全相同的内容产生的 ETag在也不相同，用户并不会接收到一个小而快的304响应；相反他们会接收一个正常的200响应并下载全部内容。如果你的网站只放在一台服务器上，就 不会存在这个问题。但是如果你的网站是架设在多个服务器上，并且使用Apache和 IIS产生默认的ETag配置，你的用户获得页面就会相对慢一点，服务器会传输更多的内容，占用更多的带宽，代理也不会有效地缓存你的网站内容。即使你的 内容拥有Expires文件头，无论用户什么时候点击“刷新”或者“重载”按钮都会发送相应的GET请求。<br>   如果你没有使用ETag提供的灵活的验证模式，那么干脆把所有的ETag都去掉会更好。Last-Modified文件头验证是基于内容的时间戳的。去掉 ETag文件头会减少响应和下次请求中文件的大小。微软的这篇支持文稿讲述了如何去掉ETag。在Apache中，只需要在配置文件中简单添加下面一行代 码就可以了：</p>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileETag none</span><br></pre></td></tr></table></figure>
 
-<h2 id="15、尽早刷新输出缓冲"><a href="#15、尽早刷新输出缓冲" class="headerlink" title="15、尽早刷新输出缓冲"></a>15、尽早刷新输出缓冲</h2><p>  当用户请求一个页面时，无论如何都会花费200到500毫秒用于后台组织HTML文件。在这期间，浏览器会一直空闲等待数据返回。在PHP中，你可以使用 flush()方法，它允许你把已经编译的好的部分HTML响应文件先发送给浏览器，这时浏览器就会可以下载文件中的内容（脚本等）而后台同时处理剩余的 HTML页面。这样做的效果会在后台烦恼或者前台较空闲时更加明显。<br>  输出缓冲应用最好的一个地方就是紧跟在<head><meta name="generator" content="Hexo 3.8.0">之后，因为HTML的头部分容易生成而且头部往往包含CSS和JavaScript文件，这样浏览器就可以在后台编译剩余HTML的同时并行下 载它们。 例子：</head></p>
+<h2 id="15、尽早刷新输出缓冲"><a href="#15、尽早刷新输出缓冲" class="headerlink" title="15、尽早刷新输出缓冲"></a>15、尽早刷新输出缓冲</h2><p>  当用户请求一个页面时，无论如何都会花费200到500毫秒用于后台组织HTML文件。在这期间，浏览器会一直空闲等待数据返回。在PHP中，你可以使用 flush()方法，它允许你把已经编译的好的部分HTML响应文件先发送给浏览器，这时浏览器就会可以下载文件中的内容（脚本等）而后台同时处理剩余的 HTML页面。这样做的效果会在后台烦恼或者前台较空闲时更加明显。<br>  输出缓冲应用最好的一个地方就是紧跟在<head><meta name="generator" content="Hexo 3.9.0">之后，因为HTML的头部分容易生成而且头部往往包含CSS和JavaScript文件，这样浏览器就可以在后台编译剩余HTML的同时并行下 载它们。 例子：</head></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- css, js --&gt;</span><br><span class="line">     `&lt;/head&gt;`</span><br><span class="line">     &lt;?php flush(); ?&gt;</span><br><span class="line">     `&lt;body&gt;`</span><br><span class="line">&lt;!-- content --&gt;</span><br></pre></td></tr></table></figure>
 
 <p>为了证明使用这项技术的好处，Yahoo!搜索率先研究并完成了用户测试。</p>
@@ -637,9 +460,8 @@
 <li>用<link>代替@import</li>
 <li>避免使用滤镜</li>
 </ul>
-<h2 id="17、把样式表置于顶部"><a href="#17、把样式表置于顶部" class="headerlink" title="17、把样式表置于顶部"></a>17、把样式表置于顶部</h2><p>  在研究Yahoo!的性能表现时，我们发现把样式表放到文档的<head><meta name="generator" content="Hexo 3.8.0">内部似乎会加快页面的下载速度。这是因为把样式表放到<head><meta name="generator" content="Hexo 3.8.0">内会使页面有步骤的加载显示。<br>  注重性能的前端服务器往往希望页面有秩序地加载。同时，我们也希望浏览器把已经接收到内容尽可能显示出来。这对于拥有较多内容的页面和网速较慢的用户来说 特别重要。向用户返回可视化的反馈，比如进程指针，已经有了较好的研究并形成了正式文档。在我们的研究中HTML页面就是进程指针。当浏览器有序地加载文 件头、导航栏、顶部的logo等对于等待页面加载的用户来说都可以作为可视化的反馈。这从整体上改善了用户体验。<br>  把样式表放在文档底部的问题是在包括<code>Internet Explorer</code>在内的很多浏览器中这会中止内容的有序呈现。浏览器中止呈现是为了避免样式改变引起的页面元素重绘。用户不得不面对一个空白页面。<br>   HTML规范清楚指出样式表要放包含在页面的<code>&lt;head /&gt;</code>区域内,和<code>&lt;a /&gt;</code>不同，<code>&lt;link /&gt;</code>只能出现在文档的<code>&lt;head /&gt;</code>区域内，尽管它可以多次使用它”。无论是引起白屏还是出现没有样式化的内容都不值得去尝试。最好的方案就是按照HTML规范在文档<code>&lt;head /&gt;</code>内加载你的样式表。</head></head></p>
-<h2 id="18、避免使用CSS表达式（）"><a href="#18、避免使用CSS表达式（）" class="headerlink" title="18、避免使用CSS表达式（）"></a>18、避免使用CSS表达式（）</h2><p>  CSS表达式是动态设置CSS属性的强大（但危险）方法。<code>Internet Explorer</code>从第5个版本开始支持CSS表达式。下面的例子中，使用CSS表达式可以实现隔一个小时切换一次背景颜色：<br>      <code>background-color: ( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; )</code>;
-如上所示，中使用了JavaScript表达式。CSS属性根据JavaScript表达式的计算结果来设置。 方法在其它浏览器中不起作用，因此在跨浏览器的设计中单独针对Internet Explorer设置时会比较有用。<br>  表达式的问题就在于它的计算频率要比我们想象的多。不仅仅是在页面显示和缩放时，就是在页面滚动、乃至移动鼠标时都会要重新计算一次。给CSS表达式增加 一个计数器可以跟踪表达式的计算频率。在页面中随便移动鼠标都可以轻松达到10000次以上的计算量。<br>  一个减少CSS表达式计算次数的方法就是使用一次性的表达式，它在第一次运行时将结果赋给指定的样式属性，并用这个属性来代替CSS表达式。如果样式属性 必须在页面周期内动态地改变，使用事件句柄来代替CSS表达式是一个可行办法。如果必须使用CSS表达式，一定要记住它们要计算成千上万次并且可能会对你 页面的性能产生影响。</p>
+<h2 id="17、把样式表置于顶部"><a href="#17、把样式表置于顶部" class="headerlink" title="17、把样式表置于顶部"></a>17、把样式表置于顶部</h2><p>  在研究Yahoo!的性能表现时，我们发现把样式表放到文档的<head><meta name="generator" content="Hexo 3.9.0">内部似乎会加快页面的下载速度。这是因为把样式表放到<head><meta name="generator" content="Hexo 3.9.0">内会使页面有步骤的加载显示。<br>  注重性能的前端服务器往往希望页面有秩序地加载。同时，我们也希望浏览器把已经接收到内容尽可能显示出来。这对于拥有较多内容的页面和网速较慢的用户来说 特别重要。向用户返回可视化的反馈，比如进程指针，已经有了较好的研究并形成了正式文档。在我们的研究中HTML页面就是进程指针。当浏览器有序地加载文 件头、导航栏、顶部的logo等对于等待页面加载的用户来说都可以作为可视化的反馈。这从整体上改善了用户体验。<br>  把样式表放在文档底部的问题是在包括<code>Internet Explorer</code>在内的很多浏览器中这会中止内容的有序呈现。浏览器中止呈现是为了避免样式改变引起的页面元素重绘。用户不得不面对一个空白页面。<br>   HTML规范清楚指出样式表要放包含在页面的<code>&lt;head /&gt;</code>区域内,和<code>&lt;a /&gt;</code>不同，<code>&lt;link /&gt;</code>只能出现在文档的<code>&lt;head /&gt;</code>区域内，尽管它可以多次使用它”。无论是引起白屏还是出现没有样式化的内容都不值得去尝试。最好的方案就是按照HTML规范在文档<code>&lt;head /&gt;</code>内加载你的样式表。</head></head></p>
+<h2 id="18、避免使用CSS表达式（）"><a href="#18、避免使用CSS表达式（）" class="headerlink" title="18、避免使用CSS表达式（）"></a>18、避免使用CSS表达式（）</h2><p>  CSS表达式是动态设置CSS属性的强大（但危险）方法。<code>Internet Explorer</code>从第5个版本开始支持CSS表达式。下面的例子中，使用CSS表达式可以实现隔一个小时切换一次背景颜色：<br>      <code>background-color: ( (new Date()).getHours()%2 ? &quot;#B8D4FF&quot; : &quot;#F08A00&quot; )</code>;<br>如上所示，中使用了JavaScript表达式。CSS属性根据JavaScript表达式的计算结果来设置。 方法在其它浏览器中不起作用，因此在跨浏览器的设计中单独针对Internet Explorer设置时会比较有用。<br>  表达式的问题就在于它的计算频率要比我们想象的多。不仅仅是在页面显示和缩放时，就是在页面滚动、乃至移动鼠标时都会要重新计算一次。给CSS表达式增加 一个计数器可以跟踪表达式的计算频率。在页面中随便移动鼠标都可以轻松达到10000次以上的计算量。<br>  一个减少CSS表达式计算次数的方法就是使用一次性的表达式，它在第一次运行时将结果赋给指定的样式属性，并用这个属性来代替CSS表达式。如果样式属性 必须在页面周期内动态地改变，使用事件句柄来代替CSS表达式是一个可行办法。如果必须使用CSS表达式，一定要记住它们要计算成千上万次并且可能会对你 页面的性能产生影响。</p>
 <h2 id="19、用代替-import"><a href="#19、用代替-import" class="headerlink" title="19、用代替@import"></a>19、用<link>代替@import</h2><p>  前面的最佳实现中提到CSS应该放置在顶端以利于有序加载呈现。<br>  在IE中，页面底部@import和使用<link>作用是一样的，因此最好不要使用它。</p>
 <h2 id="20、避免使用滤镜"><a href="#20、避免使用滤镜" class="headerlink" title="20、避免使用滤镜"></a>20、避免使用滤镜</h2><p>  IE独有属性AlphaImageLoader用于修正7.0以下版本中显示PNG图片的半透明效果。这个滤镜的问题在于浏览器加载图片时它会终止内容的 呈现并且冻结浏览器。在每一个元素（不仅仅是图片）它都会运算一次，增加了内存开支，因此它的问题是多方面的。<br>  完全避免使用AlphaImageLoader的最好方法就是使用PNG8格式来代替，这种格式能在IE中很好地工作。如果你确实需要使用 AlphaImageLoader，请使用下划线_filter又使之对IE7以上版本的用户无效。</p>
 <h1 id="四、-JavaScript部分"><a href="#四、-JavaScript部分" class="headerlink" title="四、 JavaScript部分"></a>四、 JavaScript部分</h1><ul>
@@ -702,8 +524,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1． 直接的HTML</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">2． JavaScript</span><br><span class="line"></span><br><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>这两种情况都会引起同样的效果：浏览器会再次向你的服务器发出请求。</p>
-<p><code>Internet Explorer</code> 将向这个页面所在的目录发出一个请求<br><code>Safari and Chrome</code> 将发出对这个页面的一个请求。<br><code>Firefox 3</code> 和更早的版本所采取的动作和<code>Safari and Chrome</code>一样，但是 3.5版本 <code>addressed this issue[bug 444931] and no longer sends a request</code>.
-Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
+<p><code>Internet Explorer</code> 将向这个页面所在的目录发出一个请求<br><code>Safari and Chrome</code> 将发出对这个页面的一个请求。<br><code>Firefox 3</code> 和更早的版本所采取的动作和<code>Safari and Chrome</code>一样，但是 3.5版本 <code>addressed this issue[bug 444931] and no longer sends a request</code>.<br>Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
 <p>1、 发送大量突然的请求将使你的服务器宕机（<code>Cripple your servers</code>），尤其是每天有数百万访问量的页面。</p>
 <p>2、 产生一个从未浏览过的页面将浪费服务器的计算周期（<code>computing cycles</code>）</p>
 <p>3、 损坏用户数据。如果你在请求中追踪状态（以cookie或是其他的方式），你可能会损坏数据。即使这个图像请求并没有返回一个图像，所有的头被浏览器读取并接受，包括所有<code>cookie。While the rest of the response is thrown away, the damage may already be done</code>.</p>
@@ -721,35 +542,28 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
 
       
     </div>
+    
+    <div>
+      
+        
+      
+    </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
+    <div>
+      
+        
+      
+    </div>
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
+            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
           
-            <a href="/tags/前端优化/" rel="tag"># 前端优化</a>
+            <a href="/tags/前端优化/" rel="tag">#前端优化</a>
           
         </div>
-      
-
-      
-      
       
 
       
@@ -761,8 +575,6 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
               </a>
             
           </div>
-
-          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -777,24 +589,39 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
       
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
           </div>
           
-
   
-    <div class="comments" id="comments">
-    </div>
   
 
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
         </div>
@@ -810,369 +637,146 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">lsqy</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="lsqy" />
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
           </div>
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">86</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/lsqy" title="GitHub &rarr; https://github.com/lsqy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/lsqy93" title="Twitter &rarr; https://twitter.com/lsqy93" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="http://weibo.com/lsqyun" title="Weibo &rarr; http://weibo.com/lsqyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
             </div>
           
 
           
-
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
-          
 
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
           
             
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
-          
-
         </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
       </section>
 
       
-      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-
             
               
             
-
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、内容部分"><span class="nav-number">1.</span> <span class="nav-text">一、内容部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、尽量减少-HTTP请求次数"><span class="nav-number">1.1.</span> <span class="nav-text">1、尽量减少 HTTP请求次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、减少-DNS查找次数"><span class="nav-number">1.2.</span> <span class="nav-text">2、减少 DNS查找次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、避免跳转"><span class="nav-number">1.3.</span> <span class="nav-text">3、避免跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、可缓存的-AJAX"><span class="nav-number">1.4.</span> <span class="nav-text">4、可缓存的 AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、推迟加载内容"><span class="nav-number">1.5.</span> <span class="nav-text">5、推迟加载内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、预加载"><span class="nav-number">1.6.</span> <span class="nav-text">6、预加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、减少-DOM元素数量"><span class="nav-number">1.7.</span> <span class="nav-text">7、减少 DOM元素数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、根据域名划分页面内容"><span class="nav-number">1.8.</span> <span class="nav-text">8、根据域名划分页面内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、使-iframe的数量最小"><span class="nav-number">1.9.</span> <span class="nav-text">9、使 iframe的数量最小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、不要出现-404错误"><span class="nav-number">1.10.</span> <span class="nav-text">10、不要出现 404错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、服务器部分"><span class="nav-number">2.</span> <span class="nav-text">二、服务器部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11、使用内容分发网络"><span class="nav-number">2.1.</span> <span class="nav-text">11、使用内容分发网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12、为文件头指定Expires或Cache-Control"><span class="nav-number">2.2.</span> <span class="nav-text">12、为文件头指定Expires或Cache-Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13、Gzip压缩文件内容"><span class="nav-number">2.3.</span> <span class="nav-text">13、Gzip压缩文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14、配置ETag"><span class="nav-number">2.4.</span> <span class="nav-text">14、配置ETag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15、尽早刷新输出缓冲"><span class="nav-number">2.5.</span> <span class="nav-text">15、尽早刷新输出缓冲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16、使用GET来完成AJAX请求"><span class="nav-number">2.6.</span> <span class="nav-text">16、使用GET来完成AJAX请求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、CSS部分"><span class="nav-number">3.</span> <span class="nav-text">三、CSS部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#17、把样式表置于顶部"><span class="nav-number">3.1.</span> <span class="nav-text">17、把样式表置于顶部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18、避免使用CSS表达式（）"><span class="nav-number">3.2.</span> <span class="nav-text">18、避免使用CSS表达式（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19、用代替-import"><span class="nav-number">3.3.</span> <span class="nav-text">19、用代替@import</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20、避免使用滤镜"><span class="nav-number">3.4.</span> <span class="nav-text">20、避免使用滤镜</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、-JavaScript部分"><span class="nav-number">4.</span> <span class="nav-text">四、 JavaScript部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21、把脚本置于页面底部"><span class="nav-number">4.1.</span> <span class="nav-text">21、把脚本置于页面底部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22、使用外部JavaScript和CSS"><span class="nav-number">4.2.</span> <span class="nav-text">22、使用外部JavaScript和CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23、削减JavaScript和CSS"><span class="nav-number">4.3.</span> <span class="nav-text">23、削减JavaScript和CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24、剔除重复脚本"><span class="nav-number">4.4.</span> <span class="nav-text">24、剔除重复脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25、减少DOM访问"><span class="nav-number">4.5.</span> <span class="nav-text">25、减少DOM访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26、开发智能事件处理程序"><span class="nav-number">4.6.</span> <span class="nav-text">26、开发智能事件处理程序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、Coockie部分"><span class="nav-number">5.</span> <span class="nav-text">五、Coockie部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#27、减小Cookie体积"><span class="nav-number">5.1.</span> <span class="nav-text">27、减小Cookie体积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28、对于页面内容使用无coockie域名"><span class="nav-number">5.2.</span> <span class="nav-text">28、对于页面内容使用无coockie域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、Image-部分"><span class="nav-number">6.</span> <span class="nav-text">六、Image 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#29、优化图像"><span class="nav-number">6.1.</span> <span class="nav-text">29、优化图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30、优化CSS-Spirite"><span class="nav-number">6.2.</span> <span class="nav-text">30、优化CSS Spirite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31、不要在HTML中缩放图像"><span class="nav-number">6.3.</span> <span class="nav-text">31、不要在HTML中缩放图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32、favicon-ico要小而且可缓存"><span class="nav-number">6.4.</span> <span class="nav-text">32、favicon.ico要小而且可缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33、避免空的图像来源"><span class="nav-number">6.5.</span> <span class="nav-text">33、避免空的图像来源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、-Mobile部分"><span class="nav-number">7.</span> <span class="nav-text">七、 Mobile部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#34、保持单个内容小于25K"><span class="nav-number">7.1.</span> <span class="nav-text">34、保持单个内容小于25K</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35、打包组件成复合文本"><span class="nav-number">7.2.</span> <span class="nav-text">35、打包组件成复合文本</span></a></li></ol></li></ol></div>
             
-
           </div>
         </section>
-      <!--/noindex-->
-      
-
       
 
     </div>
@@ -1185,80 +789,57 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lsqy</span>
-
-  
-
-  
 </div>
 
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io"  rel="external nofollow">Hexo</a>
+</div>
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.5.0</div>
-
-
-
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
 
         
-<div class="busuanzi-count">
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
   
 
   
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
   
 </div>
 
 
 
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260895274&web_id=1260895274" language="JavaScript"></script>
-  </div>
-
-
-
         
       </div>
+      
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -1277,45 +858,35 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
   
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
@@ -1323,15 +894,15 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -1341,405 +912,181 @@ Opera 不进行任何操作。<br>这个行为为何是不好的？</p>
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2015/11/14/151114YAHOO前端优化35条黄金法则/';
+      var disqus_title = 'YAHOO前端优化35条黄金法则';
+      var disqus_url = 'https://lsqy.tech/2015/11/14/151114YAHOO前端优化35条黄金法则/';
 
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: '4C4aiyfcmCnwVhLCrH8d7pXo-gzGzoHsz',
-        appKey: 'BUpwAPNDhXqiEB5wAEydR42c',
-        placeholder: '有什么想说的？',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
 
 
 
   
-
+  
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
-    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
+    if (search_path.length == 0) {
+       search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
 
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
     function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
 
+    }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
+    'use strict';
+    $.ajax({
         url: path,
-        dataType: isXml ? "xml" : "json",
+        dataType: "xml",
         async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
                     }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
-                      }
+                        str += "</li>";
                     }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+            proceedsearch();
         }
-      });
-    }
+    });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
+    $('.popup-trigger').mousedown(function(e) {
       e.stopPropagation();
-      if (isfetched === false) {
+      if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
+
     });
 
-    $('.popup-btn-close').click(onPopupClose);
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
     $('.popup').click(function(e){
       e.stopPropagation();
     });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
   </script>
 
-
-
-
-
   
 
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
 </script>
 
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

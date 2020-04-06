@@ -1,43 +1,20 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
+<!doctype html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
 
 
 
@@ -52,27 +29,18 @@
 
 
 
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
 
 
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+  <meta name="keywords" content="git技巧,git基本操作命令">
 
 
 
@@ -81,85 +49,66 @@
 
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.5.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
-  <meta name="description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
+
+
+<meta name="description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
 <meta name="keywords" content="git技巧,git基本操作命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git技巧汇总">
-<meta property="og:url" content="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/index.html">
+<meta property="og:url" content="https://lsqy.tech/2016/07/13/160713git技巧汇总/index.html">
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-15T08:32:24.177Z">
+<meta property="og:updated_time" content="2018-11-15T08:32:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git技巧汇总">
 <meta name="twitter:description" content="Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。">
 
 
 
-
-
-
-  <link rel="canonical" href="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/">
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
   };
 </script>
 
-  <title>git技巧汇总 | lsqy'blog</title>
+
+  <title> git技巧汇总 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
   
 
 
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86960661-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-86960661-1');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
 </script>
-
 
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c618a46b795839e28f3cb10d9748b961";
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -170,223 +119,147 @@
 
 
 
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
-</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">lsqy'blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish!</h1>
-      
-    
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
 </div>
 
-
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-awesome">
-
-    
-    
-    
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/awesome" rel="section"><i class="menu-item-icon fa fa-fw fa-html5"></i> <br>收藏</a>
-
-  </li>
-
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
       
+
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="popup-trigger">
+            <a href="#" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
         </li>
       
     </ul>
   
 
   
-    
-
-  
-
-  
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
 </div>
-
 
 
     </div>
   
 </nav>
 
-
-
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
           <div id="content" class="content">
             
 
@@ -394,98 +267,57 @@
     
 
   
-
-  
-  
   
 
   
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/07/13/160713git技巧汇总/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsqy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lsqy'blog">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
 
         
         
-          <h2 class="post-title" itemprop="name headline">git技巧汇总
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                git技巧汇总
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-07-13 17:20:35" itemprop="dateCreated datePublished" datetime="2016-07-13T17:20:35+08:00">2016-07-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
-              
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-13T17:20:35+08:00" content="2016-07-13">
+              2016-07-13
+            </time>
           </span>
 
           
             <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
 
                 
                 
+
               
             </span>
           
@@ -493,33 +325,30 @@
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2016/07/13/160713git技巧汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/07/13/160713git技巧汇总/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/13/160713git技巧汇总/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
+
+          
           
 
           
-
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
           
-
-          
-
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -802,35 +631,28 @@
 
       
     </div>
+    
+    <div>
+      
+        
+      
+    </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
+    <div>
+      
+        
+      
+    </div>
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/github/" rel="tag"># github</a>
+            <a href="/tags/github/" rel="tag">#github</a>
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
-      
-
-      
-      
       
 
       
@@ -842,8 +664,6 @@
               </a>
             
           </div>
-
-          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -858,24 +678,39 @@
       
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
           </div>
           
-
   
-    <div class="comments" id="comments">
-    </div>
   
 
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
         </div>
@@ -891,7 +726,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -899,361 +733,137 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">lsqy</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
           </div>
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">86</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/lsqy" title="GitHub &rarr; https://github.com/lsqy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/lsqy93" title="Twitter &rarr; https://twitter.com/lsqy93" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="http://weibo.com/lsqyun" title="Weibo &rarr; http://weibo.com/lsqyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
             </div>
           
 
           
-
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
-          
 
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
           
             
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
-          
-
         </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
       </section>
 
       
-      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-
             
               
             
-
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开卷必读"><span class="nav-number">1.</span> <span class="nav-text">开卷必读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示帮助信息"><span class="nav-number">3.</span> <span class="nav-text">展示帮助信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到远程仓库的状态"><span class="nav-number">4.</span> <span class="nav-text">回到远程仓库的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重设第一个commit"><span class="nav-number">5.</span> <span class="nav-text">重设第一个commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示工作区和暂存区的不同"><span class="nav-number">6.</span> <span class="nav-text">展示工作区和暂存区的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示暂存区和最近版本的不同"><span class="nav-number">7.</span> <span class="nav-text">展示暂存区和最近版本的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示暂存区、工作区和最近版本的不同"><span class="nav-number">8.</span> <span class="nav-text">展示暂存区、工作区和最近版本的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速切换分支"><span class="nav-number">9.</span> <span class="nav-text">快速切换分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除已经合并到master的分支"><span class="nav-number">10.</span> <span class="nav-text">删除已经合并到master的分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有的分支关联的远程仓库"><span class="nav-number">11.</span> <span class="nav-text">展示所有的分支关联的远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联远程分支"><span class="nav-number">12.</span> <span class="nav-text">关联远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地分支"><span class="nav-number">13.</span> <span class="nav-text">删除本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程分支"><span class="nav-number">14.</span> <span class="nav-text">删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看标签"><span class="nav-number">15.</span> <span class="nav-text">查看标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地创建标签"><span class="nav-number">16.</span> <span class="nav-text">本地创建标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送标签到远程仓库"><span class="nav-number">17.</span> <span class="nav-text">推送标签到远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地标签"><span class="nav-number">18.</span> <span class="nav-text">删除本地标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程标签"><span class="nav-number">19.</span> <span class="nav-text">删除远程标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#放弃工作区的修改"><span class="nav-number">20.</span> <span class="nav-text">放弃工作区的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某一个commit的状态，并重新增添一个commit"><span class="nav-number">21.</span> <span class="nav-text">回到某一个commit的状态，并重新增添一个commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某个commit的状态，并删除后面的commit"><span class="nav-number">22.</span> <span class="nav-text">回到某个commit的状态，并删除后面的commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改上一个commit的描述"><span class="nav-number">23.</span> <span class="nav-text">修改上一个commit的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看commit历史"><span class="nav-number">24.</span> <span class="nav-text">查看commit历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看某段代码是谁写的"><span class="nav-number">25.</span> <span class="nav-text">查看某段代码是谁写的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示本地执行过git命令"><span class="nav-number">26.</span> <span class="nav-text">显示本地执行过git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改作者名"><span class="nav-number">27.</span> <span class="nav-text">修改作者名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改远程仓库的url"><span class="nav-number">28.</span> <span class="nav-text">修改远程仓库的url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出所有远程仓库"><span class="nav-number">29.</span> <span class="nav-text">列出所有远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出本地和远程分支"><span class="nav-number">30.</span> <span class="nav-text">列出本地和远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出远程分支"><span class="nav-number">31.</span> <span class="nav-text">列出远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看两个星期内的改动"><span class="nav-number">32.</span> <span class="nav-text">查看两个星期内的改动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把A分支的某一个commit，放到B分支上"><span class="nav-number">33.</span> <span class="nav-text">把A分支的某一个commit，放到B分支上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给git命令起别名"><span class="nav-number">34.</span> <span class="nav-text">给git命令起别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储当前的修改，但不用提交commit"><span class="nav-number">35.</span> <span class="nav-text">存储当前的修改，但不用提交commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存当前状态，包括untracked的文件"><span class="nav-number">36.</span> <span class="nav-text">保存当前状态，包括untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有stashes"><span class="nav-number">37.</span> <span class="nav-text">展示所有stashes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到某个stash的状态"><span class="nav-number">38.</span> <span class="nav-text">回到某个stash的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到最后一个stash的状态，并删除这个stash"><span class="nav-number">39.</span> <span class="nav-text">回到最后一个stash的状态，并删除这个stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除所有的stash"><span class="nav-number">40.</span> <span class="nav-text">删除所有的stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从stash中拿出某个文件的修改"><span class="nav-number">41.</span> <span class="nav-text">从stash中拿出某个文件的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有tracked的文件"><span class="nav-number">42.</span> <span class="nav-text">展示所有tracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有untracked的文件"><span class="nav-number">43.</span> <span class="nav-text">展示所有untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有忽略的文件"><span class="nav-number">44.</span> <span class="nav-text">展示所有忽略的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制删除untracked的文件"><span class="nav-number">45.</span> <span class="nav-text">强制删除untracked的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制删除untracked的目录"><span class="nav-number">46.</span> <span class="nav-text">强制删除untracked的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名分支"><span class="nav-number">47.</span> <span class="nav-text">重命名分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示简化的commit历史"><span class="nav-number">48.</span> <span class="nav-text">展示简化的commit历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把某一个分支到导出成一个文件"><span class="nav-number">49.</span> <span class="nav-text">把某一个分支到导出成一个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从包中导入分支"><span class="nav-number">50.</span> <span class="nav-text">从包中导入分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行rebase之前自动stash"><span class="nav-number">51.</span> <span class="nav-text">执行rebase之前自动stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程仓库根据ID，拉下某一状态，到本地分支"><span class="nav-number">52.</span> <span class="nav-text">从远程仓库根据ID，拉下某一状态，到本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细展示一行中的修改"><span class="nav-number">53.</span> <span class="nav-text">详细展示一行中的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除gitignore文件中记录的文件"><span class="nav-number">54.</span> <span class="nav-text">清除gitignore文件中记录的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示所有alias和configs"><span class="nav-number">55.</span> <span class="nav-text">展示所有alias和configs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示忽略的文件"><span class="nav-number">56.</span> <span class="nav-text">展示忽略的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit历史中显示Branch1有的，但是Branch2没有commit"><span class="nav-number">57.</span> <span class="nav-text">commit历史中显示Branch1有的，但是Branch2没有commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在commit-log中显示GPG签名"><span class="nav-number">58.</span> <span class="nav-text">在commit log中显示GPG签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除全局设置"><span class="nav-number">59.</span> <span class="nav-text">删除全局设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建并切换到新分支上，同时这个分支没有任何commit"><span class="nav-number">60.</span> <span class="nav-text">新建并切换到新分支上，同时这个分支没有任何commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示任意分支某一文件的内容"><span class="nav-number">61.</span> <span class="nav-text">展示任意分支某一文件的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone下来指定的单一分支"><span class="nav-number">62.</span> <span class="nav-text">clone下来指定的单一分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建并切换到该分支"><span class="nav-number">63.</span> <span class="nav-text">创建并切换到该分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略文件的权限变化"><span class="nav-number">64.</span> <span class="nav-text">忽略文件的权限变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展示本地所有的分支的commit"><span class="nav-number">65.</span> <span class="nav-text">展示本地所有的分支的commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在commit-log中查找相关内容"><span class="nav-number">66.</span> <span class="nav-text">在commit log中查找相关内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把暂存区的指定file放到工作区中"><span class="nav-number">67.</span> <span class="nav-text">把暂存区的指定file放到工作区中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制推送"><span class="nav-number">68.</span> <span class="nav-text">强制推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加远程仓库"><span class="nav-number">69.</span> <span class="nav-text">增加远程仓库</span></a></li></ol></div>
             
-
           </div>
         </section>
-      <!--/noindex-->
-      
-
       
 
     </div>
@@ -1266,80 +876,57 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lsqy</span>
-
-  
-
-  
 </div>
 
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.5.0</div>
-
-
-
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
 
         
-<div class="busuanzi-count">
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
   
 
   
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
   
 </div>
 
 
 
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260895274&web_id=1260895274" language="JavaScript"></script>
-  </div>
-
-
-
         
       </div>
+      
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -1358,45 +945,35 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
   
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
@@ -1404,15 +981,15 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -1422,405 +999,181 @@
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2016/07/13/160713git技巧汇总/';
+      var disqus_title = 'git技巧汇总';
+      var disqus_url = 'https://lsqy.tech/2016/07/13/160713git技巧汇总/';
 
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: '4C4aiyfcmCnwVhLCrH8d7pXo-gzGzoHsz',
-        appKey: 'BUpwAPNDhXqiEB5wAEydR42c',
-        placeholder: '有什么想说的？',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
 
 
 
   
-
+  
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
-    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
+    if (search_path.length == 0) {
+       search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
 
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
     function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
 
+    }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
+    'use strict';
+    $.ajax({
         url: path,
-        dataType: isXml ? "xml" : "json",
+        dataType: "xml",
         async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
                     }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
-                      }
+                        str += "</li>";
                     }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+            proceedsearch();
         }
-      });
-    }
+    });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
+    $('.popup-trigger').mousedown(function(e) {
       e.stopPropagation();
-      if (isfetched === false) {
+      if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
+
     });
 
-    $('.popup-btn-close').click(onPopupClose);
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
     $('.popup').click(function(e){
       e.stopPropagation();
     });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
   </script>
 
-
-
-
-
   
 
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
 </script>
 
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

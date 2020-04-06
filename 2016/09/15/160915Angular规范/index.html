@@ -1,43 +1,20 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
+<!doctype html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
 
 
 
@@ -52,27 +29,18 @@
 
 
 
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
 
 
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+  <meta name="keywords" content="Angular规范,Angular样式指南">
 
 
 
@@ -81,40 +49,18 @@
 
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.5.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
-  <meta name="description" content="这个规范的目的是为构建Angular应用提供指导，当然更加重要的是让大家知道选择它的理由,当然, 也是为了督促自己能够好好用规范去编写可维护的代码，跟大家一起共勉！  如果你喜欢这个规范，请在Pluralsight看看Angular Patterns: Clean Code。">
+
+
+<meta name="description" content="这个规范的目的是为构建Angular应用提供指导，当然更加重要的是让大家知道选择它的理由,当然, 也是为了督促自己能够好好用规范去编写可维护的代码，跟大家一起共勉！  如果你喜欢这个规范，请在Pluralsight看看Angular Patterns: Clean Code。">
 <meta name="keywords" content="Angular规范,Angular样式指南">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular规范">
-<meta property="og:url" content="https://blog.lsqy.space/2016/09/15/160915Angular规范/index.html">
+<meta property="og:url" content="https://lsqy.tech/2016/09/15/160915Angular规范/index.html">
 <meta property="og:site_name" content="lsqy&#39;blog">
 <meta property="og:description" content="这个规范的目的是为构建Angular应用提供指导，当然更加重要的是让大家知道选择它的理由,当然, 也是为了督促自己能够好好用规范去编写可维护的代码，跟大家一起共勉！  如果你喜欢这个规范，请在Pluralsight看看Angular Patterns: Clean Code。">
 <meta property="og:locale" content="zh-CN">
@@ -124,7 +70,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/modularity-2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/modularity-1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/testing-tools.png">
-<meta property="og:updated_time" content="2018-11-15T08:32:24.178Z">
+<meta property="og:updated_time" content="2018-11-15T08:32:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular规范">
 <meta name="twitter:description" content="这个规范的目的是为构建Angular应用提供指导，当然更加重要的是让大家知道选择它的理由,当然, 也是为了督促自己能够好好用规范去编写可维护的代码，跟大家一起共勉！  如果你喜欢这个规范，请在Pluralsight看看Angular Patterns: Clean Code。">
@@ -132,41 +78,44 @@
 
 
 
-
-
-
-  <link rel="canonical" href="https://blog.lsqy.space/2016/09/15/160915Angular规范/">
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
   };
 </script>
 
-  <title>Angular规范 | lsqy'blog</title>
+
+  <title> Angular规范 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
   
 
 
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86960661-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-86960661-1');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
 </script>
-
 
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c618a46b795839e28f3cb10d9748b961";
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -177,223 +126,147 @@
 
 
 
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
-</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">lsqy'blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish!</h1>
-      
-    
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
 </div>
 
-
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-awesome">
-
-    
-    
-    
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/awesome" rel="section"><i class="menu-item-icon fa fa-fw fa-html5"></i> <br>收藏</a>
-
-  </li>
-
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
       
+
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="popup-trigger">
+            <a href="#" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
         </li>
       
     </ul>
   
 
   
-    
-
-  
-
-  
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
 </div>
-
 
 
     </div>
   
 </nav>
 
-
-
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
           <div id="content" class="content">
             
 
@@ -401,98 +274,57 @@
     
 
   
-
-  
-  
   
 
   
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.lsqy.space/2016/09/15/160915Angular规范/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsqy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lsqy'blog">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
 
         
         
-          <h2 class="post-title" itemprop="name headline">Angular规范
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Angular规范
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-09-15 22:07:26" itemprop="dateCreated datePublished" datetime="2016-09-15T22:07:26+08:00">2016-09-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-15 16:32:24" itemprop="dateModified" datetime="2018-11-15T16:32:24+08:00">2018-11-15</time>
-              
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-15T22:07:26+08:00" content="2016-09-15">
+              2016-09-15
+            </time>
           </span>
 
           
             <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
               
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Angular/" itemprop="url" rel="index"><span itemprop="name">Angular</span></a></span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
 
                 
                 
+
               
             </span>
           
@@ -500,33 +332,30 @@
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2016/09/15/160915Angular规范/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/15/160915Angular规范/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/15/160915Angular规范/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
+
+          
           
 
           
-
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
           
-
-          
-
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -812,11 +641,11 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* avoid */</span></span><br><span class="line"><span class="comment">/* directives.js */</span></span><br><span class="line"></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'app.widgets'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* order directive仅仅会被order module用到 */</span></span><br><span class="line">    .directive(<span class="string">'orderCalendarRange'</span>, orderCalendarRange)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* sales directive可以在sales app的任意地方使用 */</span></span><br><span class="line">    .directive(<span class="string">'salesCustomerInfo'</span>, salesCustomerInfo)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* spinner directive可以在任意apps中使用 */</span></span><br><span class="line">    .directive(<span class="string">'sharedSpinner'</span>, sharedSpinner);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">orderCalendarRange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">salesCustomerInfo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sharedSpinner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* calendarRange.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc order directive that is specific to the order module at a company named Acme</span></span><br><span class="line"><span class="comment"> * @example &lt;div acme-order-calendar-range&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'sales.order'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeOrderCalendarRange'</span>, orderCalendarRange);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">orderCalendarRange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* calendarRange.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc </span>order directive that is specific to the order module at a company named Acme</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@example </span>&lt;div acme-order-calendar-range&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'sales.order'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeOrderCalendarRange'</span>, orderCalendarRange);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">orderCalendarRange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* customerInfo.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc sales directive that can be used anywhere across the sales app at a company named Acme</span></span><br><span class="line"><span class="comment"> * @example &lt;div acme-sales-customer-info&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'sales.widgets'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeSalesCustomerInfo'</span>, salesCustomerInfo);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">salesCustomerInfo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* customerInfo.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc </span>sales directive that can be used anywhere across the sales app at a company named Acme</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@example </span>&lt;div acme-sales-customer-info&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'sales.widgets'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeSalesCustomerInfo'</span>, salesCustomerInfo);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">salesCustomerInfo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* spinner.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc spinner directive that can be used anywhere across apps at a company named Acme</span></span><br><span class="line"><span class="comment"> * @example &lt;div acme-shared-spinner&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'shared.widgets'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeSharedSpinner'</span>, sharedSpinner);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sharedSpinner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* recommended */</span></span><br><span class="line"><span class="comment">/* spinner.directive.js */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc </span>spinner directive that can be used anywhere across apps at a company named Acme</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@example </span>&lt;div acme-shared-spinner&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'shared.widgets'</span>)</span><br><span class="line">    .directive(<span class="string">'acmeSharedSpinner'</span>, sharedSpinner);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sharedSpinner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* implementation details */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>注：由于directive使用条件比较广，所以命名就存在很多的选项。选择一个让directive和它的文件名都清楚分明的名字。下面有一些例子，不过更多的建议去看<a href="#命名">命名</a>章节。</p>
 </li>
@@ -958,14 +787,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Using @ngInject annotations</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">config</span>(<span class="params">$routeProvider</span>) </span>&#123;</span><br><span class="line">    $routeProvider</span><br><span class="line">        .when(<span class="string">'/avengers'</span>, &#123;</span><br><span class="line">            templateUrl: <span class="string">'avengers.html'</span>,</span><br><span class="line">            controller: <span class="string">'Avengers'</span>,</span><br><span class="line">            controllerAs: <span class="string">'vm'</span>,</span><br><span class="line">            resolve: &#123; <span class="comment">/* @ngInject */</span></span><br><span class="line">                moviesPrepService: <span class="function"><span class="keyword">function</span>(<span class="params">movieService</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> movieService.getMovies();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>注意：从Angular 1.3开始，你就可以用<a href="https://docs.angularjs.org/api/ng/directive/ngApp" target="_blank" rel="noopener"><code>ngApp</code></a>指令的 <code>ngStrictDi</code>参数来检测任何可能失去依赖的地方，当以“strict-di”模式创建injector时，会导致应用程序无法调用不使用显示函数注释的函数（这也许无法安全压缩）。记录在控制台的调试信息可以帮助追踪出问题的代码。我只在需要调试的时候才会用到<code>ng-strict-di</code>。
-<code>&lt;body ng-app=&quot;APP&quot; ng-strict-di&gt;</code></p>
+<p>注意：从Angular 1.3开始，你就可以用<a href="https://docs.angularjs.org/api/ng/directive/ngApp" target="_blank" rel="noopener"><code>ngApp</code></a>指令的 <code>ngStrictDi</code>参数来检测任何可能失去依赖的地方，当以“strict-di”模式创建injector时，会导致应用程序无法调用不使用显示函数注释的函数（这也许无法安全压缩）。记录在控制台的调试信息可以帮助追踪出问题的代码。我只在需要调试的时候才会用到<code>ng-strict-di</code>。<br><code>&lt;body ng-app=&quot;APP&quot; ng-strict-di&gt;</code></p>
 </blockquote>
 </li>
 </ul>
 <h3 id="使用Gulp或Grunt结合ng-annotate"><a href="#使用Gulp或Grunt结合ng-annotate" class="headerlink" title="使用Gulp或Grunt结合ng-annotate"></a>使用Gulp或Grunt结合ng-annotate</h3><ul>
 <li><p>在自动化任务中使用<a href="https://www.npmjs.org/package/gulp-ng-annotate" target="_blank" rel="noopener">gulp-ng-annotate</a>或<a href="https://www.npmjs.org/package/grunt-ng-annotate" target="_blank" rel="noopener">grunt-ng-annotate</a>，把<code>/* @ngInject */</code>注入到任何有依赖关系函数的前面。</p>
-<p><em>为什么？</em>：ng-annotate会捕获大部分的依赖关系，但是有时候需要借助于<code>/* @ngInject */</code>语法提示。</p>
+<p><em>为什么？*：ng-annotate会捕获大部分的依赖关系，但是有时候需要借助于`/</em> @ngInject */`语法提示。</p>
 <p>下面的代码是gulp任务使用ngAnnotate的例子。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'js'</span>, [<span class="string">'jshint'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> source = pkg.paths.js;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> gulp.src(source)</span><br><span class="line">        .pipe(sourcemaps.init())</span><br><span class="line">        .pipe(concat(<span class="string">'all.min.js'</span>, &#123;<span class="attr">newLine</span>: <span class="string">';'</span>&#125;))</span><br><span class="line">        <span class="comment">// Annotate before uglify so the code get's min'd properly.</span></span><br><span class="line">        .pipe(ngAnnotate(&#123;</span><br><span class="line">            <span class="comment">// true helps add where @ngInject is not used. It infers.</span></span><br><span class="line">            <span class="comment">// Doesn't work with resolve, so we must be explicit there</span></span><br><span class="line">            add: <span class="literal">true</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(bytediff.start())</span><br><span class="line">        .pipe(uglify(&#123;<span class="attr">mangle</span>: <span class="literal">true</span>&#125;))</span><br><span class="line">        .pipe(bytediff.stop())</span><br><span class="line">        .pipe(sourcemaps.write(<span class="string">'./'</span>))</span><br><span class="line">        .pipe(gulp.dest(pkg.paths.dev));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
@@ -1288,7 +1116,7 @@
 <li><p>如果你准备做一个文档，那么就使用<a href="http://usejsdoc.org/" target="_blank" rel="noopener"><code>jsDoc</code></a>的语法来记录函数名、描述、参数和返回值。使用<code>@namespace</code>和<code>@memberOf</code>来匹配应用程序结构。</p>
 <p><em>为什么？</em>：你可以从代码中生成（重新生成）文档，而不必从头开始编写文档。</p>
 <p><em>为什么？</em>：使用业内通用工具保持了统一性。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Logger Factory</span></span><br><span class="line"><span class="comment"> * @namespace Factories</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  angular</span><br><span class="line">      .module(<span class="string">'app'</span>)</span><br><span class="line">      .factory(<span class="string">'logger'</span>, logger);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * @namespace Logger</span></span><br><span class="line"><span class="comment">   * @desc Application wide logger</span></span><br><span class="line"><span class="comment">   * @memberOf Factories</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">logger</span> (<span class="params">$log</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> service = &#123;</span><br><span class="line">          logError: logError</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">return</span> service;</span><br><span class="line"></span><br><span class="line">      <span class="comment">////////////</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * @name logError</span></span><br><span class="line"><span class="comment">       * @desc Logs errors</span></span><br><span class="line"><span class="comment">       * @param &#123;String&#125; msg Message to log</span></span><br><span class="line"><span class="comment">       * @returns &#123;String&#125;</span></span><br><span class="line"><span class="comment">       * @memberOf Factories.Logger</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">logError</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> loggedMsg = <span class="string">'Error: '</span> + msg;</span><br><span class="line">          $log.error(loggedMsg);</span><br><span class="line">          <span class="keyword">return</span> loggedMsg;</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Logger Factory</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@namespace <span class="variable">Factories</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  angular</span><br><span class="line">      .module(<span class="string">'app'</span>)</span><br><span class="line">      .factory(<span class="string">'logger'</span>, logger);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@namespace <span class="variable">Logger</span></span></span></span><br><span class="line"><span class="comment">   * <span class="doctag">@desc </span>Application wide logger</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@memberOf <span class="variable">Factories</span></span></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">logger</span> (<span class="params">$log</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> service = &#123;</span><br><span class="line">          logError: logError</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">return</span> service;</span><br><span class="line"></span><br><span class="line">      <span class="comment">////////////</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@name <span class="variable">logError</span></span></span></span><br><span class="line"><span class="comment">       * <span class="doctag">@desc </span>Logs errors</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@param <span class="type">&#123;String&#125;</span> </span>msg Message to log</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@returns <span class="type">&#123;String&#125;</span></span></span></span><br><span class="line"><span class="comment">       * <span class="doctag">@memberOf </span>Factories.Logger</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">logError</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> loggedMsg = <span class="string">'Error: '</span> + msg;</span><br><span class="line">          $log.error(loggedMsg);</span><br><span class="line">          <span class="keyword">return</span> loggedMsg;</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -1429,7 +1257,7 @@
 <li><p>注意：你可以在运行期间使用<code>routerHelperProvider</code>配置跨文件状态</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// customers.routes.js</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'app.customers'</span>)</span><br><span class="line">    .run(appRun);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* @ngInject */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">appRun</span>(<span class="params">routerHelper</span>) </span>&#123;</span><br><span class="line">    routerHelper.configureStates(getStates());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStates</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        &#123;</span><br><span class="line">            state: <span class="string">'customer'</span>,</span><br><span class="line">            config: &#123;</span><br><span class="line">                abstract: <span class="literal">true</span>,</span><br><span class="line">                template: <span class="string">'&lt;ui-view class="shuffle-animation"/&gt;'</span>,</span><br><span class="line">                url: <span class="string">'/customer'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routerHelperProvider.js</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'blocks.router'</span>)</span><br><span class="line">    .provider(<span class="string">'routerHelper'</span>, routerHelperProvider);</span><br><span class="line"></span><br><span class="line">routerHelperProvider.$inject = [<span class="string">'$locationProvider'</span>, <span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>];</span><br><span class="line"><span class="comment">/* @ngInject */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">routerHelperProvider</span>(<span class="params">$locationProvider, $stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* jshint validthis:true */</span></span><br><span class="line">    <span class="keyword">this</span>.$get = RouterHelper;</span><br><span class="line"></span><br><span class="line">    $locationProvider.html5Mode(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    RouterHelper.$inject = [<span class="string">'$state'</span>];</span><br><span class="line">    <span class="comment">/* @ngInject */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">RouterHelper</span>(<span class="params">$state</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hasOtherwise = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> service = &#123;</span><br><span class="line">            configureStates: configureStates,</span><br><span class="line">            getStates: getStates</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line"></span><br><span class="line">        <span class="comment">///////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">configureStates</span>(<span class="params">states, otherwisePath</span>) </span>&#123;</span><br><span class="line">            states.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">                $stateProvider.state(state.state, state.config);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span> (otherwisePath &amp;&amp; !hasOtherwise) &#123;</span><br><span class="line">                hasOtherwise = <span class="literal">true</span>;</span><br><span class="line">                $urlRouterProvider.otherwise(otherwisePath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getStates</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> $state.get(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routerHelperProvider.js</span></span><br><span class="line">angular</span><br><span class="line">    .module(<span class="string">'blocks.router'</span>)</span><br><span class="line">    .provider(<span class="string">'routerHelper'</span>, routerHelperProvider);</span><br><span class="line"></span><br><span class="line">routerHelperProvider.$inject = [<span class="string">'$locationProvider'</span>, <span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>];</span><br><span class="line"><span class="comment">/* @ngInject */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">routerHelperProvider</span>(<span class="params">$locationProvider, $stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* jshint validthis:true */</span></span><br><span class="line">    <span class="keyword">this</span>.$<span class="keyword">get</span> = RouterHelper;</span><br><span class="line"></span><br><span class="line">    $locationProvider.html5Mode(true);</span><br><span class="line"></span><br><span class="line">    RouterHelper.$inject = ['$state'];</span><br><span class="line">    /* @ngInject */</span><br><span class="line">    function RouterHelper($state) &#123;</span><br><span class="line">        <span class="keyword">var</span> hasOtherwise = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> service = &#123;</span><br><span class="line">            configureStates: configureStates,</span><br><span class="line">            getStates: getStates</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line"></span><br><span class="line">        <span class="comment">///////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">configureStates</span>(<span class="params">states, otherwisePath</span>) </span>&#123;</span><br><span class="line">            states.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">                $stateProvider.state(state.state, state.config);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span> (otherwisePath &amp;&amp; !hasOtherwise) &#123;</span><br><span class="line">                hasOtherwise = <span class="literal">true</span>;</span><br><span class="line">                $urlRouterProvider.otherwise(otherwisePath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getStates</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> $state.get(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Define routes for views in the module where they exist，Each module should contain the routes for the views in the module.</p>
 <p><em>为什么？</em>：每个模块应该是独立的。</p>
@@ -1445,7 +1273,7 @@
 <ul>
 <li><p>用任务自动化在其它JavaScript文件之前列出所有模块的定义文件<code>*.module.js</code>。</p>
 <p><em>为什么？</em>：Angular中，模块使用之前必须先注册。</p>
-<p><em>为什么？</em>：带有特殊规则的模块命名，例如<code>*.module.js</code>，会让你很轻松地识别它们。</p>
+<p><em>为什么？*：带有特殊规则的模块命名，例如`</em>.module.js`，会让你很轻松地识别它们。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clientApp = <span class="string">'./src/client/app/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Always grab module files first</span></span><br><span class="line"><span class="keyword">var</span> files = [</span><br><span class="line">  clientApp + <span class="string">'**/*.module.js'</span>,</span><br><span class="line">  clientApp + <span class="string">'**/*.js'</span></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -1465,37 +1293,30 @@
 
       
     </div>
+    
+    <div>
+      
+        
+      
+    </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
+    <div>
+      
+        
+      
+    </div>
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/Angular/" rel="tag"># Angular</a>
+            <a href="/tags/Angular/" rel="tag">#Angular</a>
           
-            <a href="/tags/Angular规范/" rel="tag"># Angular规范</a>
+            <a href="/tags/Angular规范/" rel="tag">#Angular规范</a>
           
-            <a href="/tags/规范指南/" rel="tag"># 规范指南</a>
+            <a href="/tags/规范指南/" rel="tag">#规范指南</a>
           
         </div>
-      
-
-      
-      
       
 
       
@@ -1507,8 +1328,6 @@
               </a>
             
           </div>
-
-          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -1523,24 +1342,39 @@
       
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
           </div>
           
-
   
-    <div class="comments" id="comments">
-    </div>
   
 
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
         </div>
@@ -1556,7 +1390,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -1564,361 +1397,137 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">lsqy</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
           </div>
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">86</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/lsqy" title="GitHub &rarr; https://github.com/lsqy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/lsqy93" title="Twitter &rarr; https://twitter.com/lsqy93" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="http://weibo.com/lsqyun" title="Weibo &rarr; http://weibo.com/lsqyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
             </div>
           
 
           
-
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
-          
 
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
           
             
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
-          
-
         </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
       </section>
 
       
-      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-
             
               
             
-
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-单一职责"><span class="nav-number">2.</span> <span class="nav-text">1. 单一职责</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规则一"><span class="nav-number">2.1.</span> <span class="nav-text">规则一</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-IIFE"><span class="nav-number">3.</span> <span class="nav-text">2. IIFE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript闭包"><span class="nav-number">3.1.</span> <span class="nav-text">JavaScript闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Modules"><span class="nav-number">4.</span> <span class="nav-text">3. Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免命名冲突"><span class="nav-number">4.1.</span> <span class="nav-text">避免命名冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-aka-Setters"><span class="nav-number">4.2.</span> <span class="nav-text">定义(aka Setters)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Getters"><span class="nav-number">4.3.</span> <span class="nav-text">Getters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Setting-vs-Getting"><span class="nav-number">4.4.</span> <span class="nav-text">Setting vs Getting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名函数-vs-匿名函数"><span class="nav-number">4.5.</span> <span class="nav-text">命名函数 vs 匿名函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Controllers"><span class="nav-number">5.</span> <span class="nav-text">4. Controllers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#controllerAs在View中的语法"><span class="nav-number">5.1.</span> <span class="nav-text">controllerAs在View中的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controllerAs在controller中的语法"><span class="nav-number">5.2.</span> <span class="nav-text">controllerAs在controller中的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controllerAs-with-vm"><span class="nav-number">5.3.</span> <span class="nav-text">controllerAs with vm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#置顶绑定成员"><span class="nav-number">5.4.</span> <span class="nav-text">置顶绑定成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明隐藏实现细节"><span class="nav-number">5.5.</span> <span class="nav-text">函数声明隐藏实现细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把Controller中的逻辑延迟到Service中"><span class="nav-number">5.6.</span> <span class="nav-text">把Controller中的逻辑延迟到Service中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保持Controller的专一性"><span class="nav-number">5.7.</span> <span class="nav-text">保持Controller的专一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分配Controller"><span class="nav-number">5.8.</span> <span class="nav-text">分配Controller</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Services"><span class="nav-number">6.</span> <span class="nav-text">5. Services</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例"><span class="nav-number">6.1.</span> <span class="nav-text">单例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Factories"><span class="nav-number">7.</span> <span class="nav-text">6. Factories</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单一职责"><span class="nav-number">7.1.</span> <span class="nav-text">单一职责</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例-1"><span class="nav-number">7.2.</span> <span class="nav-text">单例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可访问的成员置顶"><span class="nav-number">7.3.</span> <span class="nav-text">可访问的成员置顶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明隐藏实现细节-1"><span class="nav-number">7.4.</span> <span class="nav-text">函数声明隐藏实现细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Data-Services"><span class="nav-number">8.</span> <span class="nav-text">7. Data Services</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#独立的数据调用"><span class="nav-number">8.1.</span> <span class="nav-text">独立的数据调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据调用返回一个Promise"><span class="nav-number">8.2.</span> <span class="nav-text">数据调用返回一个Promise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Directives"><span class="nav-number">9.</span> <span class="nav-text">8. Directives</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个directive一个文件"><span class="nav-number">9.1.</span> <span class="nav-text">一个directive一个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在directive中操作DOM"><span class="nav-number">9.2.</span> <span class="nav-text">在directive中操作DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供一个唯一的Directive前缀"><span class="nav-number">9.3.</span> <span class="nav-text">提供一个唯一的Directive前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制元素和属性"><span class="nav-number">9.4.</span> <span class="nav-text">限制元素和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directives和ControllerAs"><span class="nav-number">9.5.</span> <span class="nav-text">Directives和ControllerAs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-解决Controller的Promises"><span class="nav-number">10.</span> <span class="nav-text">9. 解决Controller的Promises</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller-Activation-Promises"><span class="nav-number">10.1.</span> <span class="nav-text">Controller Activation Promises</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-Resolve-Promises"><span class="nav-number">10.2.</span> <span class="nav-text">Route Resolve Promises</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-手动依赖注入"><span class="nav-number">11.</span> <span class="nav-text">10. 手动依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩的不安全性"><span class="nav-number">11.1.</span> <span class="nav-text">压缩的不安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动添加依赖"><span class="nav-number">11.2.</span> <span class="nav-text">手动添加依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动确定路由解析器依赖"><span class="nav-number">11.3.</span> <span class="nav-text">手动确定路由解析器依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-压缩和注释"><span class="nav-number">12.</span> <span class="nav-text">11. 压缩和注释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ng-annotate"><span class="nav-number">12.1.</span> <span class="nav-text">ng-annotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Gulp或Grunt结合ng-annotate"><span class="nav-number">12.2.</span> <span class="nav-text">使用Gulp或Grunt结合ng-annotate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-异常处理"><span class="nav-number">13.</span> <span class="nav-text">12. 异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">13.1.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常捕获器"><span class="nav-number">13.2.</span> <span class="nav-text">异常捕获器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由错误"><span class="nav-number">13.3.</span> <span class="nav-text">路由错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-命名"><span class="nav-number">14.</span> <span class="nav-text">13. 命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名原则"><span class="nav-number">14.1.</span> <span class="nav-text">命名原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能文件命名"><span class="nav-number">14.2.</span> <span class="nav-text">功能文件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试文件命名"><span class="nav-number">14.3.</span> <span class="nav-text">测试文件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller命名"><span class="nav-number">14.4.</span> <span class="nav-text">Controller命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller命名后缀"><span class="nav-number">14.5.</span> <span class="nav-text">Controller命名后缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factory命名"><span class="nav-number">14.6.</span> <span class="nav-text">Factory命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directive组件命名"><span class="nav-number">14.7.</span> <span class="nav-text">Directive组件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">14.8.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">14.9.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由"><span class="nav-number">14.10.</span> <span class="nav-text">路由</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-应用程序结构的LIFT准则"><span class="nav-number">15.</span> <span class="nav-text">14. 应用程序结构的LIFT准则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LIFT"><span class="nav-number">15.1.</span> <span class="nav-text">LIFT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Locate"><span class="nav-number">15.2.</span> <span class="nav-text">Locate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Identify"><span class="nav-number">15.3.</span> <span class="nav-text">Identify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flat"><span class="nav-number">15.4.</span> <span class="nav-text">Flat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-DRY（尽量坚持DRY）"><span class="nav-number">15.5.</span> <span class="nav-text">T-DRY（尽量坚持DRY）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-应用程序结构"><span class="nav-number">16.</span> <span class="nav-text">15. 应用程序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总规范"><span class="nav-number">16.1.</span> <span class="nav-text">总规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout"><span class="nav-number">16.2.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按功能划分文件夹结构"><span class="nav-number">16.3.</span> <span class="nav-text">按功能划分文件夹结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-模块化"><span class="nav-number">17.</span> <span class="nav-text">16. 模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#许多小的、独立的模块"><span class="nav-number">17.1.</span> <span class="nav-text">许多小的、独立的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个App-Module"><span class="nav-number">17.2.</span> <span class="nav-text">创建一个App Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保持App-Module的精简"><span class="nav-number">17.3.</span> <span class="nav-text">保持App Module的精简</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能区域就是模块"><span class="nav-number">17.4.</span> <span class="nav-text">功能区域就是模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可重用的块就是模块"><span class="nav-number">17.5.</span> <span class="nav-text">可重用的块就是模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块依赖"><span class="nav-number">17.6.</span> <span class="nav-text">模块依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-启动逻辑"><span class="nav-number">18.</span> <span class="nav-text">17. 启动逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-1"><span class="nav-number">18.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行代码块"><span class="nav-number">18.2.</span> <span class="nav-text">运行代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-Angular-包装服务"><span class="nav-number">19.</span> <span class="nav-text">18. Angular $包装服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document和-window"><span class="nav-number">19.1.</span> <span class="nav-text">$document和$window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timeout和-interval"><span class="nav-number">19.2.</span> <span class="nav-text">$timeout和$interval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-测试"><span class="nav-number">20.</span> <span class="nav-text">19. 测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用故事来编写测试"><span class="nav-number">20.1.</span> <span class="nav-text">用故事来编写测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试库"><span class="nav-number">20.2.</span> <span class="nav-text">测试库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试运行器"><span class="nav-number">20.3.</span> <span class="nav-text">测试运行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stubbing和Spying"><span class="nav-number">20.4.</span> <span class="nav-text">Stubbing和Spying</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Headless-Browser"><span class="nav-number">20.5.</span> <span class="nav-text">Headless Browser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分析"><span class="nav-number">20.6.</span> <span class="nav-text">代码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对测试降低全局JSHint规则"><span class="nav-number">20.7.</span> <span class="nav-text">对测试降低全局JSHint规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组织测试"><span class="nav-number">20.8.</span> <span class="nav-text">组织测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-动画"><span class="nav-number">21.</span> <span class="nav-text">20. 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">21.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Second"><span class="nav-number">21.2.</span> <span class="nav-text">Sub Second</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animate-css"><span class="nav-number">21.3.</span> <span class="nav-text">animate.css</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-注释"><span class="nav-number">22.</span> <span class="nav-text">21. 注释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsDoc"><span class="nav-number">22.1.</span> <span class="nav-text">jsDoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-JS-Hint"><span class="nav-number">23.</span> <span class="nav-text">22. JS Hint</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用一个Options文件"><span class="nav-number">23.1.</span> <span class="nav-text">使用一个Options文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-JSCS"><span class="nav-number">24.</span> <span class="nav-text">23. JSCS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用一个Options文件"><span class="nav-number">24.1.</span> <span class="nav-text">用一个Options文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-常量"><span class="nav-number">25.</span> <span class="nav-text">24. 常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-文件模板和片段"><span class="nav-number">26.</span> <span class="nav-text">25. 文件模板和片段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sublime-Text"><span class="nav-number">26.1.</span> <span class="nav-text">Sublime Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Studio"><span class="nav-number">26.2.</span> <span class="nav-text">Visual Studio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebStorm"><span class="nav-number">26.3.</span> <span class="nav-text">WebStorm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Atom"><span class="nav-number">26.4.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brackets"><span class="nav-number">26.5.</span> <span class="nav-text">Brackets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">26.6.</span> <span class="nav-text">vim</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-Yeoman-Generator"><span class="nav-number">27.</span> <span class="nav-text">26. Yeoman Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-路由"><span class="nav-number">28.</span> <span class="nav-text">27. 路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-任务自动化"><span class="nav-number">29.</span> <span class="nav-text">28. 任务自动化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-Filters"><span class="nav-number">30.</span> <span class="nav-text">29. Filters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30-Angular文档"><span class="nav-number">31.</span> <span class="nav-text">30. Angular文档</span></a></li></ol></div>
             
-
           </div>
         </section>
-      <!--/noindex-->
-      
-
       
 
     </div>
@@ -1931,80 +1540,57 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lsqy</span>
-
-  
-
-  
 </div>
 
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.5.0</div>
-
-
-
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
 
         
-<div class="busuanzi-count">
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
   
 
   
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
   
 </div>
 
 
 
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260895274&web_id=1260895274" language="JavaScript"></script>
-  </div>
-
-
-
         
       </div>
+      
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -2023,45 +1609,35 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
   
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
@@ -2069,15 +1645,15 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -2087,405 +1663,181 @@
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2016/09/15/160915Angular规范/';
+      var disqus_title = 'Angular规范';
+      var disqus_url = 'https://lsqy.tech/2016/09/15/160915Angular规范/';
 
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: '4C4aiyfcmCnwVhLCrH8d7pXo-gzGzoHsz',
-        appKey: 'BUpwAPNDhXqiEB5wAEydR42c',
-        placeholder: '有什么想说的？',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
 
 
 
   
-
+  
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
-    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
+    if (search_path.length == 0) {
+       search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
 
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
     function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
 
+    }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
+    'use strict';
+    $.ajax({
         url: path,
-        dataType: isXml ? "xml" : "json",
+        dataType: "xml",
         async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
                     }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
-                      }
+                        str += "</li>";
                     }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+            proceedsearch();
         }
-      });
-    }
+    });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
+    $('.popup-trigger').mousedown(function(e) {
       e.stopPropagation();
-      if (isfetched === false) {
+      if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
+
     });
 
-    $('.popup-btn-close').click(onPopupClose);
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
     $('.popup').click(function(e){
       e.stopPropagation();
     });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
   </script>
 
-
-
-
-
   
 
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
 </script>
 
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

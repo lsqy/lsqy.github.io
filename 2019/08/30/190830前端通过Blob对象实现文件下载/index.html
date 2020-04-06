@@ -1,0 +1,965 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="URL,Blob,前端下载文件,createObjectURL,revokeObjectURL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过Blob对象进行前端文件下载了，下面简单记录下相关实现">
+<meta name="keywords" content="URL,Blob,前端下载文件,createObjectURL,revokeObjectURL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端通过Blob实现文件下载">
+<meta property="og:url" content="https://lsqy.tech/2019/08/30/190830前端通过Blob对象实现文件下载/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过Blob对象进行前端文件下载了，下面简单记录下相关实现">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-06T13:32:14.150Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端通过Blob实现文件下载">
+<meta name="twitter:description" content="最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过Blob对象进行前端文件下载了，下面简单记录下相关实现">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> 前端通过Blob实现文件下载 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端通过Blob实现文件下载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-08-30T16:07:39+08:00" content="2019-08-30">
+              2019-08-30
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实用小技能/" itemprop="url" rel="index">
+                    <span itemprop="name">实用小技能</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/08/30/190830前端通过Blob对象实现文件下载/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/30/190830前端通过Blob对象实现文件下载/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过<code>Blob</code>对象进行前端文件下载了，下面简单记录下相关实现<a id="more"></a></p>
+</blockquote>
+<h2 id="Blob对象简要介绍"><a href="#Blob对象简要介绍" class="headerlink" title="Blob对象简要介绍"></a>Blob对象简要介绍</h2><p><code>Blob</code> 对象表示一个不可变、原始数据的类文件对象。<code>Blob</code> 表示的不一定是<code>JavaScript</code>原生格式的数据。<code>File</code> 接口基于<code>Blob</code>，继承了 <code>Blob</code> 的功能并将其扩展使其支持用户系统上的文件。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const aBlob = new Blob( array, options );</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>array 是一个由ArrayBuffer, ArrayBufferView, Blob, DOMString 等对象构成的 Array ，或者其他类似对象的混合体，它将会被放进 Blob。DOMStrings会被编码为UTF-8。</li>
+<li>options 是一个可选的BlobPropertyBag字典，它可能会指定如下两个属性：<ul>
+<li>type，默认值为 “”，它代表了将会被放入到blob中的数组内容的MIME类型。</li>
+<li>endings，默认值为”transparent”，用于指定包含行结束符\n的字符串如何被写入。 它是以下两个值中的一个： “native”，代表行结束符会被更改为适合宿主操作系统文件系统的换行符，或者 “transparent”，代表会保持blob中保存的结束符不变</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const debug = &#123;hello: &quot;world&quot;&#125;;</span><br><span class="line">const blob = new Blob([JSON.stringify(debug, null, 2)],&#123;type : &apos;application/json&apos;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="URL-createObjectURL-与-URL-revokeObjectURL-介绍"><a href="#URL-createObjectURL-与-URL-revokeObjectURL-介绍" class="headerlink" title="URL.createObjectURL() 与 URL.revokeObjectURL()介绍"></a>URL.createObjectURL() 与 URL.revokeObjectURL()介绍</h2><p><code>URL.createObjectURL()</code> 静态方法会创建一个 DOMString，其中包含一个表示参数中给出的对象的URL。这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的URL 对象表示指定的 File 对象或 Blob 对象。相当于这个方法创建了一个传入对象的内存引用地址</p>
+<h3 id="createObjectURL语法"><a href="#createObjectURL语法" class="headerlink" title="createObjectURL语法"></a>createObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objectURL = URL.createObjectURL(object);</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>object 是用于创建 URL 的 File 对象、Blob 对象或者 MediaSource 对象。​</li>
+</ul>
+<p><strong>返回值</strong></p>
+<ul>
+<li>一个可以引用到指定对象的<code>DOMString</code></li>
+</ul>
+<p><code>URL.revokeObjectURL()</code> 静态方法用来释放一个之前已经存在的、通过调用 <code>URL.createObjectURL()</code> 创建的 <code>URL</code> 对象。当你结束使用某个 <code>URL</code> 对象之后，应该通过调用这个方法来让浏览器知道不用在内存中继续保留对这个文件的引用了。</p>
+<p>你可以在 <code>sourceopen</code> 被处理之后的任何时候调用 <code>revokeObjectURL()</code>。这是因为 <code>createObjectURL()</code> 仅仅意味着将一个媒体元素的 <code>src</code> 属性关联到一个 <code>MediaSource</code> 对象上去。调用<code>revokeObjectURL()</code> 使这个潜在的对象回到原来的地方，允许平台在合适的时机进行<strong>垃圾收集</strong>。</p>
+<h3 id="revokeObjectURL语法"><a href="#revokeObjectURL语法" class="headerlink" title="revokeObjectURL语法"></a>revokeObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.URL.revokeObjectURL(objectURL);</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>objectURL 是一个 DOMString，表示通过调用 <code>URL.createObjectURL()</code> 方法产生的 URL 对象。</li>
+</ul>
+<p><strong>内存管理</strong></p>
+<p>在每次调用<code>createObjectURL()</code> 方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用 <code>URL.revokeObjectURL()</code> 方法来释放。浏览器会在文档退出的时候自动释放它们，但是为了获得最佳性能和内存使用状况，你应该在安全的时机主动释放掉它们。</p>
+<h2 id="实际运用"><a href="#实际运用" class="headerlink" title="实际运用"></a>实际运用</h2><blockquote>
+<p>比如在某后台管理中希望将用户的几个配置信息导入到一个<code>json</code>文件当中供用户下载下来</p>
+</blockquote>
+<p>代码实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">  name: &apos;lsqy&apos;,</span><br><span class="line">  password: &apos;yourpassword&apos;,</span><br><span class="line">  ak: &apos;XXXXXXXXXX&apos;,</span><br><span class="line">  sk: &apos;XXXXXXXXXX&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const blobContent = new Blob(</span><br><span class="line">  [JSON.stringify(config, null, 2)],</span><br><span class="line">  &#123;type : &apos;application/json&apos;&#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const blobUrl = window.URL.createObjectURL(blobContent)</span><br><span class="line"></span><br><span class="line">downloadFileByBlob(blobUrl, &apos;config.json&apos;)</span><br><span class="line"></span><br><span class="line">function downloadFileByBlob(blobUrl, filename) &#123;</span><br><span class="line">  const eleLink = document.createElement(&apos;a&apos;)</span><br><span class="line">  eleLink.download = filename</span><br><span class="line">  eleLink.style.display = &apos;none&apos;</span><br><span class="line">  eleLink.href = blobUrl</span><br><span class="line">  // 触发点击</span><br><span class="line">  document.body.appendChild(eleLink)</span><br><span class="line">  eleLink.click()</span><br><span class="line">  // 然后移除</span><br><span class="line">  document.body.removeChild(eleLink)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的代码，我们可以得到一个<code>config.json</code>的文件，可以看到，其实很简单就实现了这个场景需求，当然这里是下载的<code>json</code>文件,下载其他的文件也是一样的道理，只是需要得到相应文件的<code>blob</code>数据，再结合相应的<a href="https://www.w3school.com.cn/media/media_mimeref.asp" target="_blank" rel="noopener">MIME</a>类型即可;</p>
+<p>兼容性方面目前主流浏览器都已支持，ie10以及以上也支持。</p>
+<p>另外<code>Blob</code>结合<code>URL.revokeObjectURL()</code>与<code>URL.revokeObjectURL()</code>还可以用在预览图片、预览PDF、视频链接防盗等多种场景中，大家可以发挥自己的想象力来进行实现</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Blob</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/URL/" rel="tag">#URL</a>
+          
+            <a href="/tags/Blob/" rel="tag">#Blob</a>
+          
+            <a href="/tags/前端下载文件/" rel="tag">#前端下载文件</a>
+          
+            <a href="/tags/createObjectURL/" rel="tag">#createObjectURL</a>
+          
+            <a href="/tags/revokeObjectURL/" rel="tag">#revokeObjectURL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/29/190729基于Taro与typescript开发的网易云音乐小程序/" rel="next" title="基于Taro与Typescript开发的网易云音乐小程序">
+                <i class="fa fa-chevron-left"></i> 基于Taro与Typescript开发的网易云音乐小程序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/09/20200309mac上传文件到服务器/" rel="prev" title="Mac上传文件到服务器">
+                Mac上传文件到服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blob对象简要介绍"><span class="nav-number">1.</span> <span class="nav-text">Blob对象简要介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-createObjectURL-与-URL-revokeObjectURL-介绍"><span class="nav-number">2.</span> <span class="nav-text">URL.createObjectURL() 与 URL.revokeObjectURL()介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#createObjectURL语法"><span class="nav-number">2.1.</span> <span class="nav-text">createObjectURL语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#revokeObjectURL语法"><span class="nav-number">2.2.</span> <span class="nav-text">revokeObjectURL语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际运用"><span class="nav-number">3.</span> <span class="nav-text">实际运用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2019/08/30/190830前端通过Blob对象实现文件下载/';
+      var disqus_title = '前端通过Blob实现文件下载';
+      var disqus_url = 'https://lsqy.tech/2019/08/30/190830前端通过Blob对象实现文件下载/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>
