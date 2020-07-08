@@ -205,6 +205,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Javascript分层概念</title>
+    <url>/2015/05/01/150501Javascript%E5%88%86%E5%B1%82%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;一个项目前期的分层设计是很重要的，一个好的分层结构会使我们的代码组织条理更清晰，减少冗余，提髙代码重用率。和 CSS — 样，我 觉得将 JavaScript 也分成三层也是比较合理的，从下往上依次是 base 层、 common 层 和 page 层 。需要 说明的是，如何分层是一件主观的事情，为 的 是 “ 把事情变得更好” ，没有对和错之 分，只有好和坏，我并不是说 “ 只有这样分层才是对的”，下面简单列出这几个层的一个介绍</p>
+<h2 id="1-base-层"><a href="#1-base-层" class="headerlink" title="1. base  层"></a>1. base  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最底端，这一层有两个职责。职责一是封装不同浏览器下 JavaScript 的差异，提供统一的接口，我们可以依靠它来完成跨浏览器兼容的工作。职责二是扩展JavaScript语言底层提供的接口，让它提供更多更为易用的接口。 base 层的功能是给 common 层 和 page 层提供接口</p>
+<h2 id="2-common-层"><a href="#2-common-层" class="headerlink" title="2. common  层"></a>2. common  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的中间，依赖  base 层提供的接口。 commom 层提供可供复用的组件，它 是典型的 MVC 模式中的 M, 和页面内的具体功能没有直接关系。 common 层的功能是给 page 层提供组件。</p>
+<h2 id="3-page-层"><a href="#3-page-层" class="headerlink" title="3. page  层"></a>3. page  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最顶端。这一层和页面里的具体功能需求直接相关，相当于 MVC模式中的C, page 层依赖于 base 层 和 common 层。 page 层的功能是完成页面内的功能需求。<br>引申：<br>其实page 层是和页面里的具体功能需求直接相关。如果页面里的功能需求 很简单，页面里可以没有 base 层代码，甚至可以没有 common 层代码，但一定会有 page 层 代码。 可以说base 层 和 common 层都是属于框架级的， page 层是属于应用级的，它可以调用 base 层的接口和 common 层的组件。</p>
+<h3 id="下面举例形象化这三者的关系："><a href="#下面举例形象化这三者的关系：" class="headerlink" title="下面举例形象化这三者的关系："></a>下面举例形象化这三者的关系：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;我们平时绝大部分工作都是在 page 层完成的，有了分层的概念， page 层的工作就非 常轻松了。如 果 base 层 和 common 层足够丰富和稳定，我们就可以将精力全部放在具体 业务逻辑上，跨浏览器兼容和常用组件都可以交给 base 层 和 common 层去完成，一方面 可以极大地提高开发效率，另一方面也可以大大提高代码的重用率，减小网页的大小，下面举一个生动的例子：<br>&nbsp;&nbsp;&nbsp;&nbsp;如果没有 base 层 和 common 层 ，直接用原生 JavaScript 写程序，就像是开着汽车行 驶在一条不平坦的泥路上，一路上有凸起的石块（浏览器兼容带来的阻碍） ，也有凹陷 的 沼 泽 （原生 JavaScript 提 供 的 底 层 接 口 不 足）<br>&nbsp;&nbsp;&nbsp;&nbsp;引 入 base 层之后呢，就像铲平了泥路上凸起的石块（提供跨浏览器兼容的接口） ，填满了 凹陷的沼泽（弥补原生 JavaScript 底层接口的不足） 。在 base 层的基础上写程序，就像 汽车行驶在一条平坦的泥路上。<br>&nbsp;&nbsp;&nbsp;&nbsp;继 base 层之后，再 引 入 common层,就像在平坦的泥路上铺上了一层沥青，路再也不是普通的泥路了，它成了高速公路。在 base 层 和 common 的基础上写Javascript, 就像开着汽车在高速公路上飞驰！</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;其实在平常的工作学习中，一定要学会归类学习，重要的去学习一些思想，就像这次的这个分层理念，其实对于Javascript和CSS都是非常适用的，并且最终都是能做到是自己的代码精炼和具有条理的，重要的是可维护性会很强。<br>&nbsp;&nbsp;&nbsp;&nbsp;每当读书的时候，就会发现自己很渺小，需要去学习的东西还有很多，随时学习的心态必须时刻具备，上面的总结是从Web前端开发修炼之道当中凝练出来的，记录下来，也是提醒下自己的分层意识，随着现在前端越来越成熟和规范的时候，我们每一个前端人都应该时刻要去具备一颗追求卓越的心态，让自己尽快提升一个高度，特在此共勉！</p>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决自适应的两栏布局方式</title>
     <url>/2015/04/29/150429%E8%A7%A3%E5%86%B3%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E4%B8%A4%E6%A0%8F%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
@@ -254,23 +271,6 @@
 <li>使用值传递时，实参和形参是各自独立的。一进入函数进行的 o = obj2 这样是拷贝了obj2的值给o，这时o 与 obj2占用两个不同的内存单元；而使用 引用传递时，一进入函数进行的 o = obj2 这样实际上是拷贝了obj2的引用（地址）给o，这时o 与 obj2指向同一个对象（内存）。</li>
 <li>以前我们都没有注意到形参，以为形参不占内存，现在回过头来看，其实我们对于传的形参都是为了使用它而不是为了改变它的，所以没有出现一些错误，当试图改变的时候，就不一样了<br>，这时候只要你一旦对这个形参进行了赋值操作，不管是简单数据类型还是复杂数据类型，都不会对传进去的对象产生作用了，所以以后在使用函数时千万不要在内部对形参进行赋值操作！</li>
 </ol>
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Javascript分层概念</title>
-    <url>/2015/05/01/150501Javascript%E5%88%86%E5%B1%82%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;一个项目前期的分层设计是很重要的，一个好的分层结构会使我们的代码组织条理更清晰，减少冗余，提髙代码重用率。和 CSS — 样，我 觉得将 JavaScript 也分成三层也是比较合理的，从下往上依次是 base 层、 common 层 和 page 层 。需要 说明的是，如何分层是一件主观的事情，为 的 是 “ 把事情变得更好” ，没有对和错之 分，只有好和坏，我并不是说 “ 只有这样分层才是对的”，下面简单列出这几个层的一个介绍</p>
-<h2 id="1-base-层"><a href="#1-base-层" class="headerlink" title="1. base  层"></a>1. base  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最底端，这一层有两个职责。职责一是封装不同浏览器下 JavaScript 的差异，提供统一的接口，我们可以依靠它来完成跨浏览器兼容的工作。职责二是扩展JavaScript语言底层提供的接口，让它提供更多更为易用的接口。 base 层的功能是给 common 层 和 page 层提供接口</p>
-<h2 id="2-common-层"><a href="#2-common-层" class="headerlink" title="2. common  层"></a>2. common  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的中间，依赖  base 层提供的接口。 commom 层提供可供复用的组件，它 是典型的 MVC 模式中的 M, 和页面内的具体功能没有直接关系。 common 层的功能是给 page 层提供组件。</p>
-<h2 id="3-page-层"><a href="#3-page-层" class="headerlink" title="3. page  层"></a>3. page  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最顶端。这一层和页面里的具体功能需求直接相关，相当于 MVC模式中的C, page 层依赖于 base 层 和 common 层。 page 层的功能是完成页面内的功能需求。<br>引申：<br>其实page 层是和页面里的具体功能需求直接相关。如果页面里的功能需求 很简单，页面里可以没有 base 层代码，甚至可以没有 common 层代码，但一定会有 page 层 代码。 可以说base 层 和 common 层都是属于框架级的， page 层是属于应用级的，它可以调用 base 层的接口和 common 层的组件。</p>
-<h3 id="下面举例形象化这三者的关系："><a href="#下面举例形象化这三者的关系：" class="headerlink" title="下面举例形象化这三者的关系："></a>下面举例形象化这三者的关系：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;我们平时绝大部分工作都是在 page 层完成的，有了分层的概念， page 层的工作就非 常轻松了。如 果 base 层 和 common 层足够丰富和稳定，我们就可以将精力全部放在具体 业务逻辑上，跨浏览器兼容和常用组件都可以交给 base 层 和 common 层去完成，一方面 可以极大地提高开发效率，另一方面也可以大大提高代码的重用率，减小网页的大小，下面举一个生动的例子：<br>&nbsp;&nbsp;&nbsp;&nbsp;如果没有 base 层 和 common 层 ，直接用原生 JavaScript 写程序，就像是开着汽车行 驶在一条不平坦的泥路上，一路上有凸起的石块（浏览器兼容带来的阻碍） ，也有凹陷 的 沼 泽 （原生 JavaScript 提 供 的 底 层 接 口 不 足）<br>&nbsp;&nbsp;&nbsp;&nbsp;引 入 base 层之后呢，就像铲平了泥路上凸起的石块（提供跨浏览器兼容的接口） ，填满了 凹陷的沼泽（弥补原生 JavaScript 底层接口的不足） 。在 base 层的基础上写程序，就像 汽车行驶在一条平坦的泥路上。<br>&nbsp;&nbsp;&nbsp;&nbsp;继 base 层之后，再 引 入 common层,就像在平坦的泥路上铺上了一层沥青，路再也不是普通的泥路了，它成了高速公路。在 base 层 和 common 的基础上写Javascript, 就像开着汽车在高速公路上飞驰！</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;其实在平常的工作学习中，一定要学会归类学习，重要的去学习一些思想，就像这次的这个分层理念，其实对于Javascript和CSS都是非常适用的，并且最终都是能做到是自己的代码精炼和具有条理的，重要的是可维护性会很强。<br>&nbsp;&nbsp;&nbsp;&nbsp;每当读书的时候，就会发现自己很渺小，需要去学习的东西还有很多，随时学习的心态必须时刻具备，上面的总结是从Web前端开发修炼之道当中凝练出来的，记录下来，也是提醒下自己的分层意识，随着现在前端越来越成熟和规范的时候，我们每一个前端人都应该时刻要去具备一颗追求卓越的心态，让自己尽快提升一个高度，特在此共勉！</p>
 ]]></content>
       <categories>
         <category>Javascript</category>
@@ -598,33 +598,6 @@
       </tags>
   </entry>
   <entry>
-    <title>windows查看端口占用以及关闭相应的进程</title>
-    <url>/2015/11/08/151108windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%85%B3%E9%97%AD%E7%9B%B8%E5%BA%94%E7%9A%84%E8%BF%9B%E7%A8%8B/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;在开发的时候，难免有时候我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，就拿最常见的一个8080端口占用来说： <a id="more"></a></p>
-<h2 id="1-Windows平台"><a href="#1-Windows平台" class="headerlink" title="1.Windows平台"></a>1.Windows平台</h2><h3 id="打开命令行"><a href="#打开命令行" class="headerlink" title="打开命令行"></a>打开命令行</h3><ol>
-<li>直接按上<code>shift</code>再加上鼠标右键</li>
-<li>开始–运行–<code>cmd</code> 进入命令提示符</li>
-</ol>
-<h3 id="查看所有端口占用情况"><a href="#查看所有端口占用情况" class="headerlink" title="查看所有端口占用情况"></a>查看所有端口占用情况</h3><p>在命令行输入<code>netstat -ano</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\lsqy\Desktop&gt;netstat -ano</span><br><span class="line"></span><br><span class="line">活动连接</span><br><span class="line"></span><br><span class="line">  协议    本地地址                外部地址              状态           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       84</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:623            0.0.0.0:0              LISTENING       10264</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:5366           0.0.0.0:0              LISTENING       2756</span><br><span class="line">  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       5868</span><br><span class="line">  TCP    0.0.0.0:16992          0.0.0.0:0              LISTENING       10264</span><br><span class="line">  TCP    0.0.0.0:27017          0.0.0.0:0              LISTENING       3964</span><br><span class="line">  TCP    172.21.10.135:65448    182.254.78.139:80      ESTABLISHED     19524</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       84</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:623               [::]:0                 LISTENING       10264</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:8080              [::]:0                 LISTENING       5868</span><br><span class="line">  TCP    [::]:16992             [::]:0                 LISTENING       10264</span><br><span class="line">  TCP    [::]:49664             [::]:0                 LISTENING       708</span><br><span class="line">  TCP    [::]:49665             [::]:0                 LISTENING       1064</span><br><span class="line">  TCP    [::]:49673             [::]:0                 LISTENING       2840</span><br><span class="line">  TCP    [::]:49674             [::]:0                 LISTENING       876</span><br><span class="line">  TCP    [::]:49677             [::]:0                 LISTENING       952</span><br><span class="line">  TCP    [::]:49712             [::]:0                 LISTENING       856</span><br><span class="line">  TCP    [::1]:50170            [::]:0                 LISTENING       10312</span><br><span class="line">  TCP    [::1]:59262            [::1]:59264            ESTABLISHED     10264</span><br><span class="line">  TCP    [::1]:59264            [::1]:59262            ESTABLISHED     10264</span><br><span class="line">  UDP    0.0.0.0:123            *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    2464</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1628</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    2464</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1628</span><br><span class="line">  UDP    0.0.0.0:4003           *:*                                    14804</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:1900  *:*                                    2464</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:2177  *:*                                    2464</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:52081  *:*                                    2464</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-查看指定端口占用情况"><a href="#2-查看指定端口占用情况" class="headerlink" title="2.查看指定端口占用情况"></a>2.查看指定端口占用情况</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;netstat -ano|findstr &quot;8080&quot;</span><br><span class="line">  协议    本地地址                外部地址              状态           PID</span><br><span class="line">  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       5868</span><br><span class="line">  TCP    [::]:8080              [::]:0                 LISTENING       5868</span><br></pre></td></tr></table></figure>
-
-<p>可以很显然的看到这个端口是被5868的进程占用</p>
-<h3 id="3-查看pid对应的进程"><a href="#3-查看pid对应的进程" class="headerlink" title="3.查看pid对应的进程"></a>3.查看pid对应的进程</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;tasklist|findstr &quot;5868&quot;</span><br><span class="line">node.exe                      5868 Console                   13     12,600 K</span><br></pre></td></tr></table></figure>
-
-<p>这样可以知道是node占用了端口</p>
-<h3 id="4-结束该进程"><a href="#4-结束该进程" class="headerlink" title="4.结束该进程"></a>4.结束该进程</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;taskkill /f /t /im node.exe</span><br><span class="line">成功: 已终止 PID 7280 (属于 PID 2068 子进程)的进程。</span><br><span class="line">成功: 已终止 PID 2068 (属于 PID 20712 子进程)的进程。</span><br><span class="line">成功: 已终止 PID 5868 (属于 PID 9144 子进程)的进程。</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>实用小技能</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解析Bootstrap基础模板</title>
     <url>/2015/11/10/151110%E8%A7%A3%E6%9E%90Bootstrap%E5%9F%BA%E7%A1%80%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<blockquote>
@@ -768,6 +741,33 @@
       </categories>
       <tags>
         <tag>Bootstrap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows查看端口占用以及关闭相应的进程</title>
+    <url>/2015/11/08/151108windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%85%B3%E9%97%AD%E7%9B%B8%E5%BA%94%E7%9A%84%E8%BF%9B%E7%A8%8B/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;在开发的时候，难免有时候我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，就拿最常见的一个8080端口占用来说： <a id="more"></a></p>
+<h2 id="1-Windows平台"><a href="#1-Windows平台" class="headerlink" title="1.Windows平台"></a>1.Windows平台</h2><h3 id="打开命令行"><a href="#打开命令行" class="headerlink" title="打开命令行"></a>打开命令行</h3><ol>
+<li>直接按上<code>shift</code>再加上鼠标右键</li>
+<li>开始–运行–<code>cmd</code> 进入命令提示符</li>
+</ol>
+<h3 id="查看所有端口占用情况"><a href="#查看所有端口占用情况" class="headerlink" title="查看所有端口占用情况"></a>查看所有端口占用情况</h3><p>在命令行输入<code>netstat -ano</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\lsqy\Desktop&gt;netstat -ano</span><br><span class="line"></span><br><span class="line">活动连接</span><br><span class="line"></span><br><span class="line">  协议    本地地址                外部地址              状态           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       84</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:623            0.0.0.0:0              LISTENING       10264</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:5366           0.0.0.0:0              LISTENING       2756</span><br><span class="line">  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       5868</span><br><span class="line">  TCP    0.0.0.0:16992          0.0.0.0:0              LISTENING       10264</span><br><span class="line">  TCP    0.0.0.0:27017          0.0.0.0:0              LISTENING       3964</span><br><span class="line">  TCP    172.21.10.135:65448    182.254.78.139:80      ESTABLISHED     19524</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       84</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:623               [::]:0                 LISTENING       10264</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:8080              [::]:0                 LISTENING       5868</span><br><span class="line">  TCP    [::]:16992             [::]:0                 LISTENING       10264</span><br><span class="line">  TCP    [::]:49664             [::]:0                 LISTENING       708</span><br><span class="line">  TCP    [::]:49665             [::]:0                 LISTENING       1064</span><br><span class="line">  TCP    [::]:49673             [::]:0                 LISTENING       2840</span><br><span class="line">  TCP    [::]:49674             [::]:0                 LISTENING       876</span><br><span class="line">  TCP    [::]:49677             [::]:0                 LISTENING       952</span><br><span class="line">  TCP    [::]:49712             [::]:0                 LISTENING       856</span><br><span class="line">  TCP    [::1]:50170            [::]:0                 LISTENING       10312</span><br><span class="line">  TCP    [::1]:59262            [::1]:59264            ESTABLISHED     10264</span><br><span class="line">  TCP    [::1]:59264            [::1]:59262            ESTABLISHED     10264</span><br><span class="line">  UDP    0.0.0.0:123            *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    2464</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1628</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    520</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    2464</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1628</span><br><span class="line">  UDP    0.0.0.0:4003           *:*                                    14804</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:1900  *:*                                    2464</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:2177  *:*                                    2464</span><br><span class="line">  UDP    [fe80::b1ec:1ffd:410:3856%15]:52081  *:*                                    2464</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看指定端口占用情况"><a href="#2-查看指定端口占用情况" class="headerlink" title="2.查看指定端口占用情况"></a>2.查看指定端口占用情况</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;netstat -ano|findstr &quot;8080&quot;</span><br><span class="line">  协议    本地地址                外部地址              状态           PID</span><br><span class="line">  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       5868</span><br><span class="line">  TCP    [::]:8080              [::]:0                 LISTENING       5868</span><br></pre></td></tr></table></figure>
+
+<p>可以很显然的看到这个端口是被5868的进程占用</p>
+<h3 id="3-查看pid对应的进程"><a href="#3-查看pid对应的进程" class="headerlink" title="3.查看pid对应的进程"></a>3.查看pid对应的进程</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;tasklist|findstr &quot;5868&quot;</span><br><span class="line">node.exe                      5868 Console                   13     12,600 K</span><br></pre></td></tr></table></figure>
+
+<p>这样可以知道是node占用了端口</p>
+<h3 id="4-结束该进程"><a href="#4-结束该进程" class="headerlink" title="4.结束该进程"></a>4.结束该进程</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\lsqy\Desktop&gt;taskkill /f /t /im node.exe</span><br><span class="line">成功: 已终止 PID 7280 (属于 PID 2068 子进程)的进程。</span><br><span class="line">成功: 已终止 PID 2068 (属于 PID 20712 子进程)的进程。</span><br><span class="line">成功: 已终止 PID 5868 (属于 PID 9144 子进程)的进程。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>实用小技能</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,6 +1631,22 @@
       </tags>
   </entry>
   <entry>
+    <title>JS实现数字自动转换人民币金额</title>
+    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
+    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>http-server介绍</title>
     <url>/2016/10/01/161001http-server/</url>
     <content><![CDATA[<p><img src="https://oi2h9y4dd.qnssl.com/public.jpg" alt></p>
@@ -1654,22 +1670,6 @@
       <tags>
         <tag>HTTP</tag>
         <tag>NodeJS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现数字自动转换人民币金额</title>
-    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
-    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1721,37 +1721,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows下安装和配置Redis</title>
-    <url>/2016/11/21/161121Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AERedis/</url>
-    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&nbsp;&nbsp;&nbsp;Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。<br>由于是存取运行在内存之中，所以速度极快。Redis 最高可以每秒执行 80000 以上数据操作，因此被广泛应用于需要快速存取数据的应用中，比如秒杀网站，投票网站等。<a id="more"></a><br>&nbsp;&nbsp;&nbsp;Redis 官方安装版本是 Linux 的，并没有 Windows 下的 Redis，好在 GitHub 中有人发布了 Windows 版本的 Reids ，可以直接安装使用。注意，仅支持 64 位系统，32位的没有测试，一般是不能运行的。<br>下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/releases</a><br><img src="https://oi2h9y4dd.qnssl.com/imageredis.png" alt><br>下载完成之后，直接解压到自己预先建好的目录下即可，例如我建到了<code>D:\Redis</code>下；</p>
-<h2 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h2><ul>
-<li><p>进入到Redis目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd d:/Redis</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行Redis</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-server  redis.windows.conf</span><br><span class="line">或者直接输入redis-server也可以</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>如果出现这样的画面，就说明 Redis 运行成功，只要确定不要关闭这个画面，Redis 就会一直运行<br><img src="https://oi2h9y4dd.qnssl.com/imageredis02.png" alt> </p>
-<h2 id="关闭Redis"><a href="#关闭Redis" class="headerlink" title="关闭Redis"></a>关闭Redis</h2><p>直接关闭命令行工具即可</p>
-<h2 id="启动Redis命令行工具"><a href="#启动Redis命令行工具" class="headerlink" title="启动Redis命令行工具"></a>启动Redis命令行工具</h2><p>另外开启一个命令提示窗口，并输入下面的命令：</p>
-<ul>
-<li>1.定位至 Redis 目录<br><code>cd c:/redis</code></li>
-<li>2.启动 Redis 命令<br><code>redis-cli</code><br>如果光标前出现了这样的字符，<code>127.0.0.1:6379&gt;</code> 说明开启本地测试工具，端口是 6379。<br>这样额就能够在命令行熟悉一些Redis的命令了。</li>
-</ul>
-<h2 id="几个学习的网站"><a href="#几个学习的网站" class="headerlink" title="几个学习的网站"></a>几个学习的网站</h2><blockquote>
-<p><a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a>   Redis中文官网<br><a href="http://www.redis.net.cn/" target="_blank" rel="noopener">http://www.redis.net.cn/</a> Redis中文网<br><a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a>  Redis命令参考<br><a href="https://www.npmjs.com/package/redis" target="_blank" rel="noopener">https://www.npmjs.com/package/redis</a> Redis npm包地址</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Redis远程连接</title>
     <url>/2016/11/28/161128Redis%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<p>一般情况下，Redis默认只允许本机访问，有时候我们也许需要使Redi能被远程访问，我这次远程连接的目的主要是为了能够在本机通过Redis可视化工具连接上我的阿里云服务器上部署的Redis，这样能够更加直观的去观察一下存入的键值对，下面记录下步骤：</p>
@@ -1774,6 +1743,37 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">G7_user@E540-PF03XZZF /C/Users/G7_user/Desktop</span><br><span class="line">$ redis-cli -h 你的IP地址 -p 6379</span><br><span class="line">你的IP地址:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
 
 <p>下面就是我用的Redis Desktop Manager,直接连接即可<br><img src="https://oi2h9y4dd.qnssl.com/image/Redis.png" alt></p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下安装和配置Redis</title>
+    <url>/2016/11/21/161121Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AERedis/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&nbsp;&nbsp;&nbsp;Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。<br>由于是存取运行在内存之中，所以速度极快。Redis 最高可以每秒执行 80000 以上数据操作，因此被广泛应用于需要快速存取数据的应用中，比如秒杀网站，投票网站等。<a id="more"></a><br>&nbsp;&nbsp;&nbsp;Redis 官方安装版本是 Linux 的，并没有 Windows 下的 Redis，好在 GitHub 中有人发布了 Windows 版本的 Reids ，可以直接安装使用。注意，仅支持 64 位系统，32位的没有测试，一般是不能运行的。<br>下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/releases</a><br><img src="https://oi2h9y4dd.qnssl.com/imageredis.png" alt><br>下载完成之后，直接解压到自己预先建好的目录下即可，例如我建到了<code>D:\Redis</code>下；</p>
+<h2 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h2><ul>
+<li><p>进入到Redis目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd d:/Redis</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Redis</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-server  redis.windows.conf</span><br><span class="line">或者直接输入redis-server也可以</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果出现这样的画面，就说明 Redis 运行成功，只要确定不要关闭这个画面，Redis 就会一直运行<br><img src="https://oi2h9y4dd.qnssl.com/imageredis02.png" alt> </p>
+<h2 id="关闭Redis"><a href="#关闭Redis" class="headerlink" title="关闭Redis"></a>关闭Redis</h2><p>直接关闭命令行工具即可</p>
+<h2 id="启动Redis命令行工具"><a href="#启动Redis命令行工具" class="headerlink" title="启动Redis命令行工具"></a>启动Redis命令行工具</h2><p>另外开启一个命令提示窗口，并输入下面的命令：</p>
+<ul>
+<li>1.定位至 Redis 目录<br><code>cd c:/redis</code></li>
+<li>2.启动 Redis 命令<br><code>redis-cli</code><br>如果光标前出现了这样的字符，<code>127.0.0.1:6379&gt;</code> 说明开启本地测试工具，端口是 6379。<br>这样额就能够在命令行熟悉一些Redis的命令了。</li>
+</ul>
+<h2 id="几个学习的网站"><a href="#几个学习的网站" class="headerlink" title="几个学习的网站"></a>几个学习的网站</h2><blockquote>
+<p><a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a>   Redis中文官网<br><a href="http://www.redis.net.cn/" target="_blank" rel="noopener">http://www.redis.net.cn/</a> Redis中文网<br><a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a>  Redis命令参考<br><a href="https://www.npmjs.com/package/redis" target="_blank" rel="noopener">https://www.npmjs.com/package/redis</a> Redis npm包地址</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2182,6 +2182,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Mac中ios模拟器的常用操作</title>
+    <url>/2019/05/26/190526mac%E4%B8%ADios%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>下面主要列出了以下几个常用的命令，包括：查找ios模拟器中包含哪些机型、启动ios模拟器中的指定机型。<a id="more"></a></p>
+</blockquote>
+<h3 id="1、查找ios模拟器中包含哪些机型"><a href="#1、查找ios模拟器中包含哪些机型" class="headerlink" title="1、查找ios模拟器中包含哪些机型"></a>1、查找ios模拟器中包含哪些机型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">instruments -s</span><br></pre></td></tr></table></figure>
+
+<p>会输出以下模拟机型，也就是说可以启动以下这些机型进行模拟</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Known Devices:</span><br><span class="line">lsqy的MacBook Pro </span><br><span class="line">Apple TV (12.2) [CD901014-4F0C-46C3-AE9A-A22AC37493FB] (Simulator)</span><br><span class="line">Apple TV 4K (12.2) [31425E49-958D-40E3-8393-93EA246943F0] (Simulator)</span><br><span class="line">Apple TV 4K (at 1080p) (12.2) [6E1C2AFC-32DD-4CC5-A280-8049BD3B8A1A] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 38mm (5.2) [26759A5E-00B9-4BD4-A5D2-5AE544DA841B] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 42mm (5.2) [33BA7025-31F7-42A7-817B-A4A70CFC60A8] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 38mm (5.2) [03739305-4300-452F-BB8B-8671854BD210] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 42mm (5.2) [CE4486B9-E587-4AC8-9821-9E50D7FF8BFB] (Simulator)</span><br><span class="line">iPad (5th generation) (12.2) [D46751EA-EDD9-4C92-8652-14F339A8372C] (Simulator)</span><br><span class="line">iPad (6th generation) (12.2) [20A0FEF8-C34F-4960-B7DF-AA2A7A9EEEF6] (Simulator)</span><br><span class="line">iPad Air (12.2) [ED0958FA-0C6B-4E2E-B87D-9B272F49C9AD] (Simulator)</span><br><span class="line">iPad Air (3rd generation) (12.2) [E981EDDA-587C-4194-84A8-B018E909046B] (Simulator)</span><br><span class="line">iPad Air 2 (12.2) [F1000542-2E19-415D-A6A6-C791D07BC504] (Simulator)</span><br><span class="line">iPad Pro (10.5-inch) (12.2) [F950D852-A65E-4797-9B23-53C0A2510815] (Simulator)</span><br><span class="line">iPad Pro (11-inch) (12.2) [B34F8807-15F1-45F2-966D-65BBB45A2FEB] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (12.2) [5BFA185B-E0FB-43ED-8991-B79982ECE0F8] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (2nd generation) (12.2) [DCE2842B-AF9A-40CC-AAC6-D6F12828C937] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (3rd generation) (12.2) [8EBD2F29-9C1E-42C6-B95D-2F3273CEB56E] (Simulator)</span><br><span class="line">iPad Pro (9.7-inch) (12.2) [79CEBBA2-5665-44D2-BC2D-EF01E971672B] (Simulator)</span><br><span class="line">iPhone 5s (12.2) [0A515BFC-2C47-4093-B80E-85BE96712436] (Simulator)</span><br><span class="line">iPhone 6 (12.2) [5D695AAE-8D35-4F30-8885-740A85F22AB6] (Simulator)</span><br><span class="line">iPhone 6 Plus (12.2) [8A39537F-0EED-4244-A114-223AF0126B0C] (Simulator)</span><br><span class="line">iPhone 6s (12.2) [1913C53F-394E-446E-A3A7-4DAA87F9D578] (Simulator)</span><br><span class="line">iPhone 6s Plus (12.2) [B2937386-20A9-4ACC-A63E-982BC10F661C] (Simulator)</span><br><span class="line">iPhone 7 (12.2) [A3D3511E-AB79-4849-B104-3D9803198203] (Simulator)</span><br><span class="line">iPhone 7 Plus (12.2) [7A47C656-0C7A-4002-98D0-CB0F6167C138] (Simulator)</span><br><span class="line">iPhone 8 (12.2) [D6083F0A-967F-40D8-88C2-684BDB927B99] (Simulator)</span><br><span class="line">iPhone 8 Plus (12.2) [980B8AED-7F44-4D95-A6F7-AAF561F88883] (Simulator)</span><br><span class="line">iPhone SE (12.2) [09A3F89A-4BFE-4B4D-8793-8D5C1B4B1E36] (Simulator)</span><br><span class="line">iPhone X (12.2) [E374247E-832D-4B61-804D-1C085CA897BD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) [DDDF0B87-7295-417B-9A85-27441B4282AD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) + Apple Watch Series 4 - 40mm (5.2) [6E29B703-74F6-40C7-99A8-0D9CEB5A9777] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) [F74F45D2-29EA-4490-8490-933FC4084BEA] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) + Apple Watch Series 4 - 44mm (5.2) [B710C546-C80C-400C-829B-8487D411BF6E] (Simulator)</span><br><span class="line">iPhone Xʀ (12.2) [7E8332CC-2279-40CE-B86B-AD7D21227D0A] (Simulator)</span><br><span class="line">Known Templates:</span><br><span class="line">&quot;Activity Monitor&quot;</span><br><span class="line">&quot;Allocations&quot;</span><br><span class="line">&quot;Blank&quot;</span><br><span class="line">&quot;Core Animation&quot;</span><br><span class="line">&quot;Core Data&quot;</span><br><span class="line">&quot;Counters&quot;</span><br><span class="line">&quot;Energy Log&quot;</span><br><span class="line">&quot;File Activity&quot;</span><br><span class="line">&quot;Game Performance&quot;</span><br><span class="line">&quot;Leaks&quot;</span><br><span class="line">&quot;Metal System Trace&quot;</span><br><span class="line">&quot;Network&quot;</span><br><span class="line">&quot;SceneKit&quot;</span><br><span class="line">&quot;System Trace&quot;</span><br><span class="line">&quot;System Usage&quot;</span><br><span class="line">&quot;Time Profiler&quot;</span><br><span class="line">&quot;Zombies&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、启动ios模拟器中的指定机型"><a href="#2、启动ios模拟器中的指定机型" class="headerlink" title="2、启动ios模拟器中的指定机型"></a>2、启动ios模拟器中的指定机型</h3><blockquote>
+<p>注意启动的时候要将名称输入完全，比如如果要启动<code>iPhone X</code>，则需要将后面括号里的内容也带上<code>iPhone X (12.2)</code>，要不然模拟器会不知道要具体启动哪个机型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcrun instruments -w &apos;iPhone X (12.2)&apos;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>ios模拟器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pm2常用命令</title>
     <url>/2019/06/03/190603pm2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h3 id="pm2简要介绍"><a href="#pm2简要介绍" class="headerlink" title="pm2简要介绍"></a>pm2简要介绍</h3><p>pm2（process manager）是一个进程管理工具，维护一个进程列表，可以用它来管理你的node进程，负责所有正在运行的进程，并查看node进程的状态，也支持性能监控，负载均衡等功能。<a id="more"></a></p>
@@ -2213,29 +2236,6 @@
       </categories>
       <tags>
         <tag>pm2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac中ios模拟器的常用操作</title>
-    <url>/2019/05/26/190526mac%E4%B8%ADios%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<blockquote>
-<p>下面主要列出了以下几个常用的命令，包括：查找ios模拟器中包含哪些机型、启动ios模拟器中的指定机型。<a id="more"></a></p>
-</blockquote>
-<h3 id="1、查找ios模拟器中包含哪些机型"><a href="#1、查找ios模拟器中包含哪些机型" class="headerlink" title="1、查找ios模拟器中包含哪些机型"></a>1、查找ios模拟器中包含哪些机型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">instruments -s</span><br></pre></td></tr></table></figure>
-
-<p>会输出以下模拟机型，也就是说可以启动以下这些机型进行模拟</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Known Devices:</span><br><span class="line">lsqy的MacBook Pro </span><br><span class="line">Apple TV (12.2) [CD901014-4F0C-46C3-AE9A-A22AC37493FB] (Simulator)</span><br><span class="line">Apple TV 4K (12.2) [31425E49-958D-40E3-8393-93EA246943F0] (Simulator)</span><br><span class="line">Apple TV 4K (at 1080p) (12.2) [6E1C2AFC-32DD-4CC5-A280-8049BD3B8A1A] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 38mm (5.2) [26759A5E-00B9-4BD4-A5D2-5AE544DA841B] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 42mm (5.2) [33BA7025-31F7-42A7-817B-A4A70CFC60A8] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 38mm (5.2) [03739305-4300-452F-BB8B-8671854BD210] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 42mm (5.2) [CE4486B9-E587-4AC8-9821-9E50D7FF8BFB] (Simulator)</span><br><span class="line">iPad (5th generation) (12.2) [D46751EA-EDD9-4C92-8652-14F339A8372C] (Simulator)</span><br><span class="line">iPad (6th generation) (12.2) [20A0FEF8-C34F-4960-B7DF-AA2A7A9EEEF6] (Simulator)</span><br><span class="line">iPad Air (12.2) [ED0958FA-0C6B-4E2E-B87D-9B272F49C9AD] (Simulator)</span><br><span class="line">iPad Air (3rd generation) (12.2) [E981EDDA-587C-4194-84A8-B018E909046B] (Simulator)</span><br><span class="line">iPad Air 2 (12.2) [F1000542-2E19-415D-A6A6-C791D07BC504] (Simulator)</span><br><span class="line">iPad Pro (10.5-inch) (12.2) [F950D852-A65E-4797-9B23-53C0A2510815] (Simulator)</span><br><span class="line">iPad Pro (11-inch) (12.2) [B34F8807-15F1-45F2-966D-65BBB45A2FEB] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (12.2) [5BFA185B-E0FB-43ED-8991-B79982ECE0F8] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (2nd generation) (12.2) [DCE2842B-AF9A-40CC-AAC6-D6F12828C937] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (3rd generation) (12.2) [8EBD2F29-9C1E-42C6-B95D-2F3273CEB56E] (Simulator)</span><br><span class="line">iPad Pro (9.7-inch) (12.2) [79CEBBA2-5665-44D2-BC2D-EF01E971672B] (Simulator)</span><br><span class="line">iPhone 5s (12.2) [0A515BFC-2C47-4093-B80E-85BE96712436] (Simulator)</span><br><span class="line">iPhone 6 (12.2) [5D695AAE-8D35-4F30-8885-740A85F22AB6] (Simulator)</span><br><span class="line">iPhone 6 Plus (12.2) [8A39537F-0EED-4244-A114-223AF0126B0C] (Simulator)</span><br><span class="line">iPhone 6s (12.2) [1913C53F-394E-446E-A3A7-4DAA87F9D578] (Simulator)</span><br><span class="line">iPhone 6s Plus (12.2) [B2937386-20A9-4ACC-A63E-982BC10F661C] (Simulator)</span><br><span class="line">iPhone 7 (12.2) [A3D3511E-AB79-4849-B104-3D9803198203] (Simulator)</span><br><span class="line">iPhone 7 Plus (12.2) [7A47C656-0C7A-4002-98D0-CB0F6167C138] (Simulator)</span><br><span class="line">iPhone 8 (12.2) [D6083F0A-967F-40D8-88C2-684BDB927B99] (Simulator)</span><br><span class="line">iPhone 8 Plus (12.2) [980B8AED-7F44-4D95-A6F7-AAF561F88883] (Simulator)</span><br><span class="line">iPhone SE (12.2) [09A3F89A-4BFE-4B4D-8793-8D5C1B4B1E36] (Simulator)</span><br><span class="line">iPhone X (12.2) [E374247E-832D-4B61-804D-1C085CA897BD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) [DDDF0B87-7295-417B-9A85-27441B4282AD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) + Apple Watch Series 4 - 40mm (5.2) [6E29B703-74F6-40C7-99A8-0D9CEB5A9777] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) [F74F45D2-29EA-4490-8490-933FC4084BEA] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) + Apple Watch Series 4 - 44mm (5.2) [B710C546-C80C-400C-829B-8487D411BF6E] (Simulator)</span><br><span class="line">iPhone Xʀ (12.2) [7E8332CC-2279-40CE-B86B-AD7D21227D0A] (Simulator)</span><br><span class="line">Known Templates:</span><br><span class="line">&quot;Activity Monitor&quot;</span><br><span class="line">&quot;Allocations&quot;</span><br><span class="line">&quot;Blank&quot;</span><br><span class="line">&quot;Core Animation&quot;</span><br><span class="line">&quot;Core Data&quot;</span><br><span class="line">&quot;Counters&quot;</span><br><span class="line">&quot;Energy Log&quot;</span><br><span class="line">&quot;File Activity&quot;</span><br><span class="line">&quot;Game Performance&quot;</span><br><span class="line">&quot;Leaks&quot;</span><br><span class="line">&quot;Metal System Trace&quot;</span><br><span class="line">&quot;Network&quot;</span><br><span class="line">&quot;SceneKit&quot;</span><br><span class="line">&quot;System Trace&quot;</span><br><span class="line">&quot;System Usage&quot;</span><br><span class="line">&quot;Time Profiler&quot;</span><br><span class="line">&quot;Zombies&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、启动ios模拟器中的指定机型"><a href="#2、启动ios模拟器中的指定机型" class="headerlink" title="2、启动ios模拟器中的指定机型"></a>2、启动ios模拟器中的指定机型</h3><blockquote>
-<p>注意启动的时候要将名称输入完全，比如如果要启动<code>iPhone X</code>，则需要将后面括号里的内容也带上<code>iPhone X (12.2)</code>，要不然模拟器会不知道要具体启动哪个机型</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcrun instruments -w &apos;iPhone X (12.2)&apos;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-        <tag>ios模拟器</tag>
       </tags>
   </entry>
   <entry>
@@ -2562,7 +2562,7 @@
       </tags>
   </entry>
   <entry>
-    <title>团队招聘,机会难得~</title>
+    <title>【内推】团队招聘,机会难得~</title>
     <url>/2020/07/08/20200708%E5%9B%A2%E9%98%9F%E6%8B%9B%E8%81%98/</url>
     <content><![CDATA[<p><img src="https://img.lsqy.tech/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D.jpg" alt></p>
 <blockquote>
@@ -2591,6 +2591,7 @@
       <tags>
         <tag>JD</tag>
         <tag>招聘</tag>
+        <tag>内推</tag>
       </tags>
   </entry>
   <entry>
