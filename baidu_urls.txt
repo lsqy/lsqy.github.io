@@ -1,3 +1,4 @@
+https://lsqy.tech/2020/07/08/20200708团队招聘/
 https://lsqy.tech/2020/04/06/20200406Mac下查看java的安装路径/
 https://lsqy.tech/2020/03/14/20200314Mac-Vscode快捷键/
 https://lsqy.tech/2020/03/09/20200309mac上传文件到服务器/
@@ -27,4 +28,3 @@ https://lsqy.tech/2016/11/17/161117bable使用指南/
 https://lsqy.tech/2016/10/20/161020JS实现数字自动转换人民币金额/
 https://lsqy.tech/2016/10/01/161001http-server/
 https://lsqy.tech/2016/09/15/160915Angular规范/
-https://lsqy.tech/2016/07/13/160713git技巧汇总/
