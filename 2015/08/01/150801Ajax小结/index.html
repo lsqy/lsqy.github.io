@@ -1,0 +1,947 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="AJAX">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="相信现在每一个开发人员对AJAX都不陌生，每天肯定离不开跟它打交道，事实证明它确实很大程度的提高了用户体验。有一次跟身边的一个朋友聊天，问它对AJAX有什么深入理解，他说不就是用jquery里的AJAX嘛，按那个格式写就行了，其他的也没必要了解，但我觉得我们不应只是类库的使用者，我认为还是要‘知其然知其所以然’,不能是停留在会用的基础上，虽然不能把其全部实现都如数分析出，但是从原理的角度还是可以知">
+<meta name="keywords" content="AJAX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax小结">
+<meta property="og:url" content="https://lsqy.tech/2015/08/01/150801Ajax小结/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="相信现在每一个开发人员对AJAX都不陌生，每天肯定离不开跟它打交道，事实证明它确实很大程度的提高了用户体验。有一次跟身边的一个朋友聊天，问它对AJAX有什么深入理解，他说不就是用jquery里的AJAX嘛，按那个格式写就行了，其他的也没必要了解，但我觉得我们不应只是类库的使用者，我认为还是要‘知其然知其所以然’,不能是停留在会用的基础上，虽然不能把其全部实现都如数分析出，但是从原理的角度还是可以知">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-20T14:38:51.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax小结">
+<meta name="twitter:description" content="相信现在每一个开发人员对AJAX都不陌生，每天肯定离不开跟它打交道，事实证明它确实很大程度的提高了用户体验。有一次跟身边的一个朋友聊天，问它对AJAX有什么深入理解，他说不就是用jquery里的AJAX嘛，按那个格式写就行了，其他的也没必要了解，但我觉得我们不应只是类库的使用者，我认为还是要‘知其然知其所以然’,不能是停留在会用的基础上，虽然不能把其全部实现都如数分析出，但是从原理的角度还是可以知">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> Ajax小结 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ajax小结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-08-01T10:59:57+08:00" content="2015-08-01">
+              2015-08-01
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/01/150801Ajax小结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/150801Ajax小结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;相信大家现在每一个开发人员对AJAX都不陌生，每天肯定离不开跟它打交道，事实证明它确实很大程度的提高了用户体验。有一次跟身边的一个朋友聊天，问它对AJAX有什么深入理解，他说不就是用jquery里的AJAX嘛，按那个格式写就行了，其他的也没必要了解，但我觉得我们不应只是类库的使用者，我认为还是要‘知其然知其所以然’,不能是停留在会用的基础上，虽然不能把其全部实现都如数分析出，但是从原理的角度还是可以知道的，下面也是自己大概总结了下AJAX的原理，总结不当之处还望指出。^^_^^</p>
+<h2 id="AJAX简介"><a href="#AJAX简介" class="headerlink" title="AJAX简介"></a>AJAX简介</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;AJAX全称其实是“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术<br>&nbsp;&nbsp;&nbsp;&nbsp;我们经常也是用于通过在后台与服务器进行少量数据交换，AJAX可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新，不会像最早以前只要请求下数据，就得刷新页面。<br>&nbsp;&nbsp;&nbsp;&nbsp;说到这里，也算是AJAX拯救了Javascript，因为在2005年之前Javscript经常被认为是一个很低级的脚本语言，最重要的是很多开发者都用它开发了一些烦人的广告之类的，最终导致Javascript在好几个主流浏览器上都经常被禁用，相信现在有些开发者也知道每个浏览器都有一个禁用Javascript的选项，不过这时的我们并不是真的禁用它，最多是处于调试的目的，但那时候可是真的禁用，好了，野史就先说到这….2005年对于AJAX可以说是一个重要的元年，很多重大的事件让大众对它真的是刮目相看，Google在它著名的交互应用程序中使用了异步通讯，如Google、Google地图、Google搜索等。而AJAX又是基于Javascript，所以就此Javascript又重新发展了起来。</p>
+<h2 id="AJAX核心XMLHttpRequest"><a href="#AJAX核心XMLHttpRequest" class="headerlink" title="AJAX核心XMLHttpRequest"></a>AJAX核心XMLHttpRequest</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Ajax的原理简单来说通过XMLHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用Javascript来操作DOM而更新页面。这其中最关键的一步就是从服务器获得请求数据。要清楚这个过程和原理，我们必须对 XMLHttpRequest有所了解。<br>&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest是ajax的核心机制，它是在IE5中首先引入的，是一种支持异步请求的技术。简单的说，也就是javascript可以及时向服务器提出请求和处理响应，而不阻塞用户。达到无刷新的效果。<br>所以我们先从XMLHttpRequest讲起，来看看它的工作原理。<br>首先，我们先来看看XMLHttpRequest这个对象的属性。<br>它的属性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">onreadystatechange  每次状态改变所触发事件的事件处理程序。</span><br><span class="line">responseText     从服务器进程返回数据的字符串形式。</span><br><span class="line">responseXML    从服务器进程返回的DOM兼容的文档数据对象。</span><br><span class="line">status        从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）</span><br><span class="line">status Text       伴随状态码的字符串信息</span><br><span class="line">readyState       对象状态值</span><br><span class="line">0 (未初始化) 对象已建立，但是尚未初始化（尚未调用open方法）</span><br><span class="line">1 (初始化) open() 方法已调用，但是 send() 方法未调用。请求还没有被发送。</span><br><span class="line">2 (发送数据) Send() 方法已调用，HTTP 请求已发送到 Web 服务器。未接收到响应。</span><br><span class="line">3 (数据传送中) 已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</span><br><span class="line">4 (完成) 数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</span><br></pre></td></tr></table></figure>
+
+<p>它能实现的四个主要点是：</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+<li>在页面已加载后从服务器请求数据</li>
+<li>在页面已加载后从服务器接收数据</li>
+<li>在后台向服务器发送数据</li>
+</ul>
+<h3 id="对于XMLHttpRequest对象的兼容问题"><a href="#对于XMLHttpRequest对象的兼容问题" class="headerlink" title="对于XMLHttpRequest对象的兼容问题"></a>对于XMLHttpRequest对象的兼容问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">不同的浏览器使用不同的方法来创建 XMLHttpRequest 对象。</span><br><span class="line">ie5,6 使用 ActiveXObject。</span><br><span class="line">ie高版本的也和其他浏览器使用名为 XMLHttpRequest 的 JavaScript 内建对象。</span><br><span class="line">要克服这个问题，可以使用这段简单的代码：</span><br><span class="line">var XMLHttp=null;</span><br><span class="line">if (window.XMLHttpRequest)//这种方法也可以称之为能力检测</span><br><span class="line">&#123;</span><br><span class="line">XMLHttp=new XMLHttpRequest()</span><br><span class="line">&#125;else if (window.ActiveXObject)</span><br><span class="line">&#123;</span><br><span class="line">XMLHttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原生AJAX使用步骤"><a href="#原生AJAX使用步骤" class="headerlink" title="原生AJAX使用步骤"></a>原生AJAX使用步骤</h2><h3 id="get请求方式"><a href="#get请求方式" class="headerlink" title="get请求方式"></a>get请求方式</h3><h4 id="1-既然要用这个内建对象，就先把它实例化这个内建对象；"><a href="#1-既然要用这个内建对象，就先把它实例化这个内建对象；" class="headerlink" title="1.既然要用这个内建对象，就先把它实例化这个内建对象；"></a>1.既然要用这个内建对象，就先把它实例化这个内建对象；</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实例化这个内建对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-通过open方法发起请求行"><a href="#2-通过open方法发起请求行" class="headerlink" title="2.通过open方法发起请求行"></a>2.通过open方法发起请求行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先以get方式提交请求，下面会说明get和post的区别</span><br><span class="line">  xhr.open(&apos;get&apos;, &apos;01.php&apos;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-设置了一个请求头"><a href="#3-设置了一个请求头" class="headerlink" title="3.设置了一个请求头"></a>3.设置了一个请求头</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);</span><br><span class="line">  get请求可以不设置，post形式的时候需要设置，在这里设上也没有影响</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-发送请求主体"><a href="#4-发送请求主体" class="headerlink" title="4.发送请求主体"></a>4.发送请求主体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  get没有请求主体，但是出于规范的角度，在里面传一个`null`;get请求参数的时候是在url后面</span><br><span class="line">xhr.send(null);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-接收服务器响应"><a href="#5-接收服务器响应" class="headerlink" title="5.接收服务器响应"></a>5.接收服务器响应</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;HTTP响应是由服务端发出的，作为客户端更应关心的是响应的结果。<br>HTTP响应3 个组成部分与XMLHttpRequest方法或属性的对应关系。<br>由于服务器做出响应需要时间（比如网速慢等原因），所以我们需要监听服务器响应的状态，然后才能进行处理。而onreadystatechange就是监听XMLHttpRequest的状态的事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 监听响应状态并处理</span><br><span class="line">xhr.onreadystatechange = function () &#123;</span><br><span class="line">  // 响应的状态</span><br><span class="line">  // console.log(xhr.readyState);</span><br><span class="line">  // 响应的服务器状态码</span><br><span class="line">  // console.log(xhr.status);</span><br><span class="line">  // 监听完成的状态及服务器响应状态</span><br><span class="line">  if(xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line">    // 获得结果</span><br><span class="line">    console.log(xhr.responseText);</span><br><span class="line">    // DOM操作将结果放到页面里</span><br><span class="line">    document.getElementById(&apos;result&apos;).innerHTML = xhr.responseText;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h3><h4 id="1-同上，既然要用这个内建对象，就先把它实例化这个内建对象；"><a href="#1-同上，既然要用这个内建对象，就先把它实例化这个内建对象；" class="headerlink" title="1.同上，既然要用这个内建对象，就先把它实例化这个内建对象；"></a>1.同上，既然要用这个内建对象，就先把它实例化这个内建对象；</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实例化这个内建对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-通过open方法发起请求行-1"><a href="#2-通过open方法发起请求行-1" class="headerlink" title="2.通过open方法发起请求行"></a>2.通过open方法发起请求行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先以get方式提交请求，下面会说明get和post的区别</span><br><span class="line">  xhr.open(&apos;post&apos;, &apos;01.php&apos;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-设置了一个请求头-1"><a href="#3-设置了一个请求头-1" class="headerlink" title="3.设置了一个请求头"></a>3.设置了一个请求头</h4><blockquote>
+<p>post方式必须设置请求头</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencodeed&apos;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-发送请求主体-1"><a href="#4-发送请求主体-1" class="headerlink" title="4.发送请求主体"></a>4.发送请求主体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  //send里面的参数不是必须得传的，需要就传；没有参数的时候，里面最好写上null，虽然不是必须的，但比较规范，当post方式需要传递参数的时候，在里面传入</span><br><span class="line">xhr.send(null);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-接收服务器响应-1"><a href="#5-接收服务器响应-1" class="headerlink" title="5.接收服务器响应"></a>5.接收服务器响应</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 监听响应状态并处理</span><br><span class="line">xhr.onreadystatechange = function () &#123;</span><br><span class="line">  // 响应的状态</span><br><span class="line">  // console.log(xhr.readyState);</span><br><span class="line">  // 响应的服务器状态码</span><br><span class="line">  // console.log(xhr.status);</span><br><span class="line">  // 监听完成的状态及服务器响应状态</span><br><span class="line">  if(xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line">    // 获得结果</span><br><span class="line">    console.log(xhr.responseText);</span><br><span class="line">    // DOM操作将结果放到页面里</span><br><span class="line">    document.getElementById(&apos;result&apos;).innerHTML = xhr.responseText;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET和POST请求方式的差异"><a href="#GET和POST请求方式的差异" class="headerlink" title="GET和POST请求方式的差异"></a>GET和POST请求方式的差异</h3><p>1、GET没有请求主体，使用xhr.send(null)<br>2、GET可以通过在请求URL上添加请求参数<br>3、POST可以通过xhr.send(‘name=itcast&amp;age=10’)传参<br>4、POST必须要设置’Content-Type’为’application/x-www-form-urlencodeed’<br>5、GET效率更好（应用多）<br>6、GET大小限制约4K，POST则没有限制</p>
+<blockquote>
+<p>get方式传参格式：需要将参数放到url后面，格式为?key=val&amp;key1=val1 ，例：xhr.open(‘get’,’index.php?name=jack&amp;age=20’)<br>post方式传参格式：xhr.send(‘name=jack&amp;age=20’)</p>
+</blockquote>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这里也只是简要分析了ajax最基本的应用与原理，以后能自己再上一个层面之后就可以再深入下了，XMLHttpRequest2.0已经早已出世了，以后可以另起篇章总结学习下。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AJAX/" rel="tag">#AJAX</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/29/150729数组去重的几种实现方式/" rel="next" title="数组去重的几种实现方式">
+                <i class="fa fa-chevron-left"></i> 数组去重的几种实现方式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/01/150901Javascript进阶之函数的四种调用模式/" rel="prev" title="Javascript进阶之函数的四种调用模式">
+                Javascript进阶之函数的四种调用模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX简介"><span class="nav-number">2.</span> <span class="nav-text">AJAX简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX核心XMLHttpRequest"><span class="nav-number">3.</span> <span class="nav-text">AJAX核心XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于XMLHttpRequest对象的兼容问题"><span class="nav-number">3.1.</span> <span class="nav-text">对于XMLHttpRequest对象的兼容问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生AJAX使用步骤"><span class="nav-number">4.</span> <span class="nav-text">原生AJAX使用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get请求方式"><span class="nav-number">4.1.</span> <span class="nav-text">get请求方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-既然要用这个内建对象，就先把它实例化这个内建对象；"><span class="nav-number">4.1.1.</span> <span class="nav-text">1.既然要用这个内建对象，就先把它实例化这个内建对象；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过open方法发起请求行"><span class="nav-number">4.1.2.</span> <span class="nav-text">2.通过open方法发起请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置了一个请求头"><span class="nav-number">4.1.3.</span> <span class="nav-text">3.设置了一个请求头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-发送请求主体"><span class="nav-number">4.1.4.</span> <span class="nav-text">4.发送请求主体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-接收服务器响应"><span class="nav-number">4.1.5.</span> <span class="nav-text">5.接收服务器响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post请求"><span class="nav-number">4.2.</span> <span class="nav-text">post请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-同上，既然要用这个内建对象，就先把它实例化这个内建对象；"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.同上，既然要用这个内建对象，就先把它实例化这个内建对象；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过open方法发起请求行-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.通过open方法发起请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置了一个请求头-1"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.设置了一个请求头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-发送请求主体-1"><span class="nav-number">4.2.4.</span> <span class="nav-text">4.发送请求主体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-接收服务器响应-1"><span class="nav-number">4.2.5.</span> <span class="nav-text">5.接收服务器响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET和POST请求方式的差异"><span class="nav-number">4.3.</span> <span class="nav-text">GET和POST请求方式的差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2015/08/01/150801Ajax小结/';
+      var disqus_title = 'Ajax小结';
+      var disqus_url = 'https://lsqy.tech/2015/08/01/150801Ajax小结/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>

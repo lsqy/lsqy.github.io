@@ -1,0 +1,1041 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Bootstrap">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="简要分析Bootstrap基础模板中meta标签以及引包依赖关系">
+<meta name="keywords" content="Bootstrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解析Bootstrap基础模板">
+<meta property="og:url" content="https://lsqy.tech/2015/11/10/151110解析Bootstrap基础模板/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="简要分析Bootstrap基础模板中meta标签以及引包依赖关系">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lsqy.tech/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg">
+<meta property="og:updated_time" content="2020-07-20T14:38:51.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解析Bootstrap基础模板">
+<meta name="twitter:description" content="简要分析Bootstrap基础模板中meta标签以及引包依赖关系">
+<meta name="twitter:image" content="https://lsqy.tech/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> 解析Bootstrap基础模板 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解析Bootstrap基础模板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-10T16:14:24+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/10/151110解析Bootstrap基础模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/10/151110解析Bootstrap基础模板/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>简要分析Bootstrap基础模板中meta标签以及引包依赖关系<img src="/2015/11/10/151110解析Bootstrap基础模板/bootstrap.jpg" alt="bootstrap"><a id="more"></a></p>
+</blockquote>
+<h2 id="Bootstrap的优势"><a href="#Bootstrap的优势" class="headerlink" title="Bootstrap的优势"></a>Bootstrap的优势</h2><ul>
+<li>流媒体网格布局</li>
+<li>响应式设计</li>
+<li>自定义表单元素</li>
+<li>页面排版</li>
+<li>JavaScript交互性</li>
+<li>跨浏览器兼容性</li>
+</ul>
+<h2 id="先来看一下官方给出的一个基础模板"><a href="#先来看一下官方给出的一个基础模板" class="headerlink" title="先来看一下官方给出的一个基础模板"></a>先来看一下官方给出的一个基础模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line">    &lt;!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --&gt;</span><br><span class="line">    &lt;title&gt;Bootstrap 101 Template&lt;/title&gt;</span><br><span class="line">    `&lt;!-- Bootstrap --&gt;`</span><br><span class="line">    &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span><br><span class="line">    &lt;!-- WARNING: Respond.js doesn&apos;t work if you view the page via file:// --&gt;</span><br><span class="line">    &lt;!--[if lt IE 9]&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;![endif]--&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;你好，世界！&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- jQuery (necessary for Bootstrap&apos;s JavaScript plugins) --&gt;</span><br><span class="line">    &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span><br><span class="line">    &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面列出其中几个关键点</p>
+<h2 id="关于IE"><a href="#关于IE" class="headerlink" title="关于IE"></a>关于IE</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此属性为文档兼容模式声明，表示如果在IE浏览器下则使用最新的标准渲染当前文档</li>
+</ul>
+<h2 id="视口（viewport）"><a href="#视口（viewport）" class="headerlink" title="视口（viewport）"></a>视口（viewport）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>视口的作用：在移动浏览器中，当页面宽度超出设备，浏览器内部虚拟的一个页面容器，将页面容器缩放到设备这么大，然后展示</li>
+<li>目前大多数手机浏览器的视口（承载页面的容器）宽度都是980；</li>
+<li>视口的宽度可以通过meta标签设置</li>
+<li>此属性为移动端页面视口设置，当前值表示在移动端页面的宽度为设备的宽度，并且不缩放（缩放级别为1）<ul>
+<li>width:视口的宽度</li>
+<li>initial-scale：初始化缩放</li>
+<li>user-scalable:是否允许用户自行缩放（值：yes/no; 1/0）</li>
+<li>minimum-scale:最小缩放，一般设置了用户不允许缩放，就没必要设置最小和最大缩放</li>
+<li>maximum-scale:最大缩放</li>
+</ul>
+</li>
+</ul>
+<h3 id="条件注释"><a href="#条件注释" class="headerlink" title="条件注释"></a>条件注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>条件注释的作用就是当判断条件满足时，就会执行注释中的HTML代码，不满足时会当做注释忽略掉</li>
+</ul>
+<h3 id="第三方依赖"><a href="#第三方依赖" class="headerlink" title="第三方依赖"></a>第三方依赖</h3><ul>
+<li><p><a href="https://github.com/jquery/jquery" target="_blank" rel="noopener">jQuery</a></p>
+<blockquote>
+<p>Bootstrap框架中的所有JS组件都依赖于jQuery实现</p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/aFarkas/html5shiv" target="_blank" rel="noopener">html5shiv</a></p>
+<blockquote>
+<p>让低版本浏览器可以识别HTML5的新标签，如header、footer、section等</p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/scottjehl/Respond" target="_blank" rel="noopener">respond</a></p>
+<blockquote>
+<p>让低版本浏览器可以支持CSS媒体查询功能</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="mediaquery"><a href="#mediaquery" class="headerlink" title="mediaquery"></a>mediaquery</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (判断条件（针对于当前窗口的判断）)&#123;</span><br><span class="line">    <span class="comment">/*这里的代码只有当判断条件满足时才会执行*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="comment">/*这里的代码只有当(min-width: 1280px)满足时才会执行*/</span></span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当使用min-width作为判断条件一定要从小到大，其原因是CSS从上往下执行</li>
+</ul>
+<h2 id="基础CSS样式"><a href="#基础CSS样式" class="headerlink" title="基础CSS样式"></a>基础CSS样式</h2><ul>
+<li><a href="http://v3.bootcss.com/css/#overview" target="_blank" rel="noopener">概要</a></li>
+<li><a href="http://v3.bootcss.com/css/#type" target="_blank" rel="noopener">预置排版样式</a><ul>
+<li>统一预制标签样式</li>
+</ul>
+</li>
+<li><a href="http://v3.bootcss.com/css/#buttons" target="_blank" rel="noopener">按钮样式</a></li>
+<li><a href="http://v3.bootcss.com/css/#tables" target="_blank" rel="noopener">表格样式</a></li>
+<li><a href="http://v3.bootcss.com/css/#forms" target="_blank" rel="noopener">表单样式</a></li>
+<li><a href="http://v3.bootcss.com/css/#images" target="_blank" rel="noopener">图片样式</a></li>
+<li><a href="http://v3.bootcss.com/css/#helper-classes" target="_blank" rel="noopener">辅助工具类</a></li>
+<li><a href="http://v3.bootcss.com/css/#code" target="_blank" rel="noopener">代码样式</a></li>
+<li><a href="http://v3.bootcss.com/css/#grid" target="_blank" rel="noopener">栅格系统</a><ul>
+<li><strong>xs</strong> : 超小屏幕 手机 (&lt;768px)</li>
+<li><strong>sm</strong> : 小屏幕 平板 (≥768px)</li>
+<li><strong>md</strong> : 中等屏幕 桌面显示器 (≥992px)</li>
+<li><strong>lg</strong> : 大屏幕 大桌面显示器 (≥1200px)</li>
+</ul>
+</li>
+<li><a href="http://v3.bootcss.com/css/#responsive-utilities" target="_blank" rel="noopener">响应式工具类</a><ul>
+<li><strong>hidden-xx</strong> : 在某种屏幕下隐藏</li>
+<li><strong>visible-xx</strong> : 在某种屏幕尺寸下显示</li>
+</ul>
+</li>
+</ul>
+<h2 id="预置界面组件"><a href="#预置界面组件" class="headerlink" title="预置界面组件"></a>预置界面组件</h2><ul>
+<li><a href="http://v3.bootcss.com/components/#nav" target="_blank" rel="noopener">导航</a></li>
+<li><a href="http://v3.bootcss.com/components/#navbar" target="_blank" rel="noopener">导航条</a></li>
+<li><a href="http://v3.bootcss.com/components/#breadcrumbs" target="_blank" rel="noopener">面包屑导航</a></li>
+<li><a href="http://v3.bootcss.com/components/#dropdowns" target="_blank" rel="noopener">下拉菜单</a></li>
+<li><a href="http://v3.bootcss.com/components/#btn-dropdowns" target="_blank" rel="noopener">按钮式下拉菜单</a></li>
+<li><a href="http://v3.bootcss.com/components/#btn-groups" target="_blank" rel="noopener">按钮组</a></li>
+<li><a href="http://v3.bootcss.com/components/#input-groups" target="_blank" rel="noopener">输入框组</a></li>
+<li><a href="http://v3.bootcss.com/components/#alerts" target="_blank" rel="noopener">警告框</a></li>
+<li><a href="http://v3.bootcss.com/components/#page-header" target="_blank" rel="noopener">页头</a></li>
+<li><a href="http://v3.bootcss.com/components/#pagination" target="_blank" rel="noopener">分页</a></li>
+<li><a href="http://v3.bootcss.com/components/#list-group" target="_blank" rel="noopener">列表组</a></li>
+<li><a href="http://v3.bootcss.com/components/#panels" target="_blank" rel="noopener">面板</a></li>
+<li><a href="http://v3.bootcss.com/components/#media" target="_blank" rel="noopener">媒体对象</a></li>
+<li><a href="http://v3.bootcss.com/components/#progress" target="_blank" rel="noopener">进度条</a></li>
+<li><a href="http://v3.bootcss.com/components/#glyphicons" target="_blank" rel="noopener">Glyphicons</a></li>
+<li><a href="http://v3.bootcss.com/components/#labels" target="_blank" rel="noopener">标签</a></li>
+<li><a href="http://v3.bootcss.com/components/#badges" target="_blank" rel="noopener">徽章</a></li>
+<li><a href="http://v3.bootcss.com/components/#thumbnails" target="_blank" rel="noopener">缩略图</a></li>
+<li><a href="http://v3.bootcss.com/components/#jumbotron" target="_blank" rel="noopener">大屏幕</a></li>
+<li><a href="http://v3.bootcss.com/components/#responsive-embed" target="_blank" rel="noopener">嵌入内容</a></li>
+<li><a href="http://v3.bootcss.com/components/#wells" target="_blank" rel="noopener">内嵌</a></li>
+</ul>
+<h2 id="JavaScript插件"><a href="#JavaScript插件" class="headerlink" title="JavaScript插件"></a>JavaScript插件</h2><h3 id="JavaScript插件的依赖情况"><a href="#JavaScript插件的依赖情况" class="headerlink" title="JavaScript插件的依赖情况"></a>JavaScript插件的依赖情况</h3><h3 id="如何使用Javascript插件"><a href="#如何使用Javascript插件" class="headerlink" title="如何使用Javascript插件"></a>如何使用Javascript插件</h3><h3 id="内置组件"><a href="#内置组件" class="headerlink" title="内置组件"></a>内置组件</h3><ul>
+<li><a href="http://v3.bootcss.com/javascript/#modals" target="_blank" rel="noopener">模态对话框</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#dropdowns" target="_blank" rel="noopener">下拉菜单</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#scrollspy" target="_blank" rel="noopener">滚动监听</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#tabs" target="_blank" rel="noopener">标签页</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#tooltips" target="_blank" rel="noopener">工具提示</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#popovers" target="_blank" rel="noopener">弹出框</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#alerts" target="_blank" rel="noopener">警告框</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#buttons" target="_blank" rel="noopener">按钮</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#collapse" target="_blank" rel="noopener">折叠面板</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#carousel" target="_blank" rel="noopener">轮播图</a></li>
+<li><a href="http://v3.bootcss.com/javascript/#affix" target="_blank" rel="noopener">吸顶效果</a><ul>
+<li>data-spy=”affix”</li>
+<li>data-offset-top=”什么位置出现”</li>
+<li>data-offset-bottom=”什么位置消失”</li>
+</ul>
+</li>
+</ul>
+<h2 id="深度自定义-Bootstrap"><a href="#深度自定义-Bootstrap" class="headerlink" title="深度自定义 Bootstrap"></a>深度自定义 Bootstrap</h2><h3 id="在线自定义"><a href="#在线自定义" class="headerlink" title="在线自定义"></a>在线自定义</h3><ul>
+<li><a href="http://getbootstrap.com/customize/" target="_blank" rel="noopener">官网在线</a></li>
+<li><a href="http://v3.bootcss.com/customize/" target="_blank" rel="noopener">中文网在线</a></li>
+</ul>
+<h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><h3 id="LESS语言"><a href="#LESS语言" class="headerlink" title="LESS语言"></a>LESS语言</h3><ul>
+<li><a href="http://lesscss.org/" target="_blank" rel="noopener">官方文档</a></li>
+<li><a href="http://lesscss.cn/" target="_blank" rel="noopener">中文文档</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/08/151108windows查看端口占用以及关闭相应的进程/" rel="next" title="windows查看端口占用以及关闭相应的进程">
+                <i class="fa fa-chevron-left"></i> windows查看端口占用以及关闭相应的进程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/14/151114YAHOO前端优化35条黄金法则/" rel="prev" title="YAHOO前端优化35条黄金法则">
+                YAHOO前端优化35条黄金法则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap的优势"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先来看一下官方给出的一个基础模板"><span class="nav-number">2.</span> <span class="nav-text">先来看一下官方给出的一个基础模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于IE"><span class="nav-number">3.</span> <span class="nav-text">关于IE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口（viewport）"><span class="nav-number">4.</span> <span class="nav-text">视口（viewport）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件注释"><span class="nav-number">4.1.</span> <span class="nav-text">条件注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三方依赖"><span class="nav-number">4.2.</span> <span class="nav-text">第三方依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mediaquery"><span class="nav-number">5.</span> <span class="nav-text">mediaquery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础CSS样式"><span class="nav-number">6.</span> <span class="nav-text">基础CSS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预置界面组件"><span class="nav-number">7.</span> <span class="nav-text">预置界面组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript插件"><span class="nav-number">8.</span> <span class="nav-text">JavaScript插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript插件的依赖情况"><span class="nav-number">8.1.</span> <span class="nav-text">JavaScript插件的依赖情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用Javascript插件"><span class="nav-number">8.2.</span> <span class="nav-text">如何使用Javascript插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置组件"><span class="nav-number">8.3.</span> <span class="nav-text">内置组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度自定义-Bootstrap"><span class="nav-number">9.</span> <span class="nav-text">深度自定义 Bootstrap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在线自定义"><span class="nav-number">9.1.</span> <span class="nav-text">在线自定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码编译"><span class="nav-number">9.2.</span> <span class="nav-text">源码编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LESS语言"><span class="nav-number">9.3.</span> <span class="nav-text">LESS语言</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2015/11/10/151110解析Bootstrap基础模板/';
+      var disqus_title = '解析Bootstrap基础模板';
+      var disqus_url = 'https://lsqy.tech/2015/11/10/151110解析Bootstrap基础模板/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>

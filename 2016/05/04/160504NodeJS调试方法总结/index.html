@@ -1,0 +1,970 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="NodeJS调试工具">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="总结了五种调试方法，肯定有你合适的！">
+<meta name="keywords" content="NodeJS调试工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS调试方法总结">
+<meta property="og:url" content="https://lsqy.tech/2016/05/04/160504NodeJS调试方法总结/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="总结了五种调试方法，肯定有你合适的！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-20T14:38:51.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJS调试方法总结">
+<meta name="twitter:description" content="总结了五种调试方法，肯定有你合适的！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> NodeJS调试方法总结 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NodeJS调试方法总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-04T09:34:43+08:00" content="2016-05-04">
+              2016-05-04
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
+                    <span itemprop="name">NodeJS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/04/160504NodeJS调试方法总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/04/160504NodeJS调试方法总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、-console-log"><a href="#一、-console-log" class="headerlink" title="一、 console.log"></a>一、 console.log</h2><p><code>console.log</code> 是最方便的，也是最快的，但是这种方法对于初学者来说肯定是不太适合的，接下来向下看</p>
+<h2 id="二、NodeJS内置调试器"><a href="#二、NodeJS内置调试器" class="headerlink" title="二、NodeJS内置调试器"></a>二、NodeJS内置调试器</h2><p>使用方式：在控制台中输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node debug 脚本文件名</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的命令结束之后，代码会自动停在脚本的第一行，等待用户执行其它调试命令。<br>如果你对相关命令不熟悉，那么可以通过输入 <code>help</code> 命令查看可用命令，代码显示如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;node debug a.js</span><br><span class="line">&lt; Debugger listening on port 5858</span><br><span class="line">connecting to 127.0.0.1:5858 ... ok</span><br><span class="line">break in C:\Users\92816\Desktop\testprogramming\a.js:1</span><br><span class="line">&gt; 1 &quot;use strict&quot;;</span><br><span class="line">  2 let foo = &apos;bar&apos;;</span><br><span class="line">  3 console.log(foo);</span><br><span class="line">debug&gt; help</span><br><span class="line">help</span><br><span class="line">Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBreakpoint (sb), clearBreakpoint (cb),</span><br><span class="line">watch, unwatch, watchers, repl, exec, restart, kill, list, scripts, breakOnException, breakpoints, version</span><br></pre></td></tr></table></figure>
+
+<p>如若想退出调试，则按上<code>Ctrl+C</code>按提示输入<code>.exit</code>即可。<br>这种方法也算中规中矩，但是可能对于经常习惯于浏览器调试的会感到不习惯，下面介绍带可视化界面的方法</p>
+<h2 id="三、-node-inspector"><a href="#三、-node-inspector" class="headerlink" title="三、 node-inspector"></a>三、 node-inspector</h2><p>node-inspector 是一个第三方全局命令行调试工具。<br><a href="https://github.com/node-inspector/node-inspector" target="_blank" rel="noopener">node-inspector</a></p>
+<h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g node-inspector</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-启动调试"><a href="#3-2-启动调试" class="headerlink" title="3.2 启动调试"></a>3.2 启动调试</h3><h4 id="方法一，直接使用node-debug-文件名"><a href="#方法一，直接使用node-debug-文件名" class="headerlink" title="方法一，直接使用node-debug 文件名"></a>方法一，直接使用node-debug 文件名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node-debug a.js</span><br></pre></td></tr></table></figure>
+
+<p><code>node-debug</code> 命令会自动在当前操作系统默认浏览器中加载node调试器,也就是说可以帮你自动打开你的默认浏览器，比较省心</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\testprogramming&gt;node-debug a.js</span><br><span class="line">Node Inspector v0.12.8</span><br><span class="line">Visit http://127.0.0.1:8080/?port=5858 to start debugging.</span><br><span class="line">Debugging `a.js`</span><br><span class="line"></span><br><span class="line">Debugger listening on port 5858</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二，使用node-–debug-brk-文件名再结合上node-inspector"><a href="#方法二，使用node-–debug-brk-文件名再结合上node-inspector" class="headerlink" title="方法二，使用node –debug-brk 文件名再结合上node-inspector"></a>方法二，使用node –debug-brk 文件名再结合上node-inspector</h4><p>先打开一个命令行窗口可以输入下面的命令启动调试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --debug-brk a.js</span><br></pre></td></tr></table></figure>
+
+<p>会显示如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\test&gt;node --debug-brk a.js</span><br><span class="line">Debugger listening on port 5858</span><br></pre></td></tr></table></figure>
+
+<p>接下来在另外打开一个命令行窗口输入<code>node-inspector</code>,出现下面的提示，将<code>http://127.0.0.1:8080/?port=5858</code>复制到你的浏览器地址栏即可开始调试了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\92816\Desktop\test&gt;node-inspector</span><br><span class="line">Node Inspector v0.12.8</span><br><span class="line">Visit http://127.0.0.1:8080/?port=5858 to start debugging.</span><br></pre></td></tr></table></figure>
+
+<p>调试的快捷键和在 <code>Chrome</code> 浏览器中的快捷键是一样的,在这里就不多说了</p>
+<h2 id="四、-visual-studio-code-调试-node"><a href="#四、-visual-studio-code-调试-node" class="headerlink" title="四、 visual studio code 调试 node"></a>四、 visual studio code 调试 node</h2><blockquote>
+<p>这一款工具我个人觉得还是很好用的，界面做的也是非常不错的，推荐使用</p>
+</blockquote>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">visuao studio code 官方网站</a></p>
+<h3 id="4-1-下载"><a href="#4-1-下载" class="headerlink" title="4.1 下载"></a>4.1 下载</h3><p><a href="https://code.visualstudio.com/Docs/?dv=win" target="_blank" rel="noopener">visuao studio code 下载地址</a></p>
+<h3 id="4-2-安装"><a href="#4-2-安装" class="headerlink" title="4.2 安装"></a>4.2 安装</h3><p>手动安装，一直下一步下一步就可以了</p>
+<h3 id="4-3-开始调试"><a href="#4-3-开始调试" class="headerlink" title="4.3 开始调试"></a>4.3 开始调试</h3><p><a href="https://code.visualstudio.com/docs/editor/debugging" target="_blank" rel="noopener">vsc官方文档调试链接</a></p>
+<ol>
+<li>必须以项目的方式打开要调试的js脚本所在的目录，目录路径最好不要包含中文，否则可能有问题</li>
+<li>在要调试的脚本文件中，找到具体要设置断点的行，在左侧点击设置断点</li>
+<li>设置好断点之后，按<code>F5</code>启动调试</li>
+<li>这个时候，<code>vsc</code> 编辑器会提示你选择要调试的环境，这里选择 <code>Node.js</code> 即可</li>
+<li>当选择完调试环境之后，<code>vsc</code> 默认会在当前根目录下生成一个 <code>.vsccode</code> 目录</li>
+<li>在 <code>.vsccode</code> 目录下找到一个叫做 <code>launch.json</code> 的文件，打开编辑</li>
+<li><strong>在 <code>launch.json</code> 文件中，在 <code>configurations</code> 节点下找到一个叫做 <code>program</code> 的属性节点</strong></li>
+<li><strong>将 <code>program</code> 属性节点中原来的值 <code>${workspaceRoot}/app.js</code> 改为 <code>${workspaceRoot}/要调试的脚本文件名.js</code></strong></li>
+<li>修改完毕之后，按 <code>Ctrl+C</code> 保存</li>
+<li><ol start="10">
+<li>上述操作完成之后，按 <code>F5</code> 启动调试</li>
+</ol>
+</li>
+<li>尽情的享受 <code>vsc</code> 调试带给你的调试的乐趣吧</li>
+<li>快捷键和 <code>Chrome</code> 浏览器中的调试环境快捷键一致</li>
+</ol>
+<p>对于执行了以上操作还没有成功的，建议将 <code>vsc</code> 关闭重新打开再次按 <code>F5</code> 启动调试即可解决，如果有快捷键冲突的时候，可以使用<code>fn+F5</code></p>
+<h2 id="五、-Webstorm-调试-IDE方式）"><a href="#五、-Webstorm-调试-IDE方式）" class="headerlink" title="五、 Webstorm 调试 (IDE方式）"></a>五、 Webstorm 调试 (IDE方式）</h2><blockquote>
+<p>按以下几步调试即可，相对来说也比较简单，就是可能比较重量级一些，喜欢轻量级的可以考虑使用visuao studio code;</p>
+</blockquote>
+<h3 id="5-1-开始调试"><a href="#5-1-开始调试" class="headerlink" title="5.1 开始调试"></a>5.1 开始调试</h3><ol>
+<li>在要调试的文件中具体的行位置左边通过 <code>Ctrl+F8</code> 设置一个端点</li>
+<li>在当前要调试的文件中通过鼠标右键，然后选择 <code>Debug 要调试的文件名.js</code></li>
+<li>这个时候 ws 会自动帮你启动调试模式，并且自动停留在你打击端点的位置</li>
+<li><code>F8</code> 步进</li>
+<li><code>Shift + F8</code> 步出</li>
+<li><code>Alt + F8</code> 可以执行一个表达式</li>
+<li><code>Ctrl + F5</code> 重新启动调试</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这里也只是总结了五种调试方式，怎么说呢，工具肯定会有很多，我觉得最重要的是找到最适合自己的，有句话，适合自己的就是最好的！</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NodeJS/" rel="tag">#NodeJS</a>
+          
+            <a href="/tags/调试工具/" rel="tag">#调试工具</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/03/160503Bower中文API/" rel="next" title="Bower中文API">
+                <i class="fa fa-chevron-left"></i> Bower中文API
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/18/160618配置HybridAppAndroid环境/" rel="prev" title="配置HybridApp&Android环境">
+                配置HybridApp&Android环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-console-log"><span class="nav-number">1.</span> <span class="nav-text">一、 console.log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、NodeJS内置调试器"><span class="nav-number">2.</span> <span class="nav-text">二、NodeJS内置调试器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-node-inspector"><span class="nav-number">3.</span> <span class="nav-text">三、 node-inspector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-安装"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-启动调试"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 启动调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一，直接使用node-debug-文件名"><span class="nav-number">3.2.1.</span> <span class="nav-text">方法一，直接使用node-debug 文件名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二，使用node-–debug-brk-文件名再结合上node-inspector"><span class="nav-number">3.2.2.</span> <span class="nav-text">方法二，使用node –debug-brk 文件名再结合上node-inspector</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、-visual-studio-code-调试-node"><span class="nav-number">4.</span> <span class="nav-text">四、 visual studio code 调试 node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-下载"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-安装"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-开始调试"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 开始调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、-Webstorm-调试-IDE方式）"><span class="nav-number">5.</span> <span class="nav-text">五、 Webstorm 调试 (IDE方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-开始调试"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 开始调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2016/05/04/160504NodeJS调试方法总结/';
+      var disqus_title = 'NodeJS调试方法总结';
+      var disqus_url = 'https://lsqy.tech/2016/05/04/160504NodeJS调试方法总结/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,965 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="GMTC,职业生涯,个人成长,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;今天晚上去参加了winter主持的前端夜话：聊聊前端工程师的成长和发展圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：  主持人：程劭非（winter），前手机淘宝前端负责人 圆桌论坛嘉宾： 贺师俊（Hax），百姓网技术顾问 王巍（喵神），LINE高级软件工程师 桑世龙（狼叔），阿里巴巴前端技术专家">
+<meta name="keywords" content="GMTC,职业生涯,个人成长">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结">
+<meta property="og:url" content="https://lsqy.tech/2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;今天晚上去参加了winter主持的前端夜话：聊聊前端工程师的成长和发展圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：  主持人：程劭非（winter），前手机淘宝前端负责人 圆桌论坛嘉宾： 贺师俊（Hax），百姓网技术顾问 王巍（喵神），LINE高级软件工程师 桑世龙（狼叔），阿里巴巴前端技术专家">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://jdc-wechat.s3.cn-north-1.jdcloud-oss.com/tech/GMTC.jpg">
+<meta property="og:updated_time" content="2020-07-20T14:38:51.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;今天晚上去参加了winter主持的前端夜话：聊聊前端工程师的成长和发展圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：  主持人：程劭非（winter），前手机淘宝前端负责人 圆桌论坛嘉宾： 贺师俊（Hax），百姓网技术顾问 王巍（喵神），LINE高级软件工程师 桑世龙（狼叔），阿里巴巴前端技术专家">
+<meta name="twitter:image" content="https://jdc-wechat.s3.cn-north-1.jdcloud-oss.com/tech/GMTC.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-06-20T23:41:50+08:00" content="2019-06-20">
+              2019-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://jdc-wechat.s3.cn-north-1.jdcloud-oss.com/tech/GMTC.jpg" alt></p>
+<p>&nbsp;&nbsp;今天晚上去参加了<code>winter</code>主持的<strong>前端夜话：聊聊前端工程师的成长和发展</strong>圆桌论坛分享会，真的是收益颇多，这次的这个嘉宾阵容也是很有诚意的，在现在前端领域都是有一定影响力的嘉宾，嘉宾阵容也列一下：</p>
+<ul>
+<li>主持人：程劭非（winter），前手机淘宝前端负责人</li>
+<li>圆桌论坛嘉宾：</li>
+<li>贺师俊（Hax），百姓网技术顾问</li>
+<li>王巍（喵神），LINE高级软件工程师</li>
+<li>桑世龙（狼叔），阿里巴巴前端技术专家</li>
+<li>张鑫旭，《CSS世界》作者</li>
+</ul>
+<p>这里分享下自己在会议上记录下来的一些受用的地方，主要是<code>winter</code>提出的几个非常有代表性的问题，各位大佬进行的回答，由于当时记录的时候只是大概记了下大致意思，没有录音，难免会有疏漏，如若有不正确的地方，可以及时反馈更正。<a id="more"></a></p>
+<h3 id="各位的职业生涯大概描述一下？"><a href="#各位的职业生涯大概描述一下？" class="headerlink" title="各位的职业生涯大概描述一下？"></a>各位的职业生涯大概描述一下？</h3><p>从各位针对这个问题的回答来看，大家都经历过大的公司和小的公司，刚开始的时候也都是从小公司起步，一步一步的摸索前进，慢慢积累，经过不断的努力，带来属于自己的幸运，现在发展成为在领域内有一定知名度，所以我认为大家现在都不应该浮躁，要踏实的去做好自己所在的领域，去积累、沉淀、总结。鑫旭说出的<strong>专注</strong>这两个字很是受用，他从09年毕业到现在一直专注在前端css重构领域，也是取得了很好的结果和成就，现在的我有时候是有些浮躁，总是觉得自己有什么技术都应该学以下，殊不知到最后大概率会落个样样不精通的结果，这一点要多加注意，要能够沉下心来创造出一些东西来，不要以为用别人的框架做出来点东西就是精通XXX，要能创造出一些有用的框架或者库才是应该去着重考虑的。</p>
+<h3 id="如何看待全栈？"><a href="#如何看待全栈？" class="headerlink" title="如何看待全栈？"></a>如何看待全栈？</h3><p>狼叔：全栈代表你解决问题的一种能力，当你在面临一些与后端相关的问题的时候，如果你有一些后端的知识储备的话，可以让你在处理和做选择的时候更明智一些。</p>
+<p>鑫旭：其实是不怎么觉得全栈的必要性的，你能把现在的前端领域先吃透了再去考虑全栈吧，在现在的大公司更需要的是有深度的人，而不是没有深度，其他都懂点皮毛的人，大公司分工明确，你把自己负责的部分做到极致是很重要的。</p>
+<p><code>Hax</code>：全栈这个事情可以看工程师的类型，看你内心的驱动力，</p>
+<ul>
+<li>第一类： 如果你是想做出非常厉害的产品，改变世界的产品，这样当然是如果你能从前到后，甚至是运营你都能做好，那是再好不过了。</li>
+<li>第二类：如果你可能要解决一个世界级的难题，做一个专家型的，那你就需要在这个领域好好深入。</li>
+</ul>
+<p>所以还是要根据你的特点选好自己的位置。</p>
+<p>喵神： 还是认同领域内深度发展，把你现在所做的领域做到极致。</p>
+<h3 id="选择大公司还是小公司，大公司和小公司有什么不同？"><a href="#选择大公司还是小公司，大公司和小公司有什么不同？" class="headerlink" title="选择大公司还是小公司，大公司和小公司有什么不同？"></a>选择大公司还是小公司，大公司和小公司有什么不同？</h3><p>针对这个问题，我大致总结下：</p>
+<ul>
+<li>大公司更看重你的深度，你所在的技术栈足够专业</li>
+<li>大公司的平台与福利相对好一些，当然一些小公司也有福利不错的</li>
+<li>小公司流程相对简单一些，杂事相对少一些，主要就是做事情</li>
+<li>小公司有一个好处是：如果你的CEO或者高管很优秀，那么你可以有机会跟他们进行面对面的交流沟通，如果是在大公司可能这样的机会是很少的</li>
+<li>选择公司的时候要考虑去这家公司想得到的是什么，比如<code>Hax</code>当初选择百姓网的时候，也是可以去BAT这样的大厂的，他当时之所以选择了百姓网是因为他想去验证一些技术架构，而这个在当时如果去了大厂或许就不能够得以验证了；而现在<code>Hax</code>选择离开百姓网去360则是因为有些事情在小公司是做不下去的，比如能够去参加到js的标准制定当中，所以根据你的时间阶段去做对应的选择。</li>
+</ul>
+<h3 id="寒冬期自己应该做些什么？"><a href="#寒冬期自己应该做些什么？" class="headerlink" title="寒冬期自己应该做些什么？"></a>寒冬期自己应该做些什么？</h3><ul>
+<li>鑫旭：内功修炼很重要，什么火就学点什么可能更会被淘汰，<strong>要专注</strong>。</li>
+<li>狼叔： 当没有目标的时候向钱看，有目标的时候向前看。</li>
+<li>喵神：社区里多帮助其他人，多参与一些开源项目，多写一些框架、书，对外输出影响力，你只要比别人跑得快，你也没问题。专一方向的深度很重要，技术预判很重要，选对车道，不要逆行。</li>
+<li><code>Hax</code>：这都是命，滑稽一下，其实就是把你无法控制的事情抛诸脑后，做好你可以做的，机遇和运气是留给有准备的人。</li>
+<li>君子闲时要有吃紧的心思，忙时要有悠闲的趣味</li>
+</ul>
+<h3 id="面试有什么建议？"><a href="#面试有什么建议？" class="headerlink" title="面试有什么建议？"></a>面试有什么建议？</h3><ul>
+<li>鑫旭：要展示真实的自己，不要过度包装自己，拿起石头砸自己脚</li>
+<li>狼叔：自己要学会给自己创造机会，比如做开源项目，参与翻译，自己给自己创造场景，坚持学习，打好基本功</li>
+<li>喵神：挂人的话技术只是一方面的，更看重的是学习能力，要能够快速学习所需知识进行工作开展，学习能力怎么看呢？会从跟你交流的能力来进行判断，所以平时要抽出来时间做做分享，多与同事进行沟通，学会很好的去表达自己的想法。</li>
+<li><code>Hax</code>：基础是本身技术要不断学习，不要包装过度，宣称的经验要跟自己的实际能力匹配，<strong>真诚</strong>是非常重要的，是否坦诚、踏实。技术是来不得虚的，为人需要保持真诚才行，一两次面试失败没什么，只要自己一直在总结进步就好。</li>
+<li><code>winter</code>：不要过度包装，面试的时候面试官一般都能把你拆出来的，这样是很尴尬的，效果也会很不好的。坦诚、真诚、简历上的每一个点都是自己很努力去学习掌握的。比如很多人在简历上都有写自学能力强，那么我会问你最近在学什么呢，那你说说吧？比如说我最近在学函数式编程，那你用这个写一段代码吧～～～另外，面试的时候要细心，认证，能get到面试官想问的点，不要答非所问，因为很多面试官是很忙的，不要浪费他的时间，资深面试官每个问题都是有目的性的，要认真回答，如果你前面都答的很好，那么<code>winter</code>会有一道压轴大题来让你解决，主要是压压你的锐气，哈哈。</li>
+</ul>
+<h3 id="最近在关注哪些新技术？"><a href="#最近在关注哪些新技术？" class="headerlink" title="最近在关注哪些新技术？"></a>最近在关注哪些新技术？</h3><ul>
+<li>flutter &amp; flutter UI</li>
+<li>serverless</li>
+<li>中国前端联盟</li>
+<li>css新特性</li>
+</ul>
+<h3 id="如何看待35岁中年危机？"><a href="#如何看待35岁中年危机？" class="headerlink" title="如何看待35岁中年危机？"></a>如何看待35岁中年危机？</h3><ul>
+<li>做好自己，5年前有问题是30岁以后的程序员怎么办，现在是35岁的程序员怎么办，过5年来就是40岁以后的程序员怎么办了，其实只要你是一直努力学习，不是浑水摸鱼，都不用担心，大家都能生活的不错的，喵神和狼叔一样都是86的</li>
+<li>时刻应变，不断学习，无惧危机，掌握应变能力，找到自己有优势的地方，完全不需要过于焦虑的</li>
+<li>哪一个行业都有中年危机，<code>Hax</code>进了一个40岁程序员群，发现自己还是最小的，其实大年纪的程序员大都也是发展的不错的。现在这个时代的学习条件是很好的，不用担心，大胆前行</li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>听完分享之后，其实心中有了一个答案，要在目前的领域专注，深入去做一些事情，不要模糊不定，思前想后。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GMTC/" rel="tag">#GMTC</a>
+          
+            <a href="/tags/职业生涯/" rel="tag">#职业生涯</a>
+          
+            <a href="/tags/个人成长/" rel="tag">#个人成长</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/190603pm2常用命令/" rel="next" title="pm2常用命令">
+                <i class="fa fa-chevron-left"></i> pm2常用命令
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/29/190729基于Taro与typescript开发的网易云音乐小程序/" rel="prev" title="基于Taro与Typescript开发的网易云音乐小程序">
+                基于Taro与Typescript开发的网易云音乐小程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#各位的职业生涯大概描述一下？"><span class="nav-number">1.</span> <span class="nav-text">各位的职业生涯大概描述一下？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何看待全栈？"><span class="nav-number">2.</span> <span class="nav-text">如何看待全栈？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择大公司还是小公司，大公司和小公司有什么不同？"><span class="nav-number">3.</span> <span class="nav-text">选择大公司还是小公司，大公司和小公司有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寒冬期自己应该做些什么？"><span class="nav-number">4.</span> <span class="nav-text">寒冬期自己应该做些什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试有什么建议？"><span class="nav-number">5.</span> <span class="nav-text">面试有什么建议？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近在关注哪些新技术？"><span class="nav-number">6.</span> <span class="nav-text">最近在关注哪些新技术？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何看待35岁中年危机？"><span class="nav-number">7.</span> <span class="nav-text">如何看待35岁中年危机？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/';
+      var disqus_title = 'GMTC 2019-前端夜话《聊聊前端工程师的成长和发展》会后简要总结';
+      var disqus_url = 'https://lsqy.tech/2019/06/20/190620GMTC-前端夜话《聊聊前端工程师的成长和发展》会后记录/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>
