@@ -1,0 +1,1000 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="U90mznE9hO">
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="React,性能优化,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="本文主要对在React应用中可以采用的一些性能优化方式做一下总结整理   前言目的目前在工作中，大量的项目都是使用react来进行开展的，了解掌握下react的性能优化对项目的体验和可维护性都有很大的好处，下面介绍下在react中可以运用的一些性能优化方式；">
+<meta name="keywords" content="React,性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React性能优化总结">
+<meta property="og:url" content="https://lsqy.tech/2021/08/26/20210826React性能优化总结/index.html">
+<meta property="og:site_name" content="lsqy&#39;blog">
+<meta property="og:description" content="本文主要对在React应用中可以采用的一些性能优化方式做一下总结整理   前言目的目前在工作中，大量的项目都是使用react来进行开展的，了解掌握下react的性能优化对项目的体验和可维护性都有很大的好处，下面介绍下在react中可以运用的一些性能优化方式；">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.lsqy.tech/react.png">
+<meta property="og:updated_time" content="2021-11-21T13:56:57.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React性能优化总结">
+<meta name="twitter:description" content="本文主要对在React应用中可以采用的一些性能优化方式做一下总结整理   前言目的目前在工作中，大量的项目都是使用react来进行开展的，了解掌握下react的性能优化对项目的体验和可维护性都有很大的好处，下面介绍下在react中可以运用的一些性能优化方式；">
+<meta name="twitter:image" content="https://img.lsqy.tech/react.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6279379794555569000,
+      author: 'lsqy'
+    }
+  };
+</script>
+
+
+  <title> React性能优化总结 | lsqy'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86960661-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d5c4f7a84b7a0a0ec8504180f91f871d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s6.cnzz.com/stat.php?id=1278671078&web_id=1278671078" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lsqy'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay Hungry, Stay Foolish!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-awesome">
+          <a href="/awesome" rel="section">
+            
+              <i class="menu-item-icon fa fa-html5 fa-fw"></i> <br>
+            
+            优秀项目&文章
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React性能优化总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2021-08-26T20:10:27+08:00" content="2021-08-26">
+              2021-08-26
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2021/08/26/20210826React性能优化总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/26/20210826React性能优化总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文主要对在React应用中可以采用的一些性能优化方式做一下总结整理</p>
+</blockquote>
+<p><img src="https://img.lsqy.tech/react.png" alt="react.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>目前在工作中，大量的项目都是使用react来进行开展的，了解掌握下react的性能优化对项目的体验和可维护性都有很大的好处，下面介绍下在react中可以运用的一些性能优化方式；<a id="more"></a></p>
+<h3 id="性能优化思路"><a href="#性能优化思路" class="headerlink" title="性能优化思路"></a>性能优化思路</h3><blockquote>
+<p>对于类式组件和函数式组件来看，都可以从以下几个方面去思考如何能够进行性能优化</p>
+</blockquote>
+<ul>
+<li>减少重新render的次数</li>
+<li>减少渲染的节点</li>
+<li>降低渲染计算量</li>
+<li>合理设计组件</li>
+</ul>
+<h2 id="减少重新render的次数"><a href="#减少重新render的次数" class="headerlink" title="减少重新render的次数"></a>减少重新render的次数</h2><blockquote>
+<p>在react里时间耗时最多的一个地方是reconciliation（reconciliation 的最终目标是以最有效的方式，根据新的状态来更新 UI，我们可以简单地理解为 diff），如果不执行render，也就不需要reconciliation，所以可以看出减少render在性能优化过程中的重要程度了。</p>
+</blockquote>
+<h3 id="PureComponent"><a href="#PureComponent" class="headerlink" title="PureComponent"></a>PureComponent</h3><p>React.PureComponent 与 React.Component 很相似。两者的区别在于 React.Component 并未实现 shouldComponentUpdate()，而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。<br><strong>需要注意</strong>的是在使用PureComponent的组件中，在props或者state的属性值是对象的情况下，并不能阻止不必要的渲染，是因为自动加载的shouldComponentUpdate里面做的只是浅比较，所以想要用PureComponent的特性，应该遵守原则：</p>
+<ul>
+<li>确保数据类型是值类型</li>
+<li>如果是引用类型，不应当有深层次的数据变化(解构)</li>
+</ul>
+<h3 id="ShouldComponentUpdate"><a href="#ShouldComponentUpdate" class="headerlink" title="ShouldComponentUpdate"></a>ShouldComponentUpdate</h3><p>可以利用此事件来决定何时需要重新渲染组件。如果组件 props 更改或调用 setState，则此函数返回一个 Boolean 值，为true则会重新渲染组件，反之则不会重新渲染组件。<br>在这两种情况下组件都会重新渲染。我们可以在这个生命周期事件中放置一个自定义逻辑，以决定是否调用组件的 render 函数。<br>下面举一个小的例子来辅助理解下：<br>比如要在你的应用中展示学生的详细资料，每个学生都包含有多个属性，如姓名、年龄、爱好、身高、体重、家庭住址、父母姓名等；在这个组件场景中，只需要展示学生的姓名、年龄、住址，其他的信息不需要在这里展示，所以在理想情况下，除去姓名、年龄、住址以外的信息变化组件是不需要重新渲染的；<br>示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ShouldComponentUpdateUsage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      name: <span class="string">"小明"</span>,</span><br><span class="line">      age: <span class="number">12</span>,</span><br><span class="line">      address: <span class="string">"xxxxxx"</span>,</span><br><span class="line">      height: <span class="number">165</span>,</span><br><span class="line">      weight: <span class="number">40</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        height: <span class="number">168</span>,</span><br><span class="line">        weight: <span class="number">45</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">5000</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">      <span class="keyword">if</span>(nextState.name !== <span class="keyword">this</span>.state.name || nextState.age !== <span class="keyword">this</span>.state.age || nextState.address !== <span class="keyword">this</span>.state.address) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; name, age, address &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;Student name: &#123;name&#125; &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;Student age:&#123;age&#125; &lt;/</span>p&gt;</span><br><span class="line">      	&lt;p&gt;Student address:&#123;address&#125; &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按照 React 团队的说法，shouldComponentUpdate是保证性能的紧急出口，既然是紧急出口，那就意味着我们轻易用不到它。但既然有这样一个紧急出口，那说明有时候它还是很有必要的。所以我们要搞清楚到底什么时候才需要使用这个紧急出口。</p>
+<h4 id="使用原则"><a href="#使用原则" class="headerlink" title="使用原则"></a>使用原则</h4><p>当你觉得，被改变的state或者props，不需要更新视图时，你就应该思考要不要使用它。<br>需要注意的一个地方是：改变之后，又不需要更新视图的状态，也不应该放在state中。<br>shouldComponentUpdate的使用，也是有代价的。如果处理得不好，甚至比多render一次更消耗性能，另外也会使组件的复杂度增大，一般情况下使用PureComponent即可；</p>
+<h3 id="React-memo"><a href="#React-memo" class="headerlink" title="React.memo"></a>React.memo</h3><p>如果你的组件在相同 props 的情况下渲染相同的结果，那么你可以通过将其包装在 React.memo 中调用，以此通过记忆组件渲染结果的方式来提高组件的性能表现。这意味着在这种情况下，React 将跳过渲染组件的操作并直接复用最近一次渲染的结果。<br>React.memo <strong>仅检查 props 变更</strong>。如果函数组件被 React.memo 包裹，且其实现中拥有 useState，useReducer 或 useContext 的 Hook，当 state 或 context 发生变化时，它仍会重新渲染。<br>默认情况下其只会对复杂对象做浅层对比，如果你想要控制对比过程，那么请将自定义的比较函数通过第二个参数传入来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 使用 props 渲染 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">areEqual</span>(<span class="params">prevProps, nextProps</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  如果把 nextProps 传入 render 方法的返回结果与</span></span><br><span class="line"><span class="comment">  将 prevProps 传入 render 方法的返回结果一致则返回 true，</span></span><br><span class="line"><span class="comment">  否则返回 false</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.memo(MyComponent, areEqual);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong><br>与 class 组件中 shouldComponentUpdate() 方法不同的是，如果 props 相等，areEqual 会返回 true；如果 props 不相等，则返回 false。这与 shouldComponentUpdate 方法的返回值相反。</p>
+</blockquote>
+<h3 id="合理使用Context"><a href="#合理使用Context" class="headerlink" title="合理使用Context"></a>合理使用Context</h3><p>Context 提供了一个无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法。正是因为其这个特点，它是可以穿透React.memo或者shouldComponentUpdate的比对的，也就是说，一旦 Context 的 Value 变动，所有依赖该 Context 的组件会全部 forceUpdate.这个和 Mobx 和 Vue 的响应式系统不同，Context API 并不能细粒度地检测哪些组件依赖哪些状态。</p>
+<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>Context中只定义被大多数组件所共用的属性，例如当前用户的信息、主题或者选择的语言。</li>
+</ul>
+<h3 id="避免使用匿名函数"><a href="#避免使用匿名函数" class="headerlink" title="避免使用匿名函数"></a>避免使用匿名函数</h3><p>首先来看下下面这段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MenuContainer = <span class="function">(<span class="params">&#123; list &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;Menu&gt;</span><br><span class="line">    &#123;list.map(<span class="function">(<span class="params">i</span>) =&gt;</span> (</span><br><span class="line">      &lt;MenuItem key=&#123;i.id&#125; onClick=&#123;() =&gt; handleClick(i.id)&#125; value=&#123;i.value&#125; /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">  &lt;<span class="regexp">/Menu&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这个写法看起来是比较简洁，但是有一个潜在问题是匿名函数在每次渲染时都会有不同的引用，这样就会导致Menu组件会出现重复渲染的问题；可以使用useCallback来进行优化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MenuContainer = <span class="function">(<span class="params">&#123; list &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> handleClick = useCallback(</span><br><span class="line">    (id) =&gt; <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    [],</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Menu&gt;</span><br><span class="line">      &#123;list.map(<span class="function">(<span class="params">i</span>) =&gt;</span> (</span><br><span class="line">        &lt;MenuItem key=&#123;i.id&#125; id=&#123;i.id&#125; onClick=&#123;handleClick(i.id)&#125; value=&#123;i.value&#125; /&gt;</span><br><span class="line">      ))&#125;</span><br><span class="line">    &lt;<span class="regexp">/Menu&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="减少渲染的节点"><a href="#减少渲染的节点" class="headerlink" title="减少渲染的节点"></a>减少渲染的节点</h2><h3 id="组件懒加载"><a href="#组件懒加载" class="headerlink" title="组件懒加载"></a>组件懒加载</h3><blockquote>
+<p>组件懒加载可以让react应用在真正需要展示这个组件的时候再去展示，可以比较有效的减少渲染的节点数提高页面的加载速度</p>
+</blockquote>
+<p>React官方在16.6版本后引入了新的特性：React.lazy 和 React.Suspense,这两个组件的配合使用可以比较方便进行组件懒加载的实现；<br><strong>React.lazy</strong><br>该方法主要的作用就是可以定义一个动态加载的组件，这可以直接缩减打包后bundle的体积，并且可以延迟加载在初次渲染时不需要渲染的组件，代码示例如下：<br>使用之前</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SomeComponent <span class="keyword">from</span> <span class="string">'./SomeComponent'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用之后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SomeComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./SomeComponent'</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用 React.lazy 的动态引入特性需要 JS 环境支持 Promise。在 IE11 及以下版本的浏览器中需要通过引入 polyfill 来使用该特性。</p>
+</blockquote>
+<p><strong>React.Suspense</strong><br>该组件目前主要的作用就是配合渲染lazy组件，这样就可以在等待加载lazy组件时展示loading元素，不至于直接空白，提升用户体验；<br>Suspense组件中的 fallback 属性接受任何在组件加载过程中你想展示的 React 元素。你可以将 Suspense 组件置于懒加载组件之上的任何位置，你甚至可以用一个 Suspense 组件包裹多个懒加载组件。<br>代码示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Suspense &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> OtherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>));</span><br><span class="line"><span class="keyword">const</span> AnotherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./AnotherComponent'</span>));</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Suspense fallback=&#123;&lt;div&gt;Loading...&lt;<span class="regexp">/div&gt;&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;section&gt;</span></span><br><span class="line"><span class="regexp">          &lt;OtherComponent /</span>&gt;</span><br><span class="line">          &lt;AnotherComponent /&gt;</span><br><span class="line">        &lt;<span class="regexp">/section&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Suspense&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有一点要特别注意的是：React.lazy 和 Suspense 技术还不支持服务端渲染。如果你想要在使用服务端渲染的应用中使用，推荐使用 <a href="https://github.com/gregberge/loadable-components" target="_blank" rel="noopener">Loadable Components</a> 这个库，可以结合这个文档<a href="https://loadable-components.com/docs/server-side-rendering/" target="_blank" rel="noopener">服务端渲染打包指南</a>来进行查看。</p>
+</blockquote>
+<p>另外在业内也有一些比较成熟的react组件懒加载开源库：<a href="https://github.com/jamiebuilds/react-loadable" target="_blank" rel="noopener">react-loadable</a>和<a href="https://github.com/twobin/react-lazyload" target="_blank" rel="noopener">react-lazyload</a>，感兴趣的可以结合看下；<br>​<br></p>
+<h3 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h3><p>虚拟列表是一种根据滚动容器元素的可视区域来渲染长列表数据中某一个部分数据的技术，在开发一些项目中，会遇到一些不是直接分页来加载列表数据的场景，在这种情况下可以考虑结合虚拟列表来进行优化，可以达到根据容器元素的高度以及列表项元素的高度来显示长列表数据中的某一个部分，而不是去完整地渲染长列表，以提高无限滚动的性能。<br>可以关注下放两个比较常用的类库来进行深入了解</p>
+<ul>
+<li><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized" target="_blank" rel="noopener">react-virtualized</a></li>
+<li><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-window" target="_blank" rel="noopener">react-window</a></li>
+</ul>
+<h2 id="降低渲染计算量"><a href="#降低渲染计算量" class="headerlink" title="降低渲染计算量"></a>降低渲染计算量</h2><h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><p>先来看下useMemo的基本使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpensiveValue</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 计算量很大的一些逻辑</span></span><br><span class="line">  <span class="keyword">return</span> xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> memoizedValue = useMemo(computeExpensiveValue, [a, b]);</span><br></pre></td></tr></table></figure>
+
+<p>useMemo 的第一个参数就是一个函数，这个函数返回的值会被缓存起来，同时这个值会作为 useMemo 的返回值，第二个参数是一个数组依赖，如果数组里面的值有变化，那么就会重新去执行第一个参数里面的函数，并将函数返回的值缓存起来并作为 useMemo 的返回值 。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值；</li>
+<li>计算量如果很小的计算函数，也可以选择不使用 useMemo，因为这点优化并不会作为性能瓶颈的要点，反而可能使用错误还会引起一些性能问题。</li>
+</ul>
+</blockquote>
+<h3 id="遍历展示视图时使用key"><a href="#遍历展示视图时使用key" class="headerlink" title="遍历展示视图时使用key"></a>遍历展示视图时使用key</h3><p>key 帮助 React 识别哪些元素改变了，比如被添加或删除。因此你应当给数组中的每一个元素赋予一个确定的标识。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> listItems = numbers.map(<span class="function">(<span class="params">number</span>) =&gt;</span></span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+<p>使用key注意事项：</p>
+<ul>
+<li>最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key，当元素没有确定 id 的时候，万不得已你可以使用元素索引 index 作为 key</li>
+<li>元素的 key 只有放在就近的数组上下文中才有意义。例如，如果你提取出一个 ListItem 组件，你应该把 key 保留在数组中的这个 <listitem> 元素上，而不是放在 ListItem 组件中的 <li> 元素上。</li>
+</listitem></li></ul>
+<h2 id="合理设计组件"><a href="#合理设计组件" class="headerlink" title="合理设计组件"></a>合理设计组件</h2><h3 id="简化props"><a href="#简化props" class="headerlink" title="简化props"></a>简化props</h3><p>如果一个组件的props比较复杂的话，会影响shallowCompare的效率，也会使这个组件变得难以维护，另外也与“单一职责”的原则不符合，可以考虑进行拆解。</p>
+<h3 id="简化State"><a href="#简化State" class="headerlink" title="简化State"></a>简化State</h3><p>在设计组件的state时，可以按照这个原则来：需要组件响应它的变动或者需要渲染到视图中的数据，才放到 state 中；这样可以避免不必要的数据变动导致组件重新渲染。</p>
+<h3 id="减少组件嵌套"><a href="#减少组件嵌套" class="headerlink" title="减少组件嵌套"></a>减少组件嵌套</h3><p>一般不必要的节点嵌套都是滥用高阶组件/RenderProps 导致的。所以还是那句话‘只有在必要时才使用 xxx’。 有很多种方式来代替高阶组件/RenderProps，例如优先使用 props、React Hooks<br></p>
+<blockquote>
+<p>参考<br><a href="https://react.docschina.org/docs/optimizing-performance.html" target="_blank" rel="noopener">https://react.docschina.org/docs/optimizing-performance.html</a><br><a href="https://www.infoq.cn/article/2016/07/react-shouldcomponentupdate" target="_blank" rel="noopener">https://www.infoq.cn/article/2016/07/react-shouldcomponentupdate</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag">#React</a>
+          
+            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/06/20200406Mac下查看java的安装路径/" rel="next" title="Mac下查看java的安装路径">
+                <i class="fa fa-chevron-left"></i> Mac下查看java的安装路径
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/11/17/20200708团队招聘/" rel="prev" title="【内推】团队招聘,机会难得~">
+                【内推】团队招聘,机会难得~ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+  
+  
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="lsqy">
+          <p class="site-author-name" itemprop="name">lsqy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lsqy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/lsqy93/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/lsqy93" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lsqyun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/#" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://nodejs.org/zh-cn/docs/" title="NodeJS" target="_blank">NodeJS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://reactjs.cn/" title="React" target="_blank">React</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cnodejs.org/" title="CNode" target="_blank">CNode</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">1.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能优化思路"><span class="nav-number">1.2.</span> <span class="nav-text">性能优化思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少重新render的次数"><span class="nav-number">2.</span> <span class="nav-text">减少重新render的次数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PureComponent"><span class="nav-number">2.1.</span> <span class="nav-text">PureComponent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ShouldComponentUpdate"><span class="nav-number">2.2.</span> <span class="nav-text">ShouldComponentUpdate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用原则"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用原则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-memo"><span class="nav-number">2.3.</span> <span class="nav-text">React.memo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理使用Context"><span class="nav-number">2.4.</span> <span class="nav-text">合理使用Context</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原则"><span class="nav-number">2.4.1.</span> <span class="nav-text">原则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免使用匿名函数"><span class="nav-number">2.5.</span> <span class="nav-text">避免使用匿名函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少渲染的节点"><span class="nav-number">3.</span> <span class="nav-text">减少渲染的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件懒加载"><span class="nav-number">3.1.</span> <span class="nav-text">组件懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟列表"><span class="nav-number">3.2.</span> <span class="nav-text">虚拟列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低渲染计算量"><span class="nav-number">4.</span> <span class="nav-text">降低渲染计算量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#useMemo"><span class="nav-number">4.1.</span> <span class="nav-text">useMemo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历展示视图时使用key"><span class="nav-number">4.2.</span> <span class="nav-text">遍历展示视图时使用key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合理设计组件"><span class="nav-number">5.</span> <span class="nav-text">合理设计组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化props"><span class="nav-number">5.1.</span> <span class="nav-text">简化props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化State"><span class="nav-number">5.2.</span> <span class="nav-text">简化State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少组件嵌套"><span class="nav-number">5.3.</span> <span class="nav-text">减少组件嵌套</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsqy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom: none;font-size: 12px;position: relative;top: 7px;left: 4px;">
+    <img src="https://img.lsqy.tech/hexo/beian.png" style="float:left;width: 14px;margin-top: 2px;">
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010502038173号</p>
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count" style="width: 0px; height: 0px;overflow: hidden;">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" style="visibility: hidden;"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv" style="visibility: hidden;"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+      
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lsqy';
+      var disqus_identifier = '2021/08/26/20210826React性能优化总结/';
+      var disqus_title = 'React性能优化总结';
+      var disqus_url = 'https://lsqy.tech/2021/08/26/20210826React性能优化总结/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+<script type="text/javascript" async>
+  !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+</body>
+</html>

@@ -8,6 +8,27 @@
     </url>
 
     <url>
+        <loc>https://lsqy.tech/categories/NodeJS/</loc>
+        <lastmod>2021-11-21T13:57:44.416Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://lsqy.tech/categories/React/</loc>
+        <lastmod>2021-11-21T13:56:57.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://lsqy.tech/categories/%E6%8B%9B%E8%81%98/</loc>
+        <lastmod>2021-11-21T13:56:57.395Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://lsqy.tech/categories/%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E8%83%BD/</loc>
         <lastmod>2020-04-06T14:19:03.199Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,13 +44,6 @@
 
     <url>
         <loc>https://lsqy.tech/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</loc>
-        <lastmod>2020-04-06T13:32:14.150Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://lsqy.tech/categories/NodeJS/</loc>
         <lastmod>2020-04-06T13:32:14.150Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -57,13 +71,6 @@
     </url>
 
     <url>
-        <loc>https://lsqy.tech/categories/React/</loc>
-        <lastmod>2019-05-26T15:04:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://lsqy.tech/categories/Angular/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -85,14 +92,14 @@
     </url>
 
     <url>
-        <loc>https://lsqy.tech/categories/web%E5%AE%89%E5%85%A8/</loc>
+        <loc>https://lsqy.tech/categories/linux/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://lsqy.tech/categories/linux/</loc>
+        <loc>https://lsqy.tech/categories/web%E5%AE%89%E5%85%A8/</loc>
         <lastmod>2018-11-15T08:32:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

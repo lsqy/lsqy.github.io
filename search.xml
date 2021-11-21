@@ -205,23 +205,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Javascript分层概念</title>
-    <url>/2015/05/01/150501Javascript%E5%88%86%E5%B1%82%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;一个项目前期的分层设计是很重要的，一个好的分层结构会使我们的代码组织条理更清晰，减少冗余，提髙代码重用率。和 CSS — 样，我 觉得将 JavaScript 也分成三层也是比较合理的，从下往上依次是 base 层、 common 层 和 page 层 。需要 说明的是，如何分层是一件主观的事情，为 的 是 “ 把事情变得更好” ，没有对和错之 分，只有好和坏，我并不是说 “ 只有这样分层才是对的”，下面简单列出这几个层的一个介绍</p>
-<h2 id="1-base-层"><a href="#1-base-层" class="headerlink" title="1. base  层"></a>1. base  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最底端，这一层有两个职责。职责一是封装不同浏览器下 JavaScript 的差异，提供统一的接口，我们可以依靠它来完成跨浏览器兼容的工作。职责二是扩展JavaScript语言底层提供的接口，让它提供更多更为易用的接口。 base 层的功能是给 common 层 和 page 层提供接口</p>
-<h2 id="2-common-层"><a href="#2-common-层" class="headerlink" title="2. common  层"></a>2. common  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的中间，依赖  base 层提供的接口。 commom 层提供可供复用的组件，它 是典型的 MVC 模式中的 M, 和页面内的具体功能没有直接关系。 common 层的功能是给 page 层提供组件。</p>
-<h2 id="3-page-层"><a href="#3-page-层" class="headerlink" title="3. page  层"></a>3. page  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最顶端。这一层和页面里的具体功能需求直接相关，相当于 MVC模式中的C, page 层依赖于 base 层 和 common 层。 page 层的功能是完成页面内的功能需求。<br>引申：<br>其实page 层是和页面里的具体功能需求直接相关。如果页面里的功能需求 很简单，页面里可以没有 base 层代码，甚至可以没有 common 层代码，但一定会有 page 层 代码。 可以说base 层 和 common 层都是属于框架级的， page 层是属于应用级的，它可以调用 base 层的接口和 common 层的组件。</p>
-<h3 id="下面举例形象化这三者的关系："><a href="#下面举例形象化这三者的关系：" class="headerlink" title="下面举例形象化这三者的关系："></a>下面举例形象化这三者的关系：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;我们平时绝大部分工作都是在 page 层完成的，有了分层的概念， page 层的工作就非 常轻松了。如 果 base 层 和 common 层足够丰富和稳定，我们就可以将精力全部放在具体 业务逻辑上，跨浏览器兼容和常用组件都可以交给 base 层 和 common 层去完成，一方面 可以极大地提高开发效率，另一方面也可以大大提高代码的重用率，减小网页的大小，下面举一个生动的例子：<br>&nbsp;&nbsp;&nbsp;&nbsp;如果没有 base 层 和 common 层 ，直接用原生 JavaScript 写程序，就像是开着汽车行 驶在一条不平坦的泥路上，一路上有凸起的石块（浏览器兼容带来的阻碍） ，也有凹陷 的 沼 泽 （原生 JavaScript 提 供 的 底 层 接 口 不 足）<br>&nbsp;&nbsp;&nbsp;&nbsp;引 入 base 层之后呢，就像铲平了泥路上凸起的石块（提供跨浏览器兼容的接口） ，填满了 凹陷的沼泽（弥补原生 JavaScript 底层接口的不足） 。在 base 层的基础上写程序，就像 汽车行驶在一条平坦的泥路上。<br>&nbsp;&nbsp;&nbsp;&nbsp;继 base 层之后，再 引 入 common层,就像在平坦的泥路上铺上了一层沥青，路再也不是普通的泥路了，它成了高速公路。在 base 层 和 common 的基础上写Javascript, 就像开着汽车在高速公路上飞驰！</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;其实在平常的工作学习中，一定要学会归类学习，重要的去学习一些思想，就像这次的这个分层理念，其实对于Javascript和CSS都是非常适用的，并且最终都是能做到是自己的代码精炼和具有条理的，重要的是可维护性会很强。<br>&nbsp;&nbsp;&nbsp;&nbsp;每当读书的时候，就会发现自己很渺小，需要去学习的东西还有很多，随时学习的心态必须时刻具备，上面的总结是从Web前端开发修炼之道当中凝练出来的，记录下来，也是提醒下自己的分层意识，随着现在前端越来越成熟和规范的时候，我们每一个前端人都应该时刻要去具备一颗追求卓越的心态，让自己尽快提升一个高度，特在此共勉！</p>
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决自适应的两栏布局方式</title>
     <url>/2015/04/29/150429%E8%A7%A3%E5%86%B3%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E4%B8%A4%E6%A0%8F%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
@@ -249,6 +232,23 @@
       <tags>
         <tag>CSS</tag>
         <tag>布局</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript分层概念</title>
+    <url>/2015/05/01/150501Javascript%E5%88%86%E5%B1%82%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;一个项目前期的分层设计是很重要的，一个好的分层结构会使我们的代码组织条理更清晰，减少冗余，提髙代码重用率。和 CSS — 样，我 觉得将 JavaScript 也分成三层也是比较合理的，从下往上依次是 base 层、 common 层 和 page 层 。需要 说明的是，如何分层是一件主观的事情，为 的 是 “ 把事情变得更好” ，没有对和错之 分，只有好和坏，我并不是说 “ 只有这样分层才是对的”，下面简单列出这几个层的一个介绍</p>
+<h2 id="1-base-层"><a href="#1-base-层" class="headerlink" title="1. base  层"></a>1. base  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最底端，这一层有两个职责。职责一是封装不同浏览器下 JavaScript 的差异，提供统一的接口，我们可以依靠它来完成跨浏览器兼容的工作。职责二是扩展JavaScript语言底层提供的接口，让它提供更多更为易用的接口。 base 层的功能是给 common 层 和 page 层提供接口</p>
+<h2 id="2-common-层"><a href="#2-common-层" class="headerlink" title="2. common  层"></a>2. common  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的中间，依赖  base 层提供的接口。 commom 层提供可供复用的组件，它 是典型的 MVC 模式中的 M, 和页面内的具体功能没有直接关系。 common 层的功能是给 page 层提供组件。</p>
+<h2 id="3-page-层"><a href="#3-page-层" class="headerlink" title="3. page  层"></a>3. page  层</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;位于三层的最顶端。这一层和页面里的具体功能需求直接相关，相当于 MVC模式中的C, page 层依赖于 base 层 和 common 层。 page 层的功能是完成页面内的功能需求。<br>引申：<br>其实page 层是和页面里的具体功能需求直接相关。如果页面里的功能需求 很简单，页面里可以没有 base 层代码，甚至可以没有 common 层代码，但一定会有 page 层 代码。 可以说base 层 和 common 层都是属于框架级的， page 层是属于应用级的，它可以调用 base 层的接口和 common 层的组件。</p>
+<h3 id="下面举例形象化这三者的关系："><a href="#下面举例形象化这三者的关系：" class="headerlink" title="下面举例形象化这三者的关系："></a>下面举例形象化这三者的关系：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;我们平时绝大部分工作都是在 page 层完成的，有了分层的概念， page 层的工作就非 常轻松了。如 果 base 层 和 common 层足够丰富和稳定，我们就可以将精力全部放在具体 业务逻辑上，跨浏览器兼容和常用组件都可以交给 base 层 和 common 层去完成，一方面 可以极大地提高开发效率，另一方面也可以大大提高代码的重用率，减小网页的大小，下面举一个生动的例子：<br>&nbsp;&nbsp;&nbsp;&nbsp;如果没有 base 层 和 common 层 ，直接用原生 JavaScript 写程序，就像是开着汽车行 驶在一条不平坦的泥路上，一路上有凸起的石块（浏览器兼容带来的阻碍） ，也有凹陷 的 沼 泽 （原生 JavaScript 提 供 的 底 层 接 口 不 足）<br>&nbsp;&nbsp;&nbsp;&nbsp;引 入 base 层之后呢，就像铲平了泥路上凸起的石块（提供跨浏览器兼容的接口） ，填满了 凹陷的沼泽（弥补原生 JavaScript 底层接口的不足） 。在 base 层的基础上写程序，就像 汽车行驶在一条平坦的泥路上。<br>&nbsp;&nbsp;&nbsp;&nbsp;继 base 层之后，再 引 入 common层,就像在平坦的泥路上铺上了一层沥青，路再也不是普通的泥路了，它成了高速公路。在 base 层 和 common 的基础上写Javascript, 就像开着汽车在高速公路上飞驰！</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;其实在平常的工作学习中，一定要学会归类学习，重要的去学习一些思想，就像这次的这个分层理念，其实对于Javascript和CSS都是非常适用的，并且最终都是能做到是自己的代码精炼和具有条理的，重要的是可维护性会很强。<br>&nbsp;&nbsp;&nbsp;&nbsp;每当读书的时候，就会发现自己很渺小，需要去学习的东西还有很多，随时学习的心态必须时刻具备，上面的总结是从Web前端开发修炼之道当中凝练出来的，记录下来，也是提醒下自己的分层意识，随着现在前端越来越成熟和规范的时候，我们每一个前端人都应该时刻要去具备一颗追求卓越的心态，让自己尽快提升一个高度，特在此共勉！</p>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -280,25 +280,24 @@
       </tags>
   </entry>
   <entry>
-    <title>While循环的一个实用的应用场景</title>
-    <url>/2015/06/01/150601While%E5%BE%AA%E7%8E%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%9E%E7%94%A8%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;像while这样的循环相信大家会经常用到它的最基本的用法，但是一些技巧性的用法可能都很少在意，下面分享一下我使用while循环的一个小技巧性用法，也是让自己时刻注意要发散性思维的去coding！</p>
-<h2 id="这主要是围绕push和apply方法来说-就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错"><a href="#这主要是围绕push和apply方法来说-就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错" class="headerlink" title="这主要是围绕push和apply方法来说,就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错"></a>这主要是围绕push和apply方法来说,就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;先来看下面这段代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 未使用apply的时候，也就是未启用调用上下文模式 --&gt;</span><br><span class="line">var arr = [1,2,3];</span><br><span class="line">arr.push([4,5,6]);</span><br><span class="line">console.log(&apos;arr&apos;,arr);</span><br><span class="line">&lt;!-- 上面的输出结果为：arr [1, 2, 3, [4,5,6]] --&gt;</span><br><span class="line">var arr1 = [1,2,3];</span><br><span class="line">arr1.push.apply(arr,[4,5,6]);</span><br><span class="line">console.log(&apos;arr1&apos;,arr1);</span><br><span class="line">&lt;!-- 上面的输出结果为：arr1 [1, 2, 3, 4, 5, 6] --&gt;</span><br></pre></td></tr></table></figure>
-
-<p>上面涉及到了apply的用法，其实apply用法并不难，但是它的作用还是不小的，在Javascript中很多优秀的类库当中都能看到它的身影，因为它具有一个强大的作用，就是<strong>“调用上下文”</strong>；<br>用法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apply(上下文，[arg1, arg2, ...])</span><br><span class="line">fn.apply(a,[1,2]);</span><br></pre></td></tr></table></figure>
-
-<p>解析：apply的参数，第一个参数表示指定的this，第二个参数要求是数组，表示函数的参数,在上面也就是1,2时fn的参数，也就是相当于a.fn(1,2);也就是以a作为上下文调用fn，然后fn里面传入了1和2这两个参数；<br>这是封装了一个push方法来解决apply第二个参数是伪数组的兼容问题；</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- context是指的上下文，大家可以先不用在意这个context，只需要知道`context.getElementsByTagName(tag)`获得了一个伪数组。 --&gt;</span><br><span class="line">var getTag = function(tag,context,results) &#123;</span><br><span class="line">  results = results || [];</span><br><span class="line">  try &#123;</span><br><span class="line">    results.push.apply(results,context.getElementsByTagName(tag));</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">    myPush(results,context.getElementsByTagName(tag));</span><br><span class="line">  &#125;</span><br><span class="line">  return results;</span><br><span class="line">&#125;;</span><br><span class="line">var myPush = function(target,els) &#123;</span><br><span class="line">      var j = target.length,</span><br><span class="line">          i = 0;</span><br><span class="line">      while((target[j++] = els[i++]))&#123;&#125; //这里的els[i++]总会有取值完的时候，那时候就会变为假，自动跳出while循环，这也                                    算是while循环的一个小技巧 ，</span><br><span class="line">      target.length = j - 1; //因为伪数组的length不会自己增加，所以手动赋值一下，避免出错</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;记录下这个小场景也是为了警醒自己在工作当中解决问题的时候要学会发散思维的去解决一些兼容问题，还有一些应用场景。</p>
+    <title>JSON知识小结</title>
+    <url>/2015/06/05/150605JSON%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="一、JSON-定义"><a href="#一、JSON-定义" class="headerlink" title="一、JSON 定义"></a>一、JSON 定义</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;JSON全称 JavaScript Object Notation，是一种轻量级的文本数据交换格式，它是基于ECMAScript的一个子集，独立于语言，并且在java、C++、Python等其他语言中也有，所以JSON相当于一个中转站，能够达成各种语言间交换数据，也就是说能够实现互相通信，因为各个语言都能识别JSON，所以这些特性使JSON成为理想的数据交换语言,而其实我们大多数的业务逻辑也就是通过通信过来的数据再进行下一步开展的。 <a id="more"></a></p>
+<h2 id="二、语法规则-（格式要求）"><a href="#二、语法规则-（格式要求）" class="headerlink" title="二、语法规则 （格式要求）"></a>二、语法规则 （格式要求）</h2><p>1、数据在名称/值对中<br>2、数据由逗号分隔(最后一个键/值对不能带逗号)，这个点一定要注意，有时候容易忽略<br>3、花括号保存对象；方括号保存数组<br>4、<strong>键必须使用双引号</strong>  注意跟js中的对象的区别，json并不属于js，是从js中抽出来的，源自于js独立出来的；</p>
+<h2 id="三、JSON解析"><a href="#三、JSON解析" class="headerlink" title="三、JSON解析"></a>三、JSON解析</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在工作当中，我们经常会有这样的需求，需要客 户端向服务器端通过地址栏或者post、get提交数据，然后服务器端处理完数据之后，将计算的结果信息回传给客户端，那么这时就存在了一定的难度，特别是数据量较大时。这个时候数据的格式成了关键，所以我们应该能够选择到某种格式可以很方便的进行数据的组装，然后可以很方便的进行 解析那就再好不过了，这时JSON便是在这里的不二选择。那接下来你只需要在客户端向服务器提交信息的时候，先按照JSON的格式拼装好一个字符串，提交给服务器端;服务端在接到请求之后，就可以将从服务端返回的数据按照JSON的格式拼装好一个字符串，响应给客户端。<br>&nbsp;&nbsp;&nbsp;&nbsp;另外需要知道不同的语言各自也都对应有其解析方法，需要解析完成后才能读取，下面在这里只是简要分析一下Javascript和PHP的解析方式；</p>
+<h3 id="1、Javascript-解析方法"><a href="#1、Javascript-解析方法" class="headerlink" title="1、Javascript 解析方法"></a>1、Javascript 解析方法</h3><p>主要是这三种<code>eavl()、 JSON.parse()、JSON.stringify()</code>；<br>例如如果Javascript想传递一个复杂的数据类型给PHP等后台语言,就先通过JSON.stringify()将其字符串化(JSON)后传过去,到PHP那边可以通过<code>json_decode()</code>解码成PHP能够使用的数据;<br>那从后端响应回来的数据，Javascript可以通过<code>JSON.parse()</code>或者<code>eavl()</code>来进行解析就可以达到Javascript的对象了，接下来也就可以进行相应的业务逻辑了<br>JSON兼容处理可以引入<code>[json2.js](http://www.JSON.org/json2.js)</code>这个文件</p>
+<h3 id="2、PHP解析方法"><a href="#2、PHP解析方法" class="headerlink" title="2、PHP解析方法"></a>2、PHP解析方法</h3><p><code>json_encode(){将PHP数组转成json格式的字符串}</code><br><code>json_decode(){由json格式的字符串转成PHP能用的数据}</code><br>也就是说如果PHP想传递一个复杂的数据类型给Javascript,就先通过<code>json_encode()</code>其字符串化为(JSON)后传过去,到Javascript那边可以通过<code>JSON.parse()</code> 解码成Javascript能够使用的数据;<br>总结：JSON体积小、解析方便且高效，在实际开发成为首选。另外工作当中可能</p>
+<h2 id="四、JSON-文件类型"><a href="#四、JSON-文件类型" class="headerlink" title="四、JSON 文件类型"></a>四、JSON 文件类型</h2><p> JSON 文件的文件类型是 “.json”<br> JSON 文本的 MIME 类型是 “application/json”</p>
+<h2 id="五、对比XML"><a href="#五、对比XML" class="headerlink" title="五、对比XML"></a>五、对比XML</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据）。XML可以随意通过自定义标签使数据更加具有可读性；</p>
+<h3 id="1、语法规则"><a href="#1、语法规则" class="headerlink" title="1、语法规则"></a>1、语法规则</h3><p>1、必须有一个根元素<br>2、不可有空格、不可以数字或.开头、大小写敏感<br>3、不可交叉嵌套<br>4、属性双引号（浏览器自动修正成双引号了）<br>5、特殊符号要使用实体<br>6、注释和HTML一样</p>
+<h3 id="2、对比"><a href="#2、对比" class="headerlink" title="2、对比"></a>2、对比</h3><p>虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了，所以现在大多数是采用的JSON格式进行传输数据</p>
 ]]></content>
       <categories>
         <category>Javascript</category>
       </categories>
       <tags>
         <tag>Javascript</tag>
+        <tag>JSON</tag>
       </tags>
   </entry>
   <entry>
@@ -330,24 +329,25 @@
       </tags>
   </entry>
   <entry>
-    <title>JSON知识小结</title>
-    <url>/2015/06/05/150605JSON%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="一、JSON-定义"><a href="#一、JSON-定义" class="headerlink" title="一、JSON 定义"></a>一、JSON 定义</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;JSON全称 JavaScript Object Notation，是一种轻量级的文本数据交换格式，它是基于ECMAScript的一个子集，独立于语言，并且在java、C++、Python等其他语言中也有，所以JSON相当于一个中转站，能够达成各种语言间交换数据，也就是说能够实现互相通信，因为各个语言都能识别JSON，所以这些特性使JSON成为理想的数据交换语言,而其实我们大多数的业务逻辑也就是通过通信过来的数据再进行下一步开展的。 <a id="more"></a></p>
-<h2 id="二、语法规则-（格式要求）"><a href="#二、语法规则-（格式要求）" class="headerlink" title="二、语法规则 （格式要求）"></a>二、语法规则 （格式要求）</h2><p>1、数据在名称/值对中<br>2、数据由逗号分隔(最后一个键/值对不能带逗号)，这个点一定要注意，有时候容易忽略<br>3、花括号保存对象；方括号保存数组<br>4、<strong>键必须使用双引号</strong>  注意跟js中的对象的区别，json并不属于js，是从js中抽出来的，源自于js独立出来的；</p>
-<h2 id="三、JSON解析"><a href="#三、JSON解析" class="headerlink" title="三、JSON解析"></a>三、JSON解析</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在工作当中，我们经常会有这样的需求，需要客 户端向服务器端通过地址栏或者post、get提交数据，然后服务器端处理完数据之后，将计算的结果信息回传给客户端，那么这时就存在了一定的难度，特别是数据量较大时。这个时候数据的格式成了关键，所以我们应该能够选择到某种格式可以很方便的进行数据的组装，然后可以很方便的进行 解析那就再好不过了，这时JSON便是在这里的不二选择。那接下来你只需要在客户端向服务器提交信息的时候，先按照JSON的格式拼装好一个字符串，提交给服务器端;服务端在接到请求之后，就可以将从服务端返回的数据按照JSON的格式拼装好一个字符串，响应给客户端。<br>&nbsp;&nbsp;&nbsp;&nbsp;另外需要知道不同的语言各自也都对应有其解析方法，需要解析完成后才能读取，下面在这里只是简要分析一下Javascript和PHP的解析方式；</p>
-<h3 id="1、Javascript-解析方法"><a href="#1、Javascript-解析方法" class="headerlink" title="1、Javascript 解析方法"></a>1、Javascript 解析方法</h3><p>主要是这三种<code>eavl()、 JSON.parse()、JSON.stringify()</code>；<br>例如如果Javascript想传递一个复杂的数据类型给PHP等后台语言,就先通过JSON.stringify()将其字符串化(JSON)后传过去,到PHP那边可以通过<code>json_decode()</code>解码成PHP能够使用的数据;<br>那从后端响应回来的数据，Javascript可以通过<code>JSON.parse()</code>或者<code>eavl()</code>来进行解析就可以达到Javascript的对象了，接下来也就可以进行相应的业务逻辑了<br>JSON兼容处理可以引入<code>[json2.js](http://www.JSON.org/json2.js)</code>这个文件</p>
-<h3 id="2、PHP解析方法"><a href="#2、PHP解析方法" class="headerlink" title="2、PHP解析方法"></a>2、PHP解析方法</h3><p><code>json_encode(){将PHP数组转成json格式的字符串}</code><br><code>json_decode(){由json格式的字符串转成PHP能用的数据}</code><br>也就是说如果PHP想传递一个复杂的数据类型给Javascript,就先通过<code>json_encode()</code>其字符串化为(JSON)后传过去,到Javascript那边可以通过<code>JSON.parse()</code> 解码成Javascript能够使用的数据;<br>总结：JSON体积小、解析方便且高效，在实际开发成为首选。另外工作当中可能</p>
-<h2 id="四、JSON-文件类型"><a href="#四、JSON-文件类型" class="headerlink" title="四、JSON 文件类型"></a>四、JSON 文件类型</h2><p> JSON 文件的文件类型是 “.json”<br> JSON 文本的 MIME 类型是 “application/json”</p>
-<h2 id="五、对比XML"><a href="#五、对比XML" class="headerlink" title="五、对比XML"></a>五、对比XML</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据）。XML可以随意通过自定义标签使数据更加具有可读性；</p>
-<h3 id="1、语法规则"><a href="#1、语法规则" class="headerlink" title="1、语法规则"></a>1、语法规则</h3><p>1、必须有一个根元素<br>2、不可有空格、不可以数字或.开头、大小写敏感<br>3、不可交叉嵌套<br>4、属性双引号（浏览器自动修正成双引号了）<br>5、特殊符号要使用实体<br>6、注释和HTML一样</p>
-<h3 id="2、对比"><a href="#2、对比" class="headerlink" title="2、对比"></a>2、对比</h3><p>虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了，所以现在大多数是采用的JSON格式进行传输数据</p>
+    <title>While循环的一个实用的应用场景</title>
+    <url>/2015/06/01/150601While%E5%BE%AA%E7%8E%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%9E%E7%94%A8%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;像while这样的循环相信大家会经常用到它的最基本的用法，但是一些技巧性的用法可能都很少在意，下面分享一下我使用while循环的一个小技巧性用法，也是让自己时刻注意要发散性思维的去coding！</p>
+<h2 id="这主要是围绕push和apply方法来说-就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错"><a href="#这主要是围绕push和apply方法来说-就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错" class="headerlink" title="这主要是围绕push和apply方法来说,就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错"></a>这主要是围绕push和apply方法来说,就是在ie8以下，apply方法的第二个参数如果是伪数组的话会报错</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;先来看下面这段代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 未使用apply的时候，也就是未启用调用上下文模式 --&gt;</span><br><span class="line">var arr = [1,2,3];</span><br><span class="line">arr.push([4,5,6]);</span><br><span class="line">console.log(&apos;arr&apos;,arr);</span><br><span class="line">&lt;!-- 上面的输出结果为：arr [1, 2, 3, [4,5,6]] --&gt;</span><br><span class="line">var arr1 = [1,2,3];</span><br><span class="line">arr1.push.apply(arr,[4,5,6]);</span><br><span class="line">console.log(&apos;arr1&apos;,arr1);</span><br><span class="line">&lt;!-- 上面的输出结果为：arr1 [1, 2, 3, 4, 5, 6] --&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面涉及到了apply的用法，其实apply用法并不难，但是它的作用还是不小的，在Javascript中很多优秀的类库当中都能看到它的身影，因为它具有一个强大的作用，就是<strong>“调用上下文”</strong>；<br>用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apply(上下文，[arg1, arg2, ...])</span><br><span class="line">fn.apply(a,[1,2]);</span><br></pre></td></tr></table></figure>
+
+<p>解析：apply的参数，第一个参数表示指定的this，第二个参数要求是数组，表示函数的参数,在上面也就是1,2时fn的参数，也就是相当于a.fn(1,2);也就是以a作为上下文调用fn，然后fn里面传入了1和2这两个参数；<br>这是封装了一个push方法来解决apply第二个参数是伪数组的兼容问题；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- context是指的上下文，大家可以先不用在意这个context，只需要知道`context.getElementsByTagName(tag)`获得了一个伪数组。 --&gt;</span><br><span class="line">var getTag = function(tag,context,results) &#123;</span><br><span class="line">  results = results || [];</span><br><span class="line">  try &#123;</span><br><span class="line">    results.push.apply(results,context.getElementsByTagName(tag));</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">    myPush(results,context.getElementsByTagName(tag));</span><br><span class="line">  &#125;</span><br><span class="line">  return results;</span><br><span class="line">&#125;;</span><br><span class="line">var myPush = function(target,els) &#123;</span><br><span class="line">      var j = target.length,</span><br><span class="line">          i = 0;</span><br><span class="line">      while((target[j++] = els[i++]))&#123;&#125; //这里的els[i++]总会有取值完的时候，那时候就会变为假，自动跳出while循环，这也                                    算是while循环的一个小技巧 ，</span><br><span class="line">      target.length = j - 1; //因为伪数组的length不会自己增加，所以手动赋值一下，避免出错</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;记录下这个小场景也是为了警醒自己在工作当中解决问题的时候要学会发散思维的去解决一些兼容问题，还有一些应用场景。</p>
 ]]></content>
       <categories>
         <category>Javascript</category>
       </categories>
       <tags>
         <tag>Javascript</tag>
-        <tag>JSON</tag>
       </tags>
   </entry>
   <entry>
@@ -808,6 +808,23 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS7安装nvm来管理Node</title>
+    <url>/2016/01/20/160120CentOS%E5%AE%89%E8%A3%85nvm%E6%9D%A5%E7%AE%A1%E7%90%86Node/</url>
+    <content><![CDATA[<p><strong>NVM（Node version manager）</strong>顾名思义，就是Node.js的版本管理软件，可以轻松的在Node.js各个版本间切换，项目源码在GitHub；如果你想长期做 node 开发, 或者想快速更新 node 版本, 或者想快速切换 node 版本,那么在非 Windows(如 osx, linux) 环境下, 请使用 nvm 来安装你的 node 开发环境, 保持系统的干净.如果你使用 Windows 做开发, 那么你可以使用 <strong>nvmw</strong> 来替代 <strong>nvm</strong>. <a id="more"></a></p>
+<h2 id="获取nvm源码"><a href="#获取nvm源码" class="headerlink" title="获取nvm源码"></a>获取nvm源码</h2><p>1、直接从 github 找到最新版本通过wget下载到本地wget <code>https://github.com/cnpm/nvm/archive/v0.23.0.tar.gz</code>;<br>2、或者直接克隆到本地通过<code>git clone https://github.com/cnpm/nvm.git</code>;</p>
+<h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><p>1、安装nvm非常简单，只要解压后进入目录然后执行<code>./install.sh</code>然后<code>source ~/.bash_profile</code>。<br>2、也可以手动配置终端启动时自动执行 <code>source /opt/wget/nvm-0.23.0/nvm.sh</code>,在 <code>~/.bashrc``, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc</code>文件添加命令:<br>重新打开你的终端, 输入 <code>nvm</code>。</p>
+<h2 id="通过nvm安装管理nodejs"><a href="#通过nvm安装管理nodejs" class="headerlink" title="通过nvm安装管理nodejs"></a>通过nvm安装管理nodejs</h2><p>1、列出所有可安装的版本<code>nvm list-remote</code>;<br>2、安装相应的版本使用<code>nvm install v4.6.0</code>；还可以直接安装 iojs 各个版本;<br>3、查看一下你当前已经安装的版本:<code>nvm ls</code>;<br>4、切换版本；<code>nvm use v4.6.0</code>;<br>5、设置默认版本 <code>nvm alias default v4.6.0</code>;<br>注意：具体操作很简单，使用帮助通过<code>nvm help</code>;</p>
+]]></content>
+      <categories>
+        <category>NodeJS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>NodeJS</tag>
+        <tag>CentOS7</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端组件库大合集</title>
     <url>/2015/12/13/151213%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E5%A4%A7%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;这是一个较为全面的组件库，里面罗列了很多不错的框架以及组件，很值得参考和学习，跟大家一起分享学习!<br>里面共有以下分类：</p>
@@ -850,23 +867,6 @@
       </categories>
       <tags>
         <tag>前端组件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS7安装nvm来管理Node</title>
-    <url>/2016/01/20/160120CentOS%E5%AE%89%E8%A3%85nvm%E6%9D%A5%E7%AE%A1%E7%90%86Node/</url>
-    <content><![CDATA[<p><strong>NVM（Node version manager）</strong>顾名思义，就是Node.js的版本管理软件，可以轻松的在Node.js各个版本间切换，项目源码在GitHub；如果你想长期做 node 开发, 或者想快速更新 node 版本, 或者想快速切换 node 版本,那么在非 Windows(如 osx, linux) 环境下, 请使用 nvm 来安装你的 node 开发环境, 保持系统的干净.如果你使用 Windows 做开发, 那么你可以使用 <strong>nvmw</strong> 来替代 <strong>nvm</strong>. <a id="more"></a></p>
-<h2 id="获取nvm源码"><a href="#获取nvm源码" class="headerlink" title="获取nvm源码"></a>获取nvm源码</h2><p>1、直接从 github 找到最新版本通过wget下载到本地wget <code>https://github.com/cnpm/nvm/archive/v0.23.0.tar.gz</code>;<br>2、或者直接克隆到本地通过<code>git clone https://github.com/cnpm/nvm.git</code>;</p>
-<h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><p>1、安装nvm非常简单，只要解压后进入目录然后执行<code>./install.sh</code>然后<code>source ~/.bash_profile</code>。<br>2、也可以手动配置终端启动时自动执行 <code>source /opt/wget/nvm-0.23.0/nvm.sh</code>,在 <code>~/.bashrc``, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc</code>文件添加命令:<br>重新打开你的终端, 输入 <code>nvm</code>。</p>
-<h2 id="通过nvm安装管理nodejs"><a href="#通过nvm安装管理nodejs" class="headerlink" title="通过nvm安装管理nodejs"></a>通过nvm安装管理nodejs</h2><p>1、列出所有可安装的版本<code>nvm list-remote</code>;<br>2、安装相应的版本使用<code>nvm install v4.6.0</code>；还可以直接安装 iojs 各个版本;<br>3、查看一下你当前已经安装的版本:<code>nvm ls</code>;<br>4、切换版本；<code>nvm use v4.6.0</code>;<br>5、设置默认版本 <code>nvm alias default v4.6.0</code>;<br>注意：具体操作很简单，使用帮助通过<code>nvm help</code>;</p>
-]]></content>
-      <categories>
-        <category>NodeJS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>NodeJS</tag>
-        <tag>CentOS7</tag>
       </tags>
   </entry>
   <entry>
@@ -1197,6 +1197,116 @@
       </tags>
   </entry>
   <entry>
+    <title>面向对象之原型链</title>
+    <url>/2016/04/16/160416%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <content><![CDATA[<h2 id="原型链的认识"><a href="#原型链的认识" class="headerlink" title="原型链的认识"></a>原型链的认识</h2><ul>
+<li>既然提到原型链，就需要和构造函数联系起来进行理解;</li>
+</ul>
+<h3 id="构造函数的认识"><a href="#构造函数的认识" class="headerlink" title="构造函数的认识"></a>构造函数的认识</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;其实构造函数时函数调用的一种模式，例如创建了一个函数，然后通过一个变量new了这个函数，那么这个函数就可以成为构造函数，可以从作用上来理解它为什么叫构造函数，直白点可以说是来构造一个对象出来的，实际上是实例化了一个对象出来，任何通过new来进行操作的函数都可以成为构造函数。<br>&nbsp;&nbsp;&nbsp;&nbsp;接下来那么这个被new出来的对象就会继承创建出来的那个函数的属性，前提是在构造函数内部通过<code>this.属性名</code>这样的属性new出来的实例对象才能拥有。</p>
+<h3 id="引出原型链的认识"><a href="#引出原型链的认识" class="headerlink" title="引出原型链的认识"></a>引出原型链的认识</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;当new出的这个实例对象需要访问某个属性时，首先它会在其本身查找，也可以理解为是先看其构造函数内部有没有通过<code>this.属性名</code>初始化这个属性，如果没有找到这个属性，也就是没有从本身找到这个属性，那么它就会往上查找，这个查找过程中查的那条链就叫做原型链，具体了解可以看引申出来属性搜索原则，下面有总结，其实这也和原型继承这个机制是联系在一起的，可以说设计这个原型链就是为原型继承服务的；<a id="more"></a></p>
+<h3 id="构造函数的整个过程："><a href="#构造函数的整个过程：" class="headerlink" title="构造函数的整个过程："></a>构造函数的整个过程：</h3><ul>
+<li>1、new申请内存，创建对象，（new运算符可以称作新建运算符）；</li>
+<li>2、调用构造函数，构造函数有一个隐式参数，即this；</li>
+<li>3、刚创建出来的对象的引用赋值给this，由函数处理；（其实主要就是利用new能够动态改变this的指向）</li>
+<li>4、在构造函数中利用this.成员 = 值来给对象添加成员</li>
+</ul>
+<h3 id="构造函数的优势："><a href="#构造函数的优势：" class="headerlink" title="构造函数的优势："></a>构造函数的优势：</h3><ul>
+<li>①、对象就有独立的原型对象；</li>
+<li>②、也具有类型名了</li>
+</ul>
+<h3 id="属性搜索原则"><a href="#属性搜索原则" class="headerlink" title="属性搜索原则"></a>属性搜索原则</h3><ul>
+<li>①、在当前对象中找；</li>
+<li>②、在构造函数定义规则中找；</li>
+<li>③、在其原型对象中找；</li>
+<li>④、在其原型对象的原型对象中找…….直到Object.prototype,这等于就是在其原型链上寻找</li>
+<li>⑤、如果没有则返回undefined;</li>
+</ul>
+<h2 id="稍微深入的理解下原型"><a href="#稍微深入的理解下原型" class="headerlink" title="稍微深入的理解下原型"></a>稍微深入的理解下原型</h2><p>其实对象中有一个属性 叫 <strong>proto</strong><br>通过调试可以发现 对象的 <strong>proto</strong> 与创建（实例化）它的构造函数的 prototype 是一个东西<br>看下面的代码测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function F() &#123; //声明一个构造函数</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var o = new F(); //通过这个构造函数实例化一个对象o</span><br><span class="line"></span><br><span class="line">console.log( o.__proto__ === F.prototype ); //true</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意一下 <strong>proto</strong> 是非标准属性，这里也只是辅助理解来运用下，实际工作中不要采用它来进行业务逻辑</p>
+</blockquote>
+<h3 id="原型对象与原型属性"><a href="#原型对象与原型属性" class="headerlink" title="原型对象与原型属性"></a>原型对象与原型属性</h3><p><code>F.prototype</code> 是构造函数 F 的原型属性<br><code>F.prototype</code> 是对象 o 的原型对象</p>
+<h3 id="proto-与prototype有什么区别"><a href="#proto-与prototype有什么区别" class="headerlink" title="_proto_与prototype有什么区别"></a>_proto_与prototype有什么区别</h3><p><code>_proto_</code>是站在对象的角度讨论其原型对象<br><code>prototype</code>是站在构造函数的角度讨论其原型属性，或构造函数创建的对象的原型对象<br>也可以理解成所站的位置不同，就会有不同的角色。</p>
+<blockquote>
+<p>上面的这些理论知识还是会有些抽象，抽时间我会把原型链画一下，那样理解起来就清晰了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国内解决npm被墙的三种方式</title>
+    <url>/2016/05/02/160502%E5%9B%BD%E5%86%85%E8%A7%A3%E5%86%B3npm%E8%A2%AB%E5%A2%99%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="第一种方式：通过指定镜像源地址来下载包"><a href="#第一种方式：通过指定镜像源地址来下载包" class="headerlink" title="第一种方式：通过指定镜像源地址来下载包"></a>第一种方式：通过指定镜像源地址来下载包</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这个使用的是淘宝的 NPM 镜像，这是一个完整 npmjs.org 镜像，同步频率目前为 10 分钟一次以保证尽量与官方服务同步，这里也不得不说淘宝的这个镜像真是对我们开发者的一个福音，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install 包名 --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具"><a href="#第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具" class="headerlink" title="第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具"></a>第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式的好处就是省去了后面的 registry 的一串长长的地址。</p>
+<ul>
+<li>安装全局命令行工具，<blockquote>
+<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用 cnpm</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用时直接按如下操作即可，但是这一点唯一不足的就是操作的时候需要用 cnpm，而不是 npm，对于处女座的人可以采用第三种方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install 包名</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址"><a href="#第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址" class="headerlink" title="第三种方式：通过一个全局命令行工具 nrm 来管理我们的镜像源地址"></a>第三种方式：通过一个全局命令行工具 <code>nrm</code> 来管理我们的镜像源地址</h2><ul>
+<li>安装 nrm<blockquote>
+<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用 nrm</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>基本使用</p>
+<ol>
+<li>首先可以先显示当前所有可用镜像源</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm.png" alt="nrm"> 2. 显示当前正在使用的镜像源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm1.png" alt="nrm1"></p>
+<blockquote>
+<p>初始默认是官方 npm 3. 切换镜像源</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm use 镜像源名称</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm2.png" alt="nrm2"></p>
+<blockquote>
+<p>这时显示 registry 已经切换为 taobao 了， 4. 接下来再确认一下当前正在使用的镜像源</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm3.png" alt="nrm3"></p>
+<blockquote>
+<p>已经变为 taobao 了，以后再安装包的时候直接<code>npm install 包名</code>即可，再也不用担心被墙的苦恼了,大功告成！</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>NodeJS</category>
+      </categories>
+      <tags>
+        <tag>NodeJS</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>http状态码</title>
     <url>/2016/03/20/160320http%E7%8A%B6%E6%80%81%E7%A0%81/</url>
     <content><![CDATA[<h2 id="1XX：信息状态码"><a href="#1XX：信息状态码" class="headerlink" title="1XX：信息状态码"></a>1XX：信息状态码</h2><ul>
@@ -1337,121 +1447,6 @@
       </categories>
       <tags>
         <tag>正则表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面向对象之原型链</title>
-    <url>/2016/04/16/160416%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
-    <content><![CDATA[<h2 id="原型链的认识"><a href="#原型链的认识" class="headerlink" title="原型链的认识"></a>原型链的认识</h2><ul>
-<li>既然提到原型链，就需要和构造函数联系起来进行理解;</li>
-</ul>
-<h3 id="构造函数的认识"><a href="#构造函数的认识" class="headerlink" title="构造函数的认识"></a>构造函数的认识</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;其实构造函数时函数调用的一种模式，例如创建了一个函数，然后通过一个变量new了这个函数，那么这个函数就可以成为构造函数，可以从作用上来理解它为什么叫构造函数，直白点可以说是来构造一个对象出来的，实际上是实例化了一个对象出来，任何通过new来进行操作的函数都可以成为构造函数。<br>&nbsp;&nbsp;&nbsp;&nbsp;接下来那么这个被new出来的对象就会继承创建出来的那个函数的属性，前提是在构造函数内部通过<code>this.属性名</code>这样的属性new出来的实例对象才能拥有。</p>
-<h3 id="引出原型链的认识"><a href="#引出原型链的认识" class="headerlink" title="引出原型链的认识"></a>引出原型链的认识</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;当new出的这个实例对象需要访问某个属性时，首先它会在其本身查找，也可以理解为是先看其构造函数内部有没有通过<code>this.属性名</code>初始化这个属性，如果没有找到这个属性，也就是没有从本身找到这个属性，那么它就会往上查找，这个查找过程中查的那条链就叫做原型链，具体了解可以看引申出来属性搜索原则，下面有总结，其实这也和原型继承这个机制是联系在一起的，可以说设计这个原型链就是为原型继承服务的；<a id="more"></a></p>
-<h3 id="构造函数的整个过程："><a href="#构造函数的整个过程：" class="headerlink" title="构造函数的整个过程："></a>构造函数的整个过程：</h3><ul>
-<li>1、new申请内存，创建对象，（new运算符可以称作新建运算符）；</li>
-<li>2、调用构造函数，构造函数有一个隐式参数，即this；</li>
-<li>3、刚创建出来的对象的引用赋值给this，由函数处理；（其实主要就是利用new能够动态改变this的指向）</li>
-<li>4、在构造函数中利用this.成员 = 值来给对象添加成员</li>
-</ul>
-<h3 id="构造函数的优势："><a href="#构造函数的优势：" class="headerlink" title="构造函数的优势："></a>构造函数的优势：</h3><ul>
-<li>①、对象就有独立的原型对象；</li>
-<li>②、也具有类型名了</li>
-</ul>
-<h3 id="属性搜索原则"><a href="#属性搜索原则" class="headerlink" title="属性搜索原则"></a>属性搜索原则</h3><ul>
-<li>①、在当前对象中找；</li>
-<li>②、在构造函数定义规则中找；</li>
-<li>③、在其原型对象中找；</li>
-<li>④、在其原型对象的原型对象中找…….直到Object.prototype,这等于就是在其原型链上寻找</li>
-<li>⑤、如果没有则返回undefined;</li>
-</ul>
-<h2 id="稍微深入的理解下原型"><a href="#稍微深入的理解下原型" class="headerlink" title="稍微深入的理解下原型"></a>稍微深入的理解下原型</h2><p>其实对象中有一个属性 叫 <strong>proto</strong><br>通过调试可以发现 对象的 <strong>proto</strong> 与创建（实例化）它的构造函数的 prototype 是一个东西<br>看下面的代码测试：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function F() &#123; //声明一个构造函数</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var o = new F(); //通过这个构造函数实例化一个对象o</span><br><span class="line"></span><br><span class="line">console.log( o.__proto__ === F.prototype ); //true</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意一下 <strong>proto</strong> 是非标准属性，这里也只是辅助理解来运用下，实际工作中不要采用它来进行业务逻辑</p>
-</blockquote>
-<h3 id="原型对象与原型属性"><a href="#原型对象与原型属性" class="headerlink" title="原型对象与原型属性"></a>原型对象与原型属性</h3><p><code>F.prototype</code> 是构造函数 F 的原型属性<br><code>F.prototype</code> 是对象 o 的原型对象</p>
-<h3 id="proto-与prototype有什么区别"><a href="#proto-与prototype有什么区别" class="headerlink" title="_proto_与prototype有什么区别"></a>_proto_与prototype有什么区别</h3><p><code>_proto_</code>是站在对象的角度讨论其原型对象<br><code>prototype</code>是站在构造函数的角度讨论其原型属性，或构造函数创建的对象的原型对象<br>也可以理解成所站的位置不同，就会有不同的角色。</p>
-<blockquote>
-<p>上面的这些理论知识还是会有些抽象，抽时间我会把原型链画一下，那样理解起来就清晰了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国内解决npm被墙的三种方式</title>
-    <url>/2016/05/02/160502%E5%9B%BD%E5%86%85%E8%A7%A3%E5%86%B3npm%E8%A2%AB%E5%A2%99%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="第一种方式：通过指定镜像源地址来下载包"><a href="#第一种方式：通过指定镜像源地址来下载包" class="headerlink" title="第一种方式：通过指定镜像源地址来下载包"></a>第一种方式：通过指定镜像源地址来下载包</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这个使用的是淘宝的NPM镜像，这是一个完整 npmjs.org镜像，同步频率目前为 10分钟一次以保证尽量与官方服务同步，这里也不得不说淘宝的这个镜像真是对我们开发者的一个福音，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install 包名 --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具"><a href="#第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具" class="headerlink" title="第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具"></a>第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式的好处就是省去了后面的registry的一串长长的地址。</p>
-<ul>
-<li><p>安装全局命令行工具，</p>
-<blockquote>
-<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用cnpm</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用时直接按如下操作即可，但是这一点唯一不足的就是操作的时候需要用cnpm，而不是npm，对于处女座的人可以采用第三种方式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install 包名</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址"><a href="#第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址" class="headerlink" title="第三种方式：通过一个全局命令行工具 nrm 来管理我们的镜像源地址"></a>第三种方式：通过一个全局命令行工具 <code>nrm</code> 来管理我们的镜像源地址</h2><ul>
-<li><p>安装nrm</p>
-<blockquote>
-<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用nrm</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>基本使用</p>
-<ol>
-<li>首先可以先显示当前所有可用镜像源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm.png" alt="nrm"></p>
-<ol start="2">
-<li>显示当前正在使用的镜像源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm1.png" alt="nrm1"></p>
-<blockquote>
-<p>初始默认是官方npm</p>
-<ol start="3">
-<li>切换镜像源</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm use 镜像源名称</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm2.png" alt="nrm2"></p>
-<blockquote>
-<p>这时显示registry已经切换为taobao了，</p>
-<ol start="4">
-<li>接下来再确认一下当前正在使用的镜像源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm3.png" alt="nrm3"></p>
-<blockquote>
-<p>已经变为taobao了，以后再安装包的时候直接<code>npm install 包名</code>即可，再也不用担心被墙的苦恼了,大功告成！</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>NodeJS</category>
-      </categories>
-      <tags>
-        <tag>NodeJS</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,22 +1626,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JS实现数字自动转换人民币金额</title>
-    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
-    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>http-server介绍</title>
     <url>/2016/10/01/161001http-server/</url>
     <content><![CDATA[<p><img src="https://oi2h9y4dd.qnssl.com/public.jpg" alt></p>
@@ -1670,6 +1649,22 @@
       <tags>
         <tag>HTTP</tag>
         <tag>NodeJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现数字自动转换人民币金额</title>
+    <url>/2016/10/20/161020JS%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%97%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81%E9%87%91%E9%A2%9D/</url>
+    <content><![CDATA[<p>这个需求在实际项目中还是挺常用的，实现方法有很多种，下面简单总结了两种实现方式，供大家参考。<a id="more"></a></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function outputmoney(number) &#123;</span><br><span class="line">        number = number.replace(/\,/g, &quot;&quot;);</span><br><span class="line">        if (isNaN(number) || number == &quot;&quot;) return &quot;&quot;;</span><br><span class="line">        number = Math.round(number * 100) / 100;</span><br><span class="line">        if (number &lt; 0) &#123;</span><br><span class="line">            return &apos;-&apos; + outputdollars(Math.floor(Math.abs(number) - 0) + &apos;&apos;) + outputcents(Math.abs(number) - 0);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return outputdollars(Math.floor(number - 0) + &apos;&apos;) + outputcents(number - 0);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">function outputdollars(number) &#123;</span><br><span class="line">    if (number.length &lt;= 3) &#123;</span><br><span class="line">        return (number == &apos;&apos; ? &apos;0&apos; : number);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var mod = number.length % 3;</span><br><span class="line">        var output = (mod == 0 ? &apos;&apos; : (number.substring(0, mod)));</span><br><span class="line">        for (i = 0; i &lt; Math.floor(number.length / 3); i++) &#123;</span><br><span class="line">            if ((mod == 0) &amp;&amp; (i == 0)) &#123;</span><br><span class="line">                output += number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                output += &apos;,&apos; + number.substring(mod + 3 * i, mod + 3 * i + 3);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (output);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outputcents(amount) &#123;</span><br><span class="line">    amount = Math.round(((amount) - Math.floor(amount)) * 100);</span><br><span class="line">    return (amount &lt; 10 ? &apos;.0&apos; + amount : &apos;.&apos; + amount);</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = outputmoney(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function formatNum(str) &#123;</span><br><span class="line">    var newStr = &quot;&quot;;</span><br><span class="line">    var count = 0;</span><br><span class="line"></span><br><span class="line">    if (str.indexOf(&quot;.&quot;) == -1) &#123;</span><br><span class="line">        for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + &quot;.00&quot;; //自动补小数点后两位</span><br><span class="line">        console.log(str)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = str.indexOf(&quot;.&quot;) - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            if (count % 3 == 0 &amp;&amp; count != 0) &#123;</span><br><span class="line">                newStr = str.charAt(i) + &quot;,&quot; + newStr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                newStr = str.charAt(i) + newStr; //逐个字符相接起来</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        str = newStr + (str + &quot;00&quot;).substr((str + &quot;00&quot;).indexOf(&quot;.&quot;), 3);</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">var number = &apos;10038798.39&apos;; </span><br><span class="line">&gt; 如果是number类型，可通过+&apos;&apos;或者toString()来转换为string类型，因为要用到一些string的方法。</span><br><span class="line">number = formatNum(number);</span><br><span class="line">console.log(number);</span><br><span class="line">10,038,798.39</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1721,37 +1716,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis远程连接</title>
-    <url>/2016/11/28/161128Redis%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p>一般情况下，Redis默认只允许本机访问，有时候我们也许需要使Redi能被远程访问，我这次远程连接的目的主要是为了能够在本机通过Redis可视化工具连接上我的阿里云服务器上部署的Redis，这样能够更加直观的去观察一下存入的键值对，下面记录下步骤：</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改Redis配置文件/usr/local/src/redis-3.2.5/redis.conf，找到bind那行配置：</p>
-<blockquote>
-<p>对于<code>redis.conf</code>这个文件的位置，有的是在<code>/etc/redis/redis.conf</code>,我的是安装在了上面的位置上，具体看你的Redis安装目录</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bind 127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>将其改为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bind 0.0.0.0</span><br></pre></td></tr></table></figure>
-
-<h2 id="重启Redis服务"><a href="#重启Redis服务" class="headerlink" title="重启Redis服务"></a>重启Redis服务</h2><p>注意这时候需要<strong>指定配置文件</strong>然后重启Redis服务,也就是说启动redis-server的时候后面加上刚才修改的redis.conf。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ./src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><p>配置好Redis服务并重启服务后。就可以使用客户端远程连接Redis服务了。命令格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ redis-cli -h &#123;redis_host&#125; -p &#123;redis_port&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>{redis_host}</code>就是远程的Redis服务所在服务器地址，<code>{redis_port}</code>就是Redis服务端口（Redis默认端口是6379）。例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">G7_user@E540-PF03XZZF /C/Users/G7_user/Desktop</span><br><span class="line">$ redis-cli -h 你的IP地址 -p 6379</span><br><span class="line">你的IP地址:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
-
-<p>下面就是我用的Redis Desktop Manager,直接连接即可<br><img src="https://oi2h9y4dd.qnssl.com/image/Redis.png" alt></p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下安装和配置Redis</title>
     <url>/2016/11/21/161121Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AERedis/</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&nbsp;&nbsp;&nbsp;Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。<br>由于是存取运行在内存之中，所以速度极快。Redis 最高可以每秒执行 80000 以上数据操作，因此被广泛应用于需要快速存取数据的应用中，比如秒杀网站，投票网站等。<a id="more"></a><br>&nbsp;&nbsp;&nbsp;Redis 官方安装版本是 Linux 的，并没有 Windows 下的 Redis，好在 GitHub 中有人发布了 Windows 版本的 Reids ，可以直接安装使用。注意，仅支持 64 位系统，32位的没有测试，一般是不能运行的。<br>下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/releases</a><br><img src="https://oi2h9y4dd.qnssl.com/imageredis.png" alt><br>下载完成之后，直接解压到自己预先建好的目录下即可，例如我建到了<code>D:\Redis</code>下；</p>
@@ -1774,6 +1738,37 @@
 <h2 id="几个学习的网站"><a href="#几个学习的网站" class="headerlink" title="几个学习的网站"></a>几个学习的网站</h2><blockquote>
 <p><a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a>   Redis中文官网<br><a href="http://www.redis.net.cn/" target="_blank" rel="noopener">http://www.redis.net.cn/</a> Redis中文网<br><a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a>  Redis命令参考<br><a href="https://www.npmjs.com/package/redis" target="_blank" rel="noopener">https://www.npmjs.com/package/redis</a> Redis npm包地址</p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis远程连接</title>
+    <url>/2016/11/28/161128Redis%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p>一般情况下，Redis默认只允许本机访问，有时候我们也许需要使Redi能被远程访问，我这次远程连接的目的主要是为了能够在本机通过Redis可视化工具连接上我的阿里云服务器上部署的Redis，这样能够更加直观的去观察一下存入的键值对，下面记录下步骤：</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改Redis配置文件/usr/local/src/redis-3.2.5/redis.conf，找到bind那行配置：</p>
+<blockquote>
+<p>对于<code>redis.conf</code>这个文件的位置，有的是在<code>/etc/redis/redis.conf</code>,我的是安装在了上面的位置上，具体看你的Redis安装目录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>将其改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bind 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启Redis服务"><a href="#重启Redis服务" class="headerlink" title="重启Redis服务"></a>重启Redis服务</h2><p>注意这时候需要<strong>指定配置文件</strong>然后重启Redis服务,也就是说启动redis-server的时候后面加上刚才修改的redis.conf。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ./src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><p>配置好Redis服务并重启服务后。就可以使用客户端远程连接Redis服务了。命令格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ redis-cli -h &#123;redis_host&#125; -p &#123;redis_port&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>{redis_host}</code>就是远程的Redis服务所在服务器地址，<code>{redis_port}</code>就是Redis服务端口（Redis默认端口是6379）。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">G7_user@E540-PF03XZZF /C/Users/G7_user/Desktop</span><br><span class="line">$ redis-cli -h 你的IP地址 -p 6379</span><br><span class="line">你的IP地址:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+<p>下面就是我用的Redis Desktop Manager,直接连接即可<br><img src="https://oi2h9y4dd.qnssl.com/image/Redis.png" alt></p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -1810,25 +1805,6 @@
 <li>基于网易云实现的音乐搜索网<br><a href="https://music.daoapp.io/" target="_blank" rel="noopener">https://music.daoapp.io/</a></li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>优秀项目收集-页面自动加载条pace.js</title>
-    <url>/2016/12/18/161218%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86-%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9D%A1pace-js/</url>
-    <content><![CDATA[<p><img src="/2016/12/18/161218优秀项目收集-页面自动加载条pace-js/pace.png" alt></p>
-<h2 id="pace简介"><a href="#pace简介" class="headerlink" title="pace简介"></a>pace简介</h2><blockquote>
-<p>github地址 <a href="https://github.com/HubSpot/pace" target="_blank" rel="noopener">https://github.com/HubSpot/pace</a></p>
-</blockquote>
-<p>&nbsp;&nbsp;只需要将page.js和你选择的CSS主题引入，你就会得到一个非常漂亮的的页面加载条。<br>它的强大之处在于它不需要跟你的代码有任何联系，加载进度它会自动检测。</p>
-<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script src=&quot;/pace/pace.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;link href=&quot;/pace/themes/pace-theme-barber-shop.css&quot; rel=&quot;stylesheet&quot; /&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="详细的文档"><a href="#详细的文档" class="headerlink" title="详细的文档"></a>详细的文档</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://github.hubspot.com/pace/</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>优秀项目收集</category>
-      </categories>
-      <tags>
-        <tag>页面自动加载条</tag>
-        <tag>pace.js</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用monaca快速开发HybridApp</title>
@@ -1870,6 +1846,25 @@
       <tags>
         <tag>HybridApp</tag>
         <tag>monaca</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优秀项目收集-页面自动加载条pace.js</title>
+    <url>/2016/12/18/161218%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86-%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9D%A1pace-js/</url>
+    <content><![CDATA[<p><img src="/2016/12/18/161218优秀项目收集-页面自动加载条pace-js/pace.png" alt></p>
+<h2 id="pace简介"><a href="#pace简介" class="headerlink" title="pace简介"></a>pace简介</h2><blockquote>
+<p>github地址 <a href="https://github.com/HubSpot/pace" target="_blank" rel="noopener">https://github.com/HubSpot/pace</a></p>
+</blockquote>
+<p>&nbsp;&nbsp;只需要将page.js和你选择的CSS主题引入，你就会得到一个非常漂亮的的页面加载条。<br>它的强大之处在于它不需要跟你的代码有任何联系，加载进度它会自动检测。</p>
+<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script src=&quot;/pace/pace.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;link href=&quot;/pace/themes/pace-theme-barber-shop.css&quot; rel=&quot;stylesheet&quot; /&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="详细的文档"><a href="#详细的文档" class="headerlink" title="详细的文档"></a>详细的文档</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://github.hubspot.com/pace/</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>优秀项目收集</category>
+      </categories>
+      <tags>
+        <tag>页面自动加载条</tag>
+        <tag>pace.js</tag>
       </tags>
   </entry>
   <entry>
@@ -1967,43 +1962,6 @@
       </tags>
   </entry>
   <entry>
-    <title>archLinux安装VSCode</title>
-    <url>/2017/06/26/170626archLinux%E5%AE%89%E8%A3%85VSCode/</url>
-    <content><![CDATA[<p>记录一下在archLinux安装VSCode，我是用的manjaro这款linux发行版，个人觉得这款linux发行版还是非常不错的，有兴趣的也可以安装一下，下面来列一下安装VSCode的几个步骤<a id="more"></a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;Visual Studio Code（以下简称vscode）是一个轻量且强大的代码编辑器，支持Windows，OS X和Linux。内置JavaScript、TypeScript和Node.js支持，而且拥有丰富的插件生态系统，可通过安装插件来支持C++、C#、Python、PHP等其他语言。主要这是微软第一款官方支持Linux的产品，真是大赞微软！</p>
-<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="1、下载安装包"><a href="#1、下载安装包" class="headerlink" title="1、下载安装包"></a>1、下载安装包</h3><p>从官网下载压缩包，直接访问Visual Studio Code官网下载就可以，我的电脑是64位的，所以下载64位的就可以了,注意要下载结尾为<code>.tar.gz</code>格式的压缩包<a href="https://code.visualstudio.com/docs?dv=linux64" target="_blank" rel="noopener">https://code.visualstudio.com/docs?dv=linux64</a></p>
-<h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><p><code>cd</code> 到你下载这个文件的目录，进行解压缩</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[lsqy@lsqy-pc ~]$ cd ~/workspace/soft/</span><br><span class="line">[lsqy@lsqy-pc soft]$ ll</span><br><span class="line">总用量 510M</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy  65M 6月  26 11:03 code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">drwxr-xr-x 2 lsqy lsqy 4.0K 5月  10 17:26 git_for_win_32</span><br><span class="line">drwxr-xr-x 4 lsqy lsqy 4.0K 4月  24 18:06 navicatess112_premium_cs_x64</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 246M 4月  11 17:11 navicatess112_premium_cs_x64.tar</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 1.4M 5月  27 10:09 nginx-1.13.0.zip</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 198M 6月  26 13:06 tm2013.tar.gz</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 6.7K 5月  10 18:18 vbox-install.log.gz</span><br><span class="line">[lsqy@lsqy-pc soft]$ tar -zxvf code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">[lsqy@lsqy-pc soft]$ ll</span><br><span class="line">总用量 510M</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy  65M 6月  26 11:03 code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">drwxr-xr-x 2 lsqy lsqy 4.0K 5月  10 17:26 git_for_win_32</span><br><span class="line">drwxr-xr-x 4 lsqy lsqy 4.0K 4月  24 18:06 navicatess112_premium_cs_x64</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 246M 4月  11 17:11 navicatess112_premium_cs_x64.tar</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 1.4M 5月  27 10:09 nginx-1.13.0.zip</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 198M 6月  26 13:06 tm2013.tar.gz</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 6.7K 5月  10 18:18 vbox-install.log.gz</span><br><span class="line">drwxr-xr-x 5 lsqy lsqy 4.0K 6月  15 02:18 VSCode-linux-x64</span><br></pre></td></tr></table></figure>
-
-<p>从上面可以看到解压出了<code>VSCode-linux-x64</code>目录</p>
-<h3 id="3、移动到-usr-local-目录"><a href="#3、移动到-usr-local-目录" class="headerlink" title="3、移动到/usr/local/目录"></a>3、移动到<code>/usr/local/</code>目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv VSCode-linux-x64 /usr/local/</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、添加可执行权限"><a href="#4、添加可执行权限" class="headerlink" title="4、添加可执行权限"></a>4、添加可执行权限</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/local/VSCode-linux-x64/code</span><br></pre></td></tr></table></figure>
-
-<h3 id="5、复制一下VScode图标文件到-usr-share-icons-目录"><a href="#5、复制一下VScode图标文件到-usr-share-icons-目录" class="headerlink" title="5、复制一下VScode图标文件到 /usr/share/icons/ 目录"></a>5、复制一下VScode图标文件到 /usr/share/icons/ 目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /usr/local/VSCode-linux-x64/resources/app/resources/linux/code.png /usr/share/icons/</span><br></pre></td></tr></table></figure>
-
-<h3 id="6、创建启动链接，在-usr-share-applications-目录"><a href="#6、创建启动链接，在-usr-share-applications-目录" class="headerlink" title="6、创建启动链接，在/usr/share/applications/目录"></a>6、创建启动链接，在<code>/usr/share/applications/</code>目录</h3><p>在终端使用命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /usr/share/applications/VSCode.desktop</span><br></pre></td></tr></table></figure>
-
-<p>然后输入以下内容:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Visual Studio Code</span><br><span class="line">Comment=Multi-platform code editor for Linux</span><br><span class="line">Exec=/usr/local/VSCode-linux-x64/code</span><br><span class="line">Icon=/usr/share/icons/code.png</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=true</span><br><span class="line">Categories=TextEditor;Development;Utility;</span><br><span class="line">MimeType=text/plain;`</span><br></pre></td></tr></table></figure>
-
-<p>保存后退出, 然后复制到桌面:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /usr/share/applications/VSCode.desktop ~/Desktop/</span><br></pre></td></tr></table></figure>
-
-<p>这样就会发现 桌面和 应用程序菜单都有了 VSCode的快捷方式了，也算是大功告成了。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>VSCode的插件系统也是很丰富的，大家可以去发掘自己需要的.</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>archLinux</tag>
-        <tag>VSCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>浅谈XSS漏洞攻击与防御</title>
     <url>/2017/08/25/170825%E6%B5%85%E8%B0%88XSS%E6%BC%8F%E6%B4%9E%E6%94%BB%E5%87%BB%E4%B8%8E%E9%98%B2%E5%BE%A1/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;跨站脚本简称xss（cross-site scripting），利用方式主要是借助网站本身设计不严谨，导致执行用户提交的恶意js脚本，对网站自身造成危害。xss漏洞是web渗透测试中最常见而又使用最灵活的一个漏洞。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。 <a id="more"></a></p>
@@ -2050,6 +2008,58 @@
       <tags>
         <tag>web安全</tag>
         <tag>XSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>archLinux安装VSCode</title>
+    <url>/2017/06/26/170626archLinux%E5%AE%89%E8%A3%85VSCode/</url>
+    <content><![CDATA[<p>记录一下在archLinux安装VSCode，我是用的manjaro这款linux发行版，个人觉得这款linux发行版还是非常不错的，有兴趣的也可以安装一下，下面来列一下安装VSCode的几个步骤<a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;Visual Studio Code（以下简称vscode）是一个轻量且强大的代码编辑器，支持Windows，OS X和Linux。内置JavaScript、TypeScript和Node.js支持，而且拥有丰富的插件生态系统，可通过安装插件来支持C++、C#、Python、PHP等其他语言。主要这是微软第一款官方支持Linux的产品，真是大赞微软！</p>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="1、下载安装包"><a href="#1、下载安装包" class="headerlink" title="1、下载安装包"></a>1、下载安装包</h3><p>从官网下载压缩包，直接访问Visual Studio Code官网下载就可以，我的电脑是64位的，所以下载64位的就可以了,注意要下载结尾为<code>.tar.gz</code>格式的压缩包<a href="https://code.visualstudio.com/docs?dv=linux64" target="_blank" rel="noopener">https://code.visualstudio.com/docs?dv=linux64</a></p>
+<h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><p><code>cd</code> 到你下载这个文件的目录，进行解压缩</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[lsqy@lsqy-pc ~]$ cd ~/workspace/soft/</span><br><span class="line">[lsqy@lsqy-pc soft]$ ll</span><br><span class="line">总用量 510M</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy  65M 6月  26 11:03 code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">drwxr-xr-x 2 lsqy lsqy 4.0K 5月  10 17:26 git_for_win_32</span><br><span class="line">drwxr-xr-x 4 lsqy lsqy 4.0K 4月  24 18:06 navicatess112_premium_cs_x64</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 246M 4月  11 17:11 navicatess112_premium_cs_x64.tar</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 1.4M 5月  27 10:09 nginx-1.13.0.zip</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 198M 6月  26 13:06 tm2013.tar.gz</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 6.7K 5月  10 18:18 vbox-install.log.gz</span><br><span class="line">[lsqy@lsqy-pc soft]$ tar -zxvf code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">[lsqy@lsqy-pc soft]$ ll</span><br><span class="line">总用量 510M</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy  65M 6月  26 11:03 code-stable-code_1.13.1-1497464373_amd64.tar.gz</span><br><span class="line">drwxr-xr-x 2 lsqy lsqy 4.0K 5月  10 17:26 git_for_win_32</span><br><span class="line">drwxr-xr-x 4 lsqy lsqy 4.0K 4月  24 18:06 navicatess112_premium_cs_x64</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 246M 4月  11 17:11 navicatess112_premium_cs_x64.tar</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 1.4M 5月  27 10:09 nginx-1.13.0.zip</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 198M 6月  26 13:06 tm2013.tar.gz</span><br><span class="line">-rw-r--r-- 1 lsqy lsqy 6.7K 5月  10 18:18 vbox-install.log.gz</span><br><span class="line">drwxr-xr-x 5 lsqy lsqy 4.0K 6月  15 02:18 VSCode-linux-x64</span><br></pre></td></tr></table></figure>
+
+<p>从上面可以看到解压出了<code>VSCode-linux-x64</code>目录</p>
+<h3 id="3、移动到-usr-local-目录"><a href="#3、移动到-usr-local-目录" class="headerlink" title="3、移动到/usr/local/目录"></a>3、移动到<code>/usr/local/</code>目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv VSCode-linux-x64 /usr/local/</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、添加可执行权限"><a href="#4、添加可执行权限" class="headerlink" title="4、添加可执行权限"></a>4、添加可执行权限</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/local/VSCode-linux-x64/code</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、复制一下VScode图标文件到-usr-share-icons-目录"><a href="#5、复制一下VScode图标文件到-usr-share-icons-目录" class="headerlink" title="5、复制一下VScode图标文件到 /usr/share/icons/ 目录"></a>5、复制一下VScode图标文件到 /usr/share/icons/ 目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /usr/local/VSCode-linux-x64/resources/app/resources/linux/code.png /usr/share/icons/</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、创建启动链接，在-usr-share-applications-目录"><a href="#6、创建启动链接，在-usr-share-applications-目录" class="headerlink" title="6、创建启动链接，在/usr/share/applications/目录"></a>6、创建启动链接，在<code>/usr/share/applications/</code>目录</h3><p>在终端使用命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /usr/share/applications/VSCode.desktop</span><br></pre></td></tr></table></figure>
+
+<p>然后输入以下内容:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Visual Studio Code</span><br><span class="line">Comment=Multi-platform code editor for Linux</span><br><span class="line">Exec=/usr/local/VSCode-linux-x64/code</span><br><span class="line">Icon=/usr/share/icons/code.png</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=true</span><br><span class="line">Categories=TextEditor;Development;Utility;</span><br><span class="line">MimeType=text/plain;`</span><br></pre></td></tr></table></figure>
+
+<p>保存后退出, 然后复制到桌面:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /usr/share/applications/VSCode.desktop ~/Desktop/</span><br></pre></td></tr></table></figure>
+
+<p>这样就会发现 桌面和 应用程序菜单都有了 VSCode的快捷方式了，也算是大功告成了。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>VSCode的插件系统也是很丰富的，大家可以去发掘自己需要的.</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>archLinux</tag>
+        <tag>VSCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决微信jssdk在部分安卓和ios设备中签名失败的问题</title>
+    <url>/2018/04/29/180429%E8%A7%A3%E5%86%B3%E5%BE%AE%E4%BF%A1jssdk%E5%9C%A8%E9%83%A8%E5%88%86%E5%AE%89%E5%8D%93%E5%92%8Cios%E8%AE%BE%E5%A4%87%E4%B8%AD%E7%AD%BE%E5%90%8D%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>最近在微信上用history模式开发单页应用时，使用的是react+react-router,遇到了一个比较闹心的问题，就是在有的安卓和ios设备上会出现无法调用微信js-sdk的问题，而我这边有一个需求是需要继续微信的拍照上传等能力的，经过各种尝试，总算目前似乎算找到了一种解决的办法，下面记录一下.<a id="more"></a></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="调取选择图片或者拍照在部分ios上可以，大多数安卓不可以"><a href="#调取选择图片或者拍照在部分ios上可以，大多数安卓不可以" class="headerlink" title="调取选择图片或者拍照在部分ios上可以，大多数安卓不可以"></a>调取选择图片或者拍照在部分ios上可以，大多数安卓不可以</h3><p>这个试错的过程中真是怀疑了很多可能，就不一一列出了，总之以后多加注意了。</p>
+<h2 id="正确配置"><a href="#正确配置" class="headerlink" title="正确配置"></a>正确配置</h2><p>因为history模式每次切换path会发生变化，所以如果在变化之后的页面需要调用sdk，那么就需要重新进行下微信的config，所以我在项目的utils下封装了一个重新进行微信config的方法，下面这个是最终得出的一个正确的配置，过程中真的是很不顺利，最终竟然是在config前加了一个setTimeout解决了这个奇怪的问题，还有一点要注意的就是这个方法要在componentDidMount里面调用这个setWxConfig方法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const setWxConfig = () =&gt; &#123;</span><br><span class="line">    // JSSDK配置</span><br><span class="line">    let WXCONFIG = window.config || &#123;&#125;;</span><br><span class="line">    let url = window.location.href.split(&apos;#&apos;)[0];</span><br><span class="line">    url = encodeURIComponent(url);</span><br><span class="line">    // getWxConfig是封装的换取服务端签名的接口</span><br><span class="line">    getWxConfig(&apos;?url=&apos; + url).then((data) =&gt; &#123;</span><br><span class="line">        if(data) &#123;</span><br><span class="line">            WXCONFIG = data;</span><br><span class="line">            WXCONFIG.jsApiList = [&apos;scanQRCode&apos;, &apos;closeWindow&apos;, &apos;chooseImage&apos;, &apos;uploadImage&apos;, &apos;previewImage&apos;];</span><br><span class="line">            // WXCONFIG.debug = true;</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                wx.config(WXCONFIG);</span><br><span class="line">            &#125;, 500);	</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        throw err;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>微信开发</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>微信开发</tag>
       </tags>
   </entry>
   <entry>
@@ -2127,39 +2137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决微信jssdk在部分安卓和ios设备中签名失败的问题</title>
-    <url>/2018/04/29/180429%E8%A7%A3%E5%86%B3%E5%BE%AE%E4%BF%A1jssdk%E5%9C%A8%E9%83%A8%E5%88%86%E5%AE%89%E5%8D%93%E5%92%8Cios%E8%AE%BE%E5%A4%87%E4%B8%AD%E7%AD%BE%E5%90%8D%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>最近在微信上用history模式开发单页应用时，使用的是react+react-router,遇到了一个比较闹心的问题，就是在有的安卓和ios设备上会出现无法调用微信js-sdk的问题，而我这边有一个需求是需要继续微信的拍照上传等能力的，经过各种尝试，总算目前似乎算找到了一种解决的办法，下面记录一下.<a id="more"></a></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="调取选择图片或者拍照在部分ios上可以，大多数安卓不可以"><a href="#调取选择图片或者拍照在部分ios上可以，大多数安卓不可以" class="headerlink" title="调取选择图片或者拍照在部分ios上可以，大多数安卓不可以"></a>调取选择图片或者拍照在部分ios上可以，大多数安卓不可以</h3><p>这个试错的过程中真是怀疑了很多可能，就不一一列出了，总之以后多加注意了。</p>
-<h2 id="正确配置"><a href="#正确配置" class="headerlink" title="正确配置"></a>正确配置</h2><p>因为history模式每次切换path会发生变化，所以如果在变化之后的页面需要调用sdk，那么就需要重新进行下微信的config，所以我在项目的utils下封装了一个重新进行微信config的方法，下面这个是最终得出的一个正确的配置，过程中真的是很不顺利，最终竟然是在config前加了一个setTimeout解决了这个奇怪的问题，还有一点要注意的就是这个方法要在componentDidMount里面调用这个setWxConfig方法。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const setWxConfig = () =&gt; &#123;</span><br><span class="line">    // JSSDK配置</span><br><span class="line">    let WXCONFIG = window.config || &#123;&#125;;</span><br><span class="line">    let url = window.location.href.split(&apos;#&apos;)[0];</span><br><span class="line">    url = encodeURIComponent(url);</span><br><span class="line">    // getWxConfig是封装的换取服务端签名的接口</span><br><span class="line">    getWxConfig(&apos;?url=&apos; + url).then((data) =&gt; &#123;</span><br><span class="line">        if(data) &#123;</span><br><span class="line">            WXCONFIG = data;</span><br><span class="line">            WXCONFIG.jsApiList = [&apos;scanQRCode&apos;, &apos;closeWindow&apos;, &apos;chooseImage&apos;, &apos;uploadImage&apos;, &apos;previewImage&apos;];</span><br><span class="line">            // WXCONFIG.debug = true;</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                wx.config(WXCONFIG);</span><br><span class="line">            &#125;, 500);	</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        throw err;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>微信开发</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-        <tag>微信开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nodejs sleep with async/await</title>
-    <url>/2018/11/22/181122Nodejs-sleep-with-async-await/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;在日常开发过程当中，难免有时候需要自己通过<code>Nodejs mock</code>一些数据，如果直接返回的话，在前端展示层面看起来不太真实，所以需要在Nodejs这一层进行下<code>sleep</code>处理，下面简单记录下使用<code>async/await</code>实现的方法,当然还有一些其他的实现方法，比如<code>generator</code>的实现，原理跟这个差不多，就不赘述了。<a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ms是需要sleep的毫秒数</span><br><span class="line">const sleep = ms =&gt; &#123;</span><br><span class="line">    return new Promise(resolve =&gt; setTimeout(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 伪代码如下</span><br><span class="line">async function testSleep() &#123;</span><br><span class="line">    console.log(&apos;start&apos;);</span><br><span class="line">    await sleep(3000);</span><br><span class="line">    console.log(&apos;end&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testSleep()</span><br></pre></td></tr></table></figure>
-
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>缺陷是程序需要在<code>async</code>域里执行。<br>优点是这种方式实际上是用了setTimeout，没有形成进程阻塞，不会造成性能和负载问题。</p>
-]]></content>
-      <categories>
-        <category>NodeJS</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-        <tag>NodeJS</tag>
-        <tag>工具方法</tag>
-        <tag>async/await</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>配置create-react-app支持less</title>
     <url>/2019/01/22/190122%E9%85%8D%E7%BD%AEcreate-react-app%E6%94%AF%E6%8C%81less/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;使用create-react-app初始化出来的项目默认是不支持less的，对于一些习惯于用less的人来说就不太方便了，现在记录下来改造的方法，使其可以支持less。<a id="more"></a></p>
@@ -2179,29 +2156,6 @@
         <tag>React</tag>
         <tag>create-react-app</tag>
         <tag>less</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac中ios模拟器的常用操作</title>
-    <url>/2019/05/26/190526mac%E4%B8%ADios%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<blockquote>
-<p>下面主要列出了以下几个常用的命令，包括：查找ios模拟器中包含哪些机型、启动ios模拟器中的指定机型。<a id="more"></a></p>
-</blockquote>
-<h3 id="1、查找ios模拟器中包含哪些机型"><a href="#1、查找ios模拟器中包含哪些机型" class="headerlink" title="1、查找ios模拟器中包含哪些机型"></a>1、查找ios模拟器中包含哪些机型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">instruments -s</span><br></pre></td></tr></table></figure>
-
-<p>会输出以下模拟机型，也就是说可以启动以下这些机型进行模拟</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Known Devices:</span><br><span class="line">lsqy的MacBook Pro </span><br><span class="line">Apple TV (12.2) [CD901014-4F0C-46C3-AE9A-A22AC37493FB] (Simulator)</span><br><span class="line">Apple TV 4K (12.2) [31425E49-958D-40E3-8393-93EA246943F0] (Simulator)</span><br><span class="line">Apple TV 4K (at 1080p) (12.2) [6E1C2AFC-32DD-4CC5-A280-8049BD3B8A1A] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 38mm (5.2) [26759A5E-00B9-4BD4-A5D2-5AE544DA841B] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 42mm (5.2) [33BA7025-31F7-42A7-817B-A4A70CFC60A8] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 38mm (5.2) [03739305-4300-452F-BB8B-8671854BD210] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 42mm (5.2) [CE4486B9-E587-4AC8-9821-9E50D7FF8BFB] (Simulator)</span><br><span class="line">iPad (5th generation) (12.2) [D46751EA-EDD9-4C92-8652-14F339A8372C] (Simulator)</span><br><span class="line">iPad (6th generation) (12.2) [20A0FEF8-C34F-4960-B7DF-AA2A7A9EEEF6] (Simulator)</span><br><span class="line">iPad Air (12.2) [ED0958FA-0C6B-4E2E-B87D-9B272F49C9AD] (Simulator)</span><br><span class="line">iPad Air (3rd generation) (12.2) [E981EDDA-587C-4194-84A8-B018E909046B] (Simulator)</span><br><span class="line">iPad Air 2 (12.2) [F1000542-2E19-415D-A6A6-C791D07BC504] (Simulator)</span><br><span class="line">iPad Pro (10.5-inch) (12.2) [F950D852-A65E-4797-9B23-53C0A2510815] (Simulator)</span><br><span class="line">iPad Pro (11-inch) (12.2) [B34F8807-15F1-45F2-966D-65BBB45A2FEB] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (12.2) [5BFA185B-E0FB-43ED-8991-B79982ECE0F8] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (2nd generation) (12.2) [DCE2842B-AF9A-40CC-AAC6-D6F12828C937] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (3rd generation) (12.2) [8EBD2F29-9C1E-42C6-B95D-2F3273CEB56E] (Simulator)</span><br><span class="line">iPad Pro (9.7-inch) (12.2) [79CEBBA2-5665-44D2-BC2D-EF01E971672B] (Simulator)</span><br><span class="line">iPhone 5s (12.2) [0A515BFC-2C47-4093-B80E-85BE96712436] (Simulator)</span><br><span class="line">iPhone 6 (12.2) [5D695AAE-8D35-4F30-8885-740A85F22AB6] (Simulator)</span><br><span class="line">iPhone 6 Plus (12.2) [8A39537F-0EED-4244-A114-223AF0126B0C] (Simulator)</span><br><span class="line">iPhone 6s (12.2) [1913C53F-394E-446E-A3A7-4DAA87F9D578] (Simulator)</span><br><span class="line">iPhone 6s Plus (12.2) [B2937386-20A9-4ACC-A63E-982BC10F661C] (Simulator)</span><br><span class="line">iPhone 7 (12.2) [A3D3511E-AB79-4849-B104-3D9803198203] (Simulator)</span><br><span class="line">iPhone 7 Plus (12.2) [7A47C656-0C7A-4002-98D0-CB0F6167C138] (Simulator)</span><br><span class="line">iPhone 8 (12.2) [D6083F0A-967F-40D8-88C2-684BDB927B99] (Simulator)</span><br><span class="line">iPhone 8 Plus (12.2) [980B8AED-7F44-4D95-A6F7-AAF561F88883] (Simulator)</span><br><span class="line">iPhone SE (12.2) [09A3F89A-4BFE-4B4D-8793-8D5C1B4B1E36] (Simulator)</span><br><span class="line">iPhone X (12.2) [E374247E-832D-4B61-804D-1C085CA897BD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) [DDDF0B87-7295-417B-9A85-27441B4282AD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) + Apple Watch Series 4 - 40mm (5.2) [6E29B703-74F6-40C7-99A8-0D9CEB5A9777] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) [F74F45D2-29EA-4490-8490-933FC4084BEA] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) + Apple Watch Series 4 - 44mm (5.2) [B710C546-C80C-400C-829B-8487D411BF6E] (Simulator)</span><br><span class="line">iPhone Xʀ (12.2) [7E8332CC-2279-40CE-B86B-AD7D21227D0A] (Simulator)</span><br><span class="line">Known Templates:</span><br><span class="line">&quot;Activity Monitor&quot;</span><br><span class="line">&quot;Allocations&quot;</span><br><span class="line">&quot;Blank&quot;</span><br><span class="line">&quot;Core Animation&quot;</span><br><span class="line">&quot;Core Data&quot;</span><br><span class="line">&quot;Counters&quot;</span><br><span class="line">&quot;Energy Log&quot;</span><br><span class="line">&quot;File Activity&quot;</span><br><span class="line">&quot;Game Performance&quot;</span><br><span class="line">&quot;Leaks&quot;</span><br><span class="line">&quot;Metal System Trace&quot;</span><br><span class="line">&quot;Network&quot;</span><br><span class="line">&quot;SceneKit&quot;</span><br><span class="line">&quot;System Trace&quot;</span><br><span class="line">&quot;System Usage&quot;</span><br><span class="line">&quot;Time Profiler&quot;</span><br><span class="line">&quot;Zombies&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、启动ios模拟器中的指定机型"><a href="#2、启动ios模拟器中的指定机型" class="headerlink" title="2、启动ios模拟器中的指定机型"></a>2、启动ios模拟器中的指定机型</h3><blockquote>
-<p>注意启动的时候要将名称输入完全，比如如果要启动<code>iPhone X</code>，则需要将后面括号里的内容也带上<code>iPhone X (12.2)</code>，要不然模拟器会不知道要具体启动哪个机型</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcrun instruments -w &apos;iPhone X (12.2)&apos;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-        <tag>ios模拟器</tag>
       </tags>
   </entry>
   <entry>
@@ -2236,6 +2190,24 @@
       </categories>
       <tags>
         <tag>pm2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nodejs sleep with async/await</title>
+    <url>/2018/11/22/181122Nodejs-sleep-with-async-await/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;在日常开发过程当中，难免有时候需要自己通过<code>Nodejs mock</code>一些数据，如果直接返回的话，在前端展示层面看起来不太真实，所以需要在Nodejs这一层进行下<code>sleep</code>处理，下面简单记录下使用<code>async/await</code>实现的方法,当然还有一些其他的实现方法，比如<code>generator</code>的实现，原理跟这个差不多，就不赘述了。<a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ms是需要sleep的毫秒数</span><br><span class="line">const sleep = ms =&gt; &#123;</span><br><span class="line">    return new Promise(resolve =&gt; setTimeout(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 伪代码如下</span><br><span class="line">async function testSleep() &#123;</span><br><span class="line">    console.log(&apos;start&apos;);</span><br><span class="line">    await sleep(3000);</span><br><span class="line">    console.log(&apos;end&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testSleep()</span><br></pre></td></tr></table></figure>
+
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>缺陷是程序需要在<code>async</code>域里执行。<br>优点是这种方式实际上是用了setTimeout，没有形成进程阻塞，不会造成性能和负载问题。</p>
+]]></content>
+      <categories>
+        <category>NodeJS</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>NodeJS</tag>
+        <tag>工具方法</tag>
+        <tag>async/await</tag>
       </tags>
   </entry>
   <entry>
@@ -2304,6 +2276,97 @@
         <tag>GMTC</tag>
         <tag>职业生涯</tag>
         <tag>个人成长</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac中ios模拟器的常用操作</title>
+    <url>/2019/05/26/190526mac%E4%B8%ADios%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>下面主要列出了以下几个常用的命令，包括：查找ios模拟器中包含哪些机型、启动ios模拟器中的指定机型。<a id="more"></a></p>
+</blockquote>
+<h3 id="1、查找ios模拟器中包含哪些机型"><a href="#1、查找ios模拟器中包含哪些机型" class="headerlink" title="1、查找ios模拟器中包含哪些机型"></a>1、查找ios模拟器中包含哪些机型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">instruments -s</span><br></pre></td></tr></table></figure>
+
+<p>会输出以下模拟机型，也就是说可以启动以下这些机型进行模拟</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Known Devices:</span><br><span class="line">lsqy的MacBook Pro </span><br><span class="line">Apple TV (12.2) [CD901014-4F0C-46C3-AE9A-A22AC37493FB] (Simulator)</span><br><span class="line">Apple TV 4K (12.2) [31425E49-958D-40E3-8393-93EA246943F0] (Simulator)</span><br><span class="line">Apple TV 4K (at 1080p) (12.2) [6E1C2AFC-32DD-4CC5-A280-8049BD3B8A1A] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 38mm (5.2) [26759A5E-00B9-4BD4-A5D2-5AE544DA841B] (Simulator)</span><br><span class="line">Apple Watch Series 2 - 42mm (5.2) [33BA7025-31F7-42A7-817B-A4A70CFC60A8] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 38mm (5.2) [03739305-4300-452F-BB8B-8671854BD210] (Simulator)</span><br><span class="line">Apple Watch Series 3 - 42mm (5.2) [CE4486B9-E587-4AC8-9821-9E50D7FF8BFB] (Simulator)</span><br><span class="line">iPad (5th generation) (12.2) [D46751EA-EDD9-4C92-8652-14F339A8372C] (Simulator)</span><br><span class="line">iPad (6th generation) (12.2) [20A0FEF8-C34F-4960-B7DF-AA2A7A9EEEF6] (Simulator)</span><br><span class="line">iPad Air (12.2) [ED0958FA-0C6B-4E2E-B87D-9B272F49C9AD] (Simulator)</span><br><span class="line">iPad Air (3rd generation) (12.2) [E981EDDA-587C-4194-84A8-B018E909046B] (Simulator)</span><br><span class="line">iPad Air 2 (12.2) [F1000542-2E19-415D-A6A6-C791D07BC504] (Simulator)</span><br><span class="line">iPad Pro (10.5-inch) (12.2) [F950D852-A65E-4797-9B23-53C0A2510815] (Simulator)</span><br><span class="line">iPad Pro (11-inch) (12.2) [B34F8807-15F1-45F2-966D-65BBB45A2FEB] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (12.2) [5BFA185B-E0FB-43ED-8991-B79982ECE0F8] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (2nd generation) (12.2) [DCE2842B-AF9A-40CC-AAC6-D6F12828C937] (Simulator)</span><br><span class="line">iPad Pro (12.9-inch) (3rd generation) (12.2) [8EBD2F29-9C1E-42C6-B95D-2F3273CEB56E] (Simulator)</span><br><span class="line">iPad Pro (9.7-inch) (12.2) [79CEBBA2-5665-44D2-BC2D-EF01E971672B] (Simulator)</span><br><span class="line">iPhone 5s (12.2) [0A515BFC-2C47-4093-B80E-85BE96712436] (Simulator)</span><br><span class="line">iPhone 6 (12.2) [5D695AAE-8D35-4F30-8885-740A85F22AB6] (Simulator)</span><br><span class="line">iPhone 6 Plus (12.2) [8A39537F-0EED-4244-A114-223AF0126B0C] (Simulator)</span><br><span class="line">iPhone 6s (12.2) [1913C53F-394E-446E-A3A7-4DAA87F9D578] (Simulator)</span><br><span class="line">iPhone 6s Plus (12.2) [B2937386-20A9-4ACC-A63E-982BC10F661C] (Simulator)</span><br><span class="line">iPhone 7 (12.2) [A3D3511E-AB79-4849-B104-3D9803198203] (Simulator)</span><br><span class="line">iPhone 7 Plus (12.2) [7A47C656-0C7A-4002-98D0-CB0F6167C138] (Simulator)</span><br><span class="line">iPhone 8 (12.2) [D6083F0A-967F-40D8-88C2-684BDB927B99] (Simulator)</span><br><span class="line">iPhone 8 Plus (12.2) [980B8AED-7F44-4D95-A6F7-AAF561F88883] (Simulator)</span><br><span class="line">iPhone SE (12.2) [09A3F89A-4BFE-4B4D-8793-8D5C1B4B1E36] (Simulator)</span><br><span class="line">iPhone X (12.2) [E374247E-832D-4B61-804D-1C085CA897BD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) [DDDF0B87-7295-417B-9A85-27441B4282AD] (Simulator)</span><br><span class="line">iPhone Xs (12.2) + Apple Watch Series 4 - 40mm (5.2) [6E29B703-74F6-40C7-99A8-0D9CEB5A9777] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) [F74F45D2-29EA-4490-8490-933FC4084BEA] (Simulator)</span><br><span class="line">iPhone Xs Max (12.2) + Apple Watch Series 4 - 44mm (5.2) [B710C546-C80C-400C-829B-8487D411BF6E] (Simulator)</span><br><span class="line">iPhone Xʀ (12.2) [7E8332CC-2279-40CE-B86B-AD7D21227D0A] (Simulator)</span><br><span class="line">Known Templates:</span><br><span class="line">&quot;Activity Monitor&quot;</span><br><span class="line">&quot;Allocations&quot;</span><br><span class="line">&quot;Blank&quot;</span><br><span class="line">&quot;Core Animation&quot;</span><br><span class="line">&quot;Core Data&quot;</span><br><span class="line">&quot;Counters&quot;</span><br><span class="line">&quot;Energy Log&quot;</span><br><span class="line">&quot;File Activity&quot;</span><br><span class="line">&quot;Game Performance&quot;</span><br><span class="line">&quot;Leaks&quot;</span><br><span class="line">&quot;Metal System Trace&quot;</span><br><span class="line">&quot;Network&quot;</span><br><span class="line">&quot;SceneKit&quot;</span><br><span class="line">&quot;System Trace&quot;</span><br><span class="line">&quot;System Usage&quot;</span><br><span class="line">&quot;Time Profiler&quot;</span><br><span class="line">&quot;Zombies&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、启动ios模拟器中的指定机型"><a href="#2、启动ios模拟器中的指定机型" class="headerlink" title="2、启动ios模拟器中的指定机型"></a>2、启动ios模拟器中的指定机型</h3><blockquote>
+<p>注意启动的时候要将名称输入完全，比如如果要启动<code>iPhone X</code>，则需要将后面括号里的内容也带上<code>iPhone X (12.2)</code>，要不然模拟器会不知道要具体启动哪个机型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcrun instruments -w &apos;iPhone X (12.2)&apos;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>ios模拟器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端通过Blob实现文件下载</title>
+    <url>/2019/08/30/190830%E5%89%8D%E7%AB%AF%E9%80%9A%E8%BF%87Blob%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<blockquote>
+<p>最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过<code>Blob</code>对象进行前端文件下载了，下面简单记录下相关实现<a id="more"></a></p>
+</blockquote>
+<h2 id="Blob对象简要介绍"><a href="#Blob对象简要介绍" class="headerlink" title="Blob对象简要介绍"></a>Blob对象简要介绍</h2><p><code>Blob</code> 对象表示一个不可变、原始数据的类文件对象。<code>Blob</code> 表示的不一定是<code>JavaScript</code>原生格式的数据。<code>File</code> 接口基于<code>Blob</code>，继承了 <code>Blob</code> 的功能并将其扩展使其支持用户系统上的文件。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const aBlob = new Blob( array, options );</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>array 是一个由ArrayBuffer, ArrayBufferView, Blob, DOMString 等对象构成的 Array ，或者其他类似对象的混合体，它将会被放进 Blob。DOMStrings会被编码为UTF-8。</li>
+<li>options 是一个可选的BlobPropertyBag字典，它可能会指定如下两个属性：<ul>
+<li>type，默认值为 “”，它代表了将会被放入到blob中的数组内容的MIME类型。</li>
+<li>endings，默认值为”transparent”，用于指定包含行结束符\n的字符串如何被写入。 它是以下两个值中的一个： “native”，代表行结束符会被更改为适合宿主操作系统文件系统的换行符，或者 “transparent”，代表会保持blob中保存的结束符不变</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const debug = &#123;hello: &quot;world&quot;&#125;;</span><br><span class="line">const blob = new Blob([JSON.stringify(debug, null, 2)],&#123;type : &apos;application/json&apos;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="URL-createObjectURL-与-URL-revokeObjectURL-介绍"><a href="#URL-createObjectURL-与-URL-revokeObjectURL-介绍" class="headerlink" title="URL.createObjectURL() 与 URL.revokeObjectURL()介绍"></a>URL.createObjectURL() 与 URL.revokeObjectURL()介绍</h2><p><code>URL.createObjectURL()</code> 静态方法会创建一个 DOMString，其中包含一个表示参数中给出的对象的URL。这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的URL 对象表示指定的 File 对象或 Blob 对象。相当于这个方法创建了一个传入对象的内存引用地址</p>
+<h3 id="createObjectURL语法"><a href="#createObjectURL语法" class="headerlink" title="createObjectURL语法"></a>createObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">objectURL = URL.createObjectURL(object);</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>object 是用于创建 URL 的 File 对象、Blob 对象或者 MediaSource 对象。​</li>
+</ul>
+<p><strong>返回值</strong></p>
+<ul>
+<li>一个可以引用到指定对象的<code>DOMString</code></li>
+</ul>
+<p><code>URL.revokeObjectURL()</code> 静态方法用来释放一个之前已经存在的、通过调用 <code>URL.createObjectURL()</code> 创建的 <code>URL</code> 对象。当你结束使用某个 <code>URL</code> 对象之后，应该通过调用这个方法来让浏览器知道不用在内存中继续保留对这个文件的引用了。</p>
+<p>你可以在 <code>sourceopen</code> 被处理之后的任何时候调用 <code>revokeObjectURL()</code>。这是因为 <code>createObjectURL()</code> 仅仅意味着将一个媒体元素的 <code>src</code> 属性关联到一个 <code>MediaSource</code> 对象上去。调用<code>revokeObjectURL()</code> 使这个潜在的对象回到原来的地方，允许平台在合适的时机进行<strong>垃圾收集</strong>。</p>
+<h3 id="revokeObjectURL语法"><a href="#revokeObjectURL语法" class="headerlink" title="revokeObjectURL语法"></a>revokeObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.URL.revokeObjectURL(objectURL);</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>objectURL 是一个 DOMString，表示通过调用 <code>URL.createObjectURL()</code> 方法产生的 URL 对象。</li>
+</ul>
+<p><strong>内存管理</strong></p>
+<p>在每次调用<code>createObjectURL()</code> 方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用 <code>URL.revokeObjectURL()</code> 方法来释放。浏览器会在文档退出的时候自动释放它们，但是为了获得最佳性能和内存使用状况，你应该在安全的时机主动释放掉它们。</p>
+<h2 id="实际运用"><a href="#实际运用" class="headerlink" title="实际运用"></a>实际运用</h2><blockquote>
+<p>比如在某后台管理中希望将用户的几个配置信息导入到一个<code>json</code>文件当中供用户下载下来</p>
+</blockquote>
+<p>代码实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">  name: &apos;lsqy&apos;,</span><br><span class="line">  password: &apos;yourpassword&apos;,</span><br><span class="line">  ak: &apos;XXXXXXXXXX&apos;,</span><br><span class="line">  sk: &apos;XXXXXXXXXX&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const blobContent = new Blob(</span><br><span class="line">  [JSON.stringify(config, null, 2)],</span><br><span class="line">  &#123;type : &apos;application/json&apos;&#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const blobUrl = window.URL.createObjectURL(blobContent)</span><br><span class="line"></span><br><span class="line">downloadFileByBlob(blobUrl, &apos;config.json&apos;)</span><br><span class="line"></span><br><span class="line">function downloadFileByBlob(blobUrl, filename) &#123;</span><br><span class="line">  const eleLink = document.createElement(&apos;a&apos;)</span><br><span class="line">  eleLink.download = filename</span><br><span class="line">  eleLink.style.display = &apos;none&apos;</span><br><span class="line">  eleLink.href = blobUrl</span><br><span class="line">  // 触发点击</span><br><span class="line">  document.body.appendChild(eleLink)</span><br><span class="line">  eleLink.click()</span><br><span class="line">  // 然后移除</span><br><span class="line">  document.body.removeChild(eleLink)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的代码，我们可以得到一个<code>config.json</code>的文件，可以看到，其实很简单就实现了这个场景需求，当然这里是下载的<code>json</code>文件,下载其他的文件也是一样的道理，只是需要得到相应文件的<code>blob</code>数据，再结合相应的<a href="https://www.w3school.com.cn/media/media_mimeref.asp" target="_blank" rel="noopener">MIME</a>类型即可;</p>
+<p>兼容性方面目前主流浏览器都已支持，ie10以及以上也支持。</p>
+<p>另外<code>Blob</code>结合<code>URL.revokeObjectURL()</code>与<code>URL.revokeObjectURL()</code>还可以用在预览图片、预览PDF、视频链接防盗等多种场景中，大家可以发挥自己的想象力来进行实现</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Blob</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>实用小技能</category>
+      </categories>
+      <tags>
+        <tag>URL</tag>
+        <tag>Blob</tag>
+        <tag>前端下载文件</tag>
+        <tag>createObjectURL</tag>
+        <tag>revokeObjectURL</tag>
       </tags>
   </entry>
   <entry>
@@ -2412,71 +2475,38 @@
       </tags>
   </entry>
   <entry>
-    <title>前端通过Blob实现文件下载</title>
-    <url>/2019/08/30/190830%E5%89%8D%E7%AB%AF%E9%80%9A%E8%BF%87Blob%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<blockquote>
-<p>最近遇到一个需求，需要将页面中的配置信息下载下来供用户方便使用，以前这个场景的需求有时候会放到后端处理，然后给返回一个下载链接。其实并不需要这么麻烦，这样既增大了服务器的负载，也让用户产生了没有必要的网络请求，现在前端也是可以直接通过<code>Blob</code>对象进行前端文件下载了，下面简单记录下相关实现<a id="more"></a></p>
+    <title>【内推】团队招聘,机会难得~</title>
+    <url>/2021/11/17/20200708%E5%9B%A2%E9%98%9F%E6%8B%9B%E8%81%98/</url>
+    <content><![CDATA[<p><img src="https://img.lsqy.tech/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D.jpg" alt></p>
+<blockquote>
+<p>目前我所在的团队正在大量招聘志同道合的朋友们加入，感兴趣的可以详聊～</p>
 </blockquote>
-<h2 id="Blob对象简要介绍"><a href="#Blob对象简要介绍" class="headerlink" title="Blob对象简要介绍"></a>Blob对象简要介绍</h2><p><code>Blob</code> 对象表示一个不可变、原始数据的类文件对象。<code>Blob</code> 表示的不一定是<code>JavaScript</code>原生格式的数据。<code>File</code> 接口基于<code>Blob</code>，继承了 <code>Blob</code> 的功能并将其扩展使其支持用户系统上的文件。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const aBlob = new Blob( array, options );</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数说明</strong></p>
-<ul>
-<li>array 是一个由ArrayBuffer, ArrayBufferView, Blob, DOMString 等对象构成的 Array ，或者其他类似对象的混合体，它将会被放进 Blob。DOMStrings会被编码为UTF-8。</li>
-<li>options 是一个可选的BlobPropertyBag字典，它可能会指定如下两个属性：<ul>
-<li>type，默认值为 “”，它代表了将会被放入到blob中的数组内容的MIME类型。</li>
-<li>endings，默认值为”transparent”，用于指定包含行结束符\n的字符串如何被写入。 它是以下两个值中的一个： “native”，代表行结束符会被更改为适合宿主操作系统文件系统的换行符，或者 “transparent”，代表会保持blob中保存的结束符不变</li>
+<h2 id="职位名称："><a href="#职位名称：" class="headerlink" title="职位名称："></a>职位名称：</h2><p>蚂蚁集团-数字金融线-芝麻信用-高级前端工程师/前端技术专家</p>
+<h2 id="职位描述："><a href="#职位描述：" class="headerlink" title="职位描述："></a>职位描述：</h2><ul>
+<li>1.与设计师、产品工程师紧密工作，负责产出高质量的产品前端层；</li>
+<li>2.参与多种平台的应用开发，包括 Web 及 Mobile 等产品，负责前端交互的实现；</li>
+<li>3.能充分理解项目需求和设计需求，组织大家学习研究新的技术，并能迅速转化到潜在项目中；</li>
+<li>4.与团队成员分享经验和新技术，帮助团队成长。</li>
 </ul>
-</li>
+<h2 id="职位要求："><a href="#职位要求：" class="headerlink" title="职位要求："></a>职位要求：</h2><ul>
+<li>1.掌握良好的前端技能，有拿得出手的代码能力，了解 WEB 标准化、性能优化方法，了解可用性、可访问性和安全性；</li>
+<li>2.热爱前端，热爱设计，对新鲜事物充满好奇心，有折腾的想法和精力，喜欢捣鼓各种互联网应用；</li>
+<li>3.能和设计师谈产品设计，和后端开发研讨技术实现方案，制定服务接口，崇尚团队合作；</li>
+<li>4.自我管理能力强良好，健康的创业心态，快速的学习能力，乐于分享与沟通。</li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const debug = &#123;hello: &quot;world&quot;&#125;;</span><br><span class="line">const blob = new Blob([JSON.stringify(debug, null, 2)],&#123;type : &apos;application/json&apos;&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="URL-createObjectURL-与-URL-revokeObjectURL-介绍"><a href="#URL-createObjectURL-与-URL-revokeObjectURL-介绍" class="headerlink" title="URL.createObjectURL() 与 URL.revokeObjectURL()介绍"></a>URL.createObjectURL() 与 URL.revokeObjectURL()介绍</h2><p><code>URL.createObjectURL()</code> 静态方法会创建一个 DOMString，其中包含一个表示参数中给出的对象的URL。这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的URL 对象表示指定的 File 对象或 Blob 对象。相当于这个方法创建了一个传入对象的内存引用地址</p>
-<h3 id="createObjectURL语法"><a href="#createObjectURL语法" class="headerlink" title="createObjectURL语法"></a>createObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">objectURL = URL.createObjectURL(object);</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数说明</strong></p>
-<ul>
-<li>object 是用于创建 URL 的 File 对象、Blob 对象或者 MediaSource 对象。​</li>
-</ul>
-<p><strong>返回值</strong></p>
-<ul>
-<li>一个可以引用到指定对象的<code>DOMString</code></li>
-</ul>
-<p><code>URL.revokeObjectURL()</code> 静态方法用来释放一个之前已经存在的、通过调用 <code>URL.createObjectURL()</code> 创建的 <code>URL</code> 对象。当你结束使用某个 <code>URL</code> 对象之后，应该通过调用这个方法来让浏览器知道不用在内存中继续保留对这个文件的引用了。</p>
-<p>你可以在 <code>sourceopen</code> 被处理之后的任何时候调用 <code>revokeObjectURL()</code>。这是因为 <code>createObjectURL()</code> 仅仅意味着将一个媒体元素的 <code>src</code> 属性关联到一个 <code>MediaSource</code> 对象上去。调用<code>revokeObjectURL()</code> 使这个潜在的对象回到原来的地方，允许平台在合适的时机进行<strong>垃圾收集</strong>。</p>
-<h3 id="revokeObjectURL语法"><a href="#revokeObjectURL语法" class="headerlink" title="revokeObjectURL语法"></a>revokeObjectURL语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.URL.revokeObjectURL(objectURL);</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数说明</strong></p>
-<ul>
-<li>objectURL 是一个 DOMString，表示通过调用 <code>URL.createObjectURL()</code> 方法产生的 URL 对象。</li>
-</ul>
-<p><strong>内存管理</strong></p>
-<p>在每次调用<code>createObjectURL()</code> 方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用 <code>URL.revokeObjectURL()</code> 方法来释放。浏览器会在文档退出的时候自动释放它们，但是为了获得最佳性能和内存使用状况，你应该在安全的时机主动释放掉它们。</p>
-<h2 id="实际运用"><a href="#实际运用" class="headerlink" title="实际运用"></a>实际运用</h2><blockquote>
-<p>比如在某后台管理中希望将用户的几个配置信息导入到一个<code>json</code>文件当中供用户下载下来</p>
-</blockquote>
-<p>代码实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">  name: &apos;lsqy&apos;,</span><br><span class="line">  password: &apos;yourpassword&apos;,</span><br><span class="line">  ak: &apos;XXXXXXXXXX&apos;,</span><br><span class="line">  sk: &apos;XXXXXXXXXX&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const blobContent = new Blob(</span><br><span class="line">  [JSON.stringify(config, null, 2)],</span><br><span class="line">  &#123;type : &apos;application/json&apos;&#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const blobUrl = window.URL.createObjectURL(blobContent)</span><br><span class="line"></span><br><span class="line">downloadFileByBlob(blobUrl, &apos;config.json&apos;)</span><br><span class="line"></span><br><span class="line">function downloadFileByBlob(blobUrl, filename) &#123;</span><br><span class="line">  const eleLink = document.createElement(&apos;a&apos;)</span><br><span class="line">  eleLink.download = filename</span><br><span class="line">  eleLink.style.display = &apos;none&apos;</span><br><span class="line">  eleLink.href = blobUrl</span><br><span class="line">  // 触发点击</span><br><span class="line">  document.body.appendChild(eleLink)</span><br><span class="line">  eleLink.click()</span><br><span class="line">  // 然后移除</span><br><span class="line">  document.body.removeChild(eleLink)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行上面的代码，我们可以得到一个<code>config.json</code>的文件，可以看到，其实很简单就实现了这个场景需求，当然这里是下载的<code>json</code>文件,下载其他的文件也是一样的道理，只是需要得到相应文件的<code>blob</code>数据，再结合相应的<a href="https://www.w3school.com.cn/media/media_mimeref.asp" target="_blank" rel="noopener">MIME</a>类型即可;</p>
-<p>兼容性方面目前主流浏览器都已支持，ie10以及以上也支持。</p>
-<p>另外<code>Blob</code>结合<code>URL.revokeObjectURL()</code>与<code>URL.revokeObjectURL()</code>还可以用在预览图片、预览PDF、视频链接防盗等多种场景中，大家可以发挥自己的想象力来进行实现</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Blob</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL</a></li>
-</ul>
+<h2 id="工作地点："><a href="#工作地点：" class="headerlink" title="工作地点："></a>工作地点：</h2><p>杭州/上海</p>
+<h2 id="简历投递："><a href="#简历投递：" class="headerlink" title="简历投递："></a>简历投递：</h2><p><a href="mailto:yiqian.lsq@antgroup.com" target="_blank" rel="noopener">yiqian.lsq@antgroup.com</a><br>lsqylsqylsqy（微信）</p>
+<p><strong>目前 HC 充足，机会难得，反馈速度很快，团队内部技术栈覆盖全面，氛围很棒，蚂蚁的整体基建有很多值得学习的地方，当然你还有机会跟大牛面对面交流，有意向可以随时联系我。</strong></p>
 ]]></content>
       <categories>
-        <category>实用小技能</category>
+        <category>招聘</category>
       </categories>
       <tags>
-        <tag>URL</tag>
-        <tag>Blob</tag>
-        <tag>前端下载文件</tag>
-        <tag>createObjectURL</tag>
-        <tag>revokeObjectURL</tag>
+        <tag>JD</tag>
+        <tag>招聘</tag>
+        <tag>内推</tag>
+        <tag>阿里巴巴</tag>
+        <tag>蚂蚁集团</tag>
       </tags>
   </entry>
   <entry>
@@ -2559,39 +2589,6 @@
         <tag>查看java安装路径</tag>
         <tag>环境变量</tag>
         <tag>jdk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【内推】团队招聘,机会难得~</title>
-    <url>/2020/07/08/20200708%E5%9B%A2%E9%98%9F%E6%8B%9B%E8%81%98/</url>
-    <content><![CDATA[<p><img src="https://img.lsqy.tech/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D.jpg" alt></p>
-<blockquote>
-<p>目前我所在的团队正在大量招聘志同道合的朋友们加入，感兴趣的可以详聊～</p>
-</blockquote>
-<h2 id="职位名称："><a href="#职位名称：" class="headerlink" title="职位名称："></a>职位名称：</h2><p>蚂蚁集团-数字金融线-芝麻信用-高级前端工程师/前端技术专家</p>
-<h2 id="职位描述："><a href="#职位描述：" class="headerlink" title="职位描述："></a>职位描述：</h2><ul>
-<li>1.与设计师、产品工程师紧密工作，负责产出高质量的产品前端层；</li>
-<li>2.参与多种平台的应用开发，包括 Web 及 Mobile 等产品，负责前端交互的实现；</li>
-<li>3.能充分理解项目需求和设计需求，组织大家学习研究新的技术，并能迅速转化到潜在项目中；</li>
-<li>4.与团队成员分享经验和新技术，帮助团队成长。</li>
-</ul>
-<h2 id="职位要求："><a href="#职位要求：" class="headerlink" title="职位要求："></a>职位要求：</h2><ul>
-<li>1.掌握良好的前端技能，有拿得出手的代码能力，了解 WEB 标准化、性能优化方法，了解可用性、可访问性和安全性；</li>
-<li>2.热爱前端，热爱设计，对新鲜事物充满好奇心，有折腾的想法和精力，喜欢捣鼓各种互联网应用；</li>
-<li>3.能和设计师谈产品设计，和后端开发研讨技术实现方案，制定服务接口，崇尚团队合作；</li>
-<li>4.自我管理能力强良好，健康的创业心态，快速的学习能力，乐于分享与沟通。</li>
-</ul>
-<h2 id="工作地点："><a href="#工作地点：" class="headerlink" title="工作地点："></a>工作地点：</h2><p>杭州/北京</p>
-<h2 id="简历投递："><a href="#简历投递：" class="headerlink" title="简历投递："></a>简历投递：</h2><p><a href="mailto:yiqian.lsq@antgroup.com" target="_blank" rel="noopener">yiqian.lsq@antgroup.com</a><br>lsqylsqylsqy（微信）</p>
-<p><strong>目前 HC 充足，机会难得，反馈速度很快，团队内部技术栈覆盖全面，氛围很棒，蚂蚁的整体基建有很多值得学习的地方，当然你还有机会跟大牛面对面交流，有意向可以随时联系我。</strong></p>
-]]></content>
-      <categories>
-        <category>招聘</category>
-      </categories>
-      <tags>
-        <tag>JD</tag>
-        <tag>招聘</tag>
-        <tag>内推</tag>
       </tags>
   </entry>
   <entry>
@@ -4145,6 +4142,110 @@
       <tags>
         <tag>github</tag>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React性能优化总结</title>
+    <url>/2021/08/26/20210826React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<blockquote>
+<p>本文主要对在React应用中可以采用的一些性能优化方式做一下总结整理</p>
+</blockquote>
+<p><img src="https://img.lsqy.tech/react.png" alt="react.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>目前在工作中，大量的项目都是使用react来进行开展的，了解掌握下react的性能优化对项目的体验和可维护性都有很大的好处，下面介绍下在react中可以运用的一些性能优化方式；<a id="more"></a></p>
+<h3 id="性能优化思路"><a href="#性能优化思路" class="headerlink" title="性能优化思路"></a>性能优化思路</h3><blockquote>
+<p>对于类式组件和函数式组件来看，都可以从以下几个方面去思考如何能够进行性能优化</p>
+</blockquote>
+<ul>
+<li>减少重新render的次数</li>
+<li>减少渲染的节点</li>
+<li>降低渲染计算量</li>
+<li>合理设计组件</li>
+</ul>
+<h2 id="减少重新render的次数"><a href="#减少重新render的次数" class="headerlink" title="减少重新render的次数"></a>减少重新render的次数</h2><blockquote>
+<p>在react里时间耗时最多的一个地方是reconciliation（reconciliation 的最终目标是以最有效的方式，根据新的状态来更新 UI，我们可以简单地理解为 diff），如果不执行render，也就不需要reconciliation，所以可以看出减少render在性能优化过程中的重要程度了。</p>
+</blockquote>
+<h3 id="PureComponent"><a href="#PureComponent" class="headerlink" title="PureComponent"></a>PureComponent</h3><p>React.PureComponent 与 React.Component 很相似。两者的区别在于 React.Component 并未实现 shouldComponentUpdate()，而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。<br><strong>需要注意</strong>的是在使用PureComponent的组件中，在props或者state的属性值是对象的情况下，并不能阻止不必要的渲染，是因为自动加载的shouldComponentUpdate里面做的只是浅比较，所以想要用PureComponent的特性，应该遵守原则：</p>
+<ul>
+<li>确保数据类型是值类型</li>
+<li>如果是引用类型，不应当有深层次的数据变化(解构)</li>
+</ul>
+<h3 id="ShouldComponentUpdate"><a href="#ShouldComponentUpdate" class="headerlink" title="ShouldComponentUpdate"></a>ShouldComponentUpdate</h3><p>可以利用此事件来决定何时需要重新渲染组件。如果组件 props 更改或调用 setState，则此函数返回一个 Boolean 值，为true则会重新渲染组件，反之则不会重新渲染组件。<br>在这两种情况下组件都会重新渲染。我们可以在这个生命周期事件中放置一个自定义逻辑，以决定是否调用组件的 render 函数。<br>下面举一个小的例子来辅助理解下：<br>比如要在你的应用中展示学生的详细资料，每个学生都包含有多个属性，如姓名、年龄、爱好、身高、体重、家庭住址、父母姓名等；在这个组件场景中，只需要展示学生的姓名、年龄、住址，其他的信息不需要在这里展示，所以在理想情况下，除去姓名、年龄、住址以外的信息变化组件是不需要重新渲染的；<br>示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ShouldComponentUpdateUsage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      name: <span class="string">"小明"</span>,</span><br><span class="line">      age: <span class="number">12</span>,</span><br><span class="line">      address: <span class="string">"xxxxxx"</span>,</span><br><span class="line">      height: <span class="number">165</span>,</span><br><span class="line">      weight: <span class="number">40</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        height: <span class="number">168</span>,</span><br><span class="line">        weight: <span class="number">45</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">5000</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">      <span class="keyword">if</span>(nextState.name !== <span class="keyword">this</span>.state.name || nextState.age !== <span class="keyword">this</span>.state.age || nextState.address !== <span class="keyword">this</span>.state.address) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; name, age, address &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;Student name: &#123;name&#125; &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;Student age:&#123;age&#125; &lt;/</span>p&gt;</span><br><span class="line">      	&lt;p&gt;Student address:&#123;address&#125; &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按照 React 团队的说法，shouldComponentUpdate是保证性能的紧急出口，既然是紧急出口，那就意味着我们轻易用不到它。但既然有这样一个紧急出口，那说明有时候它还是很有必要的。所以我们要搞清楚到底什么时候才需要使用这个紧急出口。</p>
+<h4 id="使用原则"><a href="#使用原则" class="headerlink" title="使用原则"></a>使用原则</h4><p>当你觉得，被改变的state或者props，不需要更新视图时，你就应该思考要不要使用它。<br>需要注意的一个地方是：改变之后，又不需要更新视图的状态，也不应该放在state中。<br>shouldComponentUpdate的使用，也是有代价的。如果处理得不好，甚至比多render一次更消耗性能，另外也会使组件的复杂度增大，一般情况下使用PureComponent即可；</p>
+<h3 id="React-memo"><a href="#React-memo" class="headerlink" title="React.memo"></a>React.memo</h3><p>如果你的组件在相同 props 的情况下渲染相同的结果，那么你可以通过将其包装在 React.memo 中调用，以此通过记忆组件渲染结果的方式来提高组件的性能表现。这意味着在这种情况下，React 将跳过渲染组件的操作并直接复用最近一次渲染的结果。<br>React.memo <strong>仅检查 props 变更</strong>。如果函数组件被 React.memo 包裹，且其实现中拥有 useState，useReducer 或 useContext 的 Hook，当 state 或 context 发生变化时，它仍会重新渲染。<br>默认情况下其只会对复杂对象做浅层对比，如果你想要控制对比过程，那么请将自定义的比较函数通过第二个参数传入来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 使用 props 渲染 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">areEqual</span>(<span class="params">prevProps, nextProps</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  如果把 nextProps 传入 render 方法的返回结果与</span></span><br><span class="line"><span class="comment">  将 prevProps 传入 render 方法的返回结果一致则返回 true，</span></span><br><span class="line"><span class="comment">  否则返回 false</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.memo(MyComponent, areEqual);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong><br>与 class 组件中 shouldComponentUpdate() 方法不同的是，如果 props 相等，areEqual 会返回 true；如果 props 不相等，则返回 false。这与 shouldComponentUpdate 方法的返回值相反。</p>
+</blockquote>
+<h3 id="合理使用Context"><a href="#合理使用Context" class="headerlink" title="合理使用Context"></a>合理使用Context</h3><p>Context 提供了一个无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法。正是因为其这个特点，它是可以穿透React.memo或者shouldComponentUpdate的比对的，也就是说，一旦 Context 的 Value 变动，所有依赖该 Context 的组件会全部 forceUpdate.这个和 Mobx 和 Vue 的响应式系统不同，Context API 并不能细粒度地检测哪些组件依赖哪些状态。</p>
+<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>Context中只定义被大多数组件所共用的属性，例如当前用户的信息、主题或者选择的语言。</li>
+</ul>
+<h3 id="避免使用匿名函数"><a href="#避免使用匿名函数" class="headerlink" title="避免使用匿名函数"></a>避免使用匿名函数</h3><p>首先来看下下面这段代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MenuContainer = <span class="function">(<span class="params">&#123; list &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;Menu&gt;</span><br><span class="line">    &#123;list.map(<span class="function">(<span class="params">i</span>) =&gt;</span> (</span><br><span class="line">      &lt;MenuItem key=&#123;i.id&#125; onClick=&#123;() =&gt; handleClick(i.id)&#125; value=&#123;i.value&#125; /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">  &lt;<span class="regexp">/Menu&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这个写法看起来是比较简洁，但是有一个潜在问题是匿名函数在每次渲染时都会有不同的引用，这样就会导致Menu组件会出现重复渲染的问题；可以使用useCallback来进行优化：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MenuContainer = <span class="function">(<span class="params">&#123; list &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> handleClick = useCallback(</span><br><span class="line">    (id) =&gt; <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    [],</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Menu&gt;</span><br><span class="line">      &#123;list.map(<span class="function">(<span class="params">i</span>) =&gt;</span> (</span><br><span class="line">        &lt;MenuItem key=&#123;i.id&#125; id=&#123;i.id&#125; onClick=&#123;handleClick(i.id)&#125; value=&#123;i.value&#125; /&gt;</span><br><span class="line">      ))&#125;</span><br><span class="line">    &lt;<span class="regexp">/Menu&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="减少渲染的节点"><a href="#减少渲染的节点" class="headerlink" title="减少渲染的节点"></a>减少渲染的节点</h2><h3 id="组件懒加载"><a href="#组件懒加载" class="headerlink" title="组件懒加载"></a>组件懒加载</h3><blockquote>
+<p>组件懒加载可以让react应用在真正需要展示这个组件的时候再去展示，可以比较有效的减少渲染的节点数提高页面的加载速度</p>
+</blockquote>
+<p>React官方在16.6版本后引入了新的特性：React.lazy 和 React.Suspense,这两个组件的配合使用可以比较方便进行组件懒加载的实现；<br><strong>React.lazy</strong><br>该方法主要的作用就是可以定义一个动态加载的组件，这可以直接缩减打包后bundle的体积，并且可以延迟加载在初次渲染时不需要渲染的组件，代码示例如下：<br>使用之前</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> SomeComponent <span class="keyword">from</span> <span class="string">'./SomeComponent'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用之后</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> SomeComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./SomeComponent'</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用 React.lazy 的动态引入特性需要 JS 环境支持 Promise。在 IE11 及以下版本的浏览器中需要通过引入 polyfill 来使用该特性。</p>
+</blockquote>
+<p><strong>React.Suspense</strong><br>该组件目前主要的作用就是配合渲染lazy组件，这样就可以在等待加载lazy组件时展示loading元素，不至于直接空白，提升用户体验；<br>Suspense组件中的 fallback 属性接受任何在组件加载过程中你想展示的 React 元素。你可以将 Suspense 组件置于懒加载组件之上的任何位置，你甚至可以用一个 Suspense 组件包裹多个懒加载组件。<br>代码示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Suspense &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> OtherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>));</span><br><span class="line"><span class="keyword">const</span> AnotherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./AnotherComponent'</span>));</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Suspense fallback=&#123;&lt;div&gt;Loading...&lt;<span class="regexp">/div&gt;&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;section&gt;</span></span><br><span class="line"><span class="regexp">          &lt;OtherComponent /</span>&gt;</span><br><span class="line">          &lt;AnotherComponent /&gt;</span><br><span class="line">        &lt;<span class="regexp">/section&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Suspense&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有一点要特别注意的是：React.lazy 和 Suspense 技术还不支持服务端渲染。如果你想要在使用服务端渲染的应用中使用，推荐使用 <a href="https://github.com/gregberge/loadable-components" target="_blank" rel="noopener">Loadable Components</a> 这个库，可以结合这个文档<a href="https://loadable-components.com/docs/server-side-rendering/" target="_blank" rel="noopener">服务端渲染打包指南</a>来进行查看。</p>
+</blockquote>
+<p>另外在业内也有一些比较成熟的react组件懒加载开源库：<a href="https://github.com/jamiebuilds/react-loadable" target="_blank" rel="noopener">react-loadable</a>和<a href="https://github.com/twobin/react-lazyload" target="_blank" rel="noopener">react-lazyload</a>，感兴趣的可以结合看下；<br>​<br></p>
+<h3 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h3><p>虚拟列表是一种根据滚动容器元素的可视区域来渲染长列表数据中某一个部分数据的技术，在开发一些项目中，会遇到一些不是直接分页来加载列表数据的场景，在这种情况下可以考虑结合虚拟列表来进行优化，可以达到根据容器元素的高度以及列表项元素的高度来显示长列表数据中的某一个部分，而不是去完整地渲染长列表，以提高无限滚动的性能。<br>可以关注下放两个比较常用的类库来进行深入了解</p>
+<ul>
+<li><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized" target="_blank" rel="noopener">react-virtualized</a></li>
+<li><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-window" target="_blank" rel="noopener">react-window</a></li>
+</ul>
+<h2 id="降低渲染计算量"><a href="#降低渲染计算量" class="headerlink" title="降低渲染计算量"></a>降低渲染计算量</h2><h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><p>先来看下useMemo的基本使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpensiveValue</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 计算量很大的一些逻辑</span></span><br><span class="line">  <span class="keyword">return</span> xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> memoizedValue = useMemo(computeExpensiveValue, [a, b]);</span><br></pre></td></tr></table></figure>
+
+<p>useMemo 的第一个参数就是一个函数，这个函数返回的值会被缓存起来，同时这个值会作为 useMemo 的返回值，第二个参数是一个数组依赖，如果数组里面的值有变化，那么就会重新去执行第一个参数里面的函数，并将函数返回的值缓存起来并作为 useMemo 的返回值 。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值；</li>
+<li>计算量如果很小的计算函数，也可以选择不使用 useMemo，因为这点优化并不会作为性能瓶颈的要点，反而可能使用错误还会引起一些性能问题。</li>
+</ul>
+</blockquote>
+<h3 id="遍历展示视图时使用key"><a href="#遍历展示视图时使用key" class="headerlink" title="遍历展示视图时使用key"></a>遍历展示视图时使用key</h3><p>key 帮助 React 识别哪些元素改变了，比如被添加或删除。因此你应当给数组中的每一个元素赋予一个确定的标识。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> listItems = numbers.map(<span class="function">(<span class="params">number</span>) =&gt;</span></span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+<p>使用key注意事项：</p>
+<ul>
+<li>最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key，当元素没有确定 id 的时候，万不得已你可以使用元素索引 index 作为 key</li>
+<li>元素的 key 只有放在就近的数组上下文中才有意义。例如，如果你提取出一个 ListItem 组件，你应该把 key 保留在数组中的这个 <listitem> 元素上，而不是放在 ListItem 组件中的 <li> 元素上。</li>
+</listitem></li></ul>
+<h2 id="合理设计组件"><a href="#合理设计组件" class="headerlink" title="合理设计组件"></a>合理设计组件</h2><h3 id="简化props"><a href="#简化props" class="headerlink" title="简化props"></a>简化props</h3><p>如果一个组件的props比较复杂的话，会影响shallowCompare的效率，也会使这个组件变得难以维护，另外也与“单一职责”的原则不符合，可以考虑进行拆解。</p>
+<h3 id="简化State"><a href="#简化State" class="headerlink" title="简化State"></a>简化State</h3><p>在设计组件的state时，可以按照这个原则来：需要组件响应它的变动或者需要渲染到视图中的数据，才放到 state 中；这样可以避免不必要的数据变动导致组件重新渲染。</p>
+<h3 id="减少组件嵌套"><a href="#减少组件嵌套" class="headerlink" title="减少组件嵌套"></a>减少组件嵌套</h3><p>一般不必要的节点嵌套都是滥用高阶组件/RenderProps 导致的。所以还是那句话‘只有在必要时才使用 xxx’。 有很多种方式来代替高阶组件/RenderProps，例如优先使用 props、React Hooks<br></p>
+<blockquote>
+<p>参考<br><a href="https://react.docschina.org/docs/optimizing-performance.html" target="_blank" rel="noopener">https://react.docschina.org/docs/optimizing-performance.html</a><br><a href="https://www.infoq.cn/article/2016/07/react-shouldcomponentupdate" target="_blank" rel="noopener">https://www.infoq.cn/article/2016/07/react-shouldcomponentupdate</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+        <tag>性能优化</tag>
       </tags>
   </entry>
   <entry>

@@ -68,7 +68,7 @@
 <meta property="og:image" content="https://lsqy.tech/2016/05/02/160502国内解决npm被墙的三种方式/nrm1.png">
 <meta property="og:image" content="https://lsqy.tech/2016/05/02/160502国内解决npm被墙的三种方式/nrm2.png">
 <meta property="og:image" content="https://lsqy.tech/2016/05/02/160502国内解决npm被墙的三种方式/nrm3.png">
-<meta property="og:updated_time" content="2018-11-15T08:32:24.000Z">
+<meta property="og:updated_time" content="2021-11-21T13:57:44.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="国内解决npm被墙的三种方式">
 <meta name="twitter:description" content="因为近来很多时候在国内使用npm来加载包的时候，经常会出现错误，所以总结了以下三种方式来避免这种被墙的苦恼">
@@ -360,61 +360,56 @@
       
 
       
-        <h2 id="第一种方式：通过指定镜像源地址来下载包"><a href="#第一种方式：通过指定镜像源地址来下载包" class="headerlink" title="第一种方式：通过指定镜像源地址来下载包"></a>第一种方式：通过指定镜像源地址来下载包</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这个使用的是淘宝的NPM镜像，这是一个完整 npmjs.org镜像，同步频率目前为 10分钟一次以保证尽量与官方服务同步，这里也不得不说淘宝的这个镜像真是对我们开发者的一个福音，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install 包名 --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+        <h2 id="第一种方式：通过指定镜像源地址来下载包"><a href="#第一种方式：通过指定镜像源地址来下载包" class="headerlink" title="第一种方式：通过指定镜像源地址来下载包"></a>第一种方式：通过指定镜像源地址来下载包</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这个使用的是淘宝的 NPM 镜像，这是一个完整 npmjs.org 镜像，同步频率目前为 10 分钟一次以保证尽量与官方服务同步，这里也不得不说淘宝的这个镜像真是对我们开发者的一个福音，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install 包名 --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
 
-<h2 id="第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具"><a href="#第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具" class="headerlink" title="第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具"></a>第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式的好处就是省去了后面的registry的一串长长的地址。</p>
+<h2 id="第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具"><a href="#第二种方式：通过-淘宝提供的一个-cnpm-全局命令行工具" class="headerlink" title="第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具"></a>第二种方式：通过 淘宝提供的一个 cnpm 全局命令行工具</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式的好处就是省去了后面的 registry 的一串长长的地址。</p>
 <ul>
-<li><p>安装全局命令行工具，</p>
-<blockquote>
-<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用cnpm</p>
+<li>安装全局命令行工具，<blockquote>
+<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用 cnpm</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用时直接按如下操作即可，但是这一点唯一不足的就是操作的时候需要用cnpm，而不是npm，对于处女座的人可以采用第三种方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install 包名</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用时直接按如下操作即可，但是这一点唯一不足的就是操作的时候需要用 cnpm，而不是 npm，对于处女座的人可以采用第三种方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install 包名</span><br></pre></td></tr></table></figure>
+
 <h2 id="第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址"><a href="#第三种方式：通过一个全局命令行工具-nrm-来管理我们的镜像源地址" class="headerlink" title="第三种方式：通过一个全局命令行工具 nrm 来管理我们的镜像源地址"></a>第三种方式：通过一个全局命令行工具 <code>nrm</code> 来管理我们的镜像源地址</h2><ul>
-<li><p>安装nrm</p>
-<blockquote>
-<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用nrm</p>
+<li>安装 nrm<blockquote>
+<p>注意要加上-g，以确保是全局安装，这样才能够直接在命令行使用 nrm</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p>基本使用</p>
 <ol>
-<li>首先可以先显示当前所有可用镜像源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>首先可以先显示当前所有可用镜像源</li>
 </ol>
-<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm.png" alt="nrm"></p>
-<ol start="2">
-<li>显示当前正在使用的镜像源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
+<p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm.png" alt="nrm"> 2. 显示当前正在使用的镜像源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm1.png" alt="nrm1"></p>
 <blockquote>
-<p>初始默认是官方npm</p>
-<ol start="3">
-<li>切换镜像源</li>
-</ol>
+<p>初始默认是官方 npm 3. 切换镜像源</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm use 镜像源名称</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm2.png" alt="nrm2"></p>
 <blockquote>
-<p>这时显示registry已经切换为taobao了，</p>
-<ol start="4">
-<li>接下来再确认一下当前正在使用的镜像源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>这时显示 registry 已经切换为 taobao 了， 4. 接下来再确认一下当前正在使用的镜像源</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm current</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2016/05/02/160502国内解决npm被墙的三种方式/nrm3.png" alt="nrm3"></p>
 <blockquote>
-<p>已经变为taobao了，以后再安装包的时候直接<code>npm install 包名</code>即可，再也不用担心被墙的苦恼了,大功告成！</p>
+<p>已经变为 taobao 了，以后再安装包的时候直接<code>npm install 包名</code>即可，再也不用担心被墙的苦恼了,大功告成！</p>
 </blockquote>
 </li>
 </ul>
@@ -540,7 +535,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -557,7 +552,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -669,7 +664,7 @@
         <div class="copyright">
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
